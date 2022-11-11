@@ -1,0 +1,46 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2022-10-25T16:15:35.7150000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "PBT_FA_UpdatedBy_ID": "PBT_FA_UpdatedBy_ID",
+      "PBT_ID": "PBT_ID",
+      "PBT_Insertion_Date": "PBT_Insertion_Date",
+      "PBT_Is_MultiInvoice": "PBT_Is_MultiInvoice",
+      "PBT_Is_Recon": "PBT_Is_Recon",
+      "PBT_Is_Segement": "PBT_Is_Segement",
+      "PBT_Log_ID": "PBT_Log_ID",
+      "PBT_MultiInv_Batch_Details": "PBT_MultiInv_Batch_Details",
+      "PBT_MultiInv_Invoice_Amount_Sum": "PBT_MultiInv_Invoice_Amount_Sum",
+      "PBT_MultiInv_Leading_Invoice_Flag": "PBT_MultiInv_Leading_Invoice_Flag",
+      "PBT_MultiInv_Leading_InvoiceNumber": "PBT_MultiInv_Leading_InvoiceNumber",
+      "PBT_MultiInv_Tax_Amount_Sum": "PBT_MultiInv_Tax_Amount_Sum",
+      "PBT_Recon_Comment": "PBT_Recon_Comment",
+      "PBT_Recon_Status": "PBT_Recon_Status",
+      "PBT_Screenshot_Link": "PBT_Screenshot_Link",
+      "PBT_Segment_BuyAmount": "PBT_Segment_BuyAmount",
+      "PBT_Segment_Comment": "PBT_Segment_Comment",
+      "PBT_Segment_Insertion_Date": "PBT_Segment_Insertion_Date",
+      "PBT_Segment_InvoiceAmount": "PBT_Segment_InvoiceAmount",
+      "PBT_Segment_UnpaidRef_ContractID": "PBT_Segment_UnpaidRef_ContractID",
+      "PBT_Segment_UnpaidRef_IDesk_Recon": "PBT_Segment_UnpaidRef_IDesk_Recon",
+      "PBT_Stamp_Comment": "PBT_Stamp_Comment",
+      "PBT_Tag_Comment": "PBT_Tag_Comment",
+      "PBT_Tag_Date": "PBT_Tag_Date",
+      "PBT_Tag_Status": "PBT_Tag_Status",
+      "PBT_Tagged": "PBT_Tagged",
+      "PBT_TS_Received": "PBT_TS_Received",
+      "PBT_Update_Date": "PBT_Update_Date"
+    },
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "OOH_PBT_Txn",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
