@@ -314,6 +314,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.IO_TextInput.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.IO_TextInput.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InvoiceMatchingScreen",
+                "type": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.IO_TextInput"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.Client_Name_TextInput.AccessibleLabel"
                 }
               ],
@@ -458,36 +488,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.IO_TextInput.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.IO_TextInput.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.InfoContainer.EditableDataContainer.IO_TextInput"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
         },
         {
           "locations": [
