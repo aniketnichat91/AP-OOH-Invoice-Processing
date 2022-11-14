@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2022-10-25T16:15:35.7150000Z",
+      "LastChangedTimeString": "2022-11-09T18:17:51.4540000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -14,6 +14,7 @@
       "Prediction_M": "Prediction_M",
       "Prediction_MOS": "Prediction_MOS",
       "Prediction_P": "Prediction_P",
+      "Prediction_Publication": "Prediction_Publication",
       "Prediction_Publication_Code": "Prediction_Publication_Code",
       "Prediction_Rank": "Prediction_Rank",
       "Prediction_Unpaid_Contract_Id": "Prediction_Unpaid_Contract_Id",

@@ -1944,7 +1944,7 @@ InvoiceMatchingScreen As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(211, 66, 9, 1)
                 OnSelect: |
-                    =UpdateContext({VAR_Vendor_DEF: OOH_Prediction_Datatable.Selected.Prediction_Publication_Code});
+                    =UpdateContext({VAR_Vendor_DEF: OOH_Prediction_Datatable.Selected.Prediction_Publication});
                     Reset(Vendor_TextInput);
                     UpdateContext({VAR_C_DEF: OOH_Prediction_Datatable.Selected.Prediction_C});
                     Reset(C_TextInput);
