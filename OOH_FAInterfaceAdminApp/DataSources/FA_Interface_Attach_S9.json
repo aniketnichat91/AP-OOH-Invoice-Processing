@@ -1,0 +1,26 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2022-11-09T18:17:51.4540000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "CreatedBy": "CreatedBy",
+      "CreatedDate": "CreatedDate",
+      "Doc_Url": "Doc_Url",
+      "DocFileName": "DocFileName",
+      "ID": "ID",
+      "One": "One",
+      "Position": "Position",
+      "ReportID": "ReportID"
+    },
+    "DatasetName": "sqlsv-automation-us-dev.database.windows.net,usa-apdigital-fainterface-dev",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "FA_Interface_Attach_S9",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

@@ -1,0 +1,1372 @@
+DMLOperationsUpdateScreen As screen:
+    Fill: =WhiteSmoke
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+    OnHidden: |-
+        =UpdateContext({ResetCheck:true});
+    OnVisible: =""
+
+    HeaderContainer_3 As groupContainer.manualLayoutContainer:
+        Fill: =White
+        Height: =64
+        Width: =1366
+        ZIndex: =1
+
+        Screen_Label_3 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Arial
+            Height: =34
+            Size: =20
+            Text: ="DML Operations - Update"
+            Width: =320
+            X: =65
+            Y: =12
+            ZIndex: =2
+
+    FilterContainer_3 As groupContainer.manualLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Fill: =WhiteSmoke
+        Height: =139
+        Width: =1366
+        Y: =64
+        ZIndex: =2
+
+        Label12_2 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =13
+            Text: ="Text"
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+        TextInput1_3 As text:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: ="Text input"
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(131, 24, 75, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(255, 211, 205, 1)
+            Size: =13
+            X: =225
+            Y: =40
+            ZIndex: =2
+
+        Label18_2 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =13
+            Text: ="From_Execution_Date *"
+            X: =602
+            Y: =40
+            ZIndex: =3
+
+        Label19_2 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =13
+            Text: ="To_Execution_Date *"
+            X: =602
+            Y: =80
+            ZIndex: =4
+
+        DatePicker1_2 As datepicker:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            CalendarHeaderFill: =RGBA(211, 66, 9, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            HoverDateFill: =RGBA(255, 211, 205, 1)
+            IconBackground: =RGBA(211, 66, 9, 1)
+            SelectedDateFill: =RGBA(211, 66, 9, 1)
+            Width: =200
+            X: =855
+            Y: =40
+            ZIndex: =5
+
+        DatePicker2_2 As datepicker:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            CalendarHeaderFill: =RGBA(211, 66, 9, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            HoverDateFill: =RGBA(255, 211, 205, 1)
+            IconBackground: =RGBA(211, 66, 9, 1)
+            SelectedDateFill: =RGBA(211, 66, 9, 1)
+            Width: =200
+            X: =855
+            Y: =97
+            ZIndex: =6
+
+        Button1_2 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            Size: =15
+            Text: ="Button"
+            X: =1140
+            Y: =26
+            ZIndex: =7
+
+        Button2_2 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            Size: =15
+            Text: ="Button"
+            X: =1140
+            Y: =97
+            ZIndex: =8
+
+    FlyoutMenuComponent_6 As FlyoutMenuComponent:
+        CustomMenuItems: =colLeftNavMenu
+        Height: =FlyoutMenuComponent_6.MenuHeight
+        Width: =FlyoutMenuComponent_6.MenuWidth
+        ZIndex: =8
+
+    GalleryContainer_1 As groupContainer.manualLayoutContainer:
+        Height: =565
+        Width: =1366
+        Y: =203
+        ZIndex: =9
+
+        galMasterLogItems_1 As gallery.galleryVertical:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Height: =527
+            Items: |-
+                =Switch(
+                    locSortColumn,
+                    "Log_Invoice_Date",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Invoice_Date,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_Validated_C",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Validated_C,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Vendor_Name",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Vendor_Name,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_Invoice_MOS",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Invoice_MOS,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),    
+                    "Log_Insertion_Month",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Insertion_Month,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),   
+                    "Log_Invoice_Number",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Invoice_Number,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_InvoiceAmountAsFlt",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_InvoiceAmountAsFlt,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_Invoice_ContractNumber",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Invoice_ContractNumber,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_Invoice_ExtractedTax",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Invoice_ExtractedTax,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_Record_Type",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Record_Type,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "Log_S9_Run_Date",
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_S9_Run_Date,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    Sort(
+                        Filter(
+                            OOH_Log_TXN_VIEW,
+                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
+                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
+                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
+                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
+                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
+                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
+                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
+                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
+                            Log_InvoiceDateAsInt >= Value(
+                                Text(
+                                    Start_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            ),
+                            Log_InvoiceDateAsInt <= Value(
+                                Text(
+                                    End_Date_DatePicker.SelectedDate,
+                                    "[$-en-US]yyyymmdd"
+                                )
+                            )
+                        ),
+                        Log_Insertion_Date,
+                        Descending
+                    )
+                )
+            Layout: =Layout.Vertical
+            TemplateFill: |-
+                =//If(CheckItem.Value= true,RGBA(250,155,112,1),RGBA(0, 0, 0, 0))
+                If(CheckItem_1.Value= true,RGBA(250,155,112,1), If(ThisItem.Log_Record_Type = "Duplicate", RGBA(7, 0, 0, 0.11), RGBA(0, 0, 0, 0)))
+            TemplateSize: =31
+            Visible: =If(CountRows(galMasterLogItems_1.AllItems) = 0,false,true)
+            Width: =1366
+            Y: =38
+            ZIndex: =3
+
+            PDF_Invoice_Date_1 As label:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =4
+                Text: =ThisItem.Log_Invoice_Date
+                Visible: =false
+                Width: =112
+                X: =216
+                Y: =2
+                ZIndex: =2
+
+            PDF_TAX_Amount_label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |
+                    =Text(ThisItem.Log_Invoice_ExtractedTax, "[$-en-US],$#,##0.00")
+                Width: =70
+                X: =1057
+                ZIndex: =14
+
+            PDF_Amount_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |-
+                    =Text(ThisItem.Log_InvoiceAmountAsFlt, "[$-en-US],$#,##0.00")
+                Width: =100
+                X: =865
+                ZIndex: =15
+
+            InvoiceNum_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =29
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.Log_Invoice_Number
+                Tooltip: =ThisItem.Log_Invoice_Number
+                Width: =174
+                X: =696
+                Y: =2
+                ZIndex: =16
+
+            PDF_MOS_Label_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |
+                    =If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
+                Tooltip: =If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
+                Width: =40
+                X: =555
+                ZIndex: =17
+
+            Vendor_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =29
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |-
+                    =ThisItem.Vendor_Name
+                    //LookUp(OOH_Vendor_Master, Vendor_ID = ThisItem.Log_Vendor_ID, Vendor_Name)
+                Width: =221
+                X: =328
+                Y: =2
+                ZIndex: =18
+
+            PDF_CPE_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =Text(Concatenate(ThisItem.Log_Validated_C, If(!IsBlank(ThisItem.Log_Validated_P), "/", ""), ThisItem.Log_Validated_P, If(!IsBlank(ThisItem.Log_Validated_E), "/", ""), ThisItem.Log_Validated_E))
+                Tooltip: =Text(Concatenate(ThisItem.Log_Validated_C, If(!IsBlank(ThisItem.Log_Validated_P), "/", ""), ThisItem.Log_Validated_P, If(!IsBlank(ThisItem.Log_Validated_E), "/", ""), ThisItem.Log_Validated_E))
+                Width: =120
+                Wrap: =false
+                X: =208
+                ZIndex: =19
+
+            M_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =//ThisItem.MediaLookup
+                Visible: =false
+                Width: =39
+                X: =200
+                ZIndex: =20
+
+            PDF_Invoice_Date_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |-
+                    =If(IsBlank(ThisItem.Log_Insertion_Date),"",Text(ThisItem.Log_Insertion_Date, "yyyy-mm-dd"))
+                    //ThisItem.Log_Insertion_Date
+                    //LookUp(OOH_Log_Txn, Log_ID = Value(ThisItem.Log_ID), Log_Invoice_Date)
+                Tooltip: =ThisItem.Log_FA_Interface_Log_Status
+                Width: =80
+                X: =102
+                ZIndex: =21
+
+            CheckItem_1 As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxSize: =25
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =varAllCheckboxSelected
+                FocusedBorderColor: =White
+                FocusedBorderThickness: =0
+                Height: =22
+                HoverColor: =RGBA(131, 24, 75, 1)
+                OnCheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galMasterLogItems_1.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                OnSelect: =
+                OnUncheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galMasterLogItems_1.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                Reset: =ResetCheck
+                Size: =8
+                Text: =
+                Width: =40
+                ZIndex: =22
+
+            Icon1_1 As icon.Check:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: |-
+                    =/*If(
+                        Text(
+                            LookUp(
+                                OOH_Log_Txn,
+                                Log_ID = ThisItem.Log_ID,
+                                Log_IsMatched
+                            )
+                        ) = "Yes",
+                        Color.Green,
+                        Color.Gray
+                    )*/
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.View
+                Height: =25
+                Icon: |
+                    =If(
+                        ThisItem.Log_IsMatched = true,
+                        Icon.Check,
+                        Icon.Cancel
+                    )
+                OnSelect: =Select(Parent)
+                Width: =22
+                X: =1315
+                Y: =3
+                ZIndex: =23
+
+            Record_Type_label_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.Log_Record_Type
+                Width: =78
+                X: =1125
+                ZIndex: =24
+
+            FA_Status_Label_To_Be_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |-
+                    =//If(ThisItem.Log_FA_Interface_Log_Status = "FA Redirected", "Redirected", If(ThisItem.PDF_Info = "Duplicate", "Duplicate", If(ThisItem.Log_FA_Action_Status = "" Or ThisItem.Log_FA_Action_Status = Blank(), "to be", ThisItem.Log_FA_Action_Status)))
+                    If(ThisItem.Log_FA_Action_Status = Blank(),"to be", ThisItem.Log_FA_Action_Status)
+                Width: =93
+                X: =21
+                ZIndex: =25
+
+            PDF_Invoice_Date_Label_6 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.Log_Invoice_ContractNumber
+                Tooltip: =ThisItem.Log_FA_Interface_Log_Status
+                Width: =80
+                X: =968
+                ZIndex: =30
+
+            PDF_MOS_Label_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =If(Text(ThisItem.Log_Invoice_Date)="1900-01-01",RGBA(239, 0, 0, 0.3),RGBA(0, 0, 0, 0))
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =If(IsBlank(ThisItem.Log_Invoice_Date),"",Text(ThisItem.Log_Invoice_Date, "yyyy-mm-dd"))
+                Tooltip: =ThisItem.Log_Insertion_Month
+                Width: =70
+                X: =631
+                ZIndex: =31
+
+            Record_Type_label_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |-
+                    =//ThisItem.Log_S9_Run_Date
+                    If(IsBlank(ThisItem.Log_S9_Run_Date),"",Text(ThisItem.Log_S9_Run_Date, "yyyy-mm-dd"))
+                Width: =92
+                X: =1203
+                ZIndex: =32
+
+        RecordLogHeaderContainer_1 As groupContainer.manualLayoutContainer:
+            Fill: =White
+            Height: =38
+            Width: =1366
+            ZIndex: =4
+
+            Header_FA_Status_Label_1 As label:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                FontWeight: =FontWeight.Lighter
+                Height: =35
+                Size: =8
+                Text: ="Records Matched"
+                Width: =55
+                X: =1308
+                ZIndex: =1
+
+            Header_CPE_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="CPE"
+                Width: =60
+                X: =225
+                ZIndex: =2
+
+            Header_Inbound_Date_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Inbound Date"
+                Width: =80
+                X: =112
+                ZIndex: =3
+
+            Header_Invoice_Amount_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =36
+                OnSelect: =
+                Size: =8
+                Text: ="Invoice Amount"
+                Width: =60
+                X: =890
+                Y: =2
+                ZIndex: =4
+
+            Header_M_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="M"
+                Visible: =false
+                Width: =33
+                X: =200
+                ZIndex: =5
+
+            Header_MOS_2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="MOS"
+                Width: =40
+                X: =555
+                ZIndex: =6
+
+            Header_Vendor_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =35
+                OnSelect: =
+                Size: =8
+                Text: ="Vendor"
+                Width: =80
+                X: =379
+                Y: =3
+                ZIndex: =7
+
+            Header_Tax_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =37
+                OnSelect: =
+                Size: =8
+                Text: ="Tax"
+                Width: =50
+                X: =1065
+                Y: =1
+                ZIndex: =8
+
+            Sort_Inbound_Date_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_Date" 
+                        Or locSortColumn="Log_Invoice_Date" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_Date",
+                        locSortAscending: locSortColumn<>"Log_Invoice_Date" Or !locSortAscending
+                    })
+                Width: =20
+                X: =192
+                Y: =10
+                ZIndex: =9
+
+            Sort_S9_Upload_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_S9_Run_Date" 
+                        Or locSortColumn="Log_S9_Run_Date" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_S9_Run_Date",
+                        locSortAscending: locSortColumn<>"Log_S9_Run_Date" Or !locSortAscending
+                    })
+                Width: =20
+                X: =1288
+                Y: =10
+                ZIndex: =10
+
+            Sort_CPE_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Validated_C" 
+                        Or locSortColumn="Log_Validated_C" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Validated_C",
+                        locSortAscending: locSortColumn<>"Log_Validated_C" Or !locSortAscending
+                    })
+                Width: =20
+                X: =296
+                Y: =10
+                ZIndex: =11
+
+            Sort_Vendor_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Vendor_Name" 
+                        Or locSortColumn="Vendor_Name" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Vendor_Name",
+                        locSortAscending: locSortColumn<>"Vendor_Name" Or !locSortAscending
+                    })
+                Width: =20
+                X: =451
+                Y: =10
+                ZIndex: =12
+
+            Sort_MOS_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_MOS" 
+                        Or locSortColumn="Log_Invoice_MOS" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_MOS",
+                        locSortAscending: locSortColumn<>"Log_Invoice_MOS" Or !locSortAscending
+                    })
+                Width: =20
+                X: =595
+                Y: =10
+                ZIndex: =13
+
+            Sort_Invoice_Amount_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_InvoiceAmountAsFlt" 
+                        Or locSortColumn="Log_InvoiceAmountAsFlt" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_InvoiceAmountAsFlt",
+                        locSortAscending: locSortColumn<>"Log_InvoiceAmountAsFlt" Or !locSortAscending
+                    })
+                Width: =20
+                X: =950
+                Y: =10
+                ZIndex: =14
+
+            Sort_TAX_2 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_ExtractedTax" 
+                        Or locSortColumn="Log_Invoice_ExtractedTax" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_ExtractedTax",
+                        locSortAscending: locSortColumn<>"Log_Invoice_ExtractedTax" Or !locSortAscending
+                    })
+                TabIndex: =
+                Width: =20
+                X: =1110
+                Y: =10
+                ZIndex: =15
+
+            Header_Invoice_Num_Label_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =35
+                Size: =8
+                Text: ="Invoice Number"
+                Width: =100
+                X: =733
+                ZIndex: =16
+
+            Sort_Invoice_Num_1 As icon.ChevronDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_Number" 
+                        Or locSortColumn="Log_Invoice_Number" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_Number",
+                        locSortAscending: locSortColumn<>"Log_Invoice_Number" Or !locSortAscending
+                    })
+                Width: =20
+                X: =827
+                Y: =10
+                ZIndex: =17
+
+            SelectAll_Checkbox_1 As checkbox:
+                BorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxSize: =25
+                Color: =RGBA(0, 0, 0, 1)
+                FocusedBorderColor: =White
+                FocusedBorderThickness: =0
+                Height: =37
+                HoverColor: =RGBA(131, 24, 75, 1)
+                OnCheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galMasterLogItems_1.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                    UpdateContext({varAllCheckboxSelected: true});
+                OnSelect: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galMasterLogItems_1.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                OnUncheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galMasterLogItems_1.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                    UpdateContext({varAllCheckboxSelected: false});
+                PaddingLeft: =5
+                Reset: =ResetCheck
+                Size: =13
+                Text: =
+                Width: =35
+                ZIndex: =18
+
+            Header_Tax_4 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =36
+                OnSelect: =
+                Size: =8
+                Text: ="Record Type"
+                Width: =51
+                X: =1140
+                Y: =2
+                ZIndex: =19
+
+            Sort_TAX_3 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Record_Type" 
+                        Or locSortColumn="Log_Record_Type" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Record_Type",
+                        locSortAscending: locSortColumn<>"Log_Record_Type" Or !locSortAscending
+                    })
+                Width: =20
+                X: =1190
+                Y: =10
+                ZIndex: =20
+
+            Header_FA_Action_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Status"
+                Width: =60
+                X: =45
+                ZIndex: =21
+
+            FA_Status_Checkbox_1 As checkbox:
+                BorderColor: =RGBA(246, 88, 16, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxSize: =25
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =38
+                HoverColor: =RGBA(131, 24, 75, 1)
+                OnCheck: |-
+                    =Reset(FA_Status_Search);
+                    Reset(FA_Status_Dropdown);
+                    UpdateContext({VAR_FAStatus_DEF: ""});
+                OnUncheck: |-
+                    =Reset(FA_Status_Search);
+                    Reset(FA_Status_Dropdown);
+                    UpdateContext({VAR_FAStatus_DEF: ""});
+                Size: =13
+                Text: =""
+                Visible: =false
+                Width: =28
+                X: =116
+                ZIndex: =22
+
+            Header_Inbound_Date_6 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Contract Number"
+                Width: =63
+                X: =980
+                ZIndex: =23
+
+            Sort_Inbound_Date_6 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_ContractNumber" 
+                        Or locSortColumn="Log_Invoice_ContractNumber" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_ContractNumber",
+                        locSortAscending: locSortColumn<>"Log_Invoice_ContractNumber" Or !locSortAscending
+                    })
+                Width: =20
+                X: =1040
+                Y: =8
+                ZIndex: =24
+
+            Header_MOS_3 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Invoice Date"
+                Width: =68
+                X: =631
+                ZIndex: =25
+
+            Sort_INS_MON_1 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Insertion_Month" 
+                        Or locSortColumn="Log_Insertion_Month" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_Date",
+                        locSortAscending: locSortColumn<>"Log_Invoice_Date" Or !locSortAscending
+                    })
+                Visible: =false
+                Width: =20
+                X: =699
+                Y: =10
+                ZIndex: =26
+
+            Header_Tax_5 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =36
+                OnSelect: =
+                Size: =8
+                Text: ="S9 Uploaded Date"
+                Width: =78
+                X: =1210
+                Y: =2
+                ZIndex: =27
+

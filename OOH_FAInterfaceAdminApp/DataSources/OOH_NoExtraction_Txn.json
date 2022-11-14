@@ -1,0 +1,41 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2022-10-25T16:15:35.7150000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "NoExt_Advertiser_Name": "NoExt_Advertiser_Name",
+      "NoExt_Amount_Due": "NoExt_Amount_Due",
+      "NoExt_Contract_Number": "NoExt_Contract_Number",
+      "NoExt_Description": "NoExt_Description",
+      "NoExt_Email_Id": "NoExt_Email_Id",
+      "NoExt_Email_Metadata": "NoExt_Email_Metadata",
+      "NoExt_Failure_Stage": "NoExt_Failure_Stage",
+      "NoExt_File_Name": "NoExt_File_Name",
+      "NoExt_ID": "NoExt_ID",
+      "NoExt_Invoice_Amount": "NoExt_Invoice_Amount",
+      "NoExt_Invoice_Date": "NoExt_Invoice_Date",
+      "NoExt_Invoice_Number": "NoExt_Invoice_Number",
+      "NoExt_Number_of_Attachment": "NoExt_Number_of_Attachment",
+      "NoExt_Pop_Combined": "NoExt_Pop_Combined",
+      "NoExt_Record_Type": "NoExt_Record_Type",
+      "NoExt_Remittance_Address": "NoExt_Remittance_Address",
+      "NoExt_Send_Date": "NoExt_Send_Date",
+      "NoExt_Sender_Mail": "NoExt_Sender_Mail",
+      "NoExt_Sink_with_CSV": "NoExt_Sink_with_CSV",
+      "NoExt_Tax_Amount": "NoExt_Tax_Amount",
+      "NoExt_To_Address": "NoExt_To_Address",
+      "NoExt_Total_Pages": "NoExt_Total_Pages",
+      "NoExt_Vendor_Name": "NoExt_Vendor_Name"
+    },
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "OOH_NoExtraction_Txn",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

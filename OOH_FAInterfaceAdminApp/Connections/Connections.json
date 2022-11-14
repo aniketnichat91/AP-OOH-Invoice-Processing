@@ -1,0 +1,563 @@
+{
+  "191738c7-8c9c-48b6-b7b1-0f447684408d": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapoohdev01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/7487a4c2595b48a79e33aebf683820a1",
+      "xrmConnectionReferenceLogicalName": "new_sharedsql_f4cb7"
+    },
+    "datasets": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
+        "dataSources": {
+          "OOH_Agency_Master": {
+            "tableName": "[dbo].[OOH_Agency_Master]"
+          },
+          "OOH_FA_Mapping_Ref": {
+            "tableName": "[dbo].[OOH_FA_Mapping_Ref]"
+          },
+          "OOH_FA_Master": {
+            "tableName": "[dbo].[OOH_FA_Master]"
+          },
+          "OOH_Invoice_Master": {
+            "tableName": "[dbo].[OOH_Invoice_Master]"
+          },
+          "OOH_NoExtraction_Txn": {
+            "tableName": "[dbo].[OOH_NoExtraction_Txn]"
+          },
+          "OOH_PBT_Txn": {
+            "tableName": "[dbo].[OOH_PBT_Txn]"
+          },
+          "OOH_Predictions_Mview": {
+            "tableName": "[dbo].[OOH_Predictions_Mview]"
+          },
+          "OOH_Unpaid_Ref": {
+            "tableName": "[dbo].[OOH_Unpaid_Ref]"
+          },
+          "OOH_Vendor_Master": {
+            "tableName": "[dbo].[OOH_Vendor_Master]"
+          },
+          "vw_DistinctMOSUnpaid": {
+            "tableName": "[dbo].[vw_DistinctMOSUnpaid]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "OOH_Vendor_Master",
+      "OOH_Unpaid_Ref",
+      "OOH_FA_Master",
+      "vw_DistinctMOSUnpaid",
+      "OOH_Agency_Master",
+      "OOH_Invoice_Master",
+      "OOH_FA_Mapping_Ref",
+      "OOH_PBT_Txn",
+      "OOH_Predictions_Mview",
+      "OOH_NoExtraction_Txn"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "1bba1d80-ab8f-4ce5-8667-32d384e8b0c9"
+    ],
+    "id": "191738c7-8c9c-48b6-b7b1-0f447684408d"
+  },
+  "1b7d678b-90d5-4a44-9786-03337dd27538": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive for Business",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1546/1.0.1546.2665/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "fa61a700-fd02-41ef-b92e-8142ea008385"
+    ],
+    "id": "1b7d678b-90d5-4a44-9786-03337dd27538"
+  },
+  "1bba1d80-ab8f-4ce5-8667-32d384e8b0c9": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "191738c7-8c9c-48b6-b7b1-0f447684408d": {
+          "value": "shared_sql"
+        },
+        "workflowEntityId": {
+          "value": "d342957e-ae0c-ed11-82e4-000d3ab4d82a"
+        },
+        "workflowName": {
+          "value": "775a1b8d-0111-4fcf-abba-9b65d9f5d47c"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql": {
+          "value": "191738c7-8c9c-48b6-b7b1-0f447684408d"
+        },
+        "workflowEntityId": {
+          "value": "d342957e-ae0c-ed11-82e4-000d3ab4d82a"
+        },
+        "workflowName": {
+          "value": "775a1b8d-0111-4fcf-abba-9b65d9f5d47c"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHGetUntaggedFARecords"
+    ],
+    "dependencies": {
+      "shared_sql": "191738c7-8c9c-48b6-b7b1-0f447684408d"
+    },
+    "dependents": [],
+    "id": "1bba1d80-ab8f-4ce5-8667-32d384e8b0c9"
+  },
+  "1e3af0b2-61d7-4d60-b419-87279f13f59b": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapoohdev01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-4a8d4d89-c857-4b37-9ef3-db3f2e0cb32a",
+      "xrmConnectionReferenceLogicalName": "new_sharedsql_f63b2"
+    },
+    "datasets": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
+        "dataSources": {
+          "OOH_Log_TXN_VIEW": {
+            "tableName": "[dbo].[OOH_Log_TXN_VIEW]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "OOH_Log_TXN_VIEW"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "fa61a700-fd02-41ef-b92e-8142ea008385"
+    ],
+    "id": "1e3af0b2-61d7-4d60-b419-87279f13f59b"
+  },
+  "2726d45c-0fc4-4ee8-9000-fbec400aa423": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapoohdev01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-88f2118b-ca93-43c3-a20b-8a272ca2cc41",
+      "xrmConnectionReferenceLogicalName": "new_sharedsql_c0678"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "43b36aa3-7610-4241-bc91-998a005746de"
+    ],
+    "id": "2726d45c-0fc4-4ee8-9000-fbec400aa423"
+  },
+  "354979ab-0449-4126-9d32-4c240995c76b": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapoohdev01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/ce171450c8b948a3b5f71bca2e1b72f3",
+      "xrmConnectionReferenceLogicalName": "new_sharedsql_fb5d4"
+    },
+    "datasets": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
+        "dataSources": {
+          "OOH_Log_Txn": {
+            "tableName": "[dbo].[OOH_Log_Txn]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "OOH_Log_Txn"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "354979ab-0449-4126-9d32-4c240995c76b"
+  },
+  "43b36aa3-7610-4241-bc91-998a005746de": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "2726d45c-0fc4-4ee8-9000-fbec400aa423": {
+          "value": "shared_sql_2"
+        },
+        "workflowEntityId": {
+          "value": "7674eff2-7018-ed11-b83e-000d3a64d062"
+        },
+        "workflowName": {
+          "value": "a6a4f668-7b59-a2fe-5cc7-bcc0d5acef38"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql_2": {
+          "value": "2726d45c-0fc4-4ee8-9000-fbec400aa423"
+        },
+        "workflowEntityId": {
+          "value": "7674eff2-7018-ed11-b83e-000d3a64d062"
+        },
+        "workflowName": {
+          "value": "a6a4f668-7b59-a2fe-5cc7-bcc0d5acef38"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHGetContractData"
+    ],
+    "dependencies": {
+      "shared_sql_2": "2726d45c-0fc4-4ee8-9000-fbec400aa423"
+    },
+    "dependents": [],
+    "id": "43b36aa3-7610-4241-bc91-998a005746de"
+  },
+  "6246b8ad-1729-4010-9196-65e558cf7a15": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "ee922a32-994c-4c35-a0c8-a4a1995d184d": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "b2f61b8c-280f-ed11-82e4-000d3ab4d0a9"
+        },
+        "workflowName": {
+          "value": "e40c7642-f450-440e-604f-34c71d0dda23"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "ee922a32-994c-4c35-a0c8-a4a1995d184d"
+        },
+        "workflowEntityId": {
+          "value": "b2f61b8c-280f-ed11-82e4-000d3ab4d0a9"
+        },
+        "workflowName": {
+          "value": "e40c7642-f450-440e-604f-34c71d0dda23"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHShowPDFDetails"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "ee922a32-994c-4c35-a0c8-a4a1995d184d"
+    },
+    "dependents": [],
+    "id": "6246b8ad-1729-4010-9196-65e558cf7a15"
+  },
+  "aa5cbd7b-10ed-4ca5-ad64-f02423d15ec8": {
+    "connectionParameters": {
+      "database": "testdatabase",
+      "server": "sqlsv-automation-us-dev.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/f247e8d1feab41668859076362ca47d9",
+      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_63128"
+    },
+    "datasets": {
+      "sqlsv-automation-us-dev.database.windows.net,usa-apdigital-fainterface-dev": {
+        "dataSources": {
+          "DataSet": {
+            "tableName": "[dbo].[DataSet]"
+          },
+          "FA_Interface_Attach_S9": {
+            "tableName": "[dbo].[FA_Interface_Attach_S9]"
+          },
+          "usa_apdigital_unpaid": {
+            "tableName": "[dbo].[usa_apdigital_unpaid]"
+          },
+          "vw_DistinctAssociate": {
+            "tableName": "[dbo].[vw_DistinctAssociate]"
+          },
+          "vw_DistinctFA_Status": {
+            "tableName": "[dbo].[vw_DistinctFA_Status]"
+          },
+          "vw_DistinctIs_Matched": {
+            "tableName": "[dbo].[vw_DistinctIs_Matched]"
+          },
+          "vw_DistinctLabel": {
+            "tableName": "[dbo].[vw_DistinctLabel]"
+          },
+          "vw_DistinctPDF_Info": {
+            "tableName": "[dbo].[vw_DistinctPDF_Info]"
+          },
+          "vw_DistinctTag_Status": {
+            "tableName": "[dbo].[vw_DistinctTag_Status]"
+          },
+          "vw_DistinctVendor": {
+            "tableName": "[dbo].[vw_DistinctVendor]"
+          },
+          "vw_DistinctVendorUnpaid": {
+            "tableName": "[dbo].[vw_DistinctVendorUnpaid]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "usa_apdigital_unpaid",
+      "vw_DistinctVendor",
+      "vw_DistinctIs_Matched",
+      "vw_DistinctFA_Status",
+      "vw_DistinctLabel",
+      "vw_DistinctPDF_Info",
+      "vw_DistinctAssociate",
+      "vw_DistinctTag_Status_1",
+      "DataSet",
+      "vw_DistinctVendorPublicationNameAndCode",
+      "vw_DistinctTag_Status",
+      "FA_Interface_Attach_S9",
+      "vw_DistinctVendorUnpaid"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "aa5cbd7b-10ed-4ca5-ad64-f02423d15ec8"
+  },
+  "b052509e-b575-4c6f-854f-b484d7139530": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1610-greyhound-localization-RelayFix/1.0.1610.3091/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://insidemedia.sharepoint.com/sites/GRMUSA-APDIGITAL2022": {
+        "datasetOverride": {
+          "environmentVariableName": "new_OOHSharePointSite",
+          "name": "https://insidemedia.sharepoint.com/sites/GRMUSA-APDIGITAL2022"
+        },
+        "dataSources": {
+          "FA Issue List": {
+            "tableName": "105ed371-cd53-4cbf-91ed-b856453b1fef",
+            "tableNameOverride": {
+              "environmentVariableName": "new_OOHFAIssueList",
+              "name": "105ed371-cd53-4cbf-91ed-b856453b1fef"
+            }
+          }
+        }
+      },
+      "https://insidemedia.sharepoint.com/sites/GRMUSA-OOHFinanceAutomation-GRM": {
+        "datasetOverride": {
+          "environmentVariableName": "new_shared_sharepointonline_04461bb2ef8243a19960aee33e2cd794",
+          "name": "https://insidemedia.sharepoint.com/sites/GRMUSA-OOHFinanceAutomation-GRM"
+        },
+        "dataSources": {
+          "Documents": {
+            "tableName": "6dce9562-419d-400c-8731-a11c04381166"
+          },
+          "fa-interface-users": {
+            "tableName": "1e6bed0b-8b69-4e7d-ab23-7f0ca4cbd2cd",
+            "tableNameOverride": {
+              "environmentVariableName": "new_shared_sharepointonline_53907532703f46088ea99f01eaacc49d",
+              "name": "1e6bed0b-8b69-4e7d-ab23-7f0ca4cbd2cd"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "FA Issue List",
+      "fa-interface-users",
+      "Documents"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "b052509e-b575-4c6f-854f-b484d7139530"
+  },
+  "b7f38b00-4535-4fa3-a777-e6c8cc345ac5": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "e71df4aa-602a-4193-99ae-1eb8d15d8172": {
+          "value": "shared_sql"
+        },
+        "workflowEntityId": {
+          "value": "35a0e50c-432f-ed11-9db1-0022489ca98d"
+        },
+        "workflowName": {
+          "value": "3091c0d3-430e-7b53-6d68-b1cb11d66132"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql": {
+          "value": "e71df4aa-602a-4193-99ae-1eb8d15d8172"
+        },
+        "workflowEntityId": {
+          "value": "35a0e50c-432f-ed11-9db1-0022489ca98d"
+        },
+        "workflowName": {
+          "value": "3091c0d3-430e-7b53-6d68-b1cb11d66132"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHChangeVendorMapping"
+    ],
+    "dependencies": {
+      "shared_sql": "e71df4aa-602a-4193-99ae-1eb8d15d8172"
+    },
+    "dependents": [],
+    "id": "b7f38b00-4535-4fa3-a777-e6c8cc345ac5"
+  },
+  "e71df4aa-602a-4193-99ae-1eb8d15d8172": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapoohdev01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-877c99c6-c9a6-4ee1-b71e-49bdab6e720f",
+      "xrmConnectionReferenceLogicalName": "new_sharedsql_c83c5"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "b7f38b00-4535-4fa3-a777-e6c8cc345ac5"
+    ],
+    "id": "e71df4aa-602a-4193-99ae-1eb8d15d8172"
+  },
+  "ee922a32-994c-4c35-a0c8-a4a1995d184d": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1610-greyhound-localization-RelayFix/1.0.1610.3091/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "6246b8ad-1729-4010-9196-65e558cf7a15"
+    ],
+    "id": "ee922a32-994c-4c35-a0c8-a4a1995d184d"
+  },
+  "fa61a700-fd02-41ef-b92e-8142ea008385": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "1b7d678b-90d5-4a44-9786-03337dd27538": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "1e3af0b2-61d7-4d60-b419-87279f13f59b": {
+          "value": "shared_sql_3"
+        },
+        "workflowEntityId": {
+          "value": "a6077cdb-6611-ed11-b83d-000d3addf3cd"
+        },
+        "workflowName": {
+          "value": "8dfd720d-3eb8-900a-61be-ed1ac9d6dc7f"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_onedriveforbusiness": {
+          "value": "1b7d678b-90d5-4a44-9786-03337dd27538"
+        },
+        "shared_sql_3": {
+          "value": "1e3af0b2-61d7-4d60-b419-87279f13f59b"
+        },
+        "workflowEntityId": {
+          "value": "a6077cdb-6611-ed11-b83d-000d3addf3cd"
+        },
+        "workflowName": {
+          "value": "8dfd720d-3eb8-900a-61be-ed1ac9d6dc7f"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHDownloadReportInExcel"
+    ],
+    "dependencies": {
+      "shared_onedriveforbusiness": "1b7d678b-90d5-4a44-9786-03337dd27538",
+      "shared_sql_3": "1e3af0b2-61d7-4d60-b419-87279f13f59b"
+    },
+    "dependents": [],
+    "id": "fa61a700-fd02-41ef-b92e-8142ea008385"
+  }
+}

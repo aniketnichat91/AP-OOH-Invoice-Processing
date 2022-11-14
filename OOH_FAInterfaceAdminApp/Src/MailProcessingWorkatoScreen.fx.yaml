@@ -1,0 +1,1131 @@
+MailProcessingWorkatoScreen As screen:
+    Fill: =WhiteSmoke
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+    OnHidden: |-
+        =UpdateContext({ResetCheck:true});
+    OnVisible: =""
+
+    FilterContainer_2 As groupContainer.manualLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Fill: =WhiteSmoke
+        Height: =150
+        Width: =1366
+        Y: =64
+        ZIndex: =1
+
+        lbl_Search_SendDate As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="Send Date"
+            Width: =100
+            X: =40
+            Y: =10
+            ZIndex: =1
+
+        lbl_ As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="From Execution Date"
+            Width: =160
+            X: =850
+            Y: =10
+            ZIndex: =3
+
+        Label19_1 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="To Execution Date"
+            Width: =160
+            X: =850
+            Y: =53
+            ZIndex: =4
+
+        lbl_Search_Action As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="Action"
+            Width: =100
+            X: =40
+            Y: =97
+            ZIndex: =10
+
+        lbl_Search_FileName As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="File Name"
+            Width: =100
+            X: =40
+            Y: =55
+            ZIndex: =12
+
+        Start_Date_DatePicker_1 As datepicker:
+            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            CalendarHeaderFill: =RGBA(211, 66, 9, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DefaultDate: =DateValue("1/8/2022","en-GB")
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: |-
+                =RGBA(255, 255, 255, 1)
+                //If(Text(Start_Date_DatePicker.SelectedDate)="1/1/1970",RGBA(239, 0, 0, 0.3),RGBA(255, 255, 255, 1))
+            Font: =Font.Arial
+            Height: =26
+            HoverDateFill: =RGBA(255, 211, 205, 1)
+            IconBackground: =RGBA(211, 66, 9, 1)
+            IsEditable: =true
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+                
+                UpdateContext(
+                    {
+                        varCountFARecords: OOHGetUntaggedFARecords.Run(
+                            Text(Associate_Dropdown.Selected.Result),
+                            If(
+                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            "",
+                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            ),
+                            Text(
+                                Start_Date_DatePicker_1.SelectedDate,
+                                "[$-en-US]yyyy-mm-dd"
+                            ),
+                            Text(
+                                End_Date_DatePicker.SelectedDate,
+                                "[$-en-US]yyyy-mm-dd"
+                            )
+                        ).countfarecords
+                    }
+                )
+            PaddingLeft: =5
+            PaddingTop: =5
+            SelectedDateFill: =RGBA(211, 66, 9, 1)
+            Size: =11
+            StartYear: =2022
+            Width: =127
+            X: =1024
+            Y: =10
+            ZIndex: =13
+
+        Start_Date_DatePicker_2 As datepicker:
+            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            CalendarHeaderFill: =RGBA(211, 66, 9, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DefaultDate: =DateValue("1/8/2022","en-GB")
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: |-
+                =RGBA(255, 255, 255, 1)
+                //If(Text(Start_Date_DatePicker.SelectedDate)="1/1/1970",RGBA(239, 0, 0, 0.3),RGBA(255, 255, 255, 1))
+            Font: =Font.Arial
+            Height: =26
+            HoverDateFill: =RGBA(255, 211, 205, 1)
+            IconBackground: =RGBA(211, 66, 9, 1)
+            IsEditable: =true
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+                
+                UpdateContext(
+                    {
+                        varCountFARecords: OOHGetUntaggedFARecords.Run(
+                            Text(Associate_Dropdown.Selected.Result),
+                            If(
+                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            "",
+                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            ),
+                            Text(
+                                Start_Date_DatePicker_2.SelectedDate,
+                                "[$-en-US]yyyy-mm-dd"
+                            ),
+                            Text(
+                                End_Date_DatePicker.SelectedDate,
+                                "[$-en-US]yyyy-mm-dd"
+                            )
+                        ).countfarecords
+                    }
+                )
+            PaddingLeft: =5
+            PaddingTop: =5
+            SelectedDateFill: =RGBA(211, 66, 9, 1)
+            Size: =11
+            StartYear: =2022
+            Width: =127
+            X: =1024
+            Y: =55
+            ZIndex: =14
+
+        Start_Date_DatePicker_3 As datepicker:
+            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            CalendarHeaderFill: =RGBA(211, 66, 9, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DefaultDate: =DateValue("1/8/2022","en-GB")
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: |-
+                =RGBA(255, 255, 255, 1)
+                //If(Text(Start_Date_DatePicker.SelectedDate)="1/1/1970",RGBA(239, 0, 0, 0.3),RGBA(255, 255, 255, 1))
+            Font: =Font.Arial
+            Height: =26
+            HoverDateFill: =RGBA(255, 211, 205, 1)
+            IconBackground: =RGBA(211, 66, 9, 1)
+            IsEditable: =true
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+                
+                UpdateContext(
+                    {
+                        varCountFARecords: OOHGetUntaggedFARecords.Run(
+                            Text(Associate_Dropdown.Selected.Result),
+                            If(
+                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            "",
+                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            ),
+                            Text(
+                                Start_Date_DatePicker_3.SelectedDate,
+                                "[$-en-US]yyyy-mm-dd"
+                            ),
+                            Text(
+                                End_Date_DatePicker.SelectedDate,
+                                "[$-en-US]yyyy-mm-dd"
+                            )
+                        ).countfarecords
+                    }
+                )
+            PaddingLeft: =5
+            PaddingTop: =5
+            SelectedDateFill: =RGBA(211, 66, 9, 1)
+            Size: =11
+            StartYear: =2022
+            Width: =200
+            X: =145
+            Y: =10
+            ZIndex: =15
+
+        Vendor_Search_1 As text:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DelayOutput: =true
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Arial
+            Height: =26
+            HintText: ="Search..."
+            HoverBorderColor: =RGBA(230, 230, 230, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+            OnSelect: |
+                =
+            Size: =10
+            Width: =200
+            X: =145
+            Y: =55
+            ZIndex: =16
+
+        Vendor_Search_2 As text:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DelayOutput: =true
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Arial
+            Height: =26
+            HintText: ="Search..."
+            HoverBorderColor: =RGBA(230, 230, 230, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+            OnSelect: |
+                =
+            Size: =10
+            Width: =200
+            X: =145
+            Y: =100
+            ZIndex: =17
+
+        Vendor_Search_3 As text:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DelayOutput: =true
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Arial
+            Height: =26
+            HintText: ="Search..."
+            HoverBorderColor: =RGBA(230, 230, 230, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+            OnSelect: |
+                =
+            Size: =10
+            Width: =200
+            X: =531
+            Y: =10
+            ZIndex: =18
+
+        Vendor_Search_4 As text:
+            BorderColor: =RGBA(204, 204, 204, 1)
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DelayOutput: =true
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.Arial
+            Height: =26
+            HintText: ="Search..."
+            HoverBorderColor: =RGBA(230, 230, 230, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnChange: |-
+                =UpdateContext({initGalleryLoading: false});
+                UpdateContext(
+                    {
+                        _numberOfSelectedRecords: CountRows(
+                            Filter(
+                                galMasterLogItems.AllItems,
+                                CheckItem.Value = true
+                            )
+                        )
+                    }
+                );
+                UpdateContext({varAllCheckboxSelected: false});
+                UpdateContext({ResetCheck: true});
+                UpdateContext({ResetCheck: false});
+            OnSelect: |
+                =
+            Size: =10
+            Width: =200
+            X: =531
+            Y: =52
+            ZIndex: =19
+
+        Tagging_Button_1 As button:
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: |-
+                =//If(FA_Status_Checkbox.Value = true Or !IsBlank(FA_Status_Dropdown.Selected.Result),DisplayMode.Disabled,DisplayMode.Edit)
+                DisplayMode.Edit
+            Fill: =RGBA(211, 66, 9, 1)
+            Font: =Font.Arial
+            Height: =33
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: =""
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =10
+            Text: |-
+                =If(
+                    First(
+                        galMasterLogItems.AllItems
+                    ).Log_FA_Action_Status = "" Or First(
+                        galMasterLogItems.AllItems
+                    ).Log_FA_Action_Status=Blank(),
+                    "START TAGGING",
+                    "VIEW TAGGING"
+                )
+            Width: =145
+            X: =1183
+            Y: =10
+            ZIndex: =20
+
+        Tagging_Button_2 As button:
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: |-
+                =//If(FA_Status_Checkbox.Value = true Or !IsBlank(FA_Status_Dropdown.Selected.Result),DisplayMode.Disabled,DisplayMode.Edit)
+                DisplayMode.Edit
+            Fill: =RGBA(211, 66, 9, 1)
+            Font: =Font.Arial
+            Height: =33
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: =""
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =10
+            Text: |-
+                =If(
+                    First(
+                        galMasterLogItems.AllItems
+                    ).Log_FA_Action_Status = "" Or First(
+                        galMasterLogItems.AllItems
+                    ).Log_FA_Action_Status=Blank(),
+                    "START TAGGING",
+                    "VIEW TAGGING"
+                )
+            Width: =145
+            X: =1183
+            Y: =55
+            ZIndex: =21
+
+        lbl_Search_InvoiceNumber As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="Invoice Number"
+            Width: =120
+            X: =405
+            Y: =10
+            ZIndex: =22
+
+        lbl_Search_VendorName As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =26
+            Size: =11
+            Text: ="Vendor Name"
+            Width: =110
+            X: =405
+            Y: =52
+            ZIndex: =23
+
+    HeaderContainer_2 As groupContainer.manualLayoutContainer:
+        Fill: =White
+        Height: =64
+        Width: =1366
+        ZIndex: =2
+
+        lbl_Screen_header As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Arial
+            Height: =34
+            Size: =20
+            Text: ="Mail Processing - Workato"
+            Width: =330
+            X: =65
+            Y: =12
+            ZIndex: =2
+
+    FlyoutMenuComponent_5 As FlyoutMenuComponent:
+        CustomMenuItems: =colLeftNavMenu
+        Height: =FlyoutMenuComponent_5.MenuHeight
+        Width: =FlyoutMenuComponent_5.MenuWidth
+        ZIndex: =3
+
+    GalleryContainer_2 As groupContainer.manualLayoutContainer:
+        Height: =565
+        Width: =1366
+        Y: =203
+        ZIndex: =4
+
+        galNoExtraction_Txn As gallery.galleryVertical:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Height: =527
+            Items: |
+                =
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,
+                            NoExt_Contract_Number<>""
+                           // Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
+                            
+                        ),
+                        NoExt_Contract_Number,
+                        Descending
+                    )
+            Layout: =Layout.Vertical
+            TemplateFill: |-
+                =//If(CheckItem.Value= true,RGBA(250,155,112,1),RGBA(0, 0, 0, 0))
+                //If(CheckItem_2.Value= true,RGBA(250,155,112,1), If(ThisItem.Log_Record_Type = "Duplicate", RGBA(7, 0, 0, 0.11), RGBA(0, 0, 0, 0)))
+            TemplateSize: =31
+            Visible: =If(CountRows(galNoExtraction_Txn.AllItems) = 0,false,true)
+            Width: =1366
+            Y: =38
+            ZIndex: =3
+
+            lbl_NoExt_Send_Date As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |-
+                    =//ThisItem.NoExt_Send_Date
+                    If(IsBlank(ThisItem.NoExt_Send_Date),"",Text(ThisItem.NoExt_Send_Date, "yyyy-mm-dd"))
+                Width: =70
+                X: =940
+                ZIndex: =14
+
+            lbl_NoExt_Record_Type As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_Record_Type
+                Width: =140
+                X: =780
+                ZIndex: =15
+
+            lbl_NoExt_Contract_Number As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =29
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_Contract_Number
+                Tooltip: =//ThisItem.Log_Invoice_Number
+                Width: =100
+                X: =660
+                Y: =2
+                ZIndex: =16
+
+            lbl_NoExt_Invoice_Date As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_Invoice_Date
+                Tooltip: =//If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
+                Width: =80
+                X: =550
+                ZIndex: =17
+
+            lbl_NoExt_Invoice_Amount As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =29
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_Invoice_Amount
+                Width: =100
+                X: =410
+                Y: =2
+                ZIndex: =18
+
+            lbl_NoExt_Invoice_Number As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: |
+                    =ThisItem.NoExt_Invoice_Number
+                Tooltip: =//Text(Concatenate(ThisItem.Log_Validated_C, If(!IsBlank(ThisItem.Log_Validated_P), "/", ""), ThisItem.Log_Validated_P, If(!IsBlank(ThisItem.Log_Validated_E), "/", ""), ThisItem.Log_Validated_E))
+                Width: =110
+                Wrap: =false
+                X: =255
+                ZIndex: =19
+
+            lbl_NoExt_File_Name As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_File_Name
+                Tooltip: =//ThisItem.Log_FA_Interface_Log_Status
+                Width: =130
+                X: =102
+                ZIndex: =21
+
+            CheckItem_2 As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxSize: =25
+                Color: =RGBA(0, 0, 0, 1)
+                Default: =varAllCheckboxSelected
+                FocusedBorderColor: =White
+                FocusedBorderThickness: =0
+                Height: =22
+                HoverColor: =RGBA(131, 24, 75, 1)
+                OnCheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galNoExtraction_Txn.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                OnSelect: =
+                OnUncheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galNoExtraction_Txn.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                Reset: =ResetCheck
+                Size: =8
+                Text: =
+                Visible: =false
+                Width: =40
+                ZIndex: =22
+
+            lbl_NoExt_Sender_Mail As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_Sender_Mail
+                X: =1040
+                ZIndex: =24
+
+            lbl_NoExtGal_ID As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_ID
+                Tooltip: =//ThisItem.Log_FA_Interface_Log_Status
+                Width: =80
+                X: =30
+                ZIndex: =30
+
+            lbl_NoExt_Vendor_Name As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =31
+                OnSelect: =Select(Parent)
+                Size: =8
+                Text: =ThisItem.NoExt_Vendor_Name
+                Width: =120
+                X: =1200
+                ZIndex: =32
+
+        RecordLogHeaderContainer_2 As groupContainer.manualLayoutContainer:
+            Fill: =White
+            Height: =38
+            Width: =1366
+            ZIndex: =4
+
+            lbl_Header_NoExt_Invoice_Number As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Invoice Number"
+                Width: =90
+                X: =260
+                ZIndex: =2
+
+            lbl_Header_NoExt_File_Name As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="File Name"
+                Width: =60
+                X: =140
+                ZIndex: =3
+
+            lbl_Header_NoExt_Send_Date As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =36
+                OnSelect: =
+                Size: =8
+                Text: ="Send Date"
+                Width: =70
+                X: =930
+                Y: =2
+                ZIndex: =4
+
+            lbl_Header_NoExt_Invoice_Date As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Invoice Date"
+                Width: =70
+                X: =550
+                ZIndex: =6
+
+            lbl_Header_NoExt_Invoice_Amount As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =35
+                OnSelect: =
+                Size: =8
+                Text: ="Invoice Amount"
+                Width: =90
+                X: =410
+                Y: =3
+                ZIndex: =7
+
+            Sort_NoExt_File_Name As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_Date" 
+                        Or locSortColumn="Log_Invoice_Date" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_File_Name",
+                        locSortAscending: locSortColumn<>"NoExt_File_Name" Or !locSortAscending
+                    })
+                Width: =20
+                X: =200
+                Y: =10
+                ZIndex: =9
+
+            Sort_NoExt_Invoice_Number As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Validated_C" 
+                        Or locSortColumn="Log_Validated_C" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Invoice_Number",
+                        locSortAscending: locSortColumn<>"NoExt_Invoice_Number" Or !locSortAscending
+                    })
+                Width: =20
+                X: =350
+                Y: =10
+                ZIndex: =11
+
+            Sort_NoExt_Invoice_Amount As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Vendor_Name" 
+                        Or locSortColumn="Vendor_Name" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Invoice_Amount",
+                        locSortAscending: locSortColumn<>"NoExt_Invoice_Amount" Or !locSortAscending
+                    })
+                Width: =20
+                X: =500
+                Y: =10
+                ZIndex: =12
+
+            Sort_NoExt_Invoice_Date As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_MOS" 
+                        Or locSortColumn="Log_Invoice_MOS" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Invoice_Date",
+                        locSortAscending: locSortColumn<>"NoExt_Invoice_Date" Or !locSortAscending
+                    })
+                Width: =20
+                X: =620
+                Y: =10
+                ZIndex: =13
+
+            Sort_NoExt_Send_Date As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_InvoiceAmountAsFlt" 
+                        Or locSortColumn="Log_InvoiceAmountAsFlt" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Send_Date",
+                        locSortAscending: locSortColumn<>"NoExt_Send_Date" Or !locSortAscending
+                    })
+                Width: =20
+                X: =1000
+                Y: =10
+                ZIndex: =14
+
+            lbl_Header_NoExt_Record_Type As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =35
+                Size: =8
+                Text: ="Record Type"
+                Width: =80
+                X: =800
+                ZIndex: =16
+
+            Sort_NoExt_Record_Type As icon.ChevronDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_Number" 
+                        Or locSortColumn="Log_Invoice_Number" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Record_Type",
+                        locSortAscending: locSortColumn<>"NoExt_Record_Type" Or !locSortAscending
+                    })
+                Width: =20
+                X: =890
+                Y: =10
+                ZIndex: =17
+
+            SelectAll_Checkbox_2 As checkbox:
+                BorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
+                CheckboxSize: =25
+                Color: =RGBA(0, 0, 0, 1)
+                FocusedBorderColor: =White
+                FocusedBorderThickness: =0
+                Height: =37
+                HoverColor: =RGBA(131, 24, 75, 1)
+                OnCheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galNoExtraction_Txn.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                    UpdateContext({varAllCheckboxSelected: true});
+                OnSelect: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galNoExtraction_Txn.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                OnUncheck: |
+                    =UpdateContext(
+                        {
+                            _numberOfSelectedRecords: CountRows(
+                                Filter(
+                                    galNoExtraction_Txn.AllItems,
+                                    CheckItem.Value = true
+                                )
+                            )
+                        }
+                    );
+                    UpdateContext({varAllCheckboxSelected: false});
+                PaddingLeft: =5
+                Reset: =ResetCheck
+                Size: =13
+                Text: =
+                Visible: =false
+                Width: =35
+                ZIndex: =18
+
+            lbl_Header_NoExt_Vendor_Name As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =36
+                OnSelect: =
+                Size: =8
+                Text: ="Vendor Name"
+                Width: =80
+                X: =1220
+                Y: =2
+                ZIndex: =19
+
+            Sort_NoExt_Vendor_Name As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Record_Type" 
+                        Or locSortColumn="Log_Record_Type" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Vendor_Name",
+                        locSortAscending: locSortColumn<>"NoExt_Vendor_Name" Or !locSortAscending
+                    })
+                Width: =20
+                X: =1300
+                Y: =10
+                ZIndex: =20
+
+            lbl_Header_NoExt_ID As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="ID"
+                Width: =60
+                X: =45
+                ZIndex: =21
+
+            lbl_Header_NoExt_Sender_Mail As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Sender_Mail"
+                Width: =80
+                X: =1070
+                ZIndex: =23
+
+            Sort_NoExt_Sender_Mail As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"Log_Invoice_ContractNumber" 
+                        Or locSortColumn="Log_Invoice_ContractNumber" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "NoExt_Sender_Mail",
+                        locSortAscending: locSortColumn<>"NoExt_Sender_Mail" Or !locSortAscending
+                    })
+                Width: =20
+                X: =1150
+                Y: =8
+                ZIndex: =24
+
+            lbl_Header_NoExt_Contract_Number As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                OnSelect: =
+                Size: =8
+                Text: ="Contract Number"
+                Width: =100
+                X: =660
+                ZIndex: =25
+

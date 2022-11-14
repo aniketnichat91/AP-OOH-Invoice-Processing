@@ -1,0 +1,163 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =// Obtain username and email of the logged-in user
+        //Set Logged in User for the App
+        Set(
+            varLoggedInUser,
+            User()
+        );
+        // Find the user with a matching email in the App Users list
+        With(
+            {
+                wUserRecord: LookUp(
+                    'fa-interface-users',
+                    Title = varLoggedInUser.Email
+                )
+            },
+            Set(
+                varUser,
+                wUserRecord.Title
+            );
+            Set(
+                varIsQA,
+                wUserRecord.IsQA
+            );
+            Set(
+                varRole,
+                wUserRecord.Role.Value
+            );
+            ClearCollect(
+                varTeamUsers,
+                wUserRecord.TeamUsers.Value
+            );
+            
+        );
+        Concurrent(
+        //Get Lists from a SQL View
+            ClearCollect(
+                colAssociate,
+                {Result: "All"}
+            ),
+            ClearCollect(
+                colAgency,
+                {Agency_Name: "All",Agency_ID:0}
+            ),
+            ClearCollect(
+                colUnpaidMOS,
+                {Result: "All"}
+            ),
+            ClearCollect(
+                colNRPredictionMOSValues,
+                {Result: ""}
+            )
+        );
+        
+        Collect(
+                colAgency,
+               // Sort(
+                   // Distinct(
+                        Filter(
+                            OOH_Agency_Master,
+                            Not(Agency_Name = Blank() || Agency_Name = "")
+                        )
+                    //    Agency_Name
+                   // )
+                  //  Agency_Name
+                //)
+            );
+        ////Get a List of Record Type from a SQL View (vw_DistinctLabel)
+        Concurrent(
+            Collect(
+                colAssociate,
+                Sort(
+                    Distinct(
+                        Filter(
+                            OOH_FA_Master,
+                            Not(FA_Name = Blank() || FA_Name = "")
+                        ),
+                        Proper(FA_Name)
+                    ),
+                    Result
+                )
+            ),
+           ClearCollect(
+                colAssociateEmail,
+                Sort(
+                    Distinct(
+                        Filter(
+                            OOH_FA_Master,
+                            Not(FA_Email_ID = Blank() || FA_Email_ID = "")
+                        ),
+                        FA_Email_ID
+                    ),
+                    Result
+                )
+            ),
+            Collect(
+                colUnpaidMOS,
+                Sort(
+                Filter(
+                    vw_DistinctMOSUnpaid,
+                    Not(Unpaid_ref_Insertion_MOS_Month=Blank() || Unpaid_ref_Insertion_MOS_Month = "")
+                ),
+        Unpaid_ref_Insertion_MOS_Month_As_INT,Descending)
+            ),
+            /*Collect(
+                colFA_Status,
+                Sort(
+                    Distinct(
+                        Filter(
+                            vw_DistinctFA_Status,
+                            Not(FA_Status = Blank() || FA_Status = "" || FA_Status = "Manual - Multi" || FA_Status = "Manual - Other" || FA_Status = "MANUAL")
+                        ),
+                        FA_Status
+                    ),
+                    Result
+                )
+            ),*/
+            ClearCollect(
+                colLeftNavMenu,
+                Table(
+                    {
+                        Menulabel: "Home",
+                        MenuIcon: Icon.Home,
+                        MenuScreenNavigate: HomeScreen,
+                        MenuID: 1
+                    },
+                    {
+                        Menulabel: "Process Journey Screen",
+                        MenuIcon: Icon.Note,
+                        MenuScreenNavigate: ProcessJourneyScreen,
+                        MenuID: 2
+                    }
+                    ,
+                    {
+                        Menulabel: "Mail Processing - Workato Screen",
+                        MenuIcon: Icon.DetailList,
+                        MenuScreenNavigate: MailProcessingWorkatoScreen,
+                        MenuID: 3
+                    }
+                    ,
+                    {
+                        Menulabel: "DML Operations - Update Screen",
+                        MenuIcon: Icon.Bookmark,
+                        MenuScreenNavigate: DMLOperationsUpdateScreen,
+                        MenuID: 4
+                    },
+                    {
+                        Menulabel: "Form Rec Training Screen",
+                        MenuIcon: Icon.Laptop,
+                        MenuScreenNavigate: FormRecTrainingScreen,
+                        MenuID: 5
+                    },
+                    {
+                        Menulabel: "Logs Screen",
+                        MenuIcon: Icon.LogJournal,
+                        MenuScreenNavigate: LogsScreen,
+                        MenuID: 6
+                    }          
+                )
+            )
+        );
+
