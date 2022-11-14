@@ -1962,7 +1962,7 @@ InvoiceMatchingScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =9
+                Size: =8
                 Text: ="MATCH >"
                 Width: =67
                 X: =10
@@ -2026,7 +2026,7 @@ InvoiceMatchingScreen As screen:
                     Fill: =RGBA(237, 237, 237, 1)
                     FocusedBorderThickness: =4
                     Font: =Font.Arial
-                    Height: =31
+                    Height: =1
                     HintText: =""
                     HoverBorderColor: =RGBA(230, 230, 230, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
@@ -2040,8 +2040,7 @@ InvoiceMatchingScreen As screen:
                     Tooltip: =
                     Visible: =false
                     Width: =86
-                    X: =368
-                    Y: =29
+                    X: =377
                     ZIndex: =2
 
                 PCID_TextInput As text:
@@ -2915,7 +2914,7 @@ InvoiceMatchingScreen As screen:
                     PaddingLeft: =20
                     Size: =10
                     Text: ="Invoice"
-                    Visible: =varIsQA
+                    Visible: =false
                     Width: =317
                     X: =366
                     ZIndex: =2
@@ -2931,7 +2930,7 @@ InvoiceMatchingScreen As screen:
                     PaddingLeft: =15
                     Size: =10
                     Text: ="Buy"
-                    Width: =335
+                    Width: =673
                     X: =10
                     ZIndex: =3
 
@@ -2959,7 +2958,7 @@ InvoiceMatchingScreen As screen:
                                  Log_Invoice_RemittanceAddress
                             )
                         )
-                    Visible: =varIsQA
+                    Visible: =false
                     Width: =330
                     X: =353
                     Y: =20
@@ -2973,15 +2972,9 @@ InvoiceMatchingScreen As screen:
                     Height: =27
                     PaddingBottom: =3
                     PaddingTop: =3
-                    Size: =7
-                    Text: |
-                        =LookUp(
-                            OOH_Unpaid_Ref,
-                            Unpaid_Ref_Contract_ID = VAR_ContractNum_DEF,//ContractNumber_TextInput.Text,
-                            Unpaid_Ref_Pay_Address
-                        )
-                        
-                        /*If(
+                    Size: =9
+                    Text: |-
+                        =If(
                             !IsBlank(
                                 LookUp(
                                     OOH_Unpaid_Ref,
@@ -2994,14 +2987,13 @@ InvoiceMatchingScreen As screen:
                                 Unpaid_Ref_Contract_ID = VAR_ContractNum_DEF,//ContractNumber_TextInput.Text,
                                 Unpaid_Ref_Pay_Address
                             ),
-                            Last(
-                                Filter(
-                                    OOH_Unpaid_Ref,
-                                    Unpaid_Ref_Publication_Code = Log_Pub_Name.Text
-                                )
-                            ).Unpaid_Ref_Pay_Address
-                        )*/
-                    Width: =335
+                            LookUp(
+                                OOH_Predictions_Mview,
+                                Prediction_Unpaid_Contract_Id = Text(ContractNumber_TextInput.Text),//VAR_ContractNum_DEF,
+                                Prediction_Unpaid_Pay_Address
+                            )
+                        )
+                    Width: =673
                     X: =10
                     Y: =20
                     ZIndex: =5
@@ -3012,9 +3004,9 @@ InvoiceMatchingScreen As screen:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(244, 244, 244, 1)
                     Fill: =RGBA(0, 134, 208, 1)
-                    Height: =10
+                    Height: =6
                     Icon: =Icon.HorizontalLine
-                    Width: =338
+                    Width: =673
                     X: =10
                     Y: =47
                     ZIndex: =7
@@ -3027,7 +3019,7 @@ InvoiceMatchingScreen As screen:
                     Fill: =RGBA(246, 88, 16, 1)
                     Height: =10
                     Icon: =Icon.HorizontalLine
-                    Visible: =varIsQA
+                    Visible: =false
                     Width: =338
                     X: =345
                     Y: =47
@@ -5333,7 +5325,7 @@ InvoiceMatchingScreen As screen:
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderThickness: =4
             Font: =Font.Arial
-            Height: =31
+            Height: =17
             HintText: =//If(IsBlank(LookUp(FA_Interface_FA_Comments, RecordID = ID_TextInput.Text, Comment)),"Add Comment for this Record...",LookUp(Sort(FA_Interface_FA_Comments, CreateDate, Descending), RecordID = ID_TextInput.Text, Comment))
             HoverBorderColor: =RGBA(204, 204, 204, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -5348,7 +5340,7 @@ InvoiceMatchingScreen As screen:
                 =//If(!IsBlank(LookUp(FA_Interface_FA_Comments, RecordID = ID_TextInput.Text, Comment)),true,false)
                 false
             Width: =673
-            Y: =8
+            Y: =21
             ZIndex: =5
 
     NoRecordContainer As groupContainer.manualLayoutContainer:
