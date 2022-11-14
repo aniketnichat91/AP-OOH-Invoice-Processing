@@ -95,11 +95,11 @@
     "Id": "40f917f8-2116-41b2-b702-d9d877325325",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "Name": "Accounts Payable (OOH) Finance Associate App - PROD Env",
+    "Name": "Accounts Payable (OOH) Finance Associate App - (PROD)",
     "OriginatingVersion": "1.317"
   },
   "PublishInfo": {
-    "AppName": "Accounts Payable (OOH) Finance Associate App - PROD",
+    "AppName": "Accounts Payable (OOH) Finance Associate App - (PROD)",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",
