@@ -1815,12 +1815,14 @@ NRTaggingScreen As screen:
                 ZIndex: =53
 
             Dropdown1_1 As dropdown:
+                AllowEmptySelection: =true
                 BorderColor: =RGBA(179, 179, 179, 1)
                 ChevronBackground: =RGBA(211, 66, 9, 1)
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                Default: =
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2824,7 +2826,7 @@ NRTaggingScreen As screen:
                     PaddingBottom: =3
                     PaddingTop: =3
                     Size: =9
-                    Text: |
+                    Text: |-
                         =If(
                             !IsBlank(
                                 LookUp(
@@ -2838,14 +2840,12 @@ NRTaggingScreen As screen:
                                 Unpaid_Ref_Contract_ID = VAR_ContractNum_DEF,//ContractNumber_TextInput.Text,
                                 Unpaid_Ref_Pay_Address
                             ),
-                            Last(
-                                Filter(
-                                    OOH_Unpaid_Ref,
-                                    Unpaid_Ref_Publication_Code = Log_Pub_Name_1.Text
-                                )
-                            ).Unpaid_Ref_Pay_Address
+                            LookUp(
+                                OOH_Predictions_Mview,
+                                Prediction_Unpaid_Contract_Id = VAR_ContractNum_DEF,//VAR_ContractNum_DEF,
+                                Prediction_Unpaid_Pay_Address
+                            )
                         )
-                        //VAR_Remittance_Address
                     Width: =673
                     X: =10
                     Y: =20
