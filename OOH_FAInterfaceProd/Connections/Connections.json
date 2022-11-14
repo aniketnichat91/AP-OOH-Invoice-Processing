@@ -1,0 +1,384 @@
+{
+  "05091492-e41e-4c7f-8355-94d11c0d0feb": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive for Business",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1546/1.0.1546.2665/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "1ce86552-58c7-4e37-815a-e2eee8d2ed97"
+    ],
+    "id": "05091492-e41e-4c7f-8355-94d11c0d0feb"
+  },
+  "062cf368-8a13-4ed3-a174-80c0dbd2d090": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapoohdev01",
+      "privacySetting": "None",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/3a72f5d65032436ca8466fce983cd6ee",
+      "xrmConnectionReferenceLogicalName": "cr49f_SQLServerOOHAccountPayableAutomationf4cb7"
+    },
+    "datasets": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
+        "dataSources": {
+          "OOH_Agency_Master": {
+            "tableName": "[dbo].[OOH_Agency_Master]"
+          },
+          "OOH_FA_Mapping_Ref": {
+            "tableName": "[dbo].[OOH_FA_Mapping_Ref]"
+          },
+          "OOH_FA_Master": {
+            "tableName": "[dbo].[OOH_FA_Master]"
+          },
+          "OOH_Invoice_Master": {
+            "tableName": "[dbo].[OOH_Invoice_Master]"
+          },
+          "OOH_Log_Txn": {
+            "tableName": "[dbo].[OOH_Log_Txn]"
+          },
+          "OOH_Log_TXN_VIEW": {
+            "tableName": "[dbo].[OOH_Log_TXN_VIEW]"
+          },
+          "OOH_PBT_Txn": {
+            "tableName": "[dbo].[OOH_PBT_Txn]"
+          },
+          "OOH_Predictions_Mview": {
+            "tableName": "[dbo].[OOH_Predictions_Mview]"
+          },
+          "OOH_Unpaid_Ref": {
+            "tableName": "[dbo].[OOH_Unpaid_Ref]"
+          },
+          "OOH_Vendor_Master": {
+            "tableName": "[dbo].[OOH_Vendor_Master]"
+          },
+          "vw_DistinctMOSUnpaid": {
+            "tableName": "[dbo].[vw_DistinctMOSUnpaid]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "OOH_FA_Master",
+      "OOH_Log_Txn",
+      "OOH_Log_TXN_VIEW",
+      "OOH_PBT_Txn",
+      "OOH_Invoice_Master",
+      "OOH_Vendor_Master",
+      "OOH_Agency_Master",
+      "OOH_FA_Mapping_Ref",
+      "OOH_Unpaid_Ref",
+      "vw_DistinctMOSUnpaid",
+      "OOH_Predictions_Mview"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "f79aba3d-d9e3-4745-88fc-10e8aeca55dc",
+      "a0d73c56-e2ef-4042-a5da-5c0fb0a0816e",
+      "b469fb0f-86c0-4ae7-9cfd-8ab61222541b",
+      "1ce86552-58c7-4e37-815a-e2eee8d2ed97"
+    ],
+    "id": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+  },
+  "1ce86552-58c7-4e37-815a-e2eee8d2ed97": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "05091492-e41e-4c7f-8355-94d11c0d0feb": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "062cf368-8a13-4ed3-a174-80c0dbd2d090": {
+          "value": "shared_sql"
+        },
+        "workflowEntityId": {
+          "value": "b81aa121-9d38-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "27f2694d-1e2d-6ce5-1f31-994bbd691234"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_onedriveforbusiness": {
+          "value": "05091492-e41e-4c7f-8355-94d11c0d0feb"
+        },
+        "shared_sql": {
+          "value": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+        },
+        "workflowEntityId": {
+          "value": "b81aa121-9d38-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "27f2694d-1e2d-6ce5-1f31-994bbd691234"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHDownloadReportInExcel"
+    ],
+    "dependencies": {
+      "shared_onedriveforbusiness": "05091492-e41e-4c7f-8355-94d11c0d0feb",
+      "shared_sql": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+    },
+    "dependents": [],
+    "id": "1ce86552-58c7-4e37-815a-e2eee8d2ed97"
+  },
+  "861b337b-d6f7-4e33-a1ea-db9083f42717": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "919c2c8e-7ede-4ada-bfdf-14ba941c26bd": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "ffffa828-1838-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "96ea866d-a7f4-558e-c1e2-82b109d37273"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "919c2c8e-7ede-4ada-bfdf-14ba941c26bd"
+        },
+        "workflowEntityId": {
+          "value": "ffffa828-1838-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "96ea866d-a7f4-558e-c1e2-82b109d37273"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHShowPDFDetails"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "919c2c8e-7ede-4ada-bfdf-14ba941c26bd"
+    },
+    "dependents": [],
+    "id": "861b337b-d6f7-4e33-a1ea-db9083f42717"
+  },
+  "919c2c8e-7ede-4ada-bfdf-14ba941c26bd": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1610-greyhound-localization-RelayFix/1.0.1610.3091/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "fa-interface-users",
+      "fa-interface-users_1",
+      "FA Issue List",
+      "Documents"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "861b337b-d6f7-4e33-a1ea-db9083f42717"
+    ],
+    "id": "919c2c8e-7ede-4ada-bfdf-14ba941c26bd"
+  },
+  "a0d73c56-e2ef-4042-a5da-5c0fb0a0816e": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "062cf368-8a13-4ed3-a174-80c0dbd2d090": {
+          "value": "shared_sql"
+        },
+        "workflowEntityId": {
+          "value": "8573d941-fb37-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "52197c99-b42a-4e74-bb71-d5e8ca304c04"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql": {
+          "value": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+        },
+        "workflowEntityId": {
+          "value": "8573d941-fb37-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "52197c99-b42a-4e74-bb71-d5e8ca304c04"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHChangeVendorMapping"
+    ],
+    "dependencies": {
+      "shared_sql": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+    },
+    "dependents": [],
+    "id": "a0d73c56-e2ef-4042-a5da-5c0fb0a0816e"
+  },
+  "b469fb0f-86c0-4ae7-9cfd-8ab61222541b": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "062cf368-8a13-4ed3-a174-80c0dbd2d090": {
+          "value": "shared_sql_2"
+        },
+        "workflowEntityId": {
+          "value": "8673d941-fb37-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "b865faca-61b2-4da0-9ce2-ab9c5dab80f0"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql_2": {
+          "value": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+        },
+        "workflowEntityId": {
+          "value": "8673d941-fb37-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "b865faca-61b2-4da0-9ce2-ab9c5dab80f0"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHGetContractData"
+    ],
+    "dependencies": {
+      "shared_sql_2": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+    },
+    "dependents": [],
+    "id": "b469fb0f-86c0-4ae7-9cfd-8ab61222541b"
+  },
+  "e20dbbfd-3c51-4027-a82f-7bb51a489a63": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1610-greyhound-localization-RelayFix/1.0.1610.3091/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://insidemedia.sharepoint.com/sites/GMUSA-KineticFinanceAutomation": {
+        "dataSources": {
+          "Documents": {
+            "tableName": "6dce9562-419d-400c-8731-a11c04381166"
+          }
+        }
+      },
+      "https://insidemedia.sharepoint.com/sites/GRMUSA-APDIGITAL2022": {
+        "datasetOverride": {
+          "environmentVariableName": "crd99_shared_sharepointonline_1268b0adb3344df4ab0e740068aa949f",
+          "name": "https://insidemedia.sharepoint.com/sites/GRMUSA-APDIGITAL2022"
+        },
+        "dataSources": {
+          "FA Issue List": {
+            "tableName": "105ed371-cd53-4cbf-91ed-b856453b1fef",
+            "tableNameOverride": {
+              "environmentVariableName": "crd99_shared_sharepointonline_78704b85a7c74f488e61350283ad2a6c",
+              "name": "105ed371-cd53-4cbf-91ed-b856453b1fef"
+            }
+          },
+          "fa-interface-users": {
+            "tableName": "c83df553-fed6-4c3d-8c9c-e8777feec512",
+            "tableNameOverride": {
+              "environmentVariableName": "crd99_shared_sharepointonline_124f5d2273004dfea810d4111dbd6119",
+              "name": "c83df553-fed6-4c3d-8c9c-e8777feec512"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "FA Issue List",
+      "fa-interface-users",
+      "Documents"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "e20dbbfd-3c51-4027-a82f-7bb51a489a63"
+  },
+  "f79aba3d-d9e3-4745-88fc-10e8aeca55dc": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "062cf368-8a13-4ed3-a174-80c0dbd2d090": {
+          "value": "shared_sql"
+        },
+        "workflowEntityId": {
+          "value": "8473d941-fb37-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "641d2221-fd1c-45a0-a1a1-d2a956913e2c"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sql": {
+          "value": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+        },
+        "workflowEntityId": {
+          "value": "8473d941-fb37-ed11-9db1-000d3adea1ec"
+        },
+        "workflowName": {
+          "value": "641d2221-fd1c-45a0-a1a1-d2a956913e2c"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "OOHGetUntaggedFARecords"
+    ],
+    "dependencies": {
+      "shared_sql": "062cf368-8a13-4ed3-a174-80c0dbd2d090"
+    },
+    "dependents": [],
+    "id": "f79aba3d-d9e3-4745-88fc-10e8aeca55dc"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "72ef5ce4-5ab5-4ba1-85b0-460c4d2848ed",
+    "Name": "OOHDownloadReportInExcel",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "b81aa121-9d38-ed11-9db1-000d3adea1ec"
+  }
+]

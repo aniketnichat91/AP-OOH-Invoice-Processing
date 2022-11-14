@@ -1,0 +1,27 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2022-10-25T16:14:55.8420000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Vendor_Cease_Date": "Vendor_Cease_Date",
+      "Vendor_ID": "Vendor_ID",
+      "Vendor_Insertion_Date": "Vendor_Insertion_Date",
+      "Vendor_Name": "Vendor_Name",
+      "Vendor_Pub_Code": "Vendor_Pub_Code",
+      "Vendor_Pub_Name": "Vendor_Pub_Name",
+      "Vendor_Rep_Code": "Vendor_Rep_Code",
+      "Vendor_Sender_Email": "Vendor_Sender_Email",
+      "Vendor_Source_Type": "Vendor_Source_Type"
+    },
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "OOH_Vendor_Master",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

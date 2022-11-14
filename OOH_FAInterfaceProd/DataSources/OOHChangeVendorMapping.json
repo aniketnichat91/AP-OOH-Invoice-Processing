@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "e120ef4d-5048-44da-b6c3-5fc905cf50b6",
+    "Name": "OOHChangeVendorMapping",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "8573d941-fb37-ed11-9db1-000d3adea1ec"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "a225fa36-9a81-4c7c-b0c3-3ead9f9909a5",
+    "Name": "OOHShowPDFDetails",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "ffffa828-1838-ed11-9db1-000d3adea1ec"
+  }
+]

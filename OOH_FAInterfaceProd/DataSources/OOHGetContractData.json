@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "b1060bd4-795f-479e-aa28-225726400064",
+    "Name": "OOHGetContractData",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "8673d941-fb37-ed11-9db1-000d3adea1ec"
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2022-10-25T16:14:55.8420000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Unpaid_Ref_Cease_Date": "Unpaid_Ref_Cease_Date",
+      "Unpaid_Ref_CLI_Acc_Off": "Unpaid_Ref_CLI_Acc_Off",
+      "Unpaid_Ref_Client_Code": "Unpaid_Ref_Client_Code",
+      "Unpaid_Ref_Client_Name": "Unpaid_Ref_Client_Name",
+      "Unpaid_Ref_Contract_ID": "Unpaid_Ref_Contract_ID",
+      "Unpaid_Ref_Deal_ID": "Unpaid_Ref_Deal_ID",
+      "Unpaid_Ref_EST_Code": "Unpaid_Ref_EST_Code",
+      "Unpaid_Ref_ID": "Unpaid_Ref_ID",
+      "Unpaid_Ref_IDesk_Recon_Status": "Unpaid_Ref_IDesk_Recon_Status",
+      "Unpaid_Ref_Insertion_Date": "Unpaid_Ref_Insertion_Date",
+      "Unpaid_Ref_Insertion_MOS_Month": "Unpaid_Ref_Insertion_MOS_Month",
+      "Unpaid_Ref_Insertion_Order_Comment": "Unpaid_Ref_Insertion_Order_Comment",
+      "Unpaid_Ref_Insertion_Order_Comment_2": "Unpaid_Ref_Insertion_Order_Comment_2",
+      "Unpaid_Ref_Insertion_Order_Comment_3": "Unpaid_Ref_Insertion_Order_Comment_3",
+      "Unpaid_Ref_Insertion_Order_Comment_4": "Unpaid_Ref_Insertion_Order_Comment_4",
+      "Unpaid_Ref_Invoice_Comment": "Unpaid_Ref_Invoice_Comment",
+      "Unpaid_Ref_Invoice_Dollar": "Unpaid_Ref_Invoice_Dollar",
+      "Unpaid_Ref_Invoice_Number": "Unpaid_Ref_Invoice_Number",
+      "Unpaid_Ref_Office": "Unpaid_Ref_Office",
+      "Unpaid_Ref_Ordered_Net": "Unpaid_Ref_Ordered_Net",
+      "Unpaid_Ref_Paid_Net": "Unpaid_Ref_Paid_Net",
+      "Unpaid_Ref_Pay_Address": "Unpaid_Ref_Pay_Address",
+      "Unpaid_Ref_Payable_Net": "Unpaid_Ref_Payable_Net",
+      "Unpaid_Ref_Paying_Rep": "Unpaid_Ref_Paying_Rep",
+      "Unpaid_Ref_Product_Code": "Unpaid_Ref_Product_Code",
+      "Unpaid_Ref_Product_Name": "Unpaid_Ref_Product_Name",
+      "Unpaid_Ref_Publication_Code": "Unpaid_Ref_Publication_Code",
+      "Unpaid_Ref_Publication_Name": "Unpaid_Ref_Publication_Name",
+      "Unpaid_Ref_Special_Remittance_Comment": "Unpaid_Ref_Special_Remittance_Comment",
+      "Unpaid_Ref_TS_Received": "Unpaid_Ref_TS_Received",
+      "Unpaid_Ref_Upload_UniqueID": "Unpaid_Ref_Upload_UniqueID"
+    },
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "OOH_Unpaid_Ref",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
