@@ -267,7 +267,7 @@ InvoiceMatchingScreen As screen:
         SelectedColor: =RGBA(0, 0, 0, 1)
         SelectedFill: =RGBA(211, 66, 9, .2)
         Size: =9
-        Visible: =varIsQA
+        Visible: =true
         Width: =670
         X: =13
         Y: =411
@@ -1944,15 +1944,17 @@ InvoiceMatchingScreen As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(211, 66, 9, 1)
                 OnSelect: |
-                    =UpdateContext({VAR_Vendor_DEF: OOH_Prediction_Datatable.Selected.Prediction_Publication});
-                    Reset(Vendor_TextInput);
+                    =//UpdateContext({VAR_Vendor_DEF: OOH_Prediction_Datatable.Selected.Prediction_Publication});
+                    //Reset(Vendor_TextInput);
+                    UpdateContext({VAR_ContractNum_DEF: OOH_Prediction_Datatable.Selected.Prediction_Unpaid_Contract_Id});
+                    Reset(ContractNumber_TextInput);
                     UpdateContext({VAR_C_DEF: OOH_Prediction_Datatable.Selected.Prediction_C});
                     Reset(C_TextInput);
                     UpdateContext({VAR_P_DEF: OOH_Prediction_Datatable.Selected.Prediction_P});
                     Reset(P_TextInput);
                     UpdateContext({VAR_E_DEF: OOH_Prediction_Datatable.Selected.Prediction_E});
                     Reset(E_TextInput);
-                    UpdateContext({ VAR_MOS_DEF: OOH_Prediction_Datatable.Selected.Prediction_MOS });
+                    UpdateContext({ VAR_MOS_DEF: OOH_Prediction_Datatable.Selected.Prediction_MOS});
                     Reset(MOS_TextInput_initial);
                 PressedColor: =RGBA(211, 66, 9, 1)
                 PressedFill: =WhiteSmoke
@@ -1962,7 +1964,6 @@ InvoiceMatchingScreen As screen:
                 RadiusTopRight: =0
                 Size: =9
                 Text: ="MATCH >"
-                Visible: =varIsQA
                 Width: =67
                 X: =10
                 Y: =150
