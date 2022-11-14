@@ -2989,7 +2989,7 @@ InvoiceMatchingScreen As screen:
                             ),
                             LookUp(
                                 OOH_Predictions_Mview,
-                                Prediction_Unpaid_Contract_Id = Text(ContractNumber_TextInput.Text),//VAR_ContractNum_DEF,
+                                Prediction_Unpaid_Contract_Id = VAR_ContractNum_DEF,//VAR_ContractNum_DEF,
                                 Prediction_Unpaid_Pay_Address
                             )
                         )
