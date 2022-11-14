@@ -1957,7 +1957,7 @@ RecordListScreen As screen:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Fill: =If(Text(ThisItem.Log_Invoice_Date)="1900-01-01",RGBA(239, 0, 0, 0.3),RGBA(0, 0, 0, 0))
+                Fill: =If(Text(ThisItem.Log_Invoice_Date, "mm/dd/yyyy") = Text(DateValue("1900-01-01"), "mm/dd/yyyy" ),RGBA(239, 0, 0, 0.3),RGBA(0, 0, 0, 0))
                 Font: =Font.Arial
                 Height: =31
                 OnSelect: =Select(Parent)
