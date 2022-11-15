@@ -1,0 +1,5 @@
+Public Function Rename(oldname as string, newname as String)
+Sheets(oldname).Name = newname
+
+
+End Function
