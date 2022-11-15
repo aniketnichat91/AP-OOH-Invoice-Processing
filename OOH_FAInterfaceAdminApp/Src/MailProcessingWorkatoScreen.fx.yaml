@@ -77,7 +77,7 @@ MailProcessingWorkatoScreen As screen:
             BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
-            DefaultDate: =DateValue("1/8/2022","en-GB")
+            DefaultDate: =DateAdd(Now(),-7)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -139,7 +139,6 @@ MailProcessingWorkatoScreen As screen:
             BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
-            DefaultDate: =DateValue("1/8/2022","en-GB")
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -201,7 +200,6 @@ MailProcessingWorkatoScreen As screen:
             BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
-            DefaultDate: =Now()
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -415,14 +413,11 @@ MailProcessingWorkatoScreen As screen:
             Y: =52
             ZIndex: =19
 
-        Tagging_Button_1 As button:
+        btn_Download As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: |-
-                =//If(FA_Status_Checkbox.Value = true Or !IsBlank(FA_Status_Dropdown.Selected.Result),DisplayMode.Disabled,DisplayMode.Edit)
-                DisplayMode.Edit
             Fill: =RGBA(211, 66, 9, 1)
             Font: =Font.Arial
             Height: =33
@@ -434,22 +429,13 @@ MailProcessingWorkatoScreen As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10
-            Text: |-
-                =If(
-                    First(
-                        galMasterLogItems.AllItems
-                    ).Log_FA_Action_Status = "" Or First(
-                        galMasterLogItems.AllItems
-                    ).Log_FA_Action_Status=Blank(),
-                    "START TAGGING",
-                    "VIEW TAGGING"
-                )
+            Text: ="Download"
             Width: =145
             X: =1183
             Y: =10
             ZIndex: =20
 
-        Tagging_Button_2 As button:
+        btn_Reset_Filters As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -468,16 +454,7 @@ MailProcessingWorkatoScreen As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10
-            Text: |-
-                =If(
-                    First(
-                        galMasterLogItems.AllItems
-                    ).Log_FA_Action_Status = "" Or First(
-                        galMasterLogItems.AllItems
-                    ).Log_FA_Action_Status=Blank(),
-                    "START TAGGING",
-                    "VIEW TAGGING"
-                )
+            Text: ="Reset Filters"
             Width: =145
             X: =1183
             Y: =55
