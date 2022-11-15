@@ -448,7 +448,14 @@ MailProcessingWorkatoScreen As screen:
             Height: =33
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-            OnSelect: =""
+            OnSelect: |
+                =Reset(DatePicker_From_Execution_Date);
+                Reset(DatePicker_SendDate);
+                Reset(DatePicker_To_Execution_Date);
+                Reset(txt_Search_Action);
+                Reset(txt_Search_FileName);
+                Reset(txt_Search_InvoiceNumber);
+                Reset(txt_Search_VendorName);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -518,10 +525,10 @@ MailProcessingWorkatoScreen As screen:
         galNoExtraction_Txn As gallery.galleryVertical:
             BorderColor: =RGBA(131, 24, 75, 1)
             Height: =527
-            Items: |-
+            Items: |
                 =Switch(
-                        locSortColumn,
-                        "Log_Date",
+                    locSortColumn,
+                    "NoExt_File_Name",
                     Sort(
                         Filter(
                             OOH_NoExtraction_Txn,            
@@ -530,7 +537,119 @@ MailProcessingWorkatoScreen As screen:
                              txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
                              txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
                         ),
-                        NoExt_Contract_Number,
+                        NoExt_File_Name,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Invoice_Number",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Invoice_Number,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Invoice_Amount",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Invoice_Amount,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Invoice_Date",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Invoice_Date,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Record_Type",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Record_Type,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Send_Date",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Send_Date,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Sender_Mail",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Sender_Mail,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    "NoExt_Vendor_Name",
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                        ),
+                        NoExt_Vendor_Name,
                         If(
                             locSortAscending,
                             Ascending,
@@ -554,79 +673,6 @@ MailProcessingWorkatoScreen As screen:
                         )
                     )
                 )
-                    
-                /*************************/
-                /*
-                
-                    Switch(
-                        locSortColumn,
-                        "Log_Date",
-                        Sort(
-                            Filter(
-                                OOH_NoExtraction_Txn,
-                            NoExt_Contract_Number<>"",
-                               
-                               // Agency_Dropdown.Selected.Result = Blank() Or Agency = Agency_Dropdown.Selected.Result,
-                              //  RecordType_Dropdown.Selected.Result = Blank() Or Label = RecordType_Dropdown.Selected.Result,
-                              //  Is_Matched_Dropdown.Selected.Is_Matched = Blank() Or Is_Matched = Is_Matched_Dropdown.Selected.Is_Matched,
-                             //   PDF_Info_Dropdown.Selected.Result = Blank() Or PDF_Info = PDF_Info_Dropdown.Selected.Result,
-                              //  Vendor_Search.Text in Vendor Or IsBlank(Vendor_Search.Text),
-                              //  Client_Code_Search.Text in C Or IsBlank(Client_Code_Search.Text),
-                               // Invoice_Num_Search.Text in Invoice_Num Or IsBlank(Invoice_Num_Search.Text),
-                               // FA_Status_Dropdown.Selected.Result = Blank() Or FA_Status = FA_Status_Dropdown.Selected.Result,
-                               /* InboundDateAsInt >= Value(
-                                    Text(
-                                        Start_Date_DatePicker.SelectedDate,
-                                        "[$-en-US]yyyymmdd"
-                                    )
-                                ),
-                                InboundDateAsInt <= Value(
-                                    Text(
-                                        End_Date_DatePicker.SelectedDate,
-                                        "[$-en-US]yyyymmdd"
-                                    )
-                                )
-                            ),
-                            NoExt_Contract_Number,
-                            If(
-                                locSortAscending,
-                                Ascending,
-                                Descending
-                            )
-                        ),   
-                        
-                        Sort(
-                            Filter(
-                                OOH_NoExtraction_Txn,
-                                
-                               // Agency_Dropdown.Selected.Result = Blank() Or Agency = Agency_Dropdown.Selected.Result,
-                               // RecordType_Dropdown.Selected.Result = Blank() Or Label = RecordType_Dropdown.Selected.Result,
-                               // Is_Matched_Dropdown.Selected.Is_Matched = Blank() Or Is_Matched = Is_Matched_Dropdown.Selected.Is_Matched,
-                              //  PDF_Info_Dropdown.Selected.Result = Blank() Or PDF_Info = PDF_Info_Dropdown.Selected.Result,
-                               // FA_Status_Dropdown.Selected.Result = Blank() Or FA_Status = FA_Status_Dropdown.Selected.Result,
-                              ////  Vendor_Search.Text in Vendor Or IsBlank(Vendor_Search.Text),
-                               // Client_Code_Search.Text in C Or IsBlank(Client_Code_Search.Text),
-                            NoExt_Contract_Number<>"",
-                
-                                //Invoice_Num_Search.Text in Invoice_Num Or IsBlank(Invoice_Num_Search.Text),
-                               /* InboundDateAsInt >= Value(
-                                    Text(
-                                        Start_Date_DatePicker.SelectedDate,
-                                        "[$-en-US]yyyymmdd"
-                                    )
-                                ),
-                                InboundDateAsInt <= Value(
-                                    Text(
-                                        End_Date_DatePicker.SelectedDate,
-                                        "[$-en-US]yyyymmdd"
-                                    )
-                                )
-                            ),
-                            NoExt_Contract_Number,
-                            Descending
-                        )
-                    )
-                */
             Layout: =Layout.Vertical
             TemplateFill: |-
                 =//If(CheckItem.Value= true,RGBA(250,155,112,1),RGBA(0, 0, 0, 0))
@@ -912,8 +958,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Invoice_Date" 
-                        Or locSortColumn="Log_Invoice_Date" And !locSortAscending,
+                        locSortColumn<>"NoExt_File_Name" 
+                        Or locSortColumn="NoExt_File_Name" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -934,8 +980,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Validated_C" 
-                        Or locSortColumn="Log_Validated_C" And !locSortAscending,
+                        locSortColumn<>"NoExt_Invoice_Number" 
+                        Or locSortColumn="NoExt_Invoice_Number" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -956,8 +1002,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Vendor_Name" 
-                        Or locSortColumn="Vendor_Name" And !locSortAscending,
+                        locSortColumn<>"NoExt_Invoice_Amount" 
+                        Or locSortColumn="NoExt_Invoice_Amount" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -978,8 +1024,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Invoice_MOS" 
-                        Or locSortColumn="Log_Invoice_MOS" And !locSortAscending,
+                        locSortColumn<>"NoExt_Invoice_Date" 
+                        Or locSortColumn="NoExt_Invoice_Date" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -1000,8 +1046,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_InvoiceAmountAsFlt" 
-                        Or locSortColumn="Log_InvoiceAmountAsFlt" And !locSortAscending,
+                        locSortColumn<>"NoExt_Send_Date" 
+                        Or locSortColumn="NoExt_Send_Date" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -1035,8 +1081,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Invoice_Number" 
-                        Or locSortColumn="Log_Invoice_Number" And !locSortAscending,
+                        locSortColumn<>"NoExt_Record_Type" 
+                        Or locSortColumn="NoExt_Record_Type" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -1124,8 +1170,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Record_Type" 
-                        Or locSortColumn="Log_Record_Type" And !locSortAscending,
+                        locSortColumn<>"NoExt_Vendor_Name" 
+                        Or locSortColumn="NoExt_Vendor_Name" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
@@ -1174,8 +1220,8 @@ MailProcessingWorkatoScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Invoice_ContractNumber" 
-                        Or locSortColumn="Log_Invoice_ContractNumber" And !locSortAscending,
+                        locSortColumn<>"NoExt_Sender_Mail" 
+                        Or locSortColumn="NoExt_Sender_Mail" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
