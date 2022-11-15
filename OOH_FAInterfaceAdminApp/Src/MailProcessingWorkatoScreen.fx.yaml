@@ -25,7 +25,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =10
             ZIndex: =1
 
-        lbl_ As label:
+        lbl_From_Execution_Date As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -37,7 +37,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =10
             ZIndex: =3
 
-        Label19_1 As label:
+        lbl_To_Execution_Date As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -73,7 +73,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =55
             ZIndex: =12
 
-        Start_Date_DatePicker_1 As datepicker:
+        DatePicker_From_Execution_Date As datepicker:
             BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -115,7 +115,7 @@ MailProcessingWorkatoScreen As screen:
                             Text(Agency_Dropdown.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker_1.SelectedDate,
+                                DatePicker_From_Execution_Date.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
@@ -135,7 +135,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =10
             ZIndex: =13
 
-        Start_Date_DatePicker_2 As datepicker:
+        DatePicker_To_Execution_Date As datepicker:
             BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -177,7 +177,7 @@ MailProcessingWorkatoScreen As screen:
                             Text(Agency_Dropdown.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker_2.SelectedDate,
+                                DatePicker_To_Execution_Date.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
@@ -197,11 +197,11 @@ MailProcessingWorkatoScreen As screen:
             Y: =55
             ZIndex: =14
 
-        Start_Date_DatePicker_3 As datepicker:
+        DatePicker_SendDate As datepicker:
             BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
-            DefaultDate: =DateValue("1/8/2022","en-GB")
+            DefaultDate: =Now()
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -239,7 +239,7 @@ MailProcessingWorkatoScreen As screen:
                             Text(Agency_Dropdown.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker_3.SelectedDate,
+                                DatePicker_SendDate.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
@@ -259,7 +259,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =10
             ZIndex: =15
 
-        Vendor_Search_1 As text:
+        txt_Search_FileName As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -298,7 +298,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =55
             ZIndex: =16
 
-        Vendor_Search_2 As text:
+        txt_Search_Action As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -337,7 +337,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =100
             ZIndex: =17
 
-        Vendor_Search_3 As text:
+        txt_Search_InvoiceNumber As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -376,7 +376,7 @@ MailProcessingWorkatoScreen As screen:
             Y: =10
             ZIndex: =18
 
-        Vendor_Search_4 As text:
+        txt_Search_VendorName As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -541,18 +541,115 @@ MailProcessingWorkatoScreen As screen:
         galNoExtraction_Txn As gallery.galleryVertical:
             BorderColor: =RGBA(131, 24, 75, 1)
             Height: =527
-            Items: |
-                =
+            Items: |-
+                =Switch(
+                        locSortColumn,
+                        "Log_Date",
                     Sort(
                         Filter(
-                            OOH_NoExtraction_Txn,
-                            NoExt_Contract_Number<>""
-                           // Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
                         ),
                         NoExt_Contract_Number,
-                        Descending
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
+                    ),
+                    Sort(
+                        Filter(
+                            OOH_NoExtraction_Txn,            
+                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
+                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
+                            txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
+                            txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text),
+                            Text(DatePicker_SendDate.SelectedDate,"[$-en-US]yyyy-mm-dd") in NoExt_Send_Date       
+                        ),
+                        NoExt_Contract_Number,
+                        If(
+                            locSortAscending,
+                            Ascending,
+                            Descending
+                        )
                     )
+                )
+                    
+                /*************************/
+                /*
+                
+                    Switch(
+                        locSortColumn,
+                        "Log_Date",
+                        Sort(
+                            Filter(
+                                OOH_NoExtraction_Txn,
+                            NoExt_Contract_Number<>"",
+                               
+                               // Agency_Dropdown.Selected.Result = Blank() Or Agency = Agency_Dropdown.Selected.Result,
+                              //  RecordType_Dropdown.Selected.Result = Blank() Or Label = RecordType_Dropdown.Selected.Result,
+                              //  Is_Matched_Dropdown.Selected.Is_Matched = Blank() Or Is_Matched = Is_Matched_Dropdown.Selected.Is_Matched,
+                             //   PDF_Info_Dropdown.Selected.Result = Blank() Or PDF_Info = PDF_Info_Dropdown.Selected.Result,
+                              //  Vendor_Search.Text in Vendor Or IsBlank(Vendor_Search.Text),
+                              //  Client_Code_Search.Text in C Or IsBlank(Client_Code_Search.Text),
+                               // Invoice_Num_Search.Text in Invoice_Num Or IsBlank(Invoice_Num_Search.Text),
+                               // FA_Status_Dropdown.Selected.Result = Blank() Or FA_Status = FA_Status_Dropdown.Selected.Result,
+                               /* InboundDateAsInt >= Value(
+                                    Text(
+                                        Start_Date_DatePicker.SelectedDate,
+                                        "[$-en-US]yyyymmdd"
+                                    )
+                                ),
+                                InboundDateAsInt <= Value(
+                                    Text(
+                                        End_Date_DatePicker.SelectedDate,
+                                        "[$-en-US]yyyymmdd"
+                                    )
+                                )
+                            ),
+                            NoExt_Contract_Number,
+                            If(
+                                locSortAscending,
+                                Ascending,
+                                Descending
+                            )
+                        ),   
+                        
+                        Sort(
+                            Filter(
+                                OOH_NoExtraction_Txn,
+                                
+                               // Agency_Dropdown.Selected.Result = Blank() Or Agency = Agency_Dropdown.Selected.Result,
+                               // RecordType_Dropdown.Selected.Result = Blank() Or Label = RecordType_Dropdown.Selected.Result,
+                               // Is_Matched_Dropdown.Selected.Is_Matched = Blank() Or Is_Matched = Is_Matched_Dropdown.Selected.Is_Matched,
+                              //  PDF_Info_Dropdown.Selected.Result = Blank() Or PDF_Info = PDF_Info_Dropdown.Selected.Result,
+                               // FA_Status_Dropdown.Selected.Result = Blank() Or FA_Status = FA_Status_Dropdown.Selected.Result,
+                              ////  Vendor_Search.Text in Vendor Or IsBlank(Vendor_Search.Text),
+                               // Client_Code_Search.Text in C Or IsBlank(Client_Code_Search.Text),
+                            NoExt_Contract_Number<>"",
+                
+                                //Invoice_Num_Search.Text in Invoice_Num Or IsBlank(Invoice_Num_Search.Text),
+                               /* InboundDateAsInt >= Value(
+                                    Text(
+                                        Start_Date_DatePicker.SelectedDate,
+                                        "[$-en-US]yyyymmdd"
+                                    )
+                                ),
+                                InboundDateAsInt <= Value(
+                                    Text(
+                                        End_Date_DatePicker.SelectedDate,
+                                        "[$-en-US]yyyymmdd"
+                                    )
+                                )
+                            ),
+                            NoExt_Contract_Number,
+                            Descending
+                        )
+                    )
+                */
             Layout: =Layout.Vertical
             TemplateFill: |-
                 =//If(CheckItem.Value= true,RGBA(250,155,112,1),RGBA(0, 0, 0, 0))
@@ -572,9 +669,7 @@ MailProcessingWorkatoScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: |-
-                    =//ThisItem.NoExt_Send_Date
-                    If(IsBlank(ThisItem.NoExt_Send_Date),"",Text(ThisItem.NoExt_Send_Date, "yyyy-mm-dd"))
+                Text: =Left(ThisItem.NoExt_Send_Date, 10)
                 Width: =70
                 X: =940
                 ZIndex: =14
@@ -650,7 +745,7 @@ MailProcessingWorkatoScreen As screen:
                 Size: =8
                 Text: |
                     =ThisItem.NoExt_Invoice_Number
-                Tooltip: =//Text(Concatenate(ThisItem.Log_Validated_C, If(!IsBlank(ThisItem.Log_Validated_P), "/", ""), ThisItem.Log_Validated_P, If(!IsBlank(ThisItem.Log_Validated_E), "/", ""), ThisItem.Log_Validated_E))
+                Tooltip: =ThisItem.NoExt_Invoice_Number
                 Width: =110
                 Wrap: =false
                 X: =255
@@ -664,11 +759,12 @@ MailProcessingWorkatoScreen As screen:
                 Font: =Font.Arial
                 Height: =31
                 OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
                 Size: =8
                 Text: =ThisItem.NoExt_File_Name
-                Tooltip: =//ThisItem.Log_FA_Interface_Log_Status
-                Width: =130
-                X: =102
+                Tooltip: =ThisItem.NoExt_File_Name
+                Width: =170
+                X: =80
                 ZIndex: =21
 
             CheckItem_2 As checkbox:
@@ -735,8 +831,8 @@ MailProcessingWorkatoScreen As screen:
                 Size: =8
                 Text: =ThisItem.NoExt_ID
                 Tooltip: =//ThisItem.Log_FA_Interface_Log_Status
-                Width: =80
-                X: =30
+                Width: =60
+                X: =10
                 ZIndex: =30
 
             lbl_NoExt_Vendor_Name As label:
@@ -1076,7 +1172,7 @@ MailProcessingWorkatoScreen As screen:
                 Size: =8
                 Text: ="ID"
                 Width: =60
-                X: =45
+                X: =15
                 ZIndex: =21
 
             lbl_Header_NoExt_Sender_Mail As label:
