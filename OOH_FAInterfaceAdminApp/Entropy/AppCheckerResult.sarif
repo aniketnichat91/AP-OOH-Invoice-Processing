@@ -7154,19 +7154,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.TextInput1_4.AccessibleLabel"
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Sender_Mail_2.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.TextInput1_4.AccessibleLabel",
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Sender_Mail_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Sender_Mail_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Sender_Mail_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Sender_Mail_2.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "FormRecTrainingScreen",
-                "type": "FormRecTrainingScreen.FilterContainer_4.TextInput1_4"
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Sender_Mail_2"
               }
             }
           ],
@@ -7184,19 +7214,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker1_3.AccessibleLabel"
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.SelectAll_Checkbox_4.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker1_3.AccessibleLabel",
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.SelectAll_Checkbox_4.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "AccessibleLabel",
+                "member": "FocusedBorderThickness",
                 "module": "FormRecTrainingScreen",
-                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker1_3"
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.SelectAll_Checkbox_4"
               }
             }
           ],
@@ -7206,38 +7236,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker2_3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker2_3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "FormRecTrainingScreen",
-                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker2_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -7694,6 +7694,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_File_Name_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_File_Name_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_File_Name_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_File_Name_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_File_Name_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_File_Name_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.AccessibleLabel"
                 }
               ],
@@ -7797,6 +7857,486 @@
                 "member": "AccessibleLabel",
                 "module": "LogsScreen",
                 "type": "LogsScreen.FilterContainer_5.txt_Search_UserName"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Number_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Number_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Number_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Number_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Number_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Number_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Amount_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Amount_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Amount_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Amount_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Amount_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Amount_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Date_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Date_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Date_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Date_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Date_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Invoice_Date_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Record_Type_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Record_Type_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Record_Type_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Record_Type_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Record_Type_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Record_Type_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Send_Date_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Send_Date_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Send_Date_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Send_Date_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Send_Date_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.RecordLogHeaderContainer_4.Sort_NoExt_Send_Date_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.CheckItem_4.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.CheckItem_4.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.CheckItem_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_From_Insertion_Date_FRT.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_From_Insertion_Date_FRT.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker_From_Insertion_Date_FRT"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_To_Insertion_Date_FRT.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_To_Insertion_Date_FRT.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker_To_Insertion_Date_FRT"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_Insertion_Date_FRT.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_Insertion_Date_FRT.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker_Insertion_Date_FRT"
               }
             }
           ],
@@ -8473,17 +9013,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "FormRecTrainingScreen.ResetCheck"
+                  "fullyQualifiedName": "FormRecTrainingScreen._numberOfSelectedRecords"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "FormRecTrainingScreen.ResetCheck",
+                  "fullyQualifiedName": "FormRecTrainingScreen._numberOfSelectedRecords",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "ResetCheck",
+                "member": "_numberOfSelectedRecords",
                 "module": "FormRecTrainingScreen",
                 "type": "FormRecTrainingScreen"
               }
@@ -8497,6 +9037,186 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.initGalleryLoading"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.initGalleryLoading",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "initGalleryLoading",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.varCountFARecords"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.varCountFARecords",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varCountFARecords",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_Insertion_Date_FRT.BorderColor"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_Insertion_Date_FRT.BorderColor",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "BorderColor",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker_Insertion_Date_FRT"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_To_Insertion_Date_FRT.BorderColor"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_To_Insertion_Date_FRT.BorderColor",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "BorderColor",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker_To_Insertion_Date_FRT"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_From_Insertion_Date_FRT.BorderColor"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.FilterContainer_4.DatePicker_From_Insertion_Date_FRT.BorderColor",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "BorderColor",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.FilterContainer_4.DatePicker_From_Insertion_Date_FRT"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1.Items",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "FormRecTrainingScreen",
+                "type": "FormRecTrainingScreen.GalleryContainer_4.galLog_Txn_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 4
         }
       ],
       "tool": {
