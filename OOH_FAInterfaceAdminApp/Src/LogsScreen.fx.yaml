@@ -18,7 +18,7 @@ LogsScreen As screen:
             Font: =Font.Arial
             Height: =34
             Size: =20
-            Text: ="Logs Journey"
+            Text: ="Logs"
             Width: =210
             X: =65
             Y: =12
@@ -361,7 +361,7 @@ LogsScreen As screen:
         Y: =203
         ZIndex: =3
 
-        galNoExtraction_Txn_1 As gallery.galleryVertical:
+        galLog_Txn As gallery.galleryVertical:
             BorderColor: =RGBA(131, 24, 75, 1)
             Height: =527
             Items: |
@@ -414,7 +414,7 @@ LogsScreen As screen:
                 =//If(CheckItem.Value= true,RGBA(250,155,112,1),RGBA(0, 0, 0, 0))
                 //If(CheckItem_2.Value= true,RGBA(250,155,112,1), If(ThisItem.Log_Record_Type = "Duplicate", RGBA(7, 0, 0, 0.11), RGBA(0, 0, 0, 0)))
             TemplateSize: =31
-            Visible: =If(CountRows(galNoExtraction_Txn_1.AllItems) = 0,false,true)
+            Visible: =If(CountRows(galLog_Txn.AllItems) = 0,false,true)
             Width: =1366
             Y: =38
             ZIndex: =3
@@ -541,7 +541,7 @@ LogsScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galNoExtraction_Txn_1.AllItems,
+                                    galLog_Txn.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -553,7 +553,7 @@ LogsScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galNoExtraction_Txn_1.AllItems,
+                                    galLog_Txn.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -830,7 +830,7 @@ LogsScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galNoExtraction_Txn_1.AllItems,
+                                    galLog_Txn.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -842,7 +842,7 @@ LogsScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galNoExtraction_Txn_1.AllItems,
+                                    galLog_Txn.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -853,7 +853,7 @@ LogsScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galNoExtraction_Txn_1.AllItems,
+                                    galLog_Txn.AllItems,
                                     CheckItem.Value = true
                                 )
                             )

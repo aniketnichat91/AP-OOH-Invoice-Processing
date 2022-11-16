@@ -7694,19 +7694,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.AccessibleLabel"
+                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.AccessibleLabel",
+                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "LogsScreen",
-                "type": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1"
+                "type": "LogsScreen.GalleryContainer_3.galLog_Txn"
               }
             }
           ],
@@ -7724,19 +7724,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.TabIndex"
+                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.TabIndex",
+                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "LogsScreen",
-                "type": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1"
+                "type": "LogsScreen.GalleryContainer_3.galLog_Txn"
               }
             }
           ],
@@ -7754,19 +7754,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.CheckItem_3.FocusedBorderThickness"
+                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.CheckItem_3.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.CheckItem_3.FocusedBorderThickness",
+                  "fullyQualifiedName": "LogsScreen.GalleryContainer_3.galLog_Txn.CheckItem_3.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "LogsScreen",
-                "type": "LogsScreen.GalleryContainer_3.galNoExtraction_Txn_1.CheckItem_3"
+                "type": "LogsScreen.GalleryContainer_3.galLog_Txn.CheckItem_3"
               }
             }
           ],
