@@ -376,9 +376,9 @@ FormRecTrainingScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =Left(ThisItem.Log_ID, 10)
-                Width: =70
-                X: =1050
+                Text: =ThisItem.Log_Invoice_Amount
+                Width: =100
+                X: =1030
                 ZIndex: =14
 
             lbl_NoExt_Record_Type_2 As label:
@@ -390,9 +390,9 @@ FormRecTrainingScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.Log_ID
+                Text: =ThisItem.Log_Invoice_Number
                 Width: =140
-                X: =820
+                X: =834
                 ZIndex: =15
 
             lbl_NoExt_Contract_Number_2 As label:
@@ -404,7 +404,7 @@ FormRecTrainingScreen As screen:
                 Height: =29
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.Log_ID
+                Text: =ThisItem.Log_Invoice_Date
                 Tooltip: =//ThisItem.Log_Invoice_Number
                 Width: =100
                 X: =695
@@ -423,10 +423,10 @@ FormRecTrainingScreen As screen:
                 Text: =ThisItem.Log_ID
                 Tooltip: =//If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
                 Width: =80
-                X: =590
+                X: =534
                 ZIndex: =17
 
-            lbl_NoExt_Invoice_Amount_2 As label:
+            lbl_Log_Vendor_ID As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -435,44 +435,12 @@ FormRecTrainingScreen As screen:
                 Height: =29
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.Log_ID
-                Width: =100
-                X: =450
+                Text: =ThisItem.Log_Vendor_ID
+                Tooltip: =ThisItem.Log_Vendor_ID
+                Width: =80
+                X: =371
                 Y: =2
                 ZIndex: =18
-
-            lbl_NoExt_Invoice_Number_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =31
-                OnSelect: =Select(Parent)
-                Size: =8
-                Text: |
-                    =ThisItem.Log_ID
-                Tooltip: =ThisItem.Log_ID
-                Width: =110
-                Wrap: =false
-                X: =290
-                ZIndex: =19
-
-            lbl_NoExt_File_Name_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =31
-                OnSelect: =Select(Parent)
-                Overflow: =Overflow.Scroll
-                Size: =8
-                Text: =ThisItem.Log_ID
-                Tooltip: =ThisItem.Log_ID
-                Width: =170
-                X: =80
-                ZIndex: =21
 
             CheckItem_4 As checkbox:
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -523,58 +491,34 @@ FormRecTrainingScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.Log_ID
-                X: =1175
+                Text: =ThisItem.Log_Invoice_ContractNumber
+                X: =1189
                 ZIndex: =24
 
-            lbl_NoExtGal_ID_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
+            btn_Sp_File_Path As button:
                 Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FontWeight: =FontWeight.Semibold
                 Height: =31
-                OnSelect: =Select(Parent)
+                HoverColor: =RGBA(0, 94, 146, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: =Launch(ThisItem.Log_SP_FilePath)
+                PressedFill: =RGBA(0, 0, 0, 0)
                 Size: =8
-                Text: =ThisItem.Log_ID
-                Tooltip: =//ThisItem.Log_FA_Interface_Log_Status
-                Width: =60
+                Text: =ThisItem.Log_Invoice_FileName
+                Tooltip: =ThisItem.Log_SP_FilePath
+                Width: =300
                 X: =10
-                ZIndex: =30
+                ZIndex: =31
 
         RecordLogHeaderContainer_4 As groupContainer.manualLayoutContainer:
             Fill: =White
             Height: =38
             Width: =1366
             ZIndex: =4
-
-            lbl_Header_NoExt_Invoice_Number_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =38
-                OnSelect: =
-                Size: =8
-                Text: ="Table Name"
-                Width: =90
-                X: =290
-                ZIndex: =2
-
-            lbl_Header_NoExt_File_Name_2 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =38
-                OnSelect: =
-                Size: =8
-                Text: ="Log ID"
-                Width: =60
-                X: =140
-                ZIndex: =3
 
             lbl_Header_NoExt_Send_Date_2 As label:
                 Align: =Align.Center
@@ -585,7 +529,7 @@ FormRecTrainingScreen As screen:
                 Height: =36
                 OnSelect: =
                 Size: =8
-                Text: ="Updated Value"
+                Text: ="Invoice Amount"
                 Width: =100
                 X: =1027
                 ZIndex: =4
@@ -599,12 +543,12 @@ FormRecTrainingScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Type"
+                Text: ="Log ID"
                 Width: =70
-                X: =580
+                X: =538
                 ZIndex: =6
 
-            lbl_Header_NoExt_Invoice_Amount_2 As label:
+            lbl_Header_Log_Vendor_ID As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -613,55 +557,11 @@ FormRecTrainingScreen As screen:
                 Height: =35
                 OnSelect: =
                 Size: =8
-                Text: ="User Name"
-                Width: =90
-                X: =440
+                Text: ="Vendor ID"
+                Width: =70
+                X: =371
                 Y: =3
                 ZIndex: =7
-
-            Sort_NoExt_File_Name_2 As icon.ArrowsUpDown:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(246, 88, 16, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =20
-                Icon: |-
-                    =If(
-                        locSortColumn<>"NoExt_File_Name" 
-                        Or locSortColumn="NoExt_File_Name" And !locSortAscending,
-                        Icon.ChevronDown, Icon.ChevronUp
-                    )
-                OnSelect: |-
-                    =UpdateContext({
-                        locSortColumn: "NoExt_File_Name",
-                        locSortAscending: locSortColumn<>"NoExt_File_Name" Or !locSortAscending
-                    })
-                Width: =20
-                X: =200
-                Y: =10
-                ZIndex: =9
-
-            Sort_NoExt_Invoice_Number_2 As icon.ArrowsUpDown:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(246, 88, 16, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =20
-                Icon: |-
-                    =If(
-                        locSortColumn<>"NoExt_Invoice_Number" 
-                        Or locSortColumn="NoExt_Invoice_Number" And !locSortAscending,
-                        Icon.ChevronDown, Icon.ChevronUp
-                    )
-                OnSelect: |-
-                    =UpdateContext({
-                        locSortColumn: "NoExt_Invoice_Number",
-                        locSortAscending: locSortColumn<>"NoExt_Invoice_Number" Or !locSortAscending
-                    })
-                Width: =20
-                X: =380
-                Y: =10
-                ZIndex: =11
 
             Sort_NoExt_Invoice_Amount_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -677,11 +577,11 @@ FormRecTrainingScreen As screen:
                     )
                 OnSelect: |-
                     =UpdateContext({
-                        locSortColumn: "NoExt_Invoice_Amount",
-                        locSortAscending: locSortColumn<>"NoExt_Invoice_Amount" Or !locSortAscending
+                        locSortColumn: "Log_Vendor_ID",
+                        locSortAscending: locSortColumn<>"Log_Vendor_ID" Or !locSortAscending
                     })
                 Width: =20
-                X: =530
+                X: =441
                 Y: =10
                 ZIndex: =12
 
@@ -699,11 +599,11 @@ FormRecTrainingScreen As screen:
                     )
                 OnSelect: |-
                     =UpdateContext({
-                        locSortColumn: "NoExt_Invoice_Date",
-                        locSortAscending: locSortColumn<>"NoExt_Invoice_Date" Or !locSortAscending
+                        locSortColumn: "Log_ID",
+                        locSortAscending: locSortColumn<>"Log_ID" Or !locSortAscending
                     })
                 Width: =20
-                X: =650
+                X: =594
                 Y: =10
                 ZIndex: =13
 
@@ -721,8 +621,8 @@ FormRecTrainingScreen As screen:
                     )
                 OnSelect: |-
                     =UpdateContext({
-                        locSortColumn: "NoExt_Send_Date",
-                        locSortAscending: locSortColumn<>"NoExt_Send_Date" Or !locSortAscending
+                        locSortColumn: "Log_Invoice_Amount",
+                        locSortAscending: locSortColumn<>"Log_Invoice_Amount" Or !locSortAscending
                     })
                 Width: =20
                 X: =1130
@@ -737,9 +637,9 @@ FormRecTrainingScreen As screen:
                 Font: =Font.Arial
                 Height: =35
                 Size: =8
-                Text: ="Orignal Value"
-                Width: =80
-                X: =830
+                Text: ="Invoice Number"
+                Width: =120
+                X: =837
                 ZIndex: =16
 
             Sort_NoExt_Record_Type_2 As icon.ChevronDown:
@@ -756,11 +656,11 @@ FormRecTrainingScreen As screen:
                     )
                 OnSelect: |-
                     =UpdateContext({
-                        locSortColumn: "NoExt_Record_Type",
-                        locSortAscending: locSortColumn<>"NoExt_Record_Type" Or !locSortAscending
+                        locSortColumn: "Log_Invoice_Number",
+                        locSortAscending: locSortColumn<>"Log_Invoice_Number" Or !locSortAscending
                     })
                 Width: =20
-                X: =920
+                X: =941
                 Y: =10
                 ZIndex: =17
 
@@ -825,8 +725,8 @@ FormRecTrainingScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="ID"
-                Width: =60
+                Text: ="SP File Path"
+                Width: =300
                 X: =15
                 ZIndex: =21
 
@@ -839,9 +739,8 @@ FormRecTrainingScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Time Stamp"
-                Width: =80
-                X: =1205
+                Text: ="Invoice Contract Number"
+                X: =1187
                 ZIndex: =23
 
             Sort_NoExt_Sender_Mail_2 As icon.ArrowsUpDown:
@@ -858,12 +757,12 @@ FormRecTrainingScreen As screen:
                     )
                 OnSelect: |-
                     =UpdateContext({
-                        locSortColumn: "NoExt_Sender_Mail",
-                        locSortAscending: locSortColumn<>"NoExt_Sender_Mail" Or !locSortAscending
+                        locSortColumn: "Log_Invoice_ContractNumber",
+                        locSortAscending: locSortColumn<>"Log_Invoice_ContractNumber" Or !locSortAscending
                     })
                 Width: =20
-                X: =1285
-                Y: =8
+                X: =1327
+                Y: =10
                 ZIndex: =24
 
             lbl_Header_NoExt_Contract_Number_2 As label:
@@ -875,10 +774,32 @@ FormRecTrainingScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Field Name"
+                Text: ="Invoice Date"
                 Width: =100
                 X: =690
                 ZIndex: =25
+
+            Sort_NoExt_Invoice_Date_3 As icon.ArrowsUpDown:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =20
+                Icon: |-
+                    =If(
+                        locSortColumn<>"NoExt_Invoice_Date" 
+                        Or locSortColumn="NoExt_Invoice_Date" And !locSortAscending,
+                        Icon.ChevronDown, Icon.ChevronUp
+                    )
+                OnSelect: |-
+                    =UpdateContext({
+                        locSortColumn: "Log_Invoice_Date",
+                        locSortAscending: locSortColumn<>"Log_Invoice_Date" Or !locSortAscending
+                    })
+                Width: =20
+                X: =776
+                Y: =10
+                ZIndex: =26
 
     FlyoutMenuComponent_7 As FlyoutMenuComponent:
         CustomMenuItems: =colLeftNavMenu
