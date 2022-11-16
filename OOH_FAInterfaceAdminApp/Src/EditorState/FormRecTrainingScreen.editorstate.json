@@ -3814,7 +3814,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Header_NoExt_Contract_Number_2",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4474,7 +4474,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Header_NoExt_Invoice_Date_2",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4789,7 +4789,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Header_NoExt_Record_Type_2",
-      "ParentIndex": 4,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5114,7 +5114,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Header_NoExt_Send_Date_2",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5444,7 +5444,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Header_NoExt_Sender_Mail_2",
-      "ParentIndex": 6,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7464,7 +7464,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Log_Vendor_ID",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9079,7 +9079,7 @@
         },
         {
           "Category": "Behavior",
-          "PropertyName": "OnSelect",
+          "PropertyName": "OnCheck",
           "RuleProviderType": "Unknown"
         },
         {
@@ -9089,7 +9089,7 @@
         },
         {
           "Category": "Behavior",
-          "PropertyName": "OnCheck",
+          "PropertyName": "OnSelect",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -9184,7 +9184,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Sort_NoExt_Invoice_Amount_2",
-      "ParentIndex": 8,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9411,7 +9411,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Sort_NoExt_Invoice_Date_2",
-      "ParentIndex": 9,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9858,7 +9858,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Sort_NoExt_Record_Type_2",
-      "ParentIndex": 11,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10078,7 +10078,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Sort_NoExt_Send_Date_2",
-      "ParentIndex": 12,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10298,7 +10298,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Sort_NoExt_Sender_Mail_2",
-      "ParentIndex": 13,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
