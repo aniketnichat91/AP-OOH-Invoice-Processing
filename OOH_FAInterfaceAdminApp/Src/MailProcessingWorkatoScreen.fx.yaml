@@ -510,17 +510,11 @@ MailProcessingWorkatoScreen As screen:
             Y: =12
             ZIndex: =2
 
-    FlyoutMenuComponent_5 As FlyoutMenuComponent:
-        CustomMenuItems: =colLeftNavMenu
-        Height: =FlyoutMenuComponent_5.MenuHeight
-        Width: =FlyoutMenuComponent_5.MenuWidth
-        ZIndex: =3
-
     GalleryContainer_2 As groupContainer.manualLayoutContainer:
         Height: =565
         Width: =1366
         Y: =203
-        ZIndex: =4
+        ZIndex: =3
 
         galNoExtraction_Txn As gallery.galleryVertical:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -1247,4 +1241,10 @@ MailProcessingWorkatoScreen As screen:
                 Width: =100
                 X: =660
                 ZIndex: =25
+
+    FlyoutMenuComponent_5 As FlyoutMenuComponent:
+        CustomMenuItems: =colLeftNavMenu
+        Height: =FlyoutMenuComponent_5.MenuHeight
+        Width: =FlyoutMenuComponent_5.MenuWidth
+        ZIndex: =4
 
