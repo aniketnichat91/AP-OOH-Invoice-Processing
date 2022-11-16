@@ -367,7 +367,7 @@ FormRecTrainingScreen As screen:
             Y: =38
             ZIndex: =3
 
-            lbl_NoExt_Send_Date_2 As label:
+            lbl_Log_Invoice_Amount As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -381,7 +381,7 @@ FormRecTrainingScreen As screen:
                 X: =1030
                 ZIndex: =14
 
-            lbl_NoExt_Record_Type_2 As label:
+            lbl_Log_Invoice_Number As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -395,7 +395,7 @@ FormRecTrainingScreen As screen:
                 X: =834
                 ZIndex: =15
 
-            lbl_NoExt_Contract_Number_2 As label:
+            lbl_Log_Invoice_Date As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -411,7 +411,7 @@ FormRecTrainingScreen As screen:
                 Y: =2
                 ZIndex: =16
 
-            lbl_NoExt_Invoice_Date_2 As label:
+            lbl_Log_ID As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -442,47 +442,7 @@ FormRecTrainingScreen As screen:
                 Y: =2
                 ZIndex: =18
 
-            CheckItem_4 As checkbox:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
-                CheckboxSize: =25
-                Color: =RGBA(0, 0, 0, 1)
-                Default: =varAllCheckboxSelected
-                FocusedBorderColor: =White
-                FocusedBorderThickness: =0
-                Height: =22
-                HoverColor: =RGBA(131, 24, 75, 1)
-                OnCheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galLog_Txn_1.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                OnSelect: =
-                OnUncheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galLog_Txn_1.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                Reset: =ResetCheck
-                Size: =8
-                Text: =
-                Visible: =false
-                Width: =40
-                ZIndex: =22
-
-            lbl_NoExt_Sender_Mail_2 As label:
+            lbl_Log_Invoice_ContractNumber As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -495,7 +455,7 @@ FormRecTrainingScreen As screen:
                 X: =1189
                 ZIndex: =24
 
-            btn_Sp_File_Path As button:
+            btn_Log_Sp_FilePath As button:
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
