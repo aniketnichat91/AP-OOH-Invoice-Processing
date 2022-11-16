@@ -68,7 +68,7 @@ LogsScreen As screen:
             Y: =66
             ZIndex: =3
 
-        lbl_Search_FileName_1 As label:
+        lbl_Search_UserName As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -303,7 +303,7 @@ LogsScreen As screen:
             Y: =68
             ZIndex: =9
 
-        btn_Download_1 As button:
+        btn_SelectDatetoExport_LJ As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -319,13 +319,13 @@ LogsScreen As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10
-            Text: ="Download"
+            Text: ="Select Date to Export"
             Width: =145
             X: =830
             Y: =16
             ZIndex: =13
 
-        btn_Reset_Filters_1 As button:
+        btn_Reset_Filters_LJ As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -338,15 +338,12 @@ LogsScreen As screen:
             Height: =33
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-            OnSelect: |
+            OnSelect: |+
                 =Reset(DatePicker_From_Insertion_Date_LJ);
                 Reset(DatePicker_log_Date);
                 Reset(DatePicker_To_Insertion_Date_LJ);
-                Reset(txt_search_user_Name);
-                
                 Reset(txt_Search_UserName);
-                Reset(txt_Search_InvoiceNumber_1);
-                Reset(txt_Search_VendorName_1);
+                
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -373,45 +370,11 @@ LogsScreen As screen:
                     "NoExt_File_Name",
                     Sort(
                         Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                            OOH_Log_Txn,            
+                            txt_Search_UserName.Text in Log_Invoice_Sender_Name Or IsBlank(txt_Search_UserName.Text)     
+                           //        Text(DatePicker_SendDate.SelectedDate,"[$-en-US]yyyy-mm-dd") in Log_Insertion_Date                
                         ),
-                        NoExt_File_Name,
-                        If(
-                            locSortAscending,
-                            Ascending,
-                            Descending
-                        )
-                    ),
-                    "NoExt_Invoice_Number",
-                    Sort(
-                        Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
-                        ),
-                        NoExt_Invoice_Number,
-                        If(
-                            locSortAscending,
-                            Ascending,
-                            Descending
-                        )
-                    ),
-                    "NoExt_Invoice_Amount",
-                    Sort(
-                        Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
-                        ),
-                        NoExt_Invoice_Amount,
+                        Log_Insertion_Date,
                         If(
                             locSortAscending,
                             Ascending,
@@ -421,77 +384,11 @@ LogsScreen As screen:
                     "NoExt_Invoice_Date",
                     Sort(
                         Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
+                            OOH_Log_Txn,            
+                           txt_Search_UserName.Text in Log_Invoice_Sender_Name Or IsBlank(txt_Search_UserName.Text)       
+                           //     Text(DatePicker_SendDate.SelectedDate,"[$-en-US]yyyy-mm-dd") in Log_Insertion_Date          
                         ),
-                        NoExt_Invoice_Date,
-                        If(
-                            locSortAscending,
-                            Ascending,
-                            Descending
-                        )
-                    ),
-                    "NoExt_Record_Type",
-                    Sort(
-                        Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
-                        ),
-                        NoExt_Record_Type,
-                        If(
-                            locSortAscending,
-                            Ascending,
-                            Descending
-                        )
-                    ),
-                    "NoExt_Send_Date",
-                    Sort(
-                        Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
-                        ),
-                        NoExt_Send_Date,
-                        If(
-                            locSortAscending,
-                            Ascending,
-                            Descending
-                        )
-                    ),
-                    "NoExt_Sender_Mail",
-                    Sort(
-                        Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
-                        ),
-                        NoExt_Sender_Mail,
-                        If(
-                            locSortAscending,
-                            Ascending,
-                            Descending
-                        )
-                    ),
-                    "NoExt_Vendor_Name",
-                    Sort(
-                        Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                             txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                             txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text)            
-                        ),
-                        NoExt_Vendor_Name,
+                        Log_Insertion_Date,
                         If(
                             locSortAscending,
                             Ascending,
@@ -500,14 +397,11 @@ LogsScreen As screen:
                     ),
                     Sort(
                         Filter(
-                            OOH_NoExtraction_Txn,            
-                            txt_Search_FileName.Text in NoExt_File_Name Or IsBlank(txt_Search_FileName.Text),
-                            //txt_Search_Action.Text in ******* Or IsBlank(txt_Search_Action.Text),
-                            txt_Search_InvoiceNumber.Text in NoExt_Invoice_Number Or IsBlank(txt_Search_InvoiceNumber.Text),
-                            txt_Search_VendorName.Text in NoExt_Vendor_Name Or IsBlank(txt_Search_VendorName.Text),
-                            Text(DatePicker_SendDate.SelectedDate,"[$-en-US]yyyy-mm-dd") in NoExt_Send_Date       
+                            OOH_Log_Txn,            
+                            txt_Search_UserName.Text in Log_Invoice_Sender_Name Or IsBlank(txt_Search_UserName.Text)
+                    //        Text(DatePicker_SendDate.SelectedDate,"[$-en-US]yyyy-mm-dd") in Log_Insertion_Date          
                         ),
-                        NoExt_Contract_Number,
+                        Log_Insertion_Date,
                         If(
                             locSortAscending,
                             Ascending,
@@ -534,9 +428,9 @@ LogsScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =Left(ThisItem.NoExt_Send_Date, 10)
+                Text: =Left(ThisItem.Log_ID, 10)
                 Width: =70
-                X: =940
+                X: =1050
                 ZIndex: =14
 
             lbl_NoExt_Record_Type_1 As label:
@@ -548,9 +442,9 @@ LogsScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.NoExt_Record_Type
+                Text: =ThisItem.Log_ID
                 Width: =140
-                X: =780
+                X: =820
                 ZIndex: =15
 
             lbl_NoExt_Contract_Number_1 As label:
@@ -562,10 +456,10 @@ LogsScreen As screen:
                 Height: =29
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.NoExt_Contract_Number
+                Text: =ThisItem.Log_ID
                 Tooltip: =//ThisItem.Log_Invoice_Number
                 Width: =100
-                X: =660
+                X: =695
                 Y: =2
                 ZIndex: =16
 
@@ -578,10 +472,10 @@ LogsScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.NoExt_Invoice_Date
+                Text: =ThisItem.Log_ID
                 Tooltip: =//If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
                 Width: =80
-                X: =550
+                X: =590
                 ZIndex: =17
 
             lbl_NoExt_Invoice_Amount_1 As label:
@@ -593,9 +487,9 @@ LogsScreen As screen:
                 Height: =29
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.NoExt_Invoice_Amount
+                Text: =ThisItem.Log_ID
                 Width: =100
-                X: =410
+                X: =450
                 Y: =2
                 ZIndex: =18
 
@@ -609,11 +503,11 @@ LogsScreen As screen:
                 OnSelect: =Select(Parent)
                 Size: =8
                 Text: |
-                    =ThisItem.NoExt_Invoice_Number
-                Tooltip: =ThisItem.NoExt_Invoice_Number
+                    =ThisItem.Log_ID
+                Tooltip: =ThisItem.Log_ID
                 Width: =110
                 Wrap: =false
-                X: =255
+                X: =290
                 ZIndex: =19
 
             lbl_NoExt_File_Name_1 As label:
@@ -626,8 +520,8 @@ LogsScreen As screen:
                 OnSelect: =Select(Parent)
                 Overflow: =Overflow.Scroll
                 Size: =8
-                Text: =ThisItem.NoExt_File_Name
-                Tooltip: =ThisItem.NoExt_File_Name
+                Text: =ThisItem.Log_ID
+                Tooltip: =ThisItem.Log_ID
                 Width: =170
                 X: =80
                 ZIndex: =21
@@ -681,8 +575,8 @@ LogsScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.NoExt_Sender_Mail
-                X: =1040
+                Text: =ThisItem.Log_ID
+                X: =1175
                 ZIndex: =24
 
             lbl_NoExtGal_ID_1 As label:
@@ -694,25 +588,11 @@ LogsScreen As screen:
                 Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
-                Text: =ThisItem.NoExt_ID
+                Text: =ThisItem.Log_ID
                 Tooltip: =//ThisItem.Log_FA_Interface_Log_Status
                 Width: =60
                 X: =10
                 ZIndex: =30
-
-            lbl_NoExt_Vendor_Name_1 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =31
-                OnSelect: =Select(Parent)
-                Size: =8
-                Text: =ThisItem.NoExt_Vendor_Name
-                Width: =120
-                X: =1200
-                ZIndex: =32
 
         RecordLogHeaderContainer_3 As groupContainer.manualLayoutContainer:
             Fill: =White
@@ -729,9 +609,9 @@ LogsScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Invoice Number"
+                Text: ="Table Name"
                 Width: =90
-                X: =260
+                X: =290
                 ZIndex: =2
 
             lbl_Header_NoExt_File_Name_1 As label:
@@ -743,7 +623,7 @@ LogsScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="File Name"
+                Text: ="Log ID"
                 Width: =60
                 X: =140
                 ZIndex: =3
@@ -757,10 +637,9 @@ LogsScreen As screen:
                 Height: =36
                 OnSelect: =
                 Size: =8
-                Text: ="Send Date"
-                Width: =70
-                X: =930
-                Y: =2
+                Text: ="Updated Value"
+                Width: =100
+                X: =1027
                 ZIndex: =4
 
             lbl_Header_NoExt_Invoice_Date_1 As label:
@@ -772,9 +651,9 @@ LogsScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Invoice Date"
+                Text: ="Type"
                 Width: =70
-                X: =550
+                X: =580
                 ZIndex: =6
 
             lbl_Header_NoExt_Invoice_Amount_1 As label:
@@ -786,9 +665,9 @@ LogsScreen As screen:
                 Height: =35
                 OnSelect: =
                 Size: =8
-                Text: ="Invoice Amount"
+                Text: ="User Name"
                 Width: =90
-                X: =410
+                X: =440
                 Y: =3
                 ZIndex: =7
 
@@ -832,7 +711,7 @@ LogsScreen As screen:
                         locSortAscending: locSortColumn<>"NoExt_Invoice_Number" Or !locSortAscending
                     })
                 Width: =20
-                X: =350
+                X: =380
                 Y: =10
                 ZIndex: =11
 
@@ -854,7 +733,7 @@ LogsScreen As screen:
                         locSortAscending: locSortColumn<>"NoExt_Invoice_Amount" Or !locSortAscending
                     })
                 Width: =20
-                X: =500
+                X: =530
                 Y: =10
                 ZIndex: =12
 
@@ -876,7 +755,7 @@ LogsScreen As screen:
                         locSortAscending: locSortColumn<>"NoExt_Invoice_Date" Or !locSortAscending
                     })
                 Width: =20
-                X: =620
+                X: =650
                 Y: =10
                 ZIndex: =13
 
@@ -898,7 +777,7 @@ LogsScreen As screen:
                         locSortAscending: locSortColumn<>"NoExt_Send_Date" Or !locSortAscending
                     })
                 Width: =20
-                X: =1000
+                X: =1130
                 Y: =10
                 ZIndex: =14
 
@@ -910,9 +789,9 @@ LogsScreen As screen:
                 Font: =Font.Arial
                 Height: =35
                 Size: =8
-                Text: ="Record Type"
+                Text: ="Orignal Value"
                 Width: =80
-                X: =800
+                X: =830
                 ZIndex: =16
 
             Sort_NoExt_Record_Type_1 As icon.ChevronDown:
@@ -933,7 +812,7 @@ LogsScreen As screen:
                         locSortAscending: locSortColumn<>"NoExt_Record_Type" Or !locSortAscending
                     })
                 Width: =20
-                X: =890
+                X: =920
                 Y: =10
                 ZIndex: =17
 
@@ -989,43 +868,6 @@ LogsScreen As screen:
                 Width: =35
                 ZIndex: =18
 
-            lbl_Header_NoExt_Vendor_Name_1 As label:
-                Align: =Align.Center
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =Font.Arial
-                Height: =36
-                OnSelect: =
-                Size: =8
-                Text: ="Vendor Name"
-                Width: =80
-                X: =1220
-                Y: =2
-                ZIndex: =19
-
-            Sort_NoExt_Vendor_Name_1 As icon.ArrowsUpDown:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                Color: =RGBA(246, 88, 16, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(244, 244, 244, 1)
-                Height: =20
-                Icon: |-
-                    =If(
-                        locSortColumn<>"NoExt_Vendor_Name" 
-                        Or locSortColumn="NoExt_Vendor_Name" And !locSortAscending,
-                        Icon.ChevronDown, Icon.ChevronUp
-                    )
-                OnSelect: |-
-                    =UpdateContext({
-                        locSortColumn: "NoExt_Vendor_Name",
-                        locSortAscending: locSortColumn<>"NoExt_Vendor_Name" Or !locSortAscending
-                    })
-                Width: =20
-                X: =1300
-                Y: =10
-                ZIndex: =20
-
             lbl_Header_NoExt_ID_1 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -1049,9 +891,9 @@ LogsScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Sender_Mail"
+                Text: ="Time Stamp"
                 Width: =80
-                X: =1070
+                X: =1205
                 ZIndex: =23
 
             Sort_NoExt_Sender_Mail_1 As icon.ArrowsUpDown:
@@ -1072,7 +914,7 @@ LogsScreen As screen:
                         locSortAscending: locSortColumn<>"NoExt_Sender_Mail" Or !locSortAscending
                     })
                 Width: =20
-                X: =1150
+                X: =1285
                 Y: =8
                 ZIndex: =24
 
@@ -1085,9 +927,9 @@ LogsScreen As screen:
                 Height: =38
                 OnSelect: =
                 Size: =8
-                Text: ="Contract Number"
+                Text: ="Field Name"
                 Width: =100
-                X: =660
+                X: =690
                 ZIndex: =25
 
     FlyoutMenuComponent_8 As FlyoutMenuComponent:
