@@ -609,7 +609,7 @@ InvoiceMatchingScreen As screen:
                 DisabledFill: =RGBA(128, 128, 128, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = ""),
+                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )

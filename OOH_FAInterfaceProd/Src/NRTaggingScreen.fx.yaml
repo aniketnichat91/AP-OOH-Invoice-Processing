@@ -589,9 +589,9 @@ NRTaggingScreen As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(255, 255, 255, 1)
                 DisabledFill: =RGBA(128, 128, 128, 1)
-                DisplayMode: |
+                DisplayMode: |-
                     =If(
-                        (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = ""),
+                        (IsBlank(C_TextInput_1.Text) Or C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or Checkbox_Amount_1.Value = false Or Checkbox_Invoice_1.Value = false Or Checkbox_MOS_1.Value = false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
