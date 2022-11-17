@@ -69,7 +69,7 @@ FormRecTrainingScreen As screen:
             ZIndex: =3
 
         DatePicker_From_Insertion_Date_FRT As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =If(DatePicker_From_Insertion_Date_FRT.SelectedDate < DatePicker_To_Insertion_Date_FRT.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DefaultDate: =DateAdd(Now(),-7)
@@ -84,42 +84,7 @@ FormRecTrainingScreen As screen:
             HoverDateFill: =RGBA(255, 211, 205, 1)
             IconBackground: =RGBA(211, 66, 9, 1)
             IsEditable: =true
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
-                
-                UpdateContext(
-                    {
-                        varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
-                            If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
-                            "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
-                            ),
-                            Text(
-                                DatePicker_From_Insertion_Date_FRT.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            ),
-                            Text(
-                                End_Date_DatePicker.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            )
-                        ).countfarecords
-                    }
-                )
+            OnChange: =""
             PaddingLeft: =5
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
@@ -131,7 +96,7 @@ FormRecTrainingScreen As screen:
             ZIndex: =5
 
         DatePicker_To_Insertion_Date_FRT As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =If(DatePicker_From_Insertion_Date_FRT.SelectedDate < DatePicker_To_Insertion_Date_FRT.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -145,42 +110,7 @@ FormRecTrainingScreen As screen:
             HoverDateFill: =RGBA(255, 211, 205, 1)
             IconBackground: =RGBA(211, 66, 9, 1)
             IsEditable: =true
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
-                
-                UpdateContext(
-                    {
-                        varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
-                            If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
-                            "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
-                            ),
-                            Text(
-                                DatePicker_To_Insertion_Date_FRT.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            ),
-                            Text(
-                                End_Date_DatePicker.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            )
-                        ).countfarecords
-                    }
-                )
+            OnChange: =""
             PaddingLeft: =5
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
@@ -192,7 +122,7 @@ FormRecTrainingScreen As screen:
             ZIndex: =6
 
         DatePicker_Insertion_Date_FRT As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =Color.Gray
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -206,42 +136,7 @@ FormRecTrainingScreen As screen:
             HoverDateFill: =RGBA(255, 211, 205, 1)
             IconBackground: =RGBA(211, 66, 9, 1)
             IsEditable: =true
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
-                
-                UpdateContext(
-                    {
-                        varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
-                            If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
-                            "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
-                            ),
-                            Text(
-                                DatePicker_Insertion_Date_FRT.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            ),
-                            Text(
-                                End_Date_DatePicker.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            )
-                        ).countfarecords
-                    }
-                )
+            OnChange: =""
             PaddingLeft: =5
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
@@ -623,58 +518,6 @@ FormRecTrainingScreen As screen:
                 X: =941
                 Y: =10
                 ZIndex: =17
-
-            SelectAll_Checkbox_4 As checkbox:
-                BorderColor: =RGBA(246, 88, 16, 1)
-                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
-                CheckboxSize: =25
-                Color: =RGBA(0, 0, 0, 1)
-                FocusedBorderColor: =White
-                FocusedBorderThickness: =0
-                Height: =37
-                HoverColor: =RGBA(131, 24, 75, 1)
-                OnCheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galLog_Txn_1.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                    UpdateContext({varAllCheckboxSelected: true});
-                OnSelect: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galLog_Txn_1.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                OnUncheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galLog_Txn_1.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                    UpdateContext({varAllCheckboxSelected: false});
-                PaddingLeft: =5
-                Reset: =ResetCheck
-                Size: =13
-                Text: =
-                Visible: =false
-                Width: =35
-                ZIndex: =18
 
             lbl_Header_NoExt_ID_2 As label:
                 Align: =Align.Center

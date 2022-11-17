@@ -74,7 +74,7 @@ MailProcessingWorkatoScreen As screen:
             ZIndex: =12
 
         DatePicker_From_Execution_Date As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =If(DatePicker_From_Execution_Date.SelectedDate < DatePicker_To_Execution_Date.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DefaultDate: =DateAdd(Now(),-7)
@@ -89,42 +89,7 @@ MailProcessingWorkatoScreen As screen:
             HoverDateFill: =RGBA(255, 211, 205, 1)
             IconBackground: =RGBA(211, 66, 9, 1)
             IsEditable: =true
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
-                
-                UpdateContext(
-                    {
-                        varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
-                            If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
-                            "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
-                            ),
-                            Text(
-                                DatePicker_From_Execution_Date.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            ),
-                            Text(
-                                End_Date_DatePicker.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            )
-                        ).countfarecords
-                    }
-                )
+            OnChange: =""
             PaddingLeft: =5
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
@@ -136,7 +101,7 @@ MailProcessingWorkatoScreen As screen:
             ZIndex: =13
 
         DatePicker_To_Execution_Date As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =If(DatePicker_From_Execution_Date.SelectedDate < DatePicker_To_Execution_Date.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -150,42 +115,7 @@ MailProcessingWorkatoScreen As screen:
             HoverDateFill: =RGBA(255, 211, 205, 1)
             IconBackground: =RGBA(211, 66, 9, 1)
             IsEditable: =true
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
-                
-                UpdateContext(
-                    {
-                        varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
-                            If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
-                            "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
-                            ),
-                            Text(
-                                DatePicker_To_Execution_Date.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            ),
-                            Text(
-                                End_Date_DatePicker.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            )
-                        ).countfarecords
-                    }
-                )
+            OnChange: =""
             PaddingLeft: =5
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
@@ -197,7 +127,7 @@ MailProcessingWorkatoScreen As screen:
             ZIndex: =14
 
         DatePicker_SendDate As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =Color.Gray
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -211,42 +141,7 @@ MailProcessingWorkatoScreen As screen:
             HoverDateFill: =RGBA(255, 211, 205, 1)
             IconBackground: =RGBA(211, 66, 9, 1)
             IsEditable: =true
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
-                
-                UpdateContext(
-                    {
-                        varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
-                            If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
-                            "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
-                            ),
-                            Text(
-                                DatePicker_SendDate.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            ),
-                            Text(
-                                End_Date_DatePicker.SelectedDate,
-                                "[$-en-US]yyyy-mm-dd"
-                            )
-                        ).countfarecords
-                    }
-                )
+            OnChange: =""
             PaddingLeft: =5
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
@@ -273,21 +168,7 @@ MailProcessingWorkatoScreen As screen:
             HoverBorderColor: =RGBA(230, 230, 230, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
+            OnChange: =""
             OnSelect: |
                 =
             Size: =10
@@ -312,21 +193,7 @@ MailProcessingWorkatoScreen As screen:
             HoverBorderColor: =RGBA(230, 230, 230, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
+            OnChange: =""
             OnSelect: |
                 =
             Size: =10
@@ -351,21 +218,7 @@ MailProcessingWorkatoScreen As screen:
             HoverBorderColor: =RGBA(230, 230, 230, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
+            OnChange: =""
             OnSelect: |
                 =
             Size: =10
@@ -390,21 +243,7 @@ MailProcessingWorkatoScreen As screen:
             HoverBorderColor: =RGBA(230, 230, 230, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
-            OnChange: |-
-                =UpdateContext({initGalleryLoading: false});
-                UpdateContext(
-                    {
-                        _numberOfSelectedRecords: CountRows(
-                            Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
-                            )
-                        )
-                    }
-                );
-                UpdateContext({varAllCheckboxSelected: false});
-                UpdateContext({ResetCheck: true});
-                UpdateContext({ResetCheck: false});
+            OnChange: =""
             OnSelect: |
                 =
             Size: =10
@@ -784,46 +623,6 @@ MailProcessingWorkatoScreen As screen:
                 X: =80
                 ZIndex: =21
 
-            CheckItem_2 As checkbox:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
-                CheckboxSize: =25
-                Color: =RGBA(0, 0, 0, 1)
-                Default: =varAllCheckboxSelected
-                FocusedBorderColor: =White
-                FocusedBorderThickness: =0
-                Height: =22
-                HoverColor: =RGBA(131, 24, 75, 1)
-                OnCheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galNoExtraction_Txn.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                OnSelect: =
-                OnUncheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galNoExtraction_Txn.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                Reset: =ResetCheck
-                Size: =8
-                Text: =
-                Visible: =false
-                Width: =40
-                ZIndex: =22
-
             lbl_NoExt_Sender_Mail As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -1088,58 +887,6 @@ MailProcessingWorkatoScreen As screen:
                 X: =890
                 Y: =10
                 ZIndex: =17
-
-            SelectAll_Checkbox_2 As checkbox:
-                BorderColor: =RGBA(246, 88, 16, 1)
-                CheckboxBorderColor: =RGBA(246, 88, 16, 1)
-                CheckboxSize: =25
-                Color: =RGBA(0, 0, 0, 1)
-                FocusedBorderColor: =White
-                FocusedBorderThickness: =0
-                Height: =37
-                HoverColor: =RGBA(131, 24, 75, 1)
-                OnCheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galNoExtraction_Txn.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                    UpdateContext({varAllCheckboxSelected: true});
-                OnSelect: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galNoExtraction_Txn.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                OnUncheck: |
-                    =UpdateContext(
-                        {
-                            _numberOfSelectedRecords: CountRows(
-                                Filter(
-                                    galNoExtraction_Txn.AllItems,
-                                    CheckItem.Value = true
-                                )
-                            )
-                        }
-                    );
-                    UpdateContext({varAllCheckboxSelected: false});
-                PaddingLeft: =5
-                Reset: =ResetCheck
-                Size: =13
-                Text: =
-                Visible: =false
-                Width: =35
-                ZIndex: =18
 
             lbl_Header_NoExt_Vendor_Name As label:
                 Align: =Align.Center

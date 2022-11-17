@@ -115,10 +115,6 @@
     "MailProcessingWorkatoScreen",
     "DMLOperationsUpdateScreen",
     "FormRecTrainingScreen",
-    "LogsScreen",
-    "Old_LoginScreen",
-    "Old_FailScreen",
-    "Old_RecordListScreen",
-    "Old_InvoiceMatchingScreen"
+    "LogsScreen"
   ]
 }
