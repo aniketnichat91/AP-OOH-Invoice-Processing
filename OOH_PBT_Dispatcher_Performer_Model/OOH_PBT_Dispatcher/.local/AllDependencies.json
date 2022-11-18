@@ -9199,9 +9199,9 @@
     "restore": {
       "projectUniqueName": "Main_Dispatcher",
       "projectName": "Main_Dispatcher",
-      "projectPath": "D:\\OOH_PBT_Desptcher\\Main_Dispatcher\\.local",
+      "projectPath": "D:\\OOH_PBT_Desptcher\\OOH_PBT_Dispatcher\\.local",
       "packagesPath": "C:\\Users\\aniketni\\.nuget\\packages\\",
-      "outputPath": "D:\\OOH_PBT_Desptcher\\Main_Dispatcher\\.local"
+      "outputPath": "D:\\OOH_PBT_Desptcher\\OOH_PBT_Dispatcher\\.local"
     },
     "frameworks": {
       "net461": {

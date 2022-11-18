@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1301,3733</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1301,3954</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Duplicate_Tagged_Invoices_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -72,9 +72,17 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Duplicate_Tagged_Invoices" sap:VirtualizedContainerService.HintSize="1311,3568" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Duplicate_Tagged_Invoices" sap:VirtualizedContainerService.HintSize="1311,3789" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="conectionString" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_duplicatedata" />
@@ -88,15 +96,16 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:DatabaseConnect DatabaseConnection="[conectionString]" DisplayName="Connect to database" sap:VirtualizedContainerService.HintSize="1269,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="[in_connectionString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1269,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Sucessfully connect with Database &quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="1269,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[query_duplicate]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">["Select * From master_log Where PDF_Info Like 'duplicate' and FA_Status like 'tag' and UpdatedBy Is Not null And Tag_Status Is null And Tag_Date Is null and vendor not like 'unknown' and  convert(date,UpdatedDate) &gt;= convert(date,dateadd(DAY,-10,getdate())) and Record_Status is null and invoice_Num &lt;&gt;'' order by Log_Date desc"]</InArgument>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["Select a.* From ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID  left join OOH_FA_Master ofm  on ofm.FA_ID=a.Log_FA_ID left join OOH_Vendor_Master ovm on ovm.Vendor_ID=a.Log_Vendor_ID Where a.Log_Record_Type Like 'duplicate' and a.Log_FA_Action_Status like 'tag' and ofm.FA_Email_ID Is Not null And a.Log_FA_Action_Status Is null And Log_Insertion_Date Is null and ovm.Vendor_Name not like 'unknown' and  convert(date,a.Log_FA_Update_Date) &gt;= convert(date,dateadd(DAY,-10,getdate()))  and a.Log_Invoice_Number &lt;&gt;'' order by a.Log_Insertion_Date desc"]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1269,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[query_duplicate]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1269,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[query_duplicate]" />
     <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_duplicatedata]" DisplayName="Run query" ExistingDbConnection="[conectionString]" sap:VirtualizedContainerService.HintSize="1269,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[query_duplicate]">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -109,7 +118,7 @@
             <OutArgument x:TypeArguments="sd:DataTable">[dt_dupdata]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="sd:DataTable">[dt_duplicatedata.AsEnumerable().GroupBy(Function(a) a.Field(of string)(“invoice_Num”).ToString).Select(Function(b) b.First()).CopyToDatatable()]</InArgument>
+            <InArgument x:TypeArguments="sd:DataTable">[dt_duplicatedata.AsEnumerable().GroupBy(Function(a) a.Field(of string)(“Log_Invoice_Number”).ToString).Select(Function(b) b.First()).CopyToDatatable()]</InArgument>
           </Assign.Value>
         </Assign>
       </TryCatch.Try>
@@ -145,15 +154,15 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <If Condition="[dt_dupdata.Rows.Count&gt;0]" DisplayName="check If in datatable dt_duplicatedata records are available or not" sap:VirtualizedContainerService.HintSize="1269,2721" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[dt_dupdata.Rows.Count&gt;0]" DisplayName="check If in datatable dt_duplicatedata records are available or not" sap:VirtualizedContainerService.HintSize="1269,2781" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_dupdata]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1233,2544" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_dupdata]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1233,2604" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="duplirow" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1199,2424" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1199,2484" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataTable" Name="dt_new_ignor_manual" />
                   <Variable x:TypeArguments="x:String" Name="id" />
@@ -173,11 +182,11 @@
                     <OutArgument x:TypeArguments="x:String">[query_new]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["select * from master_log where Invoice_Num like '"+duplirow("Invoice_Num").ToString.Trim+"' and Record_Status is null and (fa_status like 'ignore' or fa_status like 'manual') and PDF_Info like 'new'"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["select * from OOH_Log_Txn where Log_Invoice_Number like '"+duplirow("Log_Invoice_Number").ToString.Trim+"' and (Log_FA_Action_Status like 'ignore' or Log_FA_Action_Status like 'manual') and Log_Record_Type like 'new'"]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <WriteLine DisplayName="invoice number" sap:VirtualizedContainerService.HintSize="1157,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[duplirow(&quot;Invoice_Num&quot;).ToString]" />
-                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1157,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[query_new]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1157,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[duplirow(&quot;Log_Invoice_Number&quot;).ToString]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1157,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[query_new]" />
                 <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_new_ignor_manual]" DisplayName="Run query" ExistingDbConnection="[conectionString]" sap:VirtualizedContainerService.HintSize="1157,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="[query_new]">
                   <ui:ExecuteQuery.Parameters>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -191,7 +200,7 @@
                           <OutArgument x:TypeArguments="x:String">[id]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[duplirow("ID").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[duplirow("Log_ID").ToString]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -199,7 +208,7 @@
                           <OutArgument x:TypeArguments="x:String">[Invoice_Number]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[duplirow("Invoice_Num").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[duplirow("Log_Invoice_Number").ToString]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -207,7 +216,7 @@
                           <OutArgument x:TypeArguments="x:String">[PDF_Infom]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[duplirow("PDF_Info").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[duplirow("Log_Record_Type").ToString]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -215,7 +224,7 @@
                           <OutArgument x:TypeArguments="x:String">[FA_Statused]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[duplirow("FA_Status").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[duplirow("Log_FA_Action_Status").ToString]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
@@ -236,7 +245,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[dt_new_ignor_manual(0)(&quot;PDF_Info&quot;).ToString.tolower.Contains(&quot;new&quot;)  And (dt_new_ignor_manual(0)(&quot;fa_status&quot;).ToString.tolower.Contains(&quot;ignore&quot;) or dt_new_ignor_manual(0)(&quot;fa_status&quot;).ToString.tolower.Contains(&quot;manual&quot;))]" sap:VirtualizedContainerService.HintSize="514,1421" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If Condition="[dt_new_ignor_manual(0)(&quot;Log_Record_Type&quot;).ToString.tolower.Contains(&quot;new&quot;)  And (dt_new_ignor_manual(0)(&quot;Log_FA_Action_Status&quot;).ToString.tolower.Contains(&quot;ignore&quot;) or dt_new_ignor_manual(0)(&quot;Log_FA_Action_Status&quot;).ToString.tolower.Contains(&quot;manual&quot;))]" DisplayName="Check If  Log_Record_Type=new And Log_FA_Action_Status=ignore/manual" sap:VirtualizedContainerService.HintSize="514,1421" sap2010:WorkflowViewState.IdRef="If_4">
                         <If.Then>
                           <Sequence sap:VirtualizedContainerService.HintSize="478,1244" sap2010:WorkflowViewState.IdRef="Sequence_12">
                             <sap:WorkflowViewStateService.ViewState>
@@ -322,7 +331,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[duplirow(&quot;FA_Status&quot;).ToString.tolower.Equals(&quot;tag&quot;) and duplirow(&quot;PDF_Info&quot;).ToString.tolower.Equals(&quot;duplicate&quot;)]" DisplayName="check If fa_stutus is null or empty" sap:VirtualizedContainerService.HintSize="514,825" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If Condition="[duplirow(&quot;Log_FA_Action_Status&quot;).ToString.tolower.Equals(&quot;tag&quot;) and duplirow(&quot;Log_Record_Type&quot;).ToString.tolower.Equals(&quot;duplicate&quot;)]" DisplayName="check If Log_FA_Action_Status=tag and Log_Record_Type=duplicate" sap:VirtualizedContainerService.HintSize="514,825" sap2010:WorkflowViewState.IdRef="If_3">
                         <If.Then>
                           <Sequence sap:VirtualizedContainerService.HintSize="478,648" sap2010:WorkflowViewState.IdRef="Sequence_13">
                             <sap:WorkflowViewStateService.ViewState>

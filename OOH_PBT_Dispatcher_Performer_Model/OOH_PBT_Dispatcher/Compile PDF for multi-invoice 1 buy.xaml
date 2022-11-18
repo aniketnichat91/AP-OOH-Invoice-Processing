@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>975,6716</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1016,6776</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Compile_PDF_for_multi_invoice_1_buy_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -95,10 +95,11 @@
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Compile_PDF_for_multi_invoice_1_buy" sap:VirtualizedContainerService.HintSize="985,6551" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Compile_PDF_for_multi_invoice_1_buy" sap:VirtualizedContainerService.HintSize="985,6611" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtRegEx" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arRegExResult" />
@@ -242,15 +243,15 @@
         <InArgument x:TypeArguments="x:String" xml:space="preserve">["Select * From OOH_Log_Txn a Where EXISTS (Select * From OOH_PBT_Txn b Where a.Log_ID = b.PBT_Log_ID  and b.PBT_Tagged is Null and a.Log_Invoice_Number like '"+argLeadingInvNum+"')"]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="943,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[varquery]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="943,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[varquery]" />
     <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtUnCompiledInvoices]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="943,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="[varquery]">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <If Condition="[dtCompilationStatus.rows.Count = 0 and dtUnCompiledInvoices.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="943,3505" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[dtCompilationStatus.rows.Count = 0 and dtUnCompiledInvoices.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="943,3535" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="907,3328" sap2010:WorkflowViewState.IdRef="Sequence_27">
+        <Sequence sap:VirtualizedContainerService.HintSize="907,3358" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtLeadingInvoice" />
           </Sequence.Variables>
@@ -264,10 +265,10 @@
               <OutArgument x:TypeArguments="x:String">[varquery]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String" xml:space="preserve">["Select * From OOH_Log_Txn a Where EXISTS (Select * From OOH_PBT_Txn b Where a.Log_ID = b.PBT_Log_ID  And b.PBT_Tagged = 1 and Log_Invoice_Number like '"+argLeadingInvNum+"')"]</InArgument>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">["Select a.* From OOH_Log_Txn a Where EXISTS (Select b.* From OOH_PBT_Txn b Where a.Log_ID = b.PBT_Log_ID  And b.PBT_Tagged = 1 and a.Log_Invoice_Number like '"+argLeadingInvNum+"')"]</InArgument>
             </Assign.Value>
           </Assign>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="865,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[varquery]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="865,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[varquery]" />
           <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtLeadingInvoice]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="865,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" Sql="[varquery]">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -465,7 +466,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Sequence - for GPC Sharepoint" sap:VirtualizedContainerService.HintSize="736,2024" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <Sequence DisplayName="Sequence - for GPC Sharepoint" sap:VirtualizedContainerService.HintSize="736,520" sap2010:WorkflowViewState.IdRef="Sequence_26">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

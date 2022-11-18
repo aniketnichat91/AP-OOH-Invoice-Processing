@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1646,10884</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1734,12110</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dispatcher_queue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -52,7 +52,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -85,9 +85,12 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1656,10719" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence sap:VirtualizedContainerService.HintSize="1744,11945" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="FA_Log_Folder_Exists" />
       <Variable x:TypeArguments="x:String" Name="strInvName" />
@@ -97,8 +100,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:PathExists DisplayName="Path Exists" Exists="[FA_Log_Folder_Exists]" sap:VirtualizedContainerService.HintSize="1614,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_Log_file_folder_path_main]" PathType="Folder" />
-    <If Condition="[FA_Log_Folder_Exists]" sap:VirtualizedContainerService.HintSize="1614,448" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:PathExists DisplayName="Path Exists" Exists="[FA_Log_Folder_Exists]" sap:VirtualizedContainerService.HintSize="1702,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_Log_file_folder_path_main]" PathType="Folder" />
+    <If Condition="[FA_Log_Folder_Exists]" sap:VirtualizedContainerService.HintSize="1702,448" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -120,8 +123,8 @@
         <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[in_Log_file_folder_path_main]" />
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1614,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;FA Log Folder created&quot;]" />
-    <Sequence DisplayName="Dispatcher_queue" sap:VirtualizedContainerService.HintSize="1614,9879" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1702,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;FA Log Folder created&quot;]" />
+    <Sequence DisplayName="Dispatcher_queue" sap:VirtualizedContainerService.HintSize="1702,11105" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
         <Variable x:TypeArguments="x:String" Name="Log_FileDate_Main" />
@@ -140,7 +143,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap:VirtualizedContainerService.HintSize="1572,2322" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence sap:VirtualizedContainerService.HintSize="1660,2322" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="dtFANames" />
         </Sequence.Variables>
@@ -151,7 +154,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="771,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="System.Data.SqlClient" ConnectionString="Data Source=sqlsv-automation-us-dev.database.windows.net;Initial Catalog=testdatabase;Persist Security Info=True;User ID=cybagedev01;Password=NJViaR4jAv" />
-        <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtFANames]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="771,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="select distinct Finance_Associate from master_log">
+        <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtFANames]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="771,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="select distinct ofm.FA_Name from OOH_FA_Master ofm left join OOH_Log_Txn a on ofm.FA_ID=a.Log_FA_ID ">
           <ui:ExecuteQuery.Parameters>
             <scg:Dictionary x:TypeArguments="x:String, Argument" />
           </ui:ExecuteQuery.Parameters>
@@ -161,7 +164,7 @@
             <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
               <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
                 <ui:FilterOperationArgument.Column>
-                  <InArgument x:TypeArguments="x:String">["Finance_Associate"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">["FA_Name"]</InArgument>
                 </ui:FilterOperationArgument.Column>
                 <ui:FilterOperationArgument.Operand>
                   <InArgument x:TypeArguments="x:String">["Erin"]</InArgument>
@@ -307,7 +310,7 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:ForEachRow>
       </Sequence>
-      <Assign sap:VirtualizedContainerService.HintSize="1572,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign sap:VirtualizedContainerService.HintSize="1660,60" sap2010:WorkflowViewState.IdRef="Assign_7">
         <Assign.To>
           <OutArgument x:TypeArguments="s:String[]">[arrLogFilePath]</OutArgument>
         </Assign.To>
@@ -315,14 +318,14 @@
           <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_Log_file_folder_path_main)]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ReadRange AddHeaders="True" DataTable="[DT2]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1572,87" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="[argTemplateLogFile]">
+      <ui:ReadRange AddHeaders="True" DataTable="[DT2]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1660,87" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="[argTemplateLogFile]">
         <ui:ReadRange.Range>
           <InArgument x:TypeArguments="x:String">
             <Literal x:TypeArguments="x:String" Value="" />
           </InArgument>
         </ui:ReadRange.Range>
       </ui:ReadRange>
-      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1572,375" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrLogFilePath]">
+      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1660,375" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrLogFilePath]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -349,12 +352,12 @@
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
-      <ui:FilterDataTable DataTable="[DT2]" DisplayName="Filter Data Table" sap:VirtualizedContainerService.HintSize="1572,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[DT1]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[DT2]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1660,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[DT1]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("FA Status")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("Log_FA_Action_Status")]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">["TAG"]</InArgument>
@@ -362,7 +365,7 @@
             </ui:FilterOperationArgument>
             <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("PDF_Info")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("Log_Record_Type")]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">["New"]</InArgument>
@@ -370,7 +373,7 @@
             </ui:FilterOperationArgument>
             <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTEQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("Paid_Unpaid")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("Log_Paid_Unpaid")]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">["Paid"]</InArgument>
@@ -384,12 +387,12 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <ui:FilterDataTable DataTable="[DT2]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1572,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[DT2]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[DT2]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1660,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[DT2]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("PDF_Info")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("Log_Record_Type")]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">["New"]</InArgument>
@@ -397,7 +400,7 @@
             </ui:FilterOperationArgument>
             <ui:FilterOperationArgument BooleanOperator="Or" Operator="EQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("PDF_Info")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT2.Columns("Log_Record_Type")]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">["Duplicate"]</InArgument>
@@ -411,8 +414,8 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1572,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Number of Records found &quot;+DT1.Rows.Count.ToString]" />
-      <Assign sap:VirtualizedContainerService.HintSize="1572,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1660,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Number of Records found &quot;+DT1.Rows.Count.ToString]" />
+      <Assign sap:VirtualizedContainerService.HintSize="1660,60" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[intQueueCounter]</OutArgument>
         </Assign.To>
@@ -420,12 +423,12 @@
           <InArgument x:TypeArguments="x:Int32">0</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:FilterDataTable DataTable="[DT1]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="1572,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_5" OutputDataTable="[DT1]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[DT1]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="1660,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_5" OutputDataTable="[DT1]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT1.Columns("C")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT1.Columns("Log_Validated_C")]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">[""]</InArgument>
@@ -433,7 +436,7 @@
             </ui:FilterOperationArgument>
             <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="Or" Operator="EMPTY">
               <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="sd:DataColumn">[DT1.Columns("C")]</InArgument>
+                <InArgument x:TypeArguments="sd:DataColumn">[DT1.Columns("Log_Validated_C")]</InArgument>
               </ui:FilterOperationArgument.Column>
             </ui:FilterOperationArgument>
           </scg:List>
@@ -444,14 +447,14 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1572,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Number of Records found &quot;+DT1.Rows.Count.ToString]" />
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1572,5522" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1660,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Number of Records found &quot;+DT1.Rows.Count.ToString]" />
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1660,5582" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1538,5402" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1626,5462" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="strInvComment" />
               </Sequence.Variables>
@@ -460,9 +463,9 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1496,5310" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1584,5370" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <TryCatch.Try>
-                  <Sequence sap:VirtualizedContainerService.HintSize="1458,5083" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence sap:VirtualizedContainerService.HintSize="1546,5143" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd:DataTable" Name="dtRecord" />
                     </Sequence.Variables>
@@ -471,28 +474,28 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1416,61" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;select * from master_log where Tag_Status is Null and Tag_Date is null and Invoice_Num like '&quot;+row(&quot;Invoice_Num&quot;).ToString+&quot;'&quot;]" />
-                    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtRecord]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1416,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="[&quot;select * from master_log where Tag_Status is Null and Tag_Date is null and Invoice_Num like '&quot;+row(&quot;Invoice_Num&quot;).ToString+&quot;'&quot;]">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1504,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;select a.* from ooh_pbt_txn opt left join OOH_Log_Txn a  on opt.PBT_Log_ID=a.Log_ID where a.Log_FA_Action_Status is null and opt.PBT_Tag_Date is null and a.Log_Invoice_Number like '&quot;+row(&quot;Log_Invoice_Number&quot;).ToString+&quot;'&quot;]" />
+                    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtRecord]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1504,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="[&quot;select a.* from ooh_pbt_txn opt left join OOH_Log_Txn a  on opt.PBT_Log_ID=a.Log_ID where a.Log_FA_Action_Status is null and opt.PBT_Tag_Date is null and a.Log_Invoice_Number like '&quot;+row(&quot;Log_Invoice_Number&quot;).ToString+&quot;'&quot;]">
                       <ui:ExecuteQuery.Parameters>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:ExecuteQuery.Parameters>
                     </ui:ExecuteQuery>
-                    <Sequence sap:VirtualizedContainerService.HintSize="1416,550" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                    <Sequence sap:VirtualizedContainerService.HintSize="1504,580" sap2010:WorkflowViewState.IdRef="Sequence_48">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[dtRecord.Rows.Count = 0]" DisplayName="If - sometimes invoice num contains 0 in the start in DB and not in Log File" sap:VirtualizedContainerService.HintSize="484,458" sap2010:WorkflowViewState.IdRef="If_11">
+                      <If Condition="[dtRecord.Rows.Count = 0]" DisplayName="If - sometimes invoice num contains 0 in the start in DB and not in Log File" sap:VirtualizedContainerService.HintSize="484,488" sap2010:WorkflowViewState.IdRef="If_11">
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="376,281" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,311" sap2010:WorkflowViewState.IdRef="Sequence_49">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[&quot;select * from master_log where Tag_Status is Null and Tag_Date is null and Invoice_Num like '0&quot;+row(&quot;Invoice_Num&quot;).ToString+&quot;'&quot;]" />
-                            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtRecord]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_5" Sql="[&quot;select * from master_log where Tag_Status is Null and Tag_Date is null and Invoice_Num like '0&quot;+row(&quot;Invoice_Num&quot;).ToString+&quot;'&quot;]">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;select a.* from ooh_pbt_txn opt left join OOH_Log_Txn a  on opt.PBT_Log_ID=a.Log_ID where a.Log_FA_Action_Status is null and opt.PBT_Tag_Date is null and a.Log_Invoice_Number like '0&quot;+row(&quot;Log_Invoice_Number&quot;).ToString+&quot;'&quot;]" />
+                            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtRecord]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_5" Sql="[&quot;select a.* from ooh_pbt_txn opt left join OOH_Log_Txn a  on opt.PBT_Log_ID=a.Log_ID where a.Log_FA_Action_Status is null and opt.PBT_Tag_Date is null and a.Log_Invoice_Number like '0&quot;+row(&quot;Log_Invoice_Number&quot;).ToString+&quot;'&quot;]">
                               <ui:ExecuteQuery.Parameters>
                                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
                               </ui:ExecuteQuery.Parameters>
@@ -501,10 +504,10 @@
                         </If.Then>
                       </If>
                     </Sequence>
-                    <ui:Comment sap:VirtualizedContainerService.HintSize="1416,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="dtRecord.Rows.Count&gt; 0" />
-                    <If Condition="[dtRecord.Rows.Count&gt; 0]" sap:VirtualizedContainerService.HintSize="1416,4077" sap2010:WorkflowViewState.IdRef="If_3">
+                    <ui:Comment sap:VirtualizedContainerService.HintSize="1504,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="dtRecord.Rows.Count&gt; 0" />
+                    <If Condition="[dtRecord.Rows.Count&gt; 0]" sap:VirtualizedContainerService.HintSize="1504,4077" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="1380,3900" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <Sequence sap:VirtualizedContainerService.HintSize="1468,3900" sap2010:WorkflowViewState.IdRef="Sequence_25">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="s:String[]" Name="arrLogDateSplit" />
                             <Variable x:TypeArguments="x:String" Name="strStampComment" />
@@ -515,23 +518,23 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="1338,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <Assign sap:VirtualizedContainerService.HintSize="1426,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                             <Assign.To>
                               <OutArgument x:TypeArguments="sd:DataTable">[dtFilterMultiInvoice]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="sd:DataTable">[DT1.AsEnumerable().Where(Function (r) r("MediaLookup").ToString.Equals(row("MediaLookup").ToString) And r("C").ToString.Equals(row("C").ToString) And r("P").ToString.Equals(row("P").ToString) And r("E").ToString.Equals(row("E").ToString) And r("PDF_MOS").ToString.Equals(row("PDF_MOS").ToString) And r("PUBLICATION_CODE").ToString.Equals(row("PUBLICATION_CODE").ToString) and r("Vendor").ToString.Equals(row("Vendor").ToString) and r("Agency").ToString.Equals(row("Agency").ToString)).CopyToDatatable]</InArgument>
+                              <InArgument x:TypeArguments="sd:DataTable">[DT1.AsEnumerable().Where(Function (r) r("Log_Invoice_Media_ID").ToString.Equals(row("Log_Invoice_Media_ID").ToString) And r("Log_Validated_C").ToString.Equals(row("Log_Validated_C").ToString) And r("Log_Validated_P").ToString.Equals(row("Log_Validated_P").ToString) And r("Log_Validated_E").ToString.Equals(row("Log_Validated_E").ToString) And r("Log_Invoice_MOS").ToString.Equals(row("Log_Invoice_MOS").ToString) And r("Log_Publication_Code").ToString.Equals(row("Log_Publication_Code").ToString) And r("Vendor_Name").ToString.Equals(row("Vendor_Name").ToString) And r("Agency_Name").ToString.Equals(row("Agency_Name").ToString)).CopyToDatatable]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="1338,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                          <Assign sap:VirtualizedContainerService.HintSize="1426,60" sap2010:WorkflowViewState.IdRef="Assign_22">
                             <Assign.To>
                               <OutArgument x:TypeArguments="s:String[]">[arrLogDateSplit]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="s:String[]">[row("Log_Date").ToString.Split(" ".ToCharArray)]</InArgument>
+                              <InArgument x:TypeArguments="s:String[]">[row("Log_Insertion_Date").ToString.Split(" ".ToCharArray)]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="1338,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                          <Assign sap:VirtualizedContainerService.HintSize="1426,60" sap2010:WorkflowViewState.IdRef="Assign_23">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[strLogDate]</OutArgument>
                             </Assign.To>
@@ -539,21 +542,21 @@
                               <InArgument x:TypeArguments="x:String">[arrLogDateSplit(0).Trim]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <If Condition="[dtFilterMultiInvoice.Rows.Count &lt;2]" DisplayName="If - check if Multi Invoice 1 Buy condition " sap:VirtualizedContainerService.HintSize="1338,3508" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If Condition="[dtFilterMultiInvoice.Rows.Count &lt;2]" DisplayName="If - check if Multi Invoice 1 Buy condition " sap:VirtualizedContainerService.HintSize="1426,3508" sap2010:WorkflowViewState.IdRef="If_5">
                             <If.Then>
-                              <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="480,816" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                              <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="568,1002" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Sequence sap:VirtualizedContainerService.HintSize="438,243" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                <Sequence sap:VirtualizedContainerService.HintSize="526,429" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                  <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_17">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[strInvComment]</OutArgument>
                                     </Assign.To>
@@ -561,10 +564,10 @@
                                       <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <If Condition="[row(&quot;Invoice_Num&quot;).ToString.Length &gt; 11]" DisplayName="If Invoice Num is greater than 11 char, add invoice comment" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="If_6">
+                                  <If Condition="[row(&quot;Log_Invoice_Number&quot;).ToString.Length &gt; 11]" DisplayName="If Invoice Num is greater than 11 char, add invoice comment" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_6">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
@@ -574,13 +577,13 @@
                                           <OutArgument x:TypeArguments="x:String">[strInvComment]</OutArgument>
                                         </Assign.To>
                                         <Assign.Value>
-                                          <InArgument x:TypeArguments="x:String">[row("Invoice_Num").ToString.Trim]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[row("Log_Invoice_Number").ToString.Trim]</InArgument>
                                         </Assign.Value>
                                       </Assign>
                                     </If.Then>
                                   </If>
                                 </Sequence>
-                                <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="438,441" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="526,441" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -596,46 +599,45 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_3" Priority="Normal" QueueType="[argQueueName]" Reference="[strLogDate+&quot;_&quot;+row.Item(&quot;PDF_MOS&quot;).ToString+&quot;_&quot;+row.Item(&quot;PUBLICATION_CODE&quot;).ToString+&quot;_&quot;+row.Item(&quot;C&quot;).ToString+row.Item(&quot;P&quot;).ToString+row.Item(&quot;E&quot;).ToString]">
                                         <ui:AddQueueItem.ItemInformation>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Info">[row(0).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Paid_Unpaid">[row(1).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Invoice_Date">[row(2).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Log_Date">[row(3).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Vendor">[row(4).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Inv_Filename">[row(5).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[row(6).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_CPE">[row(7).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[row(8).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="C">[row(9).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="P">[row(10).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="E">[row(11).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[row(12).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="FA Status">[row(13).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_MONTH">[row(14).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[row(15).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="BUY_Amount">[row(16).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[row(17).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="CAMPAIGN_ID">[row(18).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_ORDER">[row(19).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="UUID">[row(20).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="CLIENT_NAME">[row(21).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_NAME">[row(22).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_CODE">[row(23).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PRODUCT_NAME">[row(24).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="From Email">[row(25).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="From Name">[row(26).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Email Send Date">[row(27).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Agency">[row(28).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[row(29).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Doc_Link">[row("Doc_Link").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Info">[row("Log_Record_Type").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Paid_Unpaid">[row("Log_Paid_Unpaid").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Invoice_Date">[row("Log_Invoice_Date").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Log_Date">[row("Log_Insertion_Date").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Vendor">[row("Vendor_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Inv_Filename">[row("Log_Invoice_FileName").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[row("Log_Invoice_Number").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_CPE">[row("Log_Invoice_CPE").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[row("Log_Invoice_Media_ID").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="C">[row("Log_Validated_C").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="P">[row("Log_Validated_P").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="E">[row("Log_Validated_E").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[row("Log_Invoice_MOS").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="FA Status">[row("Log_FA_Action_Status").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_MONTH">[row("Log_Insertion_Month").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[row("Log_Invoice_Amount").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="BUY_Amount">[row("Log_Buy_Amount").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[row("Log_Tax_Amount").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="CAMPAIGN_ID">[row("Log_Campaign_ID_Match").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_ORDER">[row("Log_Insertion_Order_Ext_Match").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="UUID">[row("Log_UUID").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="CLIENT_NAME">[row("Log_Client_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_NAME">[row("Log_Publication_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_CODE">[row("Log_Publication_Code").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PRODUCT_NAME">[row("Log_Product_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="From Email">[row("Log_Invoice_Sender_Email").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="From Name">[row("Log_Invoice_Sender_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Email Send Date">[row("Log_Invoice_Sender_EmailDate").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Agency">[row("Agency_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[row("FA_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Doc_Link">[row("Log_SP_FilePath").ToString]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="Invoice_Name_Link">[row("Invoice_Name_Link").ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="VM_Doc_Link">[row("VM_Doc_Link").ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="isZipped">[row(33).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Compilation_Status">[row(34).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="In_Folder">[row(35).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Page_Count">[row(36).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Is_Matched">[row(37).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Label">[row(38).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[row(39).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="VM_Doc_Link">[row("Log_VM_FilePath").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="isZipped">[row("Log_IsZipped").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Compilation_Status">[row("Log_CompilationStatus").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="In_Folder">[row("Log_InFolder").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Page_Count">[row("Log_Invoice_PageCount").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Is_Matched">[row("Log_IsMatched").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[row("PBT_Tag_Status").ToString]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[strInvComment]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="IsMultiBuy">False</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">
@@ -753,7 +755,7 @@
                                                 <OutArgument x:TypeArguments="x:String">[strStampComment]</OutArgument>
                                               </Assign.To>
                                               <Assign.Value>
-                                                <InArgument x:TypeArguments="x:String">[strStampComment + "INV# "+ row("Invoice_Num").ToString+" : "+row("PDF_Amount").ToString+" ; "]</InArgument>
+                                                <InArgument x:TypeArguments="x:String">[strStampComment + "INV# "+ row("Log_Invoice_Number").ToString+" : "+row("Log_Invoice_Amount").ToString+" ; "]</InArgument>
                                               </Assign.Value>
                                             </Assign>
                                             <If Condition="[intRowCounter.Equals(0)]" DisplayName="If - to not add 1st invoice number" sap:VirtualizedContainerService.HintSize="611,310" sap2010:WorkflowViewState.IdRef="If_8">
@@ -769,7 +771,7 @@
                                                     <OutArgument x:TypeArguments="x:String">[strInvName]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:String">[row("Inv_Filename").ToString]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String">[row("Log_Invoice_FileName").ToString]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
                                               </If.Then>
@@ -785,7 +787,7 @@
                                                       <OutArgument x:TypeArguments="x:String">[strInvNum]</OutArgument>
                                                     </Assign.To>
                                                     <Assign.Value>
-                                                      <InArgument x:TypeArguments="x:String">[strInvNum + row("Invoice_Num").ToString.Trim+", "]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">[strInvNum + row("Log_Invoice_Number").ToString.Trim+", "]</InArgument>
                                                     </Assign.Value>
                                                   </Assign>
                                                 </Sequence>
@@ -803,17 +805,17 @@
                                                 <OutArgument x:TypeArguments="x:Double">[dblInvAmount]</OutArgument>
                                               </Assign.To>
                                               <Assign.Value>
-                                                <InArgument x:TypeArguments="x:Double">[dblInvAmount + Convert.ToDouble(row("PDF_Amount").ToString.Trim)]</InArgument>
+                                                <InArgument x:TypeArguments="x:Double">[dblInvAmount + Convert.ToDouble(row("Log_Invoice_Amount").ToString.Trim)]</InArgument>
                                               </Assign.Value>
                                             </Assign>
-                                            <If Condition="[not string.IsNullOrEmpty(row(&quot;PDF_TAX_Amount&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_10">
+                                            <If Condition="[not string.IsNullOrEmpty(row(&quot;Log_Tax_Amount&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_10">
                                               <If.Then>
                                                 <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Double">[dblTaxAmount]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:Double">[dblTaxAmount + Convert.ToDouble(row("PDF_TAX_Amount").ToString.Trim)]</InArgument>
+                                                    <InArgument x:TypeArguments="x:Double">[dblTaxAmount + Convert.ToDouble(row("Log_Tax_Amount").ToString.Trim)]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
                                               </If.Then>
@@ -888,46 +890,45 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="High" QueueType="[argQueueName]" Reference="[strLogDate+&quot;_&quot;+row.Item(&quot;PDF_MOS&quot;).ToString+&quot;_&quot;+row.Item(&quot;PUBLICATION_CODE&quot;).ToString+&quot;_&quot;+row.Item(&quot;C&quot;).ToString+row.Item(&quot;P&quot;).ToString+row.Item(&quot;E&quot;).ToString]">
                                         <ui:AddQueueItem.ItemInformation>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Info">[row(0).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Paid_Unpaid">[row(1).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Invoice_Date">[row(2).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Log_Date">[row(3).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Vendor">[row(4).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Inv_Filename">[row(5).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[row(6).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_CPE">[row(7).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[row(8).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="C">[row(9).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="P">[row(10).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="E">[row(11).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[row(12).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="FA Status">[row(13).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_MONTH">[row(14).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Info">[row("Log_Record_Type").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Paid_Unpaid">[row("Log_Paid_Unpaid").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_Invoice_Date">[row("Log_Invoice_Date").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Log_Date">[row("Log_Insertion_Date").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Vendor">[row("Vendor_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Inv_Filename">[row("Log_Invoice_FileName").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[row("Log_Invoice_Number").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_CPE">[row("Log_Invoice_CPE").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[row("Log_Invoice_Media_ID").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="C">[row("Log_Validated_C").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="P">[row("Log_Validated_P").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="E">[row("Log_Validated_E").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[row("Log_Invoice_MOS").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="FA Status">[row("Log_FA_Action_Status").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_MONTH">[row("Log_Insertion_Month").ToString]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[strInvAmount]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="BUY_Amount">[row(16).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="BUY_Amount">[row("Log_Buy_Amount").ToString]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[strTaxAmount]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="CAMPAIGN_ID">[row(18).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_ORDER">[row(19).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="UUID">[row(20).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="CLIENT_NAME">[row(21).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_NAME">[row(22).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_CODE">[row(23).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="PRODUCT_NAME">[row(24).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="From Email">[row(25).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="From Name">[row(26).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Email Send Date">[row(27).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Agency">[row(28).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[row(29).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Doc_Link">[row(30).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Invoice_Name_Link">[row(31).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="VM_Doc_Link">[row(32).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="isZipped">[row(33).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Compilation_Status">[row(34).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="In_Folder">[row(35).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Page_Count">[row(36).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Is_Matched">[row(37).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Label">[row(38).ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[row(39).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="CAMPAIGN_ID">[row("Log_Campaign_ID_Match").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="INSERTION_ORDER">[row("Log_Insertion_Order_Ext_Match").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="UUID">[row("Log_UUID").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="CLIENT_NAME">[row("Log_Client_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_NAME">[row("Log_Publication_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PUBLICATION_CODE">[row("Log_Publication_Code").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="PRODUCT_NAME">[row("Log_Product_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="From Email">[row("Log_Invoice_Sender_Email").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="From Name">[row("Log_Invoice_Sender_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Email Send Date">[row("Log_Invoice_Sender_EmailDate").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Agency">[row("Agency_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[row("FA_Name").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Doc_Link">[row("Log_SP_FilePath").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Invoice_Name_Link">[row("Log_Invoice_FileName").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="VM_Doc_Link">[row("Log_VM_FilePath").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="isZipped">[row("Log_IsZipped").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Compilation_Status">[row("Log_CompilationStatus").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="In_Folder">[row("Log_InFolder").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Page_Count">[row("Log_Invoice_PageCount").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Is_Matched">[row("Log_IsMatched").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[row("PBT_Tag_Status").ToString]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[strInvComment]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="IsMultiBuy">True</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[strStampComment]</InArgument>
@@ -1015,7 +1016,7 @@
                   </Sequence>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="si:IOException" sap:VirtualizedContainerService.HintSize="1462,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <Catch x:TypeArguments="si:IOException" sap:VirtualizedContainerService.HintSize="1550,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1041,11 +1042,11 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1572,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Number of items added to queue - &quot;+intQueueCounter.ToString]" />
-      <Sequence DisplayName="Sequence - Update DB with Log file values" sap:VirtualizedContainerService.HintSize="602,1232" sap2010:WorkflowViewState.IdRef="Sequence_9">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1660,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Number of items added to queue - &quot;+intQueueCounter.ToString]" />
+      <Sequence DisplayName="Sequence - Update DB with Log file values" sap:VirtualizedContainerService.HintSize="1660,1232" sap2010:WorkflowViewState.IdRef="Sequence_9">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -1097,7 +1098,7 @@
         </ui:ForEachRow>
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Updated DB&quot;]" />
       </Sequence>
-      <ui:DatabaseDisconnect DatabaseConnection="[DB_Connection]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="1572,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+      <ui:DatabaseDisconnect DatabaseConnection="[DB_Connection]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="1660,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
     </Sequence>
   </Sequence>
 </Activity>

@@ -18,7 +18,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1834,9321</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1834,9351</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Recalculations_for_Multi_Invoice_1Buy_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -91,9 +91,10 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Recalculations_for_Multi_Invoice_1Buy" sap:VirtualizedContainerService.HintSize="1844,9156" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Recalculations_for_Multi_Invoice_1Buy" sap:VirtualizedContainerService.HintSize="1844,9186" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMultiInvoice" />
       <Variable x:TypeArguments="x:String" Name="varQuery" />
@@ -131,7 +132,7 @@
               <OutArgument x:TypeArguments="x:String">[C]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_C").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Validated_C").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -139,7 +140,7 @@
               <OutArgument x:TypeArguments="x:String">[P]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_P").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Validated_P").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -147,7 +148,7 @@
               <OutArgument x:TypeArguments="x:String">[E]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_E").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Validated_E").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -155,7 +156,7 @@
               <OutArgument x:TypeArguments="x:String">[MOS]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_MOS").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Invoice_MOS").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -163,7 +164,7 @@
               <OutArgument x:TypeArguments="x:String">[Agency]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Agency").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Agency_Name").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -171,7 +172,7 @@
               <OutArgument x:TypeArguments="x:String">[Vendor]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Vendor").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Vendor_Name").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -179,7 +180,7 @@
               <OutArgument x:TypeArguments="x:String">[M]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_M").tostring]</InArgument>
+              <InArgument x:TypeArguments="x:String">[inInvoiceDT(0)("Log_Invoice_Media_ID").tostring]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -207,7 +208,7 @@
         <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["select * from PBT_MultiInvoice_1BuyTxn where Log_C like '"+C+"' and Log_P like '"+P+"' and log_E like '"+E+"' and Log_MOS like '"+MOS+"' and Log_Vendor like '"+Vendor+"' "]</InArgument>
+        <InArgument x:TypeArguments="x:String">["select opt.*,a.Log_Invoice_Number from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID where opt.Log_Validated_C like '"+C+"' and opt.Log_Validated_P like '"+P+"' and opt.Log_Validated_E like '"+E+"' and opt.Log_Invoice_MOS like '"+MOS+"' and opt.Vendor_Name like '"+Vendor+"' "]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtFilterMultiInvoice]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="1802,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[varQuery]">
@@ -220,7 +221,7 @@
         <OutArgument x:TypeArguments="sd:DataTable">[dtFilterMultiInvoice]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataTable">[dtFilterMultiInvoice.AsEnumerable().GroupBy(Function(i) i.Field(Of String)(“Log_Inv_Num”)).Select(Function(g) g.First).CopyToDataTable]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable">[dtFilterMultiInvoice.AsEnumerable().GroupBy(Function(i) i.Field(Of String)(“Log_Invoice_Number”)).Select(Function(g) g.First).CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
     <Sequence DisplayName="Sequence - add item when a multi-invoice record" sap:VirtualizedContainerService.HintSize="1802,5065" sap2010:WorkflowViewState.IdRef="Sequence_6">
@@ -254,7 +255,7 @@
           <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">["select * from pbt_multiinvoice_1Buytxn where log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and log_pbt_Tagged_flag = 1"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["select opt.*,a.Log_Invoice_Number from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID where log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and opt.PBT_Tagged = 1"]</InArgument>
         </Assign.Value>
       </Assign>
       <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtExistingBatch]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="1760,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" Sql="[varQuery]">
@@ -264,7 +265,7 @@
       </ui:ExecuteQuery>
       <If Condition="[dtExistingBatch.Rows.Count = 0]" sap:VirtualizedContainerService.HintSize="1760,4545" sap2010:WorkflowViewState.IdRef="If_3">
         <If.Then>
-          <Sequence DisplayName="Sequence - If 1st batch of CPE,MOS,Vendor" sap:VirtualizedContainerService.HintSize="1029,3853" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Sequence - If 1st batch of CPE,MOS,Vendor" sap:VirtualizedContainerService.HintSize="1029,3913" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -272,26 +273,26 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Log_Inv_Amount" DataTable="[dtFilterMultiInvoice]" DisplayName="Sort Data Table - sort by greatest amount as leading invoice from 1st batch" sap:VirtualizedContainerService.HintSize="987,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[dtFilterMultiInvoice]" SortOrder="Descending" />
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtFilterMultiInvoice]" DisplayName="For Each Row - Concatenate Inv Details String" sap:VirtualizedContainerService.HintSize="987,2600" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtFilterMultiInvoice]" DisplayName="For Each Row - Concatenate Inv Details String" sap:VirtualizedContainerService.HintSize="987,2630" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="953,2480" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence sap:VirtualizedContainerService.HintSize="953,2510" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="911,2388" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="911,2418" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Sequence - append Inv Number" sap:VirtualizedContainerService.HintSize="869,1827" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Sequence - append Inv Number" sap:VirtualizedContainerService.HintSize="869,1857" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -310,10 +311,10 @@
                             <OutArgument x:TypeArguments="x:String">[strStampComment]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[strStampComment + "INV# "+ row("Log_Inv_Num").ToString+" : "+row("Log_Inv_Amount").ToString+" ; "]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[strStampComment + "INV# "+ row("Log_Invoice_Number").ToString+" : "+row("Log_Invoice_Amount").ToString+" ; "]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <If Condition="[intRowCounter.Equals(0)]" DisplayName="If - to not add Leading invoice number" sap:VirtualizedContainerService.HintSize="827,1535" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If Condition="[intRowCounter.Equals(0)]" DisplayName="If - to not add Leading invoice number" sap:VirtualizedContainerService.HintSize="827,1565" sap2010:WorkflowViewState.IdRef="If_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -321,7 +322,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="478,1377" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <Sequence sap:VirtualizedContainerService.HintSize="478,1407" sap2010:WorkflowViewState.IdRef="Sequence_7">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="sd:DataTable" Name="dtFileName" />
                               </Sequence.Variables>
@@ -335,7 +336,7 @@
                                   <OutArgument x:TypeArguments="x:String">[strLeadingInvNum]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[row("Log_Inv_Num").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[row("Log_Invoice_Number").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_1">
@@ -357,7 +358,7 @@
                                   </Sequence>
                                 </ui:CommentOut.Body>
                               </ui:CommentOut>
-                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[varQuery]" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[varQuery]" />
                               <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_10" Sql="[varQuery]">
                                 <ui:ExecuteQuery.Parameters>
                                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -392,7 +393,7 @@
                                   <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">["select Inv_Filename from master_log where invoice_num like '"+row("Log_Inv_Num").tostring+"' and vendor like '"+Vendor+"' and agency like '"+Agency+"' "]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["select a.Log_Invoice_FileName from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID left join OOH_Vendor_Master ovm on ovm.Vendor_ID=a.Log_Vendor_ID left join OOH_Agency_Master oam on oam.Agency_ID=a.Log_Agency_ID where a.Log_Invoice_Number like '"+row("Log_Invoice_Number").tostring+"' and ovm.Vendor_Name like '"+Vendor+"' and oam.Agency_Name like '"+Agency+"' "]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtFileName]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="[varQuery]">
@@ -405,7 +406,7 @@
                                   <OutArgument x:TypeArguments="x:String">[strInvName]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[dtFileName(0)("Inv_Filename").tostring]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[dtFileName(0)("Log_Invoice_FileName").tostring]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -422,7 +423,7 @@
                                   <OutArgument x:TypeArguments="x:String">[strInvNumComment]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[strInvNumComment + row("Log_Inv_Num").ToString.Trim+", "]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[strInvNumComment + row("Log_Invoice_Number").ToString.Trim+", "]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -440,17 +441,17 @@
                             <OutArgument x:TypeArguments="x:Double">[dblInvAmount]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Double">[dblInvAmount + Convert.ToDouble(row("Log_Inv_Amount").ToString.Trim)]</InArgument>
+                            <InArgument x:TypeArguments="x:Double">[dblInvAmount + Convert.ToDouble(row("Log_Invoice_Amount").ToString.Trim)]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <If Condition="[not string.IsNullOrEmpty(row(&quot;Log_Inv_TAX_Amount&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If Condition="[not string.IsNullOrEmpty(row(&quot;Log_Tax_Amount&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_2">
                           <If.Then>
                             <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Double">[dblTaxAmount]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
-                                <InArgument x:TypeArguments="x:Double">[dblTaxAmount + Convert.ToDouble(row("Log_Inv_TAX_Amount").ToString.Trim)]</InArgument>
+                                <InArgument x:TypeArguments="x:Double">[dblTaxAmount + Convert.ToDouble(row("Log_Tax_Amount").ToString.Trim)]</InArgument>
                               </Assign.Value>
                             </Assign>
                           </If.Then>
@@ -534,7 +535,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="987,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[varQuery]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="987,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[varQuery]" />
             <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtLeadingInvoice]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="987,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_16" Sql="[varQuery]">
               <ui:ExecuteQuery.Parameters>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -566,7 +567,7 @@
                   <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">["select Log_Inv_Num from pbt_multiinvoice_1Buytxn where log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and Log_Leading_Invoice = 1"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">["select a.Log_Invoice_Number from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID where log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and opt.PBT_Tagged = 1"]</InArgument>
                 </Assign.Value>
               </Assign>
               <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtLeadingInvoice]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="602,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_7" Sql="[varQuery]">
@@ -579,7 +580,7 @@
                   <OutArgument x:TypeArguments="x:String">[strLeadingInvNum]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[dtLeadingInvoice(0)("Log_Inv_Num").tostring]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[dtLeadingInvoice(0)("Log_Invoice_Number").tostring]</InArgument>
                 </Assign.Value>
               </Assign>
               <Sequence DisplayName="Assign - get leading invoice file name for compilation" sap:VirtualizedContainerService.HintSize="602,380" sap2010:WorkflowViewState.IdRef="Sequence_19">
@@ -596,7 +597,7 @@
                     <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["select Inv_Filename from master_log where invoice_num like '"+strLeadingInvNum+"' and vendor like '"+Vendor+"' and agency like '"+Agency+"' "]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["select a.Log_Invoice_FileName from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID left join OOH_Vendor_Master ovm on ovm.Vendor_ID=a.Log_Vendor_ID left join OOH_Agency_Master oam on oam.Agency_ID=a.Log_Agency_ID where a.Log_Invoice_Number like '"+strLeadingInvNum+"' and ovm.Vendor_Name like '"+Vendor+"' and oam.Agency_Name like '"+Agency+"'"]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtFileName]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_13" Sql="[varQuery]">
@@ -609,7 +610,7 @@
                     <OutArgument x:TypeArguments="x:String">[strInvName]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[dtFileName(0)("Inv_Filename").tostring]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[dtFileName(0)("Log_Invoice_FileName").tostring]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -692,7 +693,7 @@
                             <OutArgument x:TypeArguments="x:String">[strStampComment]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[strStampComment + "INV# "+ row("Log_Inv_Num").ToString+" : "+row("Log_Inv_Amount").ToString+" ; "]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[strStampComment + "INV# "+ row("Log_Invoice_Number").ToString+" : "+row("Log_Invoice_Amount").ToString+" ; "]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -707,17 +708,17 @@
                             <OutArgument x:TypeArguments="x:Double">[dblInvAmount]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Double">[dblInvAmount + Convert.ToDouble(row("Log_Inv_Amount").ToString.Trim)]</InArgument>
+                            <InArgument x:TypeArguments="x:Double">[dblInvAmount + Convert.ToDouble(row("Log_Invoice_Amount").ToString.Trim)]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <If Condition="[not string.IsNullOrEmpty(row(&quot;Log_Inv_TAX_Amount&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If Condition="[not string.IsNullOrEmpty(row(&quot;Log_Tax_Amount&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_5">
                           <If.Then>
                             <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_33">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Double">[dblTaxAmount]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
-                                <InArgument x:TypeArguments="x:Double">[dblTaxAmount + Convert.ToDouble(row("Log_Inv_TAX_Amount").ToString.Trim)]</InArgument>
+                                <InArgument x:TypeArguments="x:Double">[dblTaxAmount + Convert.ToDouble(row("Log_Tax_Amount").ToString.Trim)]</InArgument>
                               </Assign.Value>
                             </Assign>
                           </If.Then>
@@ -738,7 +739,7 @@
                   <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">["select * from pbt_multiinvoice_1Buytxn where log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and log_pbt_Tagged_flag = 1 order by log_update_date desc"]</InArgument>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["select a.* from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID where a.log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and opt.PBT_Tagged  = 1 order by  a.Log_FA_Update_Date desc"]</InArgument>
                 </Assign.Value>
               </Assign>
               <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtLastTagged]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="602,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_8" Sql="[varQuery]">
@@ -751,7 +752,7 @@
                   <OutArgument x:TypeArguments="x:String">[strInvNumComment]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[dtLastTagged(0)("Log_Invoice_Comment").Tostring.Replace("W/ ","")]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[dtLastTagged(0)("Log_FA_Interface_Comment").Tostring.Replace("W/ ","")]</InArgument>
                 </Assign.Value>
               </Assign>
               <If Condition="[string.IsNullOrEmpty(strInvNumComment)]" sap:VirtualizedContainerService.HintSize="602,218" sap2010:WorkflowViewState.IdRef="If_7">
@@ -771,7 +772,7 @@
                   <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["select * from pbt_multiinvoice_1Buytxn where log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and (Log_PBT_Tagged_Flag is Null or Log_PBT_Tagged_Flag = 0)  "]</InArgument>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["select a.* from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID where a.log_pbt_batch_details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%' and (opt.PBT_Tagged is Null or opt.PBT_Tagged = 0)  "]</InArgument>
                 </Assign.Value>
               </Assign>
               <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtUntagged]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="602,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_12" Sql="[varQuery]">
@@ -796,7 +797,7 @@
                           <OutArgument x:TypeArguments="x:String">[strInvNumComment]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[strInvNumComment + row("Log_Inv_Num").ToString.Trim+", "]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[strInvNumComment + row("Log_Invoice_Number").ToString.Trim+", "]</InArgument>
                         </Assign.Value>
                       </Assign>
                     </Sequence>
@@ -894,7 +895,7 @@
         </ui:ExecuteQuery.Parameters>
       </ui:ExecuteQuery>
     </Sequence>
-    <Sequence DisplayName="Sequence - update master_log for stamping bot to read values" sap:VirtualizedContainerService.HintSize="1802,551" sap2010:WorkflowViewState.IdRef="Sequence_21">
+    <Sequence DisplayName="Sequence - update master_log for stamping bot to read values" sap:VirtualizedContainerService.HintSize="1802,581" sap2010:WorkflowViewState.IdRef="Sequence_21">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -919,7 +920,7 @@
           </Sequence>
         </ui:CommentOut.Body>
       </ui:CommentOut>
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[varQuery]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[varQuery]" />
       <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_14" Sql="[varQuery]">
         <ui:ExecuteQuery.Parameters>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -1086,21 +1087,21 @@
             <If.Then>
               <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_5" Priority="High" QueueType="[argQueueNameFord]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
                 <ui:AddQueueItem.ItemInformation>
-                  <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT(7).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[outInvoiceDT(0).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="C">[outInvoiceDT(1).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="P">[outInvoiceDT(2).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="E">[outInvoiceDT(3).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[outInvoiceDT(5).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[outInvoiceDT(8).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[outInvoiceDT(9).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Vendor">[outInvoiceDT(4).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Agency">[outInvoiceDT(6).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT("Log_Invoice_Number").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[outInvoiceDT("Log_Invoice_Media_ID").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="C">[outInvoiceDT("Log_Validated_C").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="P">[outInvoiceDT("Log_Validated_P").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="E">[outInvoiceDT("Log_Validated_E").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[outInvoiceDT("Log_Invoice_MOS").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[outInvoiceDT("Log_Invoice_Amount").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[outInvoiceDT("Log_Tax_Amount").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Vendor">[outInvoiceDT("Vendor_Name").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Agency">[outInvoiceDT("FA_Name").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[argFAName]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[String.Empty]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[outInvoiceDT(11).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[outInvoiceDT("Log_FA_Interface_Comment").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="IsMultiBuy">True</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[outInvoiceDT(10).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[outInvoiceDT("PBT_Stamp_Comment").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="ID">[ID]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="IsSegmentBuy">[isSegmentBuy.Trim]</InArgument>
                 </ui:AddQueueItem.ItemInformation>
@@ -1110,21 +1111,21 @@
               <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_6" Priority="High" QueueType="[argQueueName]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
                 <ui:AddQueueItem.ItemInformation>
                   <InArgument x:TypeArguments="x:String" x:Key="ID">[ID]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT(7).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[outInvoiceDT(0).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="C">[outInvoiceDT(1).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="P">[outInvoiceDT(2).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="E">[outInvoiceDT(3).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[outInvoiceDT(5).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[outInvoiceDT(8).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[outInvoiceDT(9).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Vendor">[outInvoiceDT(4).ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Agency">[outInvoiceDT(6).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT("Log_Invoice_Number").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[outInvoiceDT("Log_Invoice_Media_ID").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="C">[outInvoiceDT("Log_Validated_C").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="P">[outInvoiceDT("Log_Validated_P").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="E">[outInvoiceDT("Log_Validated_E").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[outInvoiceDT("Log_Invoice_MOS").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[outInvoiceDT("Log_Invoice_Amount").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[outInvoiceDT("Log_Tax_Amount").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Vendor">[outInvoiceDT("Vendor_Name").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Agency">[outInvoiceDT("Agency_Name").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[argFAName]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[String.Empty]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[outInvoiceDT(11).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[outInvoiceDT("Log_FA_Interface_Comment").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="IsMultiBuy">True</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[outInvoiceDT(10).ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[outInvoiceDT("PBT_Stamp_Comment").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="IsSegmentBuy">[isSegmentBuy.Trim]</InArgument>
                 </ui:AddQueueItem.ItemInformation>
               </ui:AddQueueItem>
