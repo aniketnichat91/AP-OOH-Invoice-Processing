@@ -609,7 +609,7 @@ InvoiceMatchingScreen As screen:
                 DisabledFill: =RGBA(128, 128, 128, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or //Checkbox1.Value=false,
+                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or Segmented_Checkbox.Value=false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -659,8 +659,8 @@ InvoiceMatchingScreen As screen:
                 Text: ="Segment"
                 Visible: =varIsQA
                 Width: =72
-                X: =106
-                Y: =150
+                X: =120
+                Y: =149
                 ZIndex: =12
 
             ContractNumber_Label As label:
@@ -1722,7 +1722,7 @@ InvoiceMatchingScreen As screen:
                 Size: =9
                 Text: ="SAVE"
                 Width: =67
-                X: =321
+                X: =328
                 Y: =149
                 ZIndex: =51
 
@@ -1873,7 +1873,7 @@ InvoiceMatchingScreen As screen:
                 Size: =7
                 Text: ="SAVE CONTRACT ID"
                 Width: =106
-                X: =196
+                X: =205
                 Y: =149
                 ZIndex: =52
 
@@ -2014,6 +2014,23 @@ InvoiceMatchingScreen As screen:
                 X: =621
                 Y: =68
                 ZIndex: =58
+
+            Segmented_Checkbox As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =13
+                Text: =""
+                Tooltip: ="Enable Segment"
+                Visible: =varIsQA
+                Width: =24
+                X: =87
+                Y: =149
+                ZIndex: =59
 
         InfoContainer As groupContainer.manualLayoutContainer:
             Width: =966
