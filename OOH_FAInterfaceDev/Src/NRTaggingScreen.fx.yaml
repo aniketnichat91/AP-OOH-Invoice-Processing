@@ -10422,7 +10422,7 @@ NRTaggingScreen As screen:
             Fill: =RGBA(0, 0, 0, .7)
             Height: =768
             Visible: =showManualS9Popup
-            Width: =699
+            Width: =688
             ZIndex: =106
 
         rct_ManualS9_top_1 As rectangle:
@@ -10430,8 +10430,8 @@ NRTaggingScreen As screen:
             Fill: =RGBA(230, 230, 230, 1)
             Height: =220
             Visible: =showManualS9Popup
-            Width: =423
-            X: =135
+            Width: =416
+            X: =133
             Y: =245
             ZIndex: =107
 
@@ -10443,8 +10443,8 @@ NRTaggingScreen As screen:
             Size: =15
             Text: ="Confirm!"
             Visible: =showManualS9Popup
-            Width: =192
-            X: =165
+            Width: =189
+            X: =162
             Y: =260
             ZIndex: =108
 
@@ -10467,8 +10467,8 @@ NRTaggingScreen As screen:
             Size: =12
             Text: ="Cancel"
             Visible: =showManualS9Popup
-            Width: =96
-            X: =323
+            Width: =95
+            X: =318
             Y: =410
             ZIndex: =109
 
@@ -10888,8 +10888,8 @@ NRTaggingScreen As screen:
             Size: =12
             Text: ="OK"
             Visible: =showManualS9Popup
-            Width: =96
-            X: =440
+            Width: =95
+            X: =433
             Y: =410
             ZIndex: =110
 
@@ -10903,8 +10903,8 @@ NRTaggingScreen As screen:
             OnSelect: |-
                 =UpdateContext({showManualS9Popup:false});
             Visible: =showManualS9Popup
-            Width: =29
-            X: =527
+            Width: =28
+            X: =519
             Y: =210
             ZIndex: =111
 
@@ -10914,10 +10914,10 @@ NRTaggingScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Height: =50
             Size: =13
-            Text: ="Please ensure you are tagging this in PBT manually. Bot does not tag PBT."
+            Text: ="Please ensure you are tagging this in PBT manually."
             Visible: =showManualS9Popup
-            Width: =365
-            X: =165
+            Width: =360
+            X: =162
             Y: =310
             ZIndex: =112
 
