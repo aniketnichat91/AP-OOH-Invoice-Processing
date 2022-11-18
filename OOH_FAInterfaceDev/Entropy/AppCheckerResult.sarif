@@ -10364,6 +10364,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InvoiceMatchingScreen",
+                "type": "InvoiceMatchingScreen.Icon_ManualS9_Close"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InvoiceMatchingScreen",
+                "type": "InvoiceMatchingScreen.Icon_ManualS9_Close"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "InvoiceMatchingScreen"
                 }
               ],
@@ -10882,7 +10942,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"InvoiceMatchingScreen\" is 496, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"InvoiceMatchingScreen\" is 506, which exceeds the maximum threshold recommended (300)."
               }
             },
             {
