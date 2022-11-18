@@ -39,13 +39,53 @@
     "datasets": {
       "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
         "dataSources": {
+          "OOH_Agency_Master": {
+            "tableName": "[dbo].[OOH_Agency_Master]"
+          },
+          "OOH_FA_Mapping_Ref": {
+            "tableName": "[dbo].[OOH_FA_Mapping_Ref]"
+          },
+          "OOH_FA_Master": {
+            "tableName": "[dbo].[OOH_FA_Master]"
+          },
+          "OOH_Invoice_Master": {
+            "tableName": "[dbo].[OOH_Invoice_Master]"
+          },
+          "OOH_Log_Txn": {
+            "tableName": "[dbo].[OOH_Log_Txn]"
+          },
+          "OOH_Log_TXN_VIEW": {
+            "tableName": "[dbo].[OOH_Log_TXN_VIEW]"
+          },
+          "OOH_PBT_Txn": {
+            "tableName": "[dbo].[OOH_PBT_Txn]"
+          },
           "OOH_Predictions_Mview": {
             "tableName": "[dbo].[OOH_Predictions_Mview]"
+          },
+          "OOH_Unpaid_Ref": {
+            "tableName": "[dbo].[OOH_Unpaid_Ref]"
+          },
+          "OOH_Vendor_Master": {
+            "tableName": "[dbo].[OOH_Vendor_Master]"
+          },
+          "vw_DistinctMOSUnpaid": {
+            "tableName": "[dbo].[vw_DistinctMOSUnpaid]"
           }
         }
       }
     },
     "dataSources": [
+      "OOH_FA_Master",
+      "OOH_Log_Txn",
+      "OOH_Log_TXN_VIEW",
+      "OOH_PBT_Txn",
+      "OOH_Invoice_Master",
+      "OOH_Vendor_Master",
+      "OOH_Agency_Master",
+      "OOH_FA_Mapping_Ref",
+      "OOH_Unpaid_Ref",
+      "vw_DistinctMOSUnpaid",
       "OOH_Predictions_Mview"
     ],
     "dependencies": {},

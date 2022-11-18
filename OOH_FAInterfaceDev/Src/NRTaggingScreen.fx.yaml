@@ -10,13 +10,15 @@ NRTaggingScreen As screen:
             varZoom,
             "1000"
         );
-        Reset(Checkbox1_1);
+        Reset(Checkbox_Amount_1);
+        Reset(Checkbox_Invoice_1);
+        Reset(Checkbox_MOS_1);
         UpdateContext({ROWNUM: 1});
         UpdateContext(
             {
                 VAR_VendorID_DEF: LookUp(
                     OOH_Log_Txn,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Vendor_ID
                 )
             }
@@ -25,7 +27,7 @@ NRTaggingScreen As screen:
             {
                 VAR_PublicationCode_DEF: LookUp(
                     OOH_Vendor_Master,
-                    Vendor_ID = Value(hide_VendorID_1.Text),
+                    Vendor_ID = Value(hide_VendorID_NR.Text),
                     Vendor_Pub_Code
                 )
             }
@@ -77,12 +79,12 @@ NRTaggingScreen As screen:
             {
                 VAR_PublicationName_DEF: LookUp(
                     OOH_Vendor_Master,
-                    Vendor_ID = Value(hide_VendorID_1.Text),
+                    Vendor_ID = Value(hide_VendorID_NR.Text),
                     Vendor_Pub_Name
                 ),
                 VAR_Vendor_DEF: LookUp(
                     OOH_Vendor_Master,
-                    Vendor_ID = Value(hide_VendorID_1.Text),
+                    Vendor_ID = Value(hide_VendorID_NR.Text),
                     Vendor_Name
                 )
             }
@@ -92,7 +94,7 @@ NRTaggingScreen As screen:
             {
                 VAR_ContractNum_DEF: LookUp(
                     OOH_Log_Txn,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Invoice_ContractNumber
                 )
             }
@@ -102,7 +104,7 @@ NRTaggingScreen As screen:
             {
                 VAR_C_DEF: LookUp(
                     OOH_Log_Txn,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Validated_C
                 )
             }
@@ -112,7 +114,7 @@ NRTaggingScreen As screen:
             {
                 VAR_P_DEF: LookUp(
                     OOH_Log_Txn,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Validated_P
                 )
             }
@@ -122,7 +124,7 @@ NRTaggingScreen As screen:
             {
                 VAR_E_DEF: LookUp(
                     OOH_Log_Txn,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Validated_E
                 )
             }
@@ -132,7 +134,7 @@ NRTaggingScreen As screen:
             {
                 VAR_MOS_DEF: LookUp(
                     OOH_Log_Txn,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Invoice_MOS
                 )
             }
@@ -150,7 +152,7 @@ NRTaggingScreen As screen:
         Reset(Amount_TextInput_1);
         Reset(Tax_TextInput_1);
         Reset(InvDate_TextInput_initial_1);
-        Reset(ID_TextInput_1);
+        Reset(ID_TextInput_NR);
         ClearCollect(
             colMonthInNumber,
             Table(
@@ -248,7 +250,7 @@ NRTaggingScreen As screen:
                     Sort(
                         Filter(
                             OOH_Predictions_Mview,
-                            Prediction_Log_ID = Value(ID_TextInput_1.Text)
+                            Prediction_Log_ID = Value(ID_TextInput_NR.Text)
                         ),
                         Prediction_Rank,
                         Ascending
@@ -464,7 +466,7 @@ NRTaggingScreen As screen:
         ZIndex: =4
         Zoom: =varZoom
 
-    ID_TextInput_1 As text:
+    ID_TextInput_NR As text:
         BorderColor: =RGBA(131, 24, 75, 1)
         BorderThickness: =0
         Color: =RGBA(0, 0, 0, 1)
@@ -541,7 +543,7 @@ NRTaggingScreen As screen:
                 DisabledFill: =RGBA(128, 128, 128, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or Checkbox1_1.Value=false,
+                        (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or Segment_Checkbox.Value=false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -666,7 +668,7 @@ NRTaggingScreen As screen:
                 Default: |-
                     =LookUp(
                         OOH_Log_Txn,
-                        Log_ID = Value(ID_TextInput_1.Text),
+                        Log_ID = Value(ID_TextInput_NR.Text),
                         Log_Invoice_Number
                     )
                 DelayOutput: =true
@@ -701,7 +703,7 @@ NRTaggingScreen As screen:
                     =Text(
                         Value(LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             Log_Invoice_Amount
                         )),
                         "[$-en-US]$#,##0.00"
@@ -744,7 +746,7 @@ NRTaggingScreen As screen:
                         Value(
                             LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Invoice_ExtractedTax
                             )
                         ),
@@ -964,12 +966,14 @@ NRTaggingScreen As screen:
                 OnSelect: |
                     =Refresh(OOH_Log_Txn);
                     Refresh(OOH_Log_TXN_VIEW);
-                    Reset(Checkbox1_1);
+                    Reset(Checkbox_Amount_1);
+                    Reset(Checkbox_Invoice_1);
+                    Reset(Checkbox_MOS_1);
                     UpdateContext(
                         {
                             VAR_VendorID_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Vendor_ID
                             )
                         }
@@ -978,17 +982,17 @@ NRTaggingScreen As screen:
                         {
                             VAR_Vendor_DEF: LookUp(
                                 OOH_Vendor_Master,
-                                Vendor_ID = Value(hide_VendorID_1.Text),
+                                Vendor_ID = Value(hide_VendorID_NR.Text),
                                 Vendor_Name
                             ),
                             VAR_PublicationCode_DEF: LookUp(
                                 OOH_Vendor_Master,
-                                Vendor_ID = Value(hide_VendorID_1.Text),
+                                Vendor_ID = Value(hide_VendorID_NR.Text),
                                 Vendor_Pub_Code
                             ),
                             VAR_PublicationName_DEF: LookUp(
                                 OOH_Vendor_Master,
-                                Vendor_ID = Value(hide_VendorID_1.Text),
+                                Vendor_ID = Value(hide_VendorID_NR.Text),
                                 Vendor_Pub_Name
                             )
                         }
@@ -998,7 +1002,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_ContractNum_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Invoice_ContractNumber
                             )
                         }
@@ -1008,7 +1012,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_C_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Validated_C
                             )
                         }
@@ -1018,7 +1022,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_P_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Validated_P
                             )
                         }
@@ -1028,7 +1032,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_E_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Validated_E
                             )
                         }
@@ -1038,7 +1042,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_MOS_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Invoice_MOS
                             )
                         }
@@ -1078,7 +1082,7 @@ NRTaggingScreen As screen:
                     Reset(InvoiceNum_TextInput_1);
                     Reset(Amount_TextInput_1);
                     Reset(Tax_TextInput_1);
-                    Reset(ID_TextInput_1);
+                    Reset(ID_TextInput_NR);
                     //Reset(PredictionItemsDataTable);
                     UpdateContext({MySelected: Blank()});
                 PressedColor: =RGBA(204, 231, 246, 1)
@@ -1099,7 +1103,7 @@ NRTaggingScreen As screen:
                 BorderColor: =RGBA(230, 230, 230, 1)
                 BorderThickness: =2
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =Text(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_Invoice_Date))
+                Default: =Text(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_Invoice_Date))
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1358,7 +1362,7 @@ NRTaggingScreen As screen:
                     =//If(IsNumeric(Value(First( Split( Last( Split(VAR_Vendor_DEF, "(" ) ).Result, ")" ) ).Result)),Value(First( Split( Last( Split(VAR_Vendor_DEF, "(" ) ).Result, ")" ) ).Result),0)
                     LookUp(
                         OOH_Log_TXN_VIEW,
-                        Log_ID = Value(ID_TextInput_1.Text),
+                        Log_ID = Value(ID_TextInput_NR.Text),
                         Log_Publication_Name
                     )
                 Visible: =false
@@ -1387,28 +1391,12 @@ NRTaggingScreen As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Height: =27
                 Size: =13
-                Text: =LookUp(OOH_Log_Txn, Log_ID=Value(ID_TextInput_1.Text), Log_Invoice_CPE)
+                Text: =LookUp(OOH_Log_Txn, Log_ID=Value(ID_TextInput_NR.Text), Log_Invoice_CPE)
                 Visible: =false
                 Width: =85
                 X: =50
                 Y: =87
                 ZIndex: =45
-
-            Checkbox1_1 As checkbox:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.None
-                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
-                CheckboxSize: =28
-                Color: =RGBA(0, 0, 0, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =27
-                HoverColor: =RGBA(131, 24, 75, 1)
-                Size: =10
-                Text: =""
-                Width: =25
-                X: =620
-                Y: =37
-                ZIndex: =46
 
             Tax_Label_5 As label:
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -1418,6 +1406,7 @@ NRTaggingScreen As screen:
                 Height: =20
                 Size: =10
                 Text: ="Check"
+                Visible: =false
                 Width: =50
                 X: =618
                 Y: =15
@@ -1495,7 +1484,7 @@ NRTaggingScreen As screen:
                     If(
                         VAR_VendorID_DEF = LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             Log_Vendor_ID
                         ),
                         "",
@@ -1503,7 +1492,7 @@ NRTaggingScreen As screen:
                             {
                                 InvoiceLookupRecord: LookUp(
                                     OOH_Invoice_Master,
-                                    Invoice_Number = hide_InvoiceID_1.Text && Invoice_Cease_Date = Blank()
+                                    Invoice_Number = hide_InvoiceID_NR.Text && Invoice_Cease_Date = Blank()
                                 )
                             }
                         );
@@ -1585,7 +1574,7 @@ NRTaggingScreen As screen:
                         OOH_Log_Txn,
                         LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text)
+                            Log_ID = Value(ID_TextInput_NR.Text)
                         ),
                         {
                            // Log_Vendor_ID: Value(hide_VendorID.Text),
@@ -1604,7 +1593,7 @@ NRTaggingScreen As screen:
                         }
                     );
                     OOHChangeVendorMapping.Run(
-                        ID_TextInput_1.Text,
+                        ID_TextInput_NR.Text,
                         VAR_VendorID_DEF,
                         0
                     );
@@ -1628,7 +1617,9 @@ NRTaggingScreen As screen:
                             NotificationType.Error
                         )
                     );
-                    Reset(Checkbox1_1);
+                    Reset(Checkbox_Amount_1);
+                    Reset(Checkbox_Invoice_1);
+                    Reset(Checkbox_MOS_1);
                 PressedColor: =RGBA(211, 66, 9, 1)
                 PressedFill: =WhiteSmoke
                 RadiusBottomLeft: =0
@@ -1659,7 +1650,7 @@ NRTaggingScreen As screen:
                         OOH_Log_Txn,
                         LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text)
+                            Log_ID = Value(ID_TextInput_NR.Text)
                         ),
                         {Log_Invoice_ContractNumber: ContractNumber_TextInput_1.Text}
                     );
@@ -1686,12 +1677,14 @@ NRTaggingScreen As screen:
                     );
                     Refresh(OOH_Log_Txn);
                     Refresh(OOH_Log_TXN_VIEW);
-                    Reset(Checkbox1_1);
+                    Reset(Checkbox_Amount_1);
+                    Reset(Checkbox_Invoice_1);
+                    Reset(Checkbox_MOS_1);
                     UpdateContext(
                         {
                             VAR_VendorID_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Vendor_ID
                             )
                         }
@@ -1700,17 +1693,17 @@ NRTaggingScreen As screen:
                         {
                             VAR_Vendor_DEF: LookUp(
                                 OOH_Vendor_Master,
-                                Vendor_ID = Value(hide_VendorID_1.Text),
+                                Vendor_ID = Value(hide_VendorID_NR.Text),
                                 Vendor_Name
                             ),
                             VAR_PublicationCode_DEF: LookUp(
                                 OOH_Vendor_Master,
-                                Vendor_ID = Value(hide_VendorID_1.Text),
+                                Vendor_ID = Value(hide_VendorID_NR.Text),
                                 Vendor_Pub_Code
                             ),
                             VAR_PublicationName_DEF: LookUp(
                                 OOH_Vendor_Master,
-                                Vendor_ID = Value(hide_VendorID_1.Text),
+                                Vendor_ID = Value(hide_VendorID_NR.Text),
                                 Vendor_Pub_Name
                             )
                         }
@@ -1720,7 +1713,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_ContractNum_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Invoice_ContractNumber
                             )
                         }
@@ -1730,7 +1723,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_C_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Validated_C
                             )
                         }
@@ -1740,7 +1733,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_P_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Validated_P
                             )
                         }
@@ -1750,7 +1743,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_E_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Validated_E
                             )
                         }
@@ -1760,7 +1753,7 @@ NRTaggingScreen As screen:
                         {
                             VAR_MOS_DEF: LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_Invoice_MOS
                             )
                         }
@@ -1775,7 +1768,7 @@ NRTaggingScreen As screen:
                     Reset(InvoiceNum_TextInput_1);
                     Reset(Amount_TextInput_1);
                     Reset(Tax_TextInput_1);
-                    Reset(ID_TextInput_1);
+                    Reset(ID_TextInput_NR);
                     //Reset(PredictionItemsDataTable);
                     UpdateContext({MySelected: Blank()});
                 PressedColor: =RGBA(204, 231, 246, 1)
@@ -1802,7 +1795,7 @@ NRTaggingScreen As screen:
                 HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                 OnSelect: |-
                     =OOHChangeVendorMapping.Run(
-                        ID_TextInput_1.Text,
+                        ID_TextInput_NR.Text,
                         VAR_VendorID_DEF,
                         0
                     );
@@ -1867,6 +1860,73 @@ NRTaggingScreen As screen:
                 Y: =150
                 ZIndex: =55
 
+            Checkbox_Invoice_1 As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(InvoiceNum_TextInput_1.Text="" Or IsBlank(InvoiceNum_TextInput_1),DisplayMode.Disabled, DisplayMode.Edit)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =10
+                Text: =""
+                Width: =24
+                X: =352
+                Y: =10
+                ZIndex: =56
+
+            Checkbox_Amount_1 As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(Amount_TextInput_1.Text="" Or IsBlank(Amount_TextInput_1),DisplayMode.Disabled, DisplayMode.Edit)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =10
+                Text: =""
+                Width: =24
+                X: =487
+                Y: =10
+                ZIndex: =57
+
+            Checkbox_MOS_1 As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(MOS_TextInput_View_1.Text="" Or IsBlank(MOS_TextInput_View_1),DisplayMode.Disabled, DisplayMode.Edit)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =10
+                Text: =""
+                Width: =24
+                X: =621
+                Y: =65
+                ZIndex: =58
+
+            Segment_Checkbox As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =13
+                Text: =""
+                Tooltip: ="Enable Segment"
+                Width: =24
+                X: =74
+                Y: =151
+                ZIndex: =59
+
         InfoContainer_1 As groupContainer.manualLayoutContainer:
             Width: =966
             ZIndex: =3
@@ -1902,7 +1962,7 @@ NRTaggingScreen As screen:
                     RadiusTopLeft: =2
                     RadiusTopRight: =2
                     Size: =10
-                    Tooltip: =If(Invoice_FA_Status_Label_1.Text="", LookUp(SelectedItems, rowNumber = ROWNUM, Log_Client_Name), LookUp(OOH_Log_Txn, Log_ID=Value(ID_TextInput_1.Text), Log_Client_Name))
+                    Tooltip: =If(Invoice_FA_Status_Label_1.Text="", LookUp(SelectedItems, rowNumber = ROWNUM, Log_Client_Name), LookUp(OOH_Log_Txn, Log_ID=Value(ID_TextInput_NR.Text), Log_Client_Name))
                     Visible: |-
                         =//varIsQA
                         true
@@ -1916,7 +1976,7 @@ NRTaggingScreen As screen:
                     Clear: =true
                     Color: =RGBA(0, 0, 0, 1)
                     Default: |
-                        =LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_Insertion_Order_Ext_Match)
+                        =LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_Insertion_Order_Ext_Match)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1951,7 +2011,7 @@ NRTaggingScreen As screen:
                         =Text(
                             LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_FA_Update_Date
                             ),
                             "yyyy-mm-dd"
@@ -1976,7 +2036,7 @@ NRTaggingScreen As screen:
                     RadiusTopRight: =2
                     Size: =10
                     Tooltip: |
-                        =If(Invoice_FA_Status_Label_1.Text="", LookUp(SelectedItems, rowNumber = ROWNUM, Log_Campaign_ID_Match), LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_Campaign_ID_Match))
+                        =If(Invoice_FA_Status_Label_1.Text="", LookUp(SelectedItems, rowNumber = ROWNUM, Log_Campaign_ID_Match), LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_Campaign_ID_Match))
                     Width: =158
                     X: =463
                     Y: =28
@@ -2195,7 +2255,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_VendorID_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Vendor_ID
                                 )
                             }
@@ -2204,7 +2264,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_PublicationCode_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Pub_Code
                                 )
                             }
@@ -2213,7 +2273,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_M_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_Media_ID
                                 )
                             }
@@ -2265,12 +2325,12 @@ NRTaggingScreen As screen:
                             {
                                 VAR_Vendor_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Name
                                 ),
                                 VAR_PublicationName_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Pub_Name
                                 )
                             }
@@ -2280,7 +2340,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_ContractNum_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_ContractNumber
                                 )
                             }
@@ -2290,7 +2350,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_C_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_C
                                 )
                             }
@@ -2300,7 +2360,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_P_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_P
                                 )
                             }
@@ -2310,7 +2370,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_E_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_E
                                 )
                             }
@@ -2320,7 +2380,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_MOS_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_MOS
                                 )
                             }
@@ -2336,7 +2396,9 @@ NRTaggingScreen As screen:
                             ""
                         );
                         Reset(Checkbox2_1);
-                        Reset(Checkbox1_1);
+                        Reset(Checkbox_Amount_1);
+                        Reset(Checkbox_Invoice_1);
+                        Reset(Checkbox_MOS_1);
                         Refresh(OOH_Log_Txn);
                         UpdateContext(
                             {
@@ -2409,7 +2471,7 @@ NRTaggingScreen As screen:
                         Reset(InvoiceNum_TextInput_1);
                         Reset(Amount_TextInput_1);
                         Reset(Tax_TextInput_1);
-                        Reset(ID_TextInput_1);
+                        Reset(ID_TextInput_NR);
                         Reset(ViewCommentS9Input_1);
                         //Reset(galPredictionItems);
                         UpdateContext({MySelected: Blank()});
@@ -2447,7 +2509,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_VendorID_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Vendor_ID
                                 )
                             }
@@ -2456,7 +2518,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_PublicationCode_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Pub_Code
                                 )
                             }
@@ -2489,12 +2551,12 @@ NRTaggingScreen As screen:
                             {
                                 VAR_Vendor_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Name
                                 ),
                                 VAR_PublicationName_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Pub_Name
                                 )
                             }
@@ -2504,7 +2566,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_ContractNum_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_ContractNumber
                                 )
                             }
@@ -2514,7 +2576,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_C_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_C
                                 )
                             }
@@ -2524,7 +2586,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_P_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_P
                                 )
                             }
@@ -2534,7 +2596,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_E_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_E
                                 )
                             }
@@ -2544,14 +2606,16 @@ NRTaggingScreen As screen:
                             {
                                 VAR_MOS_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_MOS
                                 )
                             }
                         );
                         UpdateContext({showTaggingDropdown: false});
                         Reset(Checkbox2_1);
-                        Reset(Checkbox1_1);
+                        Reset(Checkbox_Amount_1);
+                        Reset(Checkbox_Invoice_1);
+                        Reset(Checkbox_MOS_1);
                         Refresh(OOH_Log_Txn);
                         UpdateContext(
                             {
@@ -2623,7 +2687,7 @@ NRTaggingScreen As screen:
                         Reset(PCID_TextInput_1);
                         Reset(Amount_TextInput_1);
                         Reset(Tax_TextInput_1);
-                        Reset(ID_TextInput_1);
+                        Reset(ID_TextInput_NR);
                         Reset(ViewCommentS9Input_1);
                         //Reset(galPredictionItems);
                         UpdateContext({MySelected: Blank()});
@@ -2666,7 +2730,7 @@ NRTaggingScreen As screen:
                     Size: =8
                     Text: |-
                         =//Left(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput.Text), Log_Invoice_Date), 10)
-                        Text(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_Insertion_Date), "yyyy-mm-dd")
+                        Text(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_Insertion_Date), "yyyy-mm-dd")
                     Width: =65
                     X: =205
                     Y: =8
@@ -2689,7 +2753,7 @@ NRTaggingScreen As screen:
                         )*/
                         LookUp(
                             OOH_Log_TXN_VIEW,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             FA_NAME
                         )
                         
@@ -2778,7 +2842,7 @@ NRTaggingScreen As screen:
                     Text: |-
                         =LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             Log_Invoice_Sender_Email
                         )
                     Tooltip: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_Sender_Email)
@@ -2870,7 +2934,7 @@ NRTaggingScreen As screen:
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(179, 179, 179, 1)
                 DisplayMode: |-
-                    =If((IsBlank(C_TextInput_1.Text) Or C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = ""  Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or ((IsBlank(MOS_TextInput_1.Text) Or  MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (IsBlank(Amount_TextInput_1.Text) Or  Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text ="FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text =  "FFM"))Or Checkbox1_1.Value=false,
+                    =If((IsBlank(C_TextInput_1.Text) Or C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = ""  Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or ((IsBlank(MOS_TextInput_1.Text) Or  MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (IsBlank(Amount_TextInput_1.Text) Or  Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text ="FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text =  "FFM"))Or Checkbox_Amount_1.Value = false Or Checkbox_Invoice_1.Value = false Or Checkbox_MOS_1.Value = false,
                     DisplayMode.Disabled,DisplayMode.Edit)
                 Fill: =//If(Text(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput.Text), Log_IsMatched)) = "Yes",Color.DarkGreen, RGBA(211, 66, 9, 1))
                 FontWeight: =FontWeight.Semibold
@@ -3309,7 +3373,7 @@ NRTaggingScreen As screen:
                 FontWeight: =FontWeight.Semibold
                 Height: =20
                 Size: =7
-                Text: =LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_FA_Action_Status)
+                Text: =LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_FA_Action_Status)
                 Width: =94
                 X: =336
                 Y: =49
@@ -3418,7 +3482,7 @@ NRTaggingScreen As screen:
                     DisabledFill: =RGBA(204, 204, 204, 1)
                     DisplayMode: |
                         =If(
-                            (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or ((IsBlank(MOS_TextInput_1.Text) Or  MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (IsBlank(Amount_TextInput_1.Text) Or Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text = "FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text = "FFM")) Or Checkbox1_1.Value=false,
+                            (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or ((IsBlank(MOS_TextInput_1.Text) Or  MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (IsBlank(Amount_TextInput_1.Text) Or Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text = "FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text = "FFM")) Or Checkbox_Amount_1.Value = false Or Checkbox_Invoice_1.Value = false Or Checkbox_MOS_1.Value = false,
                             DisplayMode.Disabled,
                             DisplayMode.Edit
                         )
@@ -4252,9 +4316,9 @@ NRTaggingScreen As screen:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(204, 204, 204, 1)
-                    DisplayMode: |
+                    DisplayMode: |-
                         =If(
-                            (IsBlank(C_TextInput_1.Text) Or C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or E_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) ) Or ((MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text = "FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text = "FFM")) Or Checkbox1_1.Value=false,
+                            (IsBlank(C_TextInput_1.Text) Or C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or E_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text)) Or ((MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (Amount_TextInput_1.Text = "" Or Amount_TextInput_1.Text = "FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text = "FFM")) Or Checkbox_Amount_1.Value = false Or Checkbox_Invoice_1.Value = false Or Checkbox_MOS_1.Value = false,
                             DisplayMode.Disabled,
                             DisplayMode.Edit
                         )
@@ -4691,7 +4755,7 @@ NRTaggingScreen As screen:
                 DisabledFill: =RGBA(204, 204, 204, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or ((IsBlank(MOS_TextInput_1.Text) Or  MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (IsBlank(Amount_TextInput_1.Text) Or Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text = "FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text = "FFM")) Or Checkbox1_1.Value=false,
+                        (IsBlank(C_TextInput_1.Text) Or  C_TextInput_1.Text = "" Or IsBlank(P_TextInput_1.Text) Or P_TextInput_1.Text = "" Or IsBlank(E_TextInput_1.Text) Or E_TextInput_1.Text = "") Or ((IsBlank(MOS_TextInput_1.Text) Or  MOS_TextInput_1.Text = "" Or MOS_TextInput_1.Text = "FFM") Or (IsBlank(Amount_TextInput_1.Text) Or Amount_TextInput_1.Text="" Or Amount_TextInput_1.Text = "FFM") Or (InvoiceNum_TextInput_1.Text = "" Or InvoiceNum_TextInput_1.Text = "FFM") Or (InvDate_TextInput_1.Text = "" Or InvDate_TextInput_1.Text = "FFM")) Or Checkbox_Amount_1.Value = false Or Checkbox_Invoice_1.Value = false Or Checkbox_MOS_1.Value = false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -4700,402 +4764,8 @@ NRTaggingScreen As screen:
                 Height: =25
                 HoverColor: =RGBA(230, 230, 230, 1)
                 HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-                OnSelect: |
-                    =UpdateContext({TempFA_Mapping_Ref_Data: Blank()});
-                    UpdateContext({showVendorModal: false});
-                    If(
-                        VAR_VendorID_DEF = LookUp(
-                            OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
-                            Log_Vendor_ID
-                        ),
-                        "",
-                        UpdateContext(
-                            {
-                                InvoiceLookupRecord: LookUp(
-                                    OOH_Invoice_Master,
-                                    Invoice_Number = hide_InvoiceID_1.Text && Invoice_Cease_Date = Blank()
-                                )
-                            }
-                        );
-                        Patch(
-                            OOH_Invoice_Master,
-                            LookUp(
-                                OOH_Invoice_Master,
-                                Invoice_ID = Value(InvoiceLookupRecord.Invoice_ID)
-                            ),
-                            {Invoice_Cease_Date: Now()}
-                        );
-                        // Above function will update existing record.
-                    Patch(
-                            OOH_Invoice_Master,
-                            {
-                                Invoice_Number: InvoiceLookupRecord.Invoice_Number,
-                                Invoice_Amount: Value(Amount_TextInput_1.Text),
-                                Invoice_Date: InvoiceLookupRecord.Invoice_Date,
-                                Invoice_File_Name: InvoiceLookupRecord.Invoice_File_Name,
-                                Invoice_Vendor_ID: VAR_VendorID_DEF,
-                                Invoice_Agency_ID: InvoiceLookupRecord.Invoice_Agency_ID,
-                                Invoice_Insertion_Date: InvoiceLookupRecord.Invoice_Insertion_Date
-                            }
-                        // Above function will insert new record with empty cease date.
-                        );
-                        If(
-                            // check if there were any errors
-                            IsEmpty(Errors(OOH_Invoice_Master)),
-                             // if true, go to success notification
-                            "",
-                         // else, show any error message
-                            Notify(
-                                Concat(
-                                    Errors(OOH_Invoice_Master),
-                                    Column & ": " & Message
-                                ),
-                                NotificationType.Error
-                            )
-                        );
-                        /*ClearCollect(
-                            Col_TempFA_Mapping_Ref_Data,
-                            LookUp(
-                                OOH_FA_Mapping_Ref,
-                                FA_Map_FA_ID = Value(hide_FA_ID.Text) && FA_Map_Vendor_ID = Value(hide_VendorID.Text) && FA_Map_Agency_ID = Value(hide_AgencyID.Text)
-                            )
-                        );
-                         // Above funcion will get all the related records from mapping table
-                    If(
-                            CountRows(Col_TempFA_Mapping_Ref_Data) = 0 && !IsBlank(hide_FA_ID.Text) && !IsBlank(VAR_VendorID_DEF) && !IsBlank(hide_AgencyID.Text),
-                            Patch(
-                                OOH_FA_Mapping_Ref,
-                                {
-                                    FA_Map_Agency_ID: Value(hide_AgencyID.Text),
-                                    FA_Map_FA_ID: Value(hide_FA_ID.Text),
-                                    FA_Map_Vendor_ID: VAR_VendorID_DEF,
-                                    FA_Map_Insertion_Date: Now()
-                                }
-                            ),
-                            ""
-                        );
-                        If(
-                            // check if there were any errors
-                            IsEmpty(Errors(OOH_FA_Mapping_Ref)),
-                             // if true, go to success notification
-                            "",
-                         // else, show any error message
-                            Notify(
-                                Concat(
-                                    Errors(OOH_FA_Mapping_Ref),
-                                    Column & ": " & Message
-                                ),
-                                NotificationType.Error
-                            )
-                        );*/
-                         // The above function will update Mapping refrences in OOH_FA_Mapping_Ref table.
-                    );
-                    If(
-                        !IsBlank(Vendor_TextInput_1.Text) And !IsBlank(InvoiceNum_TextInput_1.Text) And !IsBlank(Amount_TextInput_1.Text) And !IsBlank(C_TextInput_1.Text) And !IsBlank(P_TextInput_1.Text) And !IsBlank(E_TextInput_1.Text) And !IsBlank(MOS_TextInput_1.Text) And !IsBlank(InvDate_TextInput_1.Text),
-                        Patch(
-                            OOH_Log_Txn,
-                            LookUp(
-                                OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text)
-                            ),
-                            {
-                                // Log_Vendor_ID: Value(hide_VendorID.Text),
-                                Log_Publication_Code: VAR_PublicationCode_DEF,
-                                Log_Publication_Name: VAR_PublicationName_DEF,
-                                Log_Invoice_ContractNumber: ContractNumber_TextInput_1.Text,
-                                Log_Invoice_ExtractedTax: Value(Tax_TextInput_1.Text),
-                                Log_Invoice_Amount: Value(Amount_TextInput_1.Text),
-                                Log_Invoice_Number: InvoiceNum_TextInput_1.Text,
-                                //Log_Manual_Override:varLoggedInUser.Email,
-                                Log_Validated_C: C_TextInput_1.Text,
-                                Log_Validated_P: P_TextInput_1.Text,
-                                Log_Validated_E: E_TextInput_1.Text,
-                                Log_Invoice_Date: InvDate_TextInput_1.Text,
-                                Log_Invoice_MOS: MOS_TextInput_1.Text,
-                                Log_FA_Update_Date: Now(),
-                                Log_FA_Action_Status: "MANUAL - S9",
-                                Log_FA_Interface_Log_Status: "FA Processed"
-                            }
-                        );
-                        OOHChangeVendorMapping.Run(
-                            ID_TextInput_1.Text,
-                            VAR_VendorID_DEF,
-                            0
-                        );
-                        Refresh(OOH_Log_Txn);
-                    Refresh(OOH_Log_TXN_VIEW);
-                        If(
-                            // check if there were any errors
-                            IsEmpty(Errors(OOH_Log_Txn)),
-                             // if true, go to success notification
-                            Notify(
-                                "The record has been successfully patched with FA Status = MANUAL-S9, Note:- Changing the Vendor will change it's corresponding FA respectively",
-                                NotificationType.Success,
-                                2000
-                            ),
-                         // else, show any error message
-                            Notify(
-                                Concat(
-                                    Errors(OOH_Log_Txn),
-                                    Column & ": " & Message
-                                ),
-                                NotificationType.Error
-                            )
-                        );
-                        If(
-                            ROWNUM >= Last(SelectedNRItems).rowNumber,
-                            "",
-                            UpdateContext({ROWNUM: ROWNUM + 1});
-                            UpdateContext(
-                                {
-                                    PDFLink: LookUp(
-                                        SelectedNRItems,
-                                        rowNumber = ROWNUM,
-                                        Log_SP_FilePath
-                                    )
-                                }
-                            );
-                            If(
-                                !IsBlank(
-                                    Find(
-                                        "/GMUSA-KineticFinanceAutomation",
-                                        PDFLink
-                                    )
-                                ),
-                                UpdateContext(
-                                    {
-                                        varPDF: OOHShowPDFDetails.Run(
-                                            Substitute(
-                                                Concat(
-                                                    FirstN(
-                                                        Split(
-                                                            Mid(
-                                                                PDFLink,
-                                                                Find(
-                                                                    "/GMUSA-KineticFinanceAutomation",
-                                                                    PDFLink
-                                                                )
-                                                            ),
-                                                            "/"
-                                                        ).Result,
-                                                        CountRows(
-                                                            Split(
-                                                                Mid(
-                                                                    PDFLink,
-                                                                    Find(
-                                                                        "/GMUSA-KineticFinanceAutomation",
-                                                                        PDFLink
-                                                                    )
-                                                                ),
-                                                                "/"
-                                                            ).Result
-                                                        ) - 1
-                                                    ),
-                                                    Result & "/"
-                                                ),
-                                                "/GMUSA-KineticFinanceAutomation",
-                                                ""
-                                            ) & LookUp(
-                                                SelectedNRItems,
-                                                rowNumber = ROWNUM,
-                                                Log_Invoice_FileName
-                                            )
-                                        )
-                                    }
-                                ),
-                                Notify(
-                                    "The PDF is not present in the GMUSA-KineticFinanceAutomation SharePoint site",
-                                    NotificationType.Information,
-                                    2000
-                                )
-                            );
-                            Refresh(OOH_Log_Txn);
-                            /*UpdateContext(
-                                {
-                                    VAR_Remittance_Address: If(
-                                        !IsBlank(
-                                            LookUp(
-                                                OOH_Unpaid_Ref,
-                                                Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
-                                                Unpaid_Ref_Pay_Address
-                                            )
-                                        ),
-                                        LookUp(
-                                            OOH_Unpaid_Ref,
-                                            Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
-                                            Unpaid_Ref_Pay_Address
-                                        ),
-                                        Last(
-                                            Filter(
-                                                OOH_Unpaid_Ref,
-                                                Unpaid_Ref_Publication_Code = Log_Pub_Name.Text
-                                            )
-                                        ).Unpaid_Ref_Pay_Address
-                                    )
-                                }
-                            );*/
-                    UpdateContext(
-                                {
-                                    VAR_VendorID_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput_1.Text),
-                                        Log_Vendor_ID
-                                    )
-                                }
-                            );
-                            UpdateContext(
-                                {
-                                    VAR_Vendor_DEF: LookUp(
-                                        OOH_Vendor_Master,
-                                        Vendor_ID = Value(hide_VendorID_1.Text),
-                                        Vendor_Name
-                                    ),
-                                    VAR_PublicationName_DEF: LookUp(
-                                        OOH_Vendor_Master,
-                                        Vendor_ID = Value(hide_VendorID_1.Text),
-                                        Vendor_Pub_Name
-                                    ),
-                                    VAR_PublicationCode_DEF: LookUp(
-                                        OOH_Vendor_Master,
-                                        Vendor_ID = Value(hide_VendorID_1.Text),
-                                        Vendor_Pub_Code
-                                    )
-                                }
-                            );
-                            Reset(Vendor_TextInput_1);
-                            UpdateContext(
-                                {
-                                    VAR_ContractNum_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput_1.Text),
-                                        Log_Invoice_ContractNumber
-                                    )
-                                }
-                            );
-                            Reset(ContractNumber_TextInput_1);
-                            UpdateContext(
-                                {
-                                    VAR_C_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput_1.Text),
-                                        Log_Validated_C
-                                    )
-                                }
-                            );
-                            Reset(C_TextInput_1);
-                            UpdateContext(
-                                {
-                                    VAR_P_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput_1.Text),
-                                        Log_Validated_P
-                                    )
-                                }
-                            );
-                            Reset(P_TextInput_1);
-                            UpdateContext(
-                                {
-                                    VAR_E_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput_1.Text),
-                                        Log_Validated_E
-                                    )
-                                }
-                            );
-                            Reset(E_TextInput_1);
-                            UpdateContext(
-                                {
-                                    VAR_MOS_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput_1.Text),
-                                        Log_Invoice_MOS
-                                    )
-                                }
-                            );
-                            Reset(MOS_TextInput_initial_1);
-                            Reset(Client_Name_TextInput_1);
-                            Reset(IO_TextInput_1);
-                            Reset(PCID_TextInput_1);
-                            Reset(InvoiceNum_TextInput_1);
-                            Reset(Amount_TextInput_1);
-                            Reset(Tax_TextInput_1);
-                            Reset(InvDate_TextInput_initial_1);
-                            Reset(ID_TextInput_1);
-                        ),
-                        If(
-                            IsBlank(InvDate_TextInput_initial_1.Text),
-                            Notify(
-                                "Invoice Date Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(MOS_TextInput_initial_1.Text),
-                            Notify(
-                                "Insertion Month Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(E_TextInput_1.Text),
-                            Notify(
-                                "Estimate Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(P_TextInput_1.Text),
-                            Notify(
-                                "Product Code Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(C_TextInput_1.Text),
-                            Notify(
-                                "Client Code Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(Amount_TextInput_1.Text),
-                            Notify(
-                                "Amount Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(InvoiceNum_TextInput_1.Text),
-                            Notify(
-                                "Invoice Number Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(Vendor_TextInput_1.Text),
-                            Notify(
-                                "Vendor Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        Notify(
-                            "Comment has been successfully added for this record",
-                            NotificationType.Success,
-                            2000
-                        );
-                        
-                    );
-                    Reset(Checkbox1_1);
-                    Reset(ViewCommentS9Input_1);
+                OnSelect: |-
+                    =UpdateContext({showManualS9Popup:true});
                 PressedFill: =RGBA(230, 230, 230, 1)
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -6012,7 +5682,7 @@ NRTaggingScreen As screen:
                         OOH_Log_Txn,
                         LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text)
+                            Log_ID = Value(ID_TextInput_NR.Text)
                         ),
                         {
                             //Log_Manual_Override:varLoggedInUser.Email,
@@ -6114,7 +5784,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_VendorID_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Vendor_ID
                                 )
                             }
@@ -6123,17 +5793,17 @@ NRTaggingScreen As screen:
                             {
                                 VAR_Vendor_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Name
                                 ),
                                 VAR_PublicationName_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Pub_Name
                                 ),
                                 VAR_PublicationCode_DEF: LookUp(
                                     OOH_Vendor_Master,
-                                    Vendor_ID = Value(hide_VendorID_1.Text),
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
                                     Vendor_Pub_Code
                                 )
                             }
@@ -6143,7 +5813,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_ContractNum_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_ContractNumber
                                 )
                             }
@@ -6153,7 +5823,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_C_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_C
                                 )
                             }
@@ -6163,7 +5833,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_P_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_P
                                 )
                             }
@@ -6173,7 +5843,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_E_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Validated_E
                                 )
                             }
@@ -6183,7 +5853,7 @@ NRTaggingScreen As screen:
                             {
                                 VAR_MOS_DEF: LookUp(
                                     OOH_Log_Txn,
-                                    Log_ID = Value(ID_TextInput_1.Text),
+                                    Log_ID = Value(ID_TextInput_NR.Text),
                                     Log_Invoice_MOS
                                 )
                             }
@@ -6196,7 +5866,7 @@ NRTaggingScreen As screen:
                         Reset(Amount_TextInput_1);
                         Reset(Tax_TextInput_1);
                         Reset(InvDate_TextInput_initial_1);
-                        Reset(ID_TextInput_1);
+                        Reset(ID_TextInput_NR);
                     )
                 )
             RadiusBottomLeft: =0
@@ -6227,7 +5897,7 @@ NRTaggingScreen As screen:
             Y: =113
             ZIndex: =42
 
-    hide_VendorID_1 As text:
+    hide_VendorID_NR As text:
         BorderColor: =RGBA(131, 24, 75, 1)
         BorderThickness: =0
         Color: =RGBA(0, 0, 0, 1)
@@ -6896,7 +6566,7 @@ NRTaggingScreen As screen:
             Y: =508
             ZIndex: =51
 
-    hide_InvoiceID_1 As text:
+    hide_InvoiceID_NR As text:
         BorderColor: =RGBA(131, 24, 75, 1)
         BorderThickness: =0
         Color: =RGBA(0, 0, 0, 1)
@@ -7197,7 +6867,7 @@ NRTaggingScreen As screen:
                         Proper(
                             LookUp(
                                 OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput_1.Text),
+                                Log_ID = Value(ID_TextInput_NR.Text),
                                 Log_FA_ID
                             )
                         ) in Result,
@@ -7679,7 +7349,7 @@ NRTaggingScreen As screen:
         BorderColor: =RGBA(131, 24, 75, 1)
         BorderThickness: =0
         Color: =RGBA(0, 0, 0, 1)
-        Default: =LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_FA_ID)
+        Default: =LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_FA_ID)
         DelayOutput: =true
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -7706,7 +7376,7 @@ NRTaggingScreen As screen:
         Color: =RGBA(0, 0, 0, 1)
         Default: |-
             =//LookUp(SelectedItems, rowNumber = ROWNUM, Log_Agency_ID)
-            LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_1.Text), Log_Agency_ID)
+            LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput_NR.Text), Log_Agency_ID)
         DelayOutput: =true
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -7724,8 +7394,7 @@ NRTaggingScreen As screen:
         Size: =10
         Visible: =false
         Width: =75
-        X: =75
-        Y: =299
+        Y: =314
         ZIndex: =86
 
     Unpaid_Popoup_Group_1 As group:
@@ -9024,7 +8693,7 @@ NRTaggingScreen As screen:
             Text: |-
                 ="| " & LookUp(
                     OOH_Log_TXN_VIEW,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Invoice_Number
                 )
             Visible: =showSegmentPopup
@@ -9052,7 +8721,7 @@ NRTaggingScreen As screen:
             Text: |-
                 ="| $" & LookUp(
                     OOH_Log_TXN_VIEW,
-                    Log_ID = Value(ID_TextInput_1.Text),
+                    Log_ID = Value(ID_TextInput_NR.Text),
                     Log_Invoice_Amount
                 )
             Visible: =showSegmentPopup
@@ -9599,7 +9268,7 @@ NRTaggingScreen As screen:
                            PBT_Segment_BuyAmount: Value( ReconUnpaidDataTable_1.Selected.Unpaid_Ref_Payable_Net),
                           // Segment_Comment: ReconUnpaidDataTable.Selected.Unpaid_Ref_Invoice_Comment,
                            PBT_TS_Received: ReconUnpaidDataTable_1.Selected.Unpaid_Ref_TS_Received,
-                           PBT_Log_ID: Value(ID_TextInput_1.Text),
+                           PBT_Log_ID: Value(ID_TextInput_NR.Text),
                            PBT_Segment_ContractID: ReconUnpaidDataTable_1.Selected.Unpaid_Ref_Contract_ID
                         }
                     );
@@ -10150,7 +9819,7 @@ NRTaggingScreen As screen:
                         Patch(
                             OOH_PBT_Txn,
                             {
-                                PBT_Log_ID: Value(ID_TextInput_1.Text),
+                                PBT_Log_ID: Value(ID_TextInput_NR.Text),
                                 PBT_Insertion_Date: Now(),
                                 PBT_Segment_UnpaidRef_ContractID: lbl_hidden_ContractID.Text,
                                 //PBT_Is_Recon: true,
@@ -10419,7 +10088,9 @@ NRTaggingScreen As screen:
                     );*/
                     
                 );
-                Reset(Checkbox1_1);
+                Reset(Checkbox_Amount_1);
+                Reset(Checkbox_Invoice_1);
+                Reset(Checkbox_MOS_1);
                 Reset(ViewCommentS9Input_1);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -10641,7 +10312,7 @@ NRTaggingScreen As screen:
                     OOH_Log_Txn,
                     LookUp(
                         OOH_Log_Txn,
-                        Log_ID = Value(ID_TextInput_1.Text)
+                        Log_ID = Value(ID_TextInput_NR.Text)
                     ),
                     {
                         Log_Validated_C: txt_Edit_C_2.Text,
@@ -10657,17 +10328,17 @@ NRTaggingScreen As screen:
                     {
                         VAR_E_DEF: LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             Log_Validated_E
                         ),
                         VAR_C_DEF: LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             Log_Validated_C
                         ),
                         VAR_P_DEF: LookUp(
                             OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput_1.Text),
+                            Log_ID = Value(ID_TextInput_NR.Text),
                             Log_Validated_P
                         )
                     }
@@ -10738,4 +10409,515 @@ NRTaggingScreen As screen:
         Y: =31
         ZIndex: =105
         Zoom: =varZoom
+
+    grpManualS9_Popup_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =113
+
+        rct_ManualS9_back_1 As rectangle:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Fill: =RGBA(0, 0, 0, .7)
+            Height: =768
+            Visible: =showManualS9Popup
+            Width: =688
+            ZIndex: =106
+
+        rct_ManualS9_top_1 As rectangle:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =220
+            Visible: =showManualS9Popup
+            Width: =416
+            X: =133
+            Y: =245
+            ZIndex: =107
+
+        lbl_ManualS9_Header_1 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Size: =15
+            Text: ="Confirm!"
+            Visible: =showManualS9Popup
+            Width: =189
+            X: =162
+            Y: =260
+            ZIndex: =108
+
+        btn_ManualS9_Cancel_1 As button:
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: |-
+                =UpdateContext({showManualS9Popup:false});
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =12
+            Text: ="Cancel"
+            Visible: =showManualS9Popup
+            Width: =95
+            X: =318
+            Y: =410
+            ZIndex: =109
+
+        btn_ManualS9_Save_1 As button:
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: |-
+                =
+                UpdateContext({TempFA_Mapping_Ref_Data: Blank()});
+                UpdateContext({showVendorModal: false});
+                If(
+                    VAR_VendorID_DEF = LookUp(
+                        OOH_Log_Txn,
+                        Log_ID = Value(ID_TextInput_NR.Text),
+                        Log_Vendor_ID
+                    ),
+                    "",
+                    UpdateContext(
+                        {
+                            InvoiceLookupRecord: LookUp(
+                                OOH_Invoice_Master,
+                                Invoice_Number = hide_InvoiceID_NR.Text && Invoice_Cease_Date = Blank()
+                            )
+                        }
+                    );
+                    Patch(
+                        OOH_Invoice_Master,
+                        LookUp(
+                            OOH_Invoice_Master,
+                            Invoice_ID = Value(InvoiceLookupRecord.Invoice_ID)
+                        ),
+                        {Invoice_Cease_Date: Now()}
+                    );
+                    // Above function will update existing record.
+                Patch(
+                        OOH_Invoice_Master,
+                        {
+                            Invoice_Number: InvoiceLookupRecord.Invoice_Number,
+                            Invoice_Amount: Value(Amount_TextInput_1.Text),
+                            Invoice_Date: InvoiceLookupRecord.Invoice_Date,
+                            Invoice_File_Name: InvoiceLookupRecord.Invoice_File_Name,
+                            Invoice_Vendor_ID: VAR_VendorID_DEF,
+                            Invoice_Agency_ID: InvoiceLookupRecord.Invoice_Agency_ID,
+                            Invoice_Insertion_Date: InvoiceLookupRecord.Invoice_Insertion_Date
+                        }
+                    // Above function will insert new record with empty cease date.
+                    );
+                    If(
+                        // check if there were any errors
+                        IsEmpty(Errors(OOH_Invoice_Master)),
+                         // if true, go to success notification
+                        "",
+                     // else, show any error message
+                        Notify(
+                            Concat(
+                                Errors(OOH_Invoice_Master),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        )
+                    );
+                    /*ClearCollect(
+                        Col_TempFA_Mapping_Ref_Data,
+                        LookUp(
+                            OOH_FA_Mapping_Ref,
+                            FA_Map_FA_ID = Value(hide_FA_ID.Text) && FA_Map_Vendor_ID = Value(hide_VendorID.Text) && FA_Map_Agency_ID = Value(hide_AgencyID.Text)
+                        )
+                    );
+                     // Above funcion will get all the related records from mapping table
+                If(
+                        CountRows(Col_TempFA_Mapping_Ref_Data) = 0 && !IsBlank(hide_FA_ID.Text) && !IsBlank(VAR_VendorID_DEF) && !IsBlank(hide_AgencyID.Text),
+                        Patch(
+                            OOH_FA_Mapping_Ref,
+                            {
+                                FA_Map_Agency_ID: Value(hide_AgencyID.Text),
+                                FA_Map_FA_ID: Value(hide_FA_ID.Text),
+                                FA_Map_Vendor_ID: VAR_VendorID_DEF,
+                                FA_Map_Insertion_Date: Now()
+                            }
+                        ),
+                        ""
+                    );
+                    If(
+                        // check if there were any errors
+                        IsEmpty(Errors(OOH_FA_Mapping_Ref)),
+                         // if true, go to success notification
+                        "",
+                     // else, show any error message
+                        Notify(
+                            Concat(
+                                Errors(OOH_FA_Mapping_Ref),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        )
+                    );*/
+                     // The above function will update Mapping refrences in OOH_FA_Mapping_Ref table.
+                );
+                If(
+                    !IsBlank(Vendor_TextInput_1.Text) And !IsBlank(InvoiceNum_TextInput_1.Text) And !IsBlank(Amount_TextInput_1.Text) And !IsBlank(C_TextInput_1.Text) And !IsBlank(P_TextInput_1.Text) And !IsBlank(E_TextInput_1.Text) And !IsBlank(MOS_TextInput_1.Text) And !IsBlank(InvDate_TextInput_1.Text),
+                    Patch(
+                        OOH_Log_Txn,
+                        LookUp(
+                            OOH_Log_Txn,
+                            Log_ID = Value(ID_TextInput_NR.Text)
+                        ),
+                        {
+                            // Log_Vendor_ID: Value(hide_VendorID.Text),
+                            Log_Publication_Code: VAR_PublicationCode_DEF,
+                            Log_Publication_Name: VAR_PublicationName_DEF,
+                            Log_Invoice_ContractNumber: ContractNumber_TextInput_1.Text,
+                            Log_Invoice_ExtractedTax: Value(Tax_TextInput_1.Text),
+                            Log_Invoice_Amount: Value(Amount_TextInput_1.Text),
+                            Log_Invoice_Number: InvoiceNum_TextInput_1.Text,
+                            //Log_Manual_Override:varLoggedInUser.Email,
+                            Log_Validated_C: C_TextInput_1.Text,
+                            Log_Validated_P: P_TextInput_1.Text,
+                            Log_Validated_E: E_TextInput_1.Text,
+                            Log_Invoice_Date: InvDate_TextInput_1.Text,
+                            Log_Invoice_MOS: MOS_TextInput_1.Text,
+                            Log_FA_Update_Date: Now(),
+                            Log_FA_Action_Status: "MANUAL - S9",
+                            Log_FA_Interface_Log_Status: "FA Processed"
+                        }
+                    );
+                    OOHChangeVendorMapping.Run(
+                        ID_TextInput_NR.Text,
+                        VAR_VendorID_DEF,
+                        0
+                    );
+                    Refresh(OOH_Log_Txn);
+                Refresh(OOH_Log_TXN_VIEW);
+                    If(
+                        // check if there were any errors
+                        IsEmpty(Errors(OOH_Log_Txn)),
+                         // if true, go to success notification
+                        Notify(
+                            "The record has been successfully patched with FA Status = MANUAL-S9, Note:- Changing the Vendor will change it's corresponding FA respectively",
+                            NotificationType.Success,
+                            2000
+                        ),
+                     // else, show any error message
+                        Notify(
+                            Concat(
+                                Errors(OOH_Log_Txn),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        )
+                    );
+                    If(
+                        ROWNUM >= Last(SelectedNRItems).rowNumber,
+                        "",
+                        UpdateContext({ROWNUM: ROWNUM + 1});
+                        UpdateContext(
+                            {
+                                PDFLink: LookUp(
+                                    SelectedNRItems,
+                                    rowNumber = ROWNUM,
+                                    Log_SP_FilePath
+                                )
+                            }
+                        );
+                        If(
+                            !IsBlank(
+                                Find(
+                                    "/GMUSA-KineticFinanceAutomation",
+                                    PDFLink
+                                )
+                            ),
+                            UpdateContext(
+                                {
+                                    varPDF: OOHShowPDFDetails.Run(
+                                        Substitute(
+                                            Concat(
+                                                FirstN(
+                                                    Split(
+                                                        Mid(
+                                                            PDFLink,
+                                                            Find(
+                                                                "/GMUSA-KineticFinanceAutomation",
+                                                                PDFLink
+                                                            )
+                                                        ),
+                                                        "/"
+                                                    ).Result,
+                                                    CountRows(
+                                                        Split(
+                                                            Mid(
+                                                                PDFLink,
+                                                                Find(
+                                                                    "/GMUSA-KineticFinanceAutomation",
+                                                                    PDFLink
+                                                                )
+                                                            ),
+                                                            "/"
+                                                        ).Result
+                                                    ) - 1
+                                                ),
+                                                Result & "/"
+                                            ),
+                                            "/GMUSA-KineticFinanceAutomation",
+                                            ""
+                                        ) & LookUp(
+                                            SelectedNRItems,
+                                            rowNumber = ROWNUM,
+                                            Log_Invoice_FileName
+                                        )
+                                    )
+                                }
+                            ),
+                            Notify(
+                                "The PDF is not present in the GMUSA-KineticFinanceAutomation SharePoint site",
+                                NotificationType.Information,
+                                2000
+                            )
+                        );
+                        Refresh(OOH_Log_Txn);
+                        /*UpdateContext(
+                            {
+                                VAR_Remittance_Address: If(
+                                    !IsBlank(
+                                        LookUp(
+                                            OOH_Unpaid_Ref,
+                                            Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
+                                            Unpaid_Ref_Pay_Address
+                                        )
+                                    ),
+                                    LookUp(
+                                        OOH_Unpaid_Ref,
+                                        Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
+                                        Unpaid_Ref_Pay_Address
+                                    ),
+                                    Last(
+                                        Filter(
+                                            OOH_Unpaid_Ref,
+                                            Unpaid_Ref_Publication_Code = Log_Pub_Name.Text
+                                        )
+                                    ).Unpaid_Ref_Pay_Address
+                                )
+                            }
+                        );*/
+                UpdateContext(
+                            {
+                                VAR_VendorID_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput_NR.Text),
+                                    Log_Vendor_ID
+                                )
+                            }
+                        );
+                        UpdateContext(
+                            {
+                                VAR_Vendor_DEF: LookUp(
+                                    OOH_Vendor_Master,
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
+                                    Vendor_Name
+                                ),
+                                VAR_PublicationName_DEF: LookUp(
+                                    OOH_Vendor_Master,
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
+                                    Vendor_Pub_Name
+                                ),
+                                VAR_PublicationCode_DEF: LookUp(
+                                    OOH_Vendor_Master,
+                                    Vendor_ID = Value(hide_VendorID_NR.Text),
+                                    Vendor_Pub_Code
+                                )
+                            }
+                        );
+                        Reset(Vendor_TextInput_1);
+                        UpdateContext(
+                            {
+                                VAR_ContractNum_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput_NR.Text),
+                                    Log_Invoice_ContractNumber
+                                )
+                            }
+                        );
+                        Reset(ContractNumber_TextInput_1);
+                        UpdateContext(
+                            {
+                                VAR_C_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput_NR.Text),
+                                    Log_Validated_C
+                                )
+                            }
+                        );
+                        Reset(C_TextInput_1);
+                        UpdateContext(
+                            {
+                                VAR_P_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput_NR.Text),
+                                    Log_Validated_P
+                                )
+                            }
+                        );
+                        Reset(P_TextInput_1);
+                        UpdateContext(
+                            {
+                                VAR_E_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput_NR.Text),
+                                    Log_Validated_E
+                                )
+                            }
+                        );
+                        Reset(E_TextInput_1);
+                        UpdateContext(
+                            {
+                                VAR_MOS_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput_NR.Text),
+                                    Log_Invoice_MOS
+                                )
+                            }
+                        );
+                        Reset(MOS_TextInput_initial_1);
+                        Reset(Client_Name_TextInput_1);
+                        Reset(IO_TextInput_1);
+                        Reset(PCID_TextInput_1);
+                        Reset(InvoiceNum_TextInput_1);
+                        Reset(Amount_TextInput_1);
+                        Reset(Tax_TextInput_1);
+                        Reset(InvDate_TextInput_initial_1);
+                        Reset(ID_TextInput_NR);
+                    ),
+                    If(
+                        IsBlank(InvDate_TextInput_initial_1.Text),
+                        Notify(
+                            "Invoice Date Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(MOS_TextInput_initial_1.Text),
+                        Notify(
+                            "Insertion Month Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(E_TextInput_1.Text),
+                        Notify(
+                            "Estimate Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(P_TextInput_1.Text),
+                        Notify(
+                            "Product Code Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(C_TextInput_1.Text),
+                        Notify(
+                            "Client Code Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(Amount_TextInput_1.Text),
+                        Notify(
+                            "Amount Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(InvoiceNum_TextInput_1.Text),
+                        Notify(
+                            "Invoice Number Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(Vendor_TextInput_1.Text),
+                        Notify(
+                            "Vendor Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    Notify(
+                        "Comment has been successfully added for this record",
+                        NotificationType.Success,
+                        2000
+                    );
+                    
+                );
+                Reset(Checkbox_Amount_1);
+                Reset(Checkbox_Invoice_1);
+                Reset(Checkbox_MOS_1);
+                Reset(ViewCommentS9Input_1);
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =12
+            Text: ="OK"
+            Visible: =showManualS9Popup
+            Width: =95
+            X: =433
+            Y: =410
+            ZIndex: =110
+
+        Icon_ManualS9_Close_1 As icon.CancelBadge:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =30
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({showManualS9Popup:false});
+            Visible: =showManualS9Popup
+            Width: =28
+            X: =519
+            Y: =210
+            ZIndex: =111
+
+        lbl_ManualS9_Message_1 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Size: =13
+            Text: ="Please ensure you are tagging this in PBT manually."
+            Visible: =showManualS9Popup
+            Width: =360
+            X: =162
+            Y: =310
+            ZIndex: =112
 

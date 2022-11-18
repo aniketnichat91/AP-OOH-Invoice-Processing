@@ -90,7 +90,7 @@
         "Name": "IconHamburger",
         "Parent": "FlyoutMenuComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 928,
+        "PublishOrderIndex": 2,
         "Rules": [
           {
             "Category": "Design",
@@ -287,7 +287,7 @@
             "Name": "galleryTemplate2",
             "Parent": "LeftNavGallery",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 930,
+            "PublishOrderIndex": 4,
             "Rules": [
               {
                 "Category": "Design",
@@ -506,7 +506,7 @@
             "Name": "btnNavMenu",
             "Parent": "LeftNavGallery",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 931,
+            "PublishOrderIndex": 5,
             "Rules": [
               {
                 "Category": "Data",
@@ -848,7 +848,7 @@
             "Name": "Icon9",
             "Parent": "LeftNavGallery",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 932,
+            "PublishOrderIndex": 6,
             "Rules": [
               {
                 "Category": "Design",
@@ -1107,7 +1107,7 @@
             "Name": "hrNavMenu",
             "Parent": "LeftNavGallery",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 933,
+            "PublishOrderIndex": 7,
             "Rules": [
               {
                 "Category": "Design",
@@ -1353,7 +1353,7 @@
         "Name": "LeftNavGallery",
         "Parent": "FlyoutMenuComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 929,
+        "PublishOrderIndex": 3,
         "Rules": [
           {
             "Category": "Data",
@@ -1572,7 +1572,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638043481014484851",
+    "LastModifiedTimestamp": "638041862923666374",
     "Name": "FlyoutMenuComponent",
     "Rules": [
       {
@@ -1723,7 +1723,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638043481014484851",
+  "LastModifiedTimestamp": "638041862923666374",
   "Name": "6b0faf605e74423f862ffac49785b36e",
   "OverridableProperties": {},
   "Version": "637862183358163993"

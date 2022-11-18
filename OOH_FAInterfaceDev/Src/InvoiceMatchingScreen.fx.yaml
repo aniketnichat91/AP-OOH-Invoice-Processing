@@ -10,7 +10,9 @@ InvoiceMatchingScreen As screen:
             varZoom,
             "1000"
         );
-        Reset(Checkbox1);
+        Reset(Checkbox_Invoice);
+        Reset(Checkbox_MOS);
+        Reset(Checkbox_Amount);
         UpdateContext({ROWNUM: 1});
         UpdateContext(
             {
@@ -607,7 +609,7 @@ InvoiceMatchingScreen As screen:
                 DisabledFill: =RGBA(128, 128, 128, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or Checkbox1.Value=false,
+                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or Segmented_Checkbox.Value=false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -657,8 +659,8 @@ InvoiceMatchingScreen As screen:
                 Text: ="Segment"
                 Visible: =varIsQA
                 Width: =72
-                X: =106
-                Y: =150
+                X: =120
+                Y: =149
                 ZIndex: =12
 
             ContractNumber_Label As label:
@@ -1030,7 +1032,9 @@ InvoiceMatchingScreen As screen:
                 OnSelect: |
                     =Refresh(OOH_Log_Txn);
                     Refresh(OOH_Log_TXN_VIEW);
-                    Reset(Checkbox1);
+                    Reset(Checkbox_Invoice);
+                    Reset(Checkbox_MOS);
+                    Reset(Checkbox_Amount);
                     UpdateContext(
                         {
                             VAR_VendorID_DEF: LookUp(
@@ -1487,22 +1491,6 @@ InvoiceMatchingScreen As screen:
                 Y: =87
                 ZIndex: =45
 
-            Checkbox1 As checkbox:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.None
-                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
-                CheckboxSize: =28
-                Color: =RGBA(0, 0, 0, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =27
-                HoverColor: =RGBA(131, 24, 75, 1)
-                Size: =10
-                Text: =""
-                Width: =25
-                X: =620
-                Y: =37
-                ZIndex: =46
-
             Tax_Label_4 As label:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1511,6 +1499,7 @@ InvoiceMatchingScreen As screen:
                 Height: =20
                 Size: =10
                 Text: ="Check"
+                Visible: =false
                 Width: =50
                 X: =618
                 Y: =15
@@ -1721,7 +1710,9 @@ InvoiceMatchingScreen As screen:
                             NotificationType.Error
                         )
                     );
-                    Reset(Checkbox1);
+                    Reset(Checkbox_Invoice);
+                    Reset(Checkbox_MOS);
+                    Reset(Checkbox_Amount);
                 PressedColor: =RGBA(211, 66, 9, 1)
                 PressedFill: =WhiteSmoke
                 RadiusBottomLeft: =0
@@ -1731,7 +1722,7 @@ InvoiceMatchingScreen As screen:
                 Size: =9
                 Text: ="SAVE"
                 Width: =67
-                X: =321
+                X: =328
                 Y: =149
                 ZIndex: =51
 
@@ -1779,7 +1770,9 @@ InvoiceMatchingScreen As screen:
                     );
                     Refresh(OOH_Log_Txn);
                     Refresh(OOH_Log_TXN_VIEW);
-                    Reset(Checkbox1);
+                    Reset(Checkbox_Invoice);
+                    Reset(Checkbox_MOS);
+                    Reset(Checkbox_Amount);
                     UpdateContext(
                         {
                             VAR_VendorID_DEF: LookUp(
@@ -1880,7 +1873,7 @@ InvoiceMatchingScreen As screen:
                 Size: =7
                 Text: ="SAVE CONTRACT ID"
                 Width: =106
-                X: =196
+                X: =205
                 Y: =149
                 ZIndex: =52
 
@@ -1970,6 +1963,74 @@ InvoiceMatchingScreen As screen:
                 X: =10
                 Y: =150
                 ZIndex: =55
+
+            Checkbox_Invoice As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(InvoiceNum_TextInput.Text="" Or IsBlank(InvoiceNum_TextInput),DisplayMode.Disabled, DisplayMode.Edit)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =10
+                Text: =""
+                Width: =24
+                X: =347
+                Y: =11
+                ZIndex: =56
+
+            Checkbox_Amount As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(Amount_TextInput.Text="" Or IsBlank(Amount_TextInput),DisplayMode.Disabled, DisplayMode.Edit)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =10
+                Text: =""
+                Width: =24
+                X: =485
+                Y: =11
+                ZIndex: =57
+
+            Checkbox_MOS As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(MOS_TextInput_View.Text="" Or IsBlank(MOS_TextInput_View),DisplayMode.Disabled, DisplayMode.Edit)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =10
+                Text: =""
+                Width: =24
+                X: =621
+                Y: =68
+                ZIndex: =58
+
+            Segmented_Checkbox As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =13
+                Text: =""
+                Tooltip: ="Enable Segment"
+                Visible: =varIsQA
+                Width: =24
+                X: =87
+                Y: =149
+                ZIndex: =59
 
         InfoContainer As groupContainer.manualLayoutContainer:
             Width: =966
@@ -2439,7 +2500,9 @@ InvoiceMatchingScreen As screen:
                             ""
                         );
                         Reset(Checkbox2);
-                        Reset(Checkbox1);
+                        Reset(Checkbox_Invoice);
+                        Reset(Checkbox_MOS);
+                        Reset(Checkbox_Amount);
                         Refresh(OOH_Log_Txn);
                         UpdateContext(
                             {
@@ -2654,7 +2717,9 @@ InvoiceMatchingScreen As screen:
                         );
                         UpdateContext({showTaggingDropdown: false});
                         Reset(Checkbox2);
-                        Reset(Checkbox1);
+                        Reset(Checkbox_Invoice);
+                        Reset(Checkbox_MOS);
+                        Reset(Checkbox_Amount);
                         Refresh(OOH_Log_Txn);
                         UpdateContext(
                             {
@@ -3033,7 +3098,7 @@ InvoiceMatchingScreen As screen:
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(179, 179, 179, 1)
                 DisplayMode: |-
-                    =If((IsBlank(C_TextInput.Text) Or C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = ""  Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or  Amount_TextInput.Text="" Or Amount_TextInput.Text ="FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text =  "FFM"))Or Checkbox1.Value=false,
+                    =If((IsBlank(C_TextInput.Text) Or C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = ""  Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or  Amount_TextInput.Text="" Or Amount_TextInput.Text ="FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text =  "FFM"))Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
                     DisplayMode.Disabled,DisplayMode.Edit)
                 Fill: =//If(Text(LookUp(OOH_Log_Txn, Log_ID = Value(ID_TextInput.Text), Log_IsMatched)) = "Yes",Color.DarkGreen, RGBA(211, 66, 9, 1))
                 FontWeight: =FontWeight.Semibold
@@ -3500,7 +3565,7 @@ InvoiceMatchingScreen As screen:
                 Height: =20
                 Size: =8
                 Text: |-
-                    ="UUID :"
+                    ="Updated By :"
                 Visible: =false
                 Width: =50
                 X: =558
@@ -3595,7 +3660,7 @@ InvoiceMatchingScreen As screen:
                     DisabledFill: =RGBA(204, 204, 204, 1)
                     DisplayMode: |
                         =If(
-                            (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox1.Value=false,
+                            (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
                             DisplayMode.Disabled,
                             DisplayMode.Edit
                         )
@@ -3979,7 +4044,7 @@ InvoiceMatchingScreen As screen:
                     DisabledFill: =RGBA(204, 204, 204, 1)
                     DisplayMode: |
                         =If(
-                            (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox1.Value=false,
+                            (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
                             DisplayMode.Disabled,
                             DisplayMode.Edit
                         )
@@ -4346,7 +4411,9 @@ InvoiceMatchingScreen As screen:
                             );
                             
                         );
-                        Reset(Checkbox1);
+                        Reset(Checkbox_Invoice);
+                        Reset(Checkbox_MOS);
+                        Reset(Checkbox_Amount);
                         Reset(ViewCommentS9Input);
                     PressedColor: =RGBA(211, 66, 9, 1)
                     PressedFill: =RGBA(230, 230, 230, 1)
@@ -4402,7 +4469,7 @@ InvoiceMatchingScreen As screen:
                     DisabledFill: =RGBA(204, 204, 204, 1)
                     DisplayMode: |
                         =If(
-                            (IsBlank(C_TextInput.Text) Or C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or E_TextInput.Text = "" Or IsBlank(E_TextInput.Text) ) Or ((MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox1.Value=false,
+                            (IsBlank(C_TextInput.Text) Or C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or E_TextInput.Text = "" Or IsBlank(E_TextInput.Text) ) Or ((MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
                             DisplayMode.Disabled,
                             DisplayMode.Edit
                         )
@@ -4839,7 +4906,7 @@ InvoiceMatchingScreen As screen:
                 DisabledFill: =RGBA(204, 204, 204, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox1.Value=false,
+                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or ((IsBlank(MOS_TextInput.Text) Or  MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (IsBlank(Amount_TextInput.Text) Or Amount_TextInput.Text="" Or Amount_TextInput.Text = "FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text = "FFM")) Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -4849,401 +4916,7 @@ InvoiceMatchingScreen As screen:
                 HoverColor: =RGBA(230, 230, 230, 1)
                 HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                 OnSelect: |
-                    =UpdateContext({TempFA_Mapping_Ref_Data: Blank()});
-                    UpdateContext({showVendorModal: false});
-                    If(
-                        VAR_VendorID_DEF = LookUp(
-                            OOH_Log_Txn,
-                            Log_ID = Value(ID_TextInput.Text),
-                            Log_Vendor_ID
-                        ),
-                        "",
-                        UpdateContext(
-                            {
-                                InvoiceLookupRecord: LookUp(
-                                    OOH_Invoice_Master,
-                                    Invoice_Number = hide_InvoiceID.Text && Invoice_Cease_Date = Blank()
-                                )
-                            }
-                        );
-                        Patch(
-                            OOH_Invoice_Master,
-                            LookUp(
-                                OOH_Invoice_Master,
-                                Invoice_ID = Value(InvoiceLookupRecord.Invoice_ID)
-                            ),
-                            {Invoice_Cease_Date: Now()}
-                        );
-                        // Above function will update existing record.
-                    Patch(
-                            OOH_Invoice_Master,
-                            {
-                                Invoice_Number: InvoiceLookupRecord.Invoice_Number,
-                                Invoice_Amount: Value(Amount_TextInput.Text),
-                                Invoice_Date: InvoiceLookupRecord.Invoice_Date,
-                                Invoice_File_Name: InvoiceLookupRecord.Invoice_File_Name,
-                                Invoice_Vendor_ID: VAR_VendorID_DEF,
-                                Invoice_Agency_ID: InvoiceLookupRecord.Invoice_Agency_ID,
-                                Invoice_Insertion_Date: InvoiceLookupRecord.Invoice_Insertion_Date
-                            }
-                        // Above function will insert new record with empty cease date.
-                        );
-                        If(
-                            // check if there were any errors
-                            IsEmpty(Errors(OOH_Invoice_Master)),
-                             // if true, go to success notification
-                            "",
-                         // else, show any error message
-                            Notify(
-                                Concat(
-                                    Errors(OOH_Invoice_Master),
-                                    Column & ": " & Message
-                                ),
-                                NotificationType.Error
-                            )
-                        );
-                        /*ClearCollect(
-                            Col_TempFA_Mapping_Ref_Data,
-                            LookUp(
-                                OOH_FA_Mapping_Ref,
-                                FA_Map_FA_ID = Value(hide_FA_ID.Text) && FA_Map_Vendor_ID = Value(hide_VendorID.Text) && FA_Map_Agency_ID = Value(hide_AgencyID.Text)
-                            )
-                        );
-                         // Above funcion will get all the related records from mapping table
-                    If(
-                            CountRows(Col_TempFA_Mapping_Ref_Data) = 0 && !IsBlank(hide_FA_ID.Text) && !IsBlank(VAR_VendorID_DEF) && !IsBlank(hide_AgencyID.Text),
-                            Patch(
-                                OOH_FA_Mapping_Ref,
-                                {
-                                    FA_Map_Agency_ID: Value(hide_AgencyID.Text),
-                                    FA_Map_FA_ID: Value(hide_FA_ID.Text),
-                                    FA_Map_Vendor_ID: VAR_VendorID_DEF,
-                                    FA_Map_Insertion_Date: Now()
-                                }
-                            ),
-                            ""
-                        );
-                        If(
-                            // check if there were any errors
-                            IsEmpty(Errors(OOH_FA_Mapping_Ref)),
-                             // if true, go to success notification
-                            "",
-                         // else, show any error message
-                            Notify(
-                                Concat(
-                                    Errors(OOH_FA_Mapping_Ref),
-                                    Column & ": " & Message
-                                ),
-                                NotificationType.Error
-                            )
-                        );*/
-                         // The above function will update Mapping refrences in OOH_FA_Mapping_Ref table.
-                    );
-                    If(
-                        !IsBlank(Vendor_TextInput.Text) And !IsBlank(InvoiceNum_TextInput.Text) And !IsBlank(Amount_TextInput.Text) And !IsBlank(C_TextInput.Text) And !IsBlank(P_TextInput.Text) And !IsBlank(E_TextInput.Text) And !IsBlank(MOS_TextInput.Text) And !IsBlank(InvDate_TextInput.Text),
-                        Patch(
-                            OOH_Log_Txn,
-                            LookUp(
-                                OOH_Log_Txn,
-                                Log_ID = Value(ID_TextInput.Text)
-                            ),
-                            {
-                                // Log_Vendor_ID: Value(hide_VendorID.Text),
-                                Log_Publication_Code: VAR_PublicationCode_DEF,
-                                Log_Publication_Name: VAR_PublicationName_DEF,
-                                Log_Invoice_ContractNumber: ContractNumber_TextInput.Text,
-                                Log_Invoice_ExtractedTax: Value(Tax_TextInput.Text),
-                                Log_Invoice_Amount: Value(Amount_TextInput.Text),
-                                Log_Invoice_Number: InvoiceNum_TextInput.Text,
-                                //Log_Manual_Override:varLoggedInUser.Email,
-                                Log_Validated_C: C_TextInput.Text,
-                                Log_Validated_P: P_TextInput.Text,
-                                Log_Validated_E: E_TextInput.Text,
-                                Log_Invoice_Date: InvDate_TextInput.Text,
-                                Log_Invoice_MOS: MOS_TextInput.Text,
-                                Log_FA_Update_Date: Now(),
-                                Log_FA_Action_Status: "MANUAL - S9",
-                                Log_FA_Interface_Log_Status: "FA Processed"
-                            }
-                        );
-                        OOHChangeVendorMapping.Run(
-                            ID_TextInput.Text,
-                            VAR_VendorID_DEF,
-                            0
-                        );
-                        Refresh(OOH_Log_Txn);
-                    Refresh(OOH_Log_TXN_VIEW);
-                        If(
-                            // check if there were any errors
-                            IsEmpty(Errors(OOH_Log_Txn)),
-                             // if true, go to success notification
-                            Notify(
-                                "The record has been successfully patched with FA Status = MANUAL-S9, Note:- Changing the Vendor will change it's corresponding FA respectively",
-                                NotificationType.Success,
-                                2000
-                            ),
-                         // else, show any error message
-                            Notify(
-                                Concat(
-                                    Errors(OOH_Log_Txn),
-                                    Column & ": " & Message
-                                ),
-                                NotificationType.Error
-                            )
-                        );
-                        If(
-                            ROWNUM >= Last(SelectedItems).rowNumber,
-                            "",
-                            UpdateContext({ROWNUM: ROWNUM + 1});
-                            UpdateContext(
-                                {
-                                    PDFLink: LookUp(
-                                        SelectedItems,
-                                        rowNumber = ROWNUM,
-                                        Log_SP_FilePath
-                                    )
-                                }
-                            );
-                            If(
-                                !IsBlank(
-                                    Find(
-                                        "/GMUSA-KineticFinanceAutomation",
-                                        PDFLink
-                                    )
-                                ),
-                                UpdateContext(
-                                    {
-                                        varPDF: OOHShowPDFDetails.Run(
-                                            Substitute(
-                                                Concat(
-                                                    FirstN(
-                                                        Split(
-                                                            Mid(
-                                                                PDFLink,
-                                                                Find(
-                                                                    "/GMUSA-KineticFinanceAutomation",
-                                                                    PDFLink
-                                                                )
-                                                            ),
-                                                            "/"
-                                                        ).Result,
-                                                        CountRows(
-                                                            Split(
-                                                                Mid(
-                                                                    PDFLink,
-                                                                    Find(
-                                                                        "/GMUSA-KineticFinanceAutomation",
-                                                                        PDFLink
-                                                                    )
-                                                                ),
-                                                                "/"
-                                                            ).Result
-                                                        ) - 1
-                                                    ),
-                                                    Result & "/"
-                                                ),
-                                                "/GMUSA-KineticFinanceAutomation",
-                                                ""
-                                            ) & LookUp(
-                                                SelectedItems,
-                                                rowNumber = ROWNUM,
-                                                Log_Invoice_FileName
-                                            )
-                                        )
-                                    }
-                                ),
-                                Notify(
-                                    "The PDF is not present in the GMUSA-KineticFinanceAutomation SharePoint site",
-                                    NotificationType.Information,
-                                    2000
-                                )
-                            );
-                            Refresh(OOH_Log_Txn);
-                            /*UpdateContext(
-                                {
-                                    VAR_Remittance_Address: If(
-                                        !IsBlank(
-                                            LookUp(
-                                                OOH_Unpaid_Ref,
-                                                Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
-                                                Unpaid_Ref_Pay_Address
-                                            )
-                                        ),
-                                        LookUp(
-                                            OOH_Unpaid_Ref,
-                                            Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
-                                            Unpaid_Ref_Pay_Address
-                                        ),
-                                        Last(
-                                            Filter(
-                                                OOH_Unpaid_Ref,
-                                                Unpaid_Ref_Publication_Code = Log_Pub_Name.Text
-                                            )
-                                        ).Unpaid_Ref_Pay_Address
-                                    )
-                                }
-                            );*/
-                    UpdateContext(
-                                {
-                                    VAR_VendorID_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput.Text),
-                                        Log_Vendor_ID
-                                    )
-                                }
-                            );
-                            UpdateContext(
-                                {
-                                    VAR_Vendor_DEF: LookUp(
-                                        OOH_Vendor_Master,
-                                        Vendor_ID = Value(hide_VendorID.Text),
-                                        Vendor_Name
-                                    ),
-                                    VAR_PublicationName_DEF: LookUp(
-                                        OOH_Vendor_Master,
-                                        Vendor_ID = Value(hide_VendorID.Text),
-                                        Vendor_Pub_Name
-                                    ),
-                                    VAR_PublicationCode_DEF: LookUp(
-                                        OOH_Vendor_Master,
-                                        Vendor_ID = Value(hide_VendorID.Text),
-                                        Vendor_Pub_Code
-                                    )
-                                }
-                            );
-                            Reset(Vendor_TextInput);
-                            UpdateContext(
-                                {
-                                    VAR_ContractNum_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput.Text),
-                                        Log_Invoice_ContractNumber
-                                    )
-                                }
-                            );
-                            Reset(ContractNumber_TextInput);
-                            UpdateContext(
-                                {
-                                    VAR_C_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput.Text),
-                                        Log_Validated_C
-                                    )
-                                }
-                            );
-                            Reset(C_TextInput);
-                            UpdateContext(
-                                {
-                                    VAR_P_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput.Text),
-                                        Log_Validated_P
-                                    )
-                                }
-                            );
-                            Reset(P_TextInput);
-                            UpdateContext(
-                                {
-                                    VAR_E_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput.Text),
-                                        Log_Validated_E
-                                    )
-                                }
-                            );
-                            Reset(E_TextInput);
-                            UpdateContext(
-                                {
-                                    VAR_MOS_DEF: LookUp(
-                                        OOH_Log_Txn,
-                                        Log_ID = Value(ID_TextInput.Text),
-                                        Log_Invoice_MOS
-                                    )
-                                }
-                            );
-                            Reset(MOS_TextInput_initial);
-                            Reset(Client_Name_TextInput);
-                            Reset(IO_TextInput);
-                            Reset(PCID_TextInput);
-                            Reset(InvoiceNum_TextInput);
-                            Reset(Amount_TextInput);
-                            Reset(Tax_TextInput);
-                            Reset(InvDate_TextInput_initial);
-                            Reset(ID_TextInput);
-                        ),
-                        If(
-                            IsBlank(InvDate_TextInput_initial.Text),
-                            Notify(
-                                "Invoice Date Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(MOS_TextInput_initial.Text),
-                            Notify(
-                                "Insertion Month Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(E_TextInput.Text),
-                            Notify(
-                                "Estimate Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(P_TextInput.Text),
-                            Notify(
-                                "Product Code Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(C_TextInput.Text),
-                            Notify(
-                                "Client Code Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(Amount_TextInput.Text),
-                            Notify(
-                                "Amount Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(InvoiceNum_TextInput.Text),
-                            Notify(
-                                "Invoice Number Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        If(
-                            IsBlank(Vendor_TextInput.Text),
-                            Notify(
-                                "Vendor Field is Empty",
-                                NotificationType.Warning
-                            ),
-                            ""
-                        );
-                        Notify(
-                            "Comment has been successfully added for this record",
-                            NotificationType.Success,
-                            2000
-                        );
-                        
-                    );
-                    Reset(Checkbox1);
-                    Reset(ViewCommentS9Input);
+                    =UpdateContext({showManualS9Popup: true});
                 PressedFill: =RGBA(230, 230, 230, 1)
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -10567,7 +10240,9 @@ InvoiceMatchingScreen As screen:
                     );*/
                     
                 );
-                Reset(Checkbox1);
+                Reset(Checkbox_Invoice);
+                Reset(Checkbox_MOS);
+                Reset(Checkbox_Amount);
                 Reset(ViewCommentS9Input);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -10886,4 +10561,514 @@ InvoiceMatchingScreen As screen:
         Y: =31
         ZIndex: =105
         Zoom: =varZoom
+
+    grpManualS9_Popup As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =113
+
+        rct_ManualS9_back As rectangle:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Fill: =RGBA(0, 0, 0, .7)
+            Height: =768
+            Visible: =showManualS9Popup
+            Width: =686
+            ZIndex: =106
+
+        rct_ManualS9_top As rectangle:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =220
+            Visible: =showManualS9Popup
+            Width: =423
+            X: =115
+            Y: =245
+            ZIndex: =107
+
+        lbl_ManualS9_Header As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Size: =15
+            Text: ="Confirm!"
+            Visible: =showManualS9Popup
+            Width: =192
+            X: =145
+            Y: =260
+            ZIndex: =108
+
+        btn_ManualS9_Cancel As button:
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: |-
+                =UpdateContext({showManualS9Popup:false});
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =12
+            Text: ="Cancel"
+            Visible: =showManualS9Popup
+            Width: =96
+            X: =303
+            Y: =410
+            ZIndex: =109
+
+        btn_ManualS9_Save As button:
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: |
+                =UpdateContext({TempFA_Mapping_Ref_Data: Blank()});
+                UpdateContext({showVendorModal: false});
+                If(
+                    VAR_VendorID_DEF = LookUp(
+                        OOH_Log_Txn,
+                        Log_ID = Value(ID_TextInput.Text),
+                        Log_Vendor_ID
+                    ),
+                    "",
+                    UpdateContext(
+                        {
+                            InvoiceLookupRecord: LookUp(
+                                OOH_Invoice_Master,
+                                Invoice_Number = hide_InvoiceID.Text && Invoice_Cease_Date = Blank()
+                            )
+                        }
+                    );
+                    Patch(
+                        OOH_Invoice_Master,
+                        LookUp(
+                            OOH_Invoice_Master,
+                            Invoice_ID = Value(InvoiceLookupRecord.Invoice_ID)
+                        ),
+                        {Invoice_Cease_Date: Now()}
+                    );
+                    // Above function will update existing record.
+                Patch(
+                        OOH_Invoice_Master,
+                        {
+                            Invoice_Number: InvoiceLookupRecord.Invoice_Number,
+                            Invoice_Amount: Value(Amount_TextInput.Text),
+                            Invoice_Date: InvoiceLookupRecord.Invoice_Date,
+                            Invoice_File_Name: InvoiceLookupRecord.Invoice_File_Name,
+                            Invoice_Vendor_ID: VAR_VendorID_DEF,
+                            Invoice_Agency_ID: InvoiceLookupRecord.Invoice_Agency_ID,
+                            Invoice_Insertion_Date: InvoiceLookupRecord.Invoice_Insertion_Date
+                        }
+                    // Above function will insert new record with empty cease date.
+                    );
+                    If(
+                        // check if there were any errors
+                        IsEmpty(Errors(OOH_Invoice_Master)),
+                         // if true, go to success notification
+                        "",
+                     // else, show any error message
+                        Notify(
+                            Concat(
+                                Errors(OOH_Invoice_Master),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        )
+                    );
+                    /*ClearCollect(
+                        Col_TempFA_Mapping_Ref_Data,
+                        LookUp(
+                            OOH_FA_Mapping_Ref,
+                            FA_Map_FA_ID = Value(hide_FA_ID.Text) && FA_Map_Vendor_ID = Value(hide_VendorID.Text) && FA_Map_Agency_ID = Value(hide_AgencyID.Text)
+                        )
+                    );
+                     // Above funcion will get all the related records from mapping table
+                If(
+                        CountRows(Col_TempFA_Mapping_Ref_Data) = 0 && !IsBlank(hide_FA_ID.Text) && !IsBlank(VAR_VendorID_DEF) && !IsBlank(hide_AgencyID.Text),
+                        Patch(
+                            OOH_FA_Mapping_Ref,
+                            {
+                                FA_Map_Agency_ID: Value(hide_AgencyID.Text),
+                                FA_Map_FA_ID: Value(hide_FA_ID.Text),
+                                FA_Map_Vendor_ID: VAR_VendorID_DEF,
+                                FA_Map_Insertion_Date: Now()
+                            }
+                        ),
+                        ""
+                    );
+                    If(
+                        // check if there were any errors
+                        IsEmpty(Errors(OOH_FA_Mapping_Ref)),
+                         // if true, go to success notification
+                        "",
+                     // else, show any error message
+                        Notify(
+                            Concat(
+                                Errors(OOH_FA_Mapping_Ref),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        )
+                    );*/
+                     // The above function will update Mapping refrences in OOH_FA_Mapping_Ref table.
+                );
+                If(
+                    !IsBlank(Vendor_TextInput.Text) And !IsBlank(InvoiceNum_TextInput.Text) And !IsBlank(Amount_TextInput.Text) And !IsBlank(C_TextInput.Text) And !IsBlank(P_TextInput.Text) And !IsBlank(E_TextInput.Text) And !IsBlank(MOS_TextInput.Text) And !IsBlank(InvDate_TextInput.Text),
+                    Patch(
+                        OOH_Log_Txn,
+                        LookUp(
+                            OOH_Log_Txn,
+                            Log_ID = Value(ID_TextInput.Text)
+                        ),
+                        {
+                            // Log_Vendor_ID: Value(hide_VendorID.Text),
+                            Log_Publication_Code: VAR_PublicationCode_DEF,
+                            Log_Publication_Name: VAR_PublicationName_DEF,
+                            Log_Invoice_ContractNumber: ContractNumber_TextInput.Text,
+                            Log_Invoice_ExtractedTax: Value(Tax_TextInput.Text),
+                            Log_Invoice_Amount: Value(Amount_TextInput.Text),
+                            Log_Invoice_Number: InvoiceNum_TextInput.Text,
+                            //Log_Manual_Override:varLoggedInUser.Email,
+                            Log_Validated_C: C_TextInput.Text,
+                            Log_Validated_P: P_TextInput.Text,
+                            Log_Validated_E: E_TextInput.Text,
+                            Log_Invoice_Date: InvDate_TextInput.Text,
+                            Log_Invoice_MOS: MOS_TextInput.Text,
+                            Log_FA_Update_Date: Now(),
+                            Log_FA_Action_Status: "MANUAL - S9",
+                            Log_FA_Interface_Log_Status: "FA Processed"
+                        }
+                    );
+                    OOHChangeVendorMapping.Run(
+                        ID_TextInput.Text,
+                        VAR_VendorID_DEF,
+                        0
+                    );
+                    Refresh(OOH_Log_Txn);
+                Refresh(OOH_Log_TXN_VIEW);
+                    If(
+                        // check if there were any errors
+                        IsEmpty(Errors(OOH_Log_Txn)),
+                         // if true, go to success notification
+                        Notify(
+                            "The record has been successfully patched with FA Status = MANUAL-S9, Note:- Changing the Vendor will change it's corresponding FA respectively",
+                            NotificationType.Success,
+                            2000
+                        ),
+                     // else, show any error message
+                        Notify(
+                            Concat(
+                                Errors(OOH_Log_Txn),
+                                Column & ": " & Message
+                            ),
+                            NotificationType.Error
+                        )
+                    );
+                    If(
+                        ROWNUM >= Last(SelectedItems).rowNumber,
+                        "",
+                        UpdateContext({ROWNUM: ROWNUM + 1});
+                        UpdateContext(
+                            {
+                                PDFLink: LookUp(
+                                    SelectedItems,
+                                    rowNumber = ROWNUM,
+                                    Log_SP_FilePath
+                                )
+                            }
+                        );
+                        If(
+                            !IsBlank(
+                                Find(
+                                    "/GMUSA-KineticFinanceAutomation",
+                                    PDFLink
+                                )
+                            ),
+                            UpdateContext(
+                                {
+                                    varPDF: OOHShowPDFDetails.Run(
+                                        Substitute(
+                                            Concat(
+                                                FirstN(
+                                                    Split(
+                                                        Mid(
+                                                            PDFLink,
+                                                            Find(
+                                                                "/GMUSA-KineticFinanceAutomation",
+                                                                PDFLink
+                                                            )
+                                                        ),
+                                                        "/"
+                                                    ).Result,
+                                                    CountRows(
+                                                        Split(
+                                                            Mid(
+                                                                PDFLink,
+                                                                Find(
+                                                                    "/GMUSA-KineticFinanceAutomation",
+                                                                    PDFLink
+                                                                )
+                                                            ),
+                                                            "/"
+                                                        ).Result
+                                                    ) - 1
+                                                ),
+                                                Result & "/"
+                                            ),
+                                            "/GMUSA-KineticFinanceAutomation",
+                                            ""
+                                        ) & LookUp(
+                                            SelectedItems,
+                                            rowNumber = ROWNUM,
+                                            Log_Invoice_FileName
+                                        )
+                                    )
+                                }
+                            ),
+                            Notify(
+                                "The PDF is not present in the GMUSA-KineticFinanceAutomation SharePoint site",
+                                NotificationType.Information,
+                                2000
+                            )
+                        );
+                        Refresh(OOH_Log_Txn);
+                        /*UpdateContext(
+                            {
+                                VAR_Remittance_Address: If(
+                                    !IsBlank(
+                                        LookUp(
+                                            OOH_Unpaid_Ref,
+                                            Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
+                                            Unpaid_Ref_Pay_Address
+                                        )
+                                    ),
+                                    LookUp(
+                                        OOH_Unpaid_Ref,
+                                        Unpaid_Ref_Contract_ID = ContractNumber_TextInput.Text,
+                                        Unpaid_Ref_Pay_Address
+                                    ),
+                                    Last(
+                                        Filter(
+                                            OOH_Unpaid_Ref,
+                                            Unpaid_Ref_Publication_Code = Log_Pub_Name.Text
+                                        )
+                                    ).Unpaid_Ref_Pay_Address
+                                )
+                            }
+                        );*/
+                UpdateContext(
+                            {
+                                VAR_VendorID_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput.Text),
+                                    Log_Vendor_ID
+                                )
+                            }
+                        );
+                        UpdateContext(
+                            {
+                                VAR_Vendor_DEF: LookUp(
+                                    OOH_Vendor_Master,
+                                    Vendor_ID = Value(hide_VendorID.Text),
+                                    Vendor_Name
+                                ),
+                                VAR_PublicationName_DEF: LookUp(
+                                    OOH_Vendor_Master,
+                                    Vendor_ID = Value(hide_VendorID.Text),
+                                    Vendor_Pub_Name
+                                ),
+                                VAR_PublicationCode_DEF: LookUp(
+                                    OOH_Vendor_Master,
+                                    Vendor_ID = Value(hide_VendorID.Text),
+                                    Vendor_Pub_Code
+                                )
+                            }
+                        );
+                        Reset(Vendor_TextInput);
+                        UpdateContext(
+                            {
+                                VAR_ContractNum_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput.Text),
+                                    Log_Invoice_ContractNumber
+                                )
+                            }
+                        );
+                        Reset(ContractNumber_TextInput);
+                        UpdateContext(
+                            {
+                                VAR_C_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput.Text),
+                                    Log_Validated_C
+                                )
+                            }
+                        );
+                        Reset(C_TextInput);
+                        UpdateContext(
+                            {
+                                VAR_P_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput.Text),
+                                    Log_Validated_P
+                                )
+                            }
+                        );
+                        Reset(P_TextInput);
+                        UpdateContext(
+                            {
+                                VAR_E_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput.Text),
+                                    Log_Validated_E
+                                )
+                            }
+                        );
+                        Reset(E_TextInput);
+                        UpdateContext(
+                            {
+                                VAR_MOS_DEF: LookUp(
+                                    OOH_Log_Txn,
+                                    Log_ID = Value(ID_TextInput.Text),
+                                    Log_Invoice_MOS
+                                )
+                            }
+                        );
+                        Reset(MOS_TextInput_initial);
+                        Reset(Client_Name_TextInput);
+                        Reset(IO_TextInput);
+                        Reset(PCID_TextInput);
+                        Reset(InvoiceNum_TextInput);
+                        Reset(Amount_TextInput);
+                        Reset(Tax_TextInput);
+                        Reset(InvDate_TextInput_initial);
+                        Reset(ID_TextInput);
+                    ),
+                    If(
+                        IsBlank(InvDate_TextInput_initial.Text),
+                        Notify(
+                            "Invoice Date Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(MOS_TextInput_initial.Text),
+                        Notify(
+                            "Insertion Month Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(E_TextInput.Text),
+                        Notify(
+                            "Estimate Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(P_TextInput.Text),
+                        Notify(
+                            "Product Code Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(C_TextInput.Text),
+                        Notify(
+                            "Client Code Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(Amount_TextInput.Text),
+                        Notify(
+                            "Amount Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(InvoiceNum_TextInput.Text),
+                        Notify(
+                            "Invoice Number Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    If(
+                        IsBlank(Vendor_TextInput.Text),
+                        Notify(
+                            "Vendor Field is Empty",
+                            NotificationType.Warning
+                        ),
+                        ""
+                    );
+                    Notify(
+                        "Comment has been successfully added for this record",
+                        NotificationType.Success,
+                        2000
+                    );
+                    
+                );
+                Reset(Checkbox_Invoice);
+                Reset(Checkbox_MOS);
+                Reset(Checkbox_Amount);
+                Reset(ViewCommentS9Input);
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =12
+            Text: ="OK"
+            Visible: =showManualS9Popup
+            Width: =96
+            X: =420
+            Y: =410
+            ZIndex: =110
+
+        Icon_ManualS9_Close As icon.CancelBadge:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =30
+            Icon: =Icon.CancelBadge
+            OnSelect: |
+                =UpdateContext({showManualS9Popup:false});
+            Visible: =showManualS9Popup
+            Width: =29
+            X: =507
+            Y: =210
+            ZIndex: =111
+
+        lbl_ManualS9_Message As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Size: =13
+            Text: ="Please ensure you are tagging this in PBT manually."
+            Visible: =showManualS9Popup
+            Width: =365
+            X: =145
+            Y: =310
+            ZIndex: =112
 

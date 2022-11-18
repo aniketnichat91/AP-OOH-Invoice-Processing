@@ -3223,7 +3223,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_ManualS9_Cancel",
-      "ParentIndex": 83,
+      "ParentIndex": 89,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3557,7 +3557,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_ManualS9_Save",
-      "ParentIndex": 85,
+      "ParentIndex": 92,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4587,7 +4587,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnCancelIgnoreConfirmation",
-      "ParentIndex": 86,
+      "ParentIndex": 84,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5603,7 +5603,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnSaveIgnoreConfirmation",
-      "ParentIndex": 84,
+      "ParentIndex": 83,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5958,7 +5958,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button6_2",
-      "ParentIndex": 90,
+      "ParentIndex": 88,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6321,7 +6321,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button6_3",
-      "ParentIndex": 92,
+      "ParentIndex": 91,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8671,7 +8671,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Checkbox_Amount",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8996,7 +8996,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Checkbox_Invoice",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9321,7 +9321,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Checkbox_MOS",
-      "ParentIndex": 17,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11382,7 +11382,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CommentsContainer",
-      "ParentIndex": 89,
+      "ParentIndex": 87,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12342,7 +12342,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContractNumber_Label",
-      "ParentIndex": 19,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13750,7 +13750,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CPE_String_Label",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18177,7 +18177,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "hide_AgencyID",
-      "ParentIndex": 77,
+      "ParentIndex": 75,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -19741,7 +19741,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon_ManualS9_Close",
-      "ParentIndex": 47,
+      "ParentIndex": 49,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24338,7 +24338,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "InvDate_Label",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -28319,7 +28319,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label10",
-      "ParentIndex": 88,
+      "ParentIndex": 86,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31869,7 +31869,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label23_2",
-      "ParentIndex": 87,
+      "ParentIndex": 85,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34844,7 +34844,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Comment",
-      "ParentIndex": 60,
+      "ParentIndex": 59,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35147,7 +35147,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_EditMCPE_C",
-      "ParentIndex": 63,
+      "ParentIndex": 62,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35443,7 +35443,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_EditMCPE_E",
-      "ParentIndex": 73,
+      "ParentIndex": 72,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35739,7 +35739,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_EditMCPE_M",
-      "ParentIndex": 62,
+      "ParentIndex": 61,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -39461,7 +39461,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_ManualS9_Header",
-      "ParentIndex": 61,
+      "ParentIndex": 65,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -39778,7 +39778,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_ManualS9_Message",
-      "ParentIndex": 72,
+      "ParentIndex": 77,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -41524,7 +41524,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblIgnoreCommentHeader",
-      "ParentIndex": 49,
+      "ParentIndex": 48,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -41834,7 +41834,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblIgnoreConfirmationHeader",
-      "ParentIndex": 59,
+      "ParentIndex": 58,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -42447,7 +42447,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Log_Pub_Name",
-      "ParentIndex": 18,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -54632,7 +54632,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Prediction_Unpaid_Net_Paid_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -54759,7 +54759,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Prediction_Unpaid_Net_Payable_Column1",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -56188,7 +56188,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rct_ManualS9_back",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -56333,7 +56333,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rct_ManualS9_top",
-      "ParentIndex": 57,
+      "ParentIndex": 60,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58096,7 +58096,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Reassign_Label",
-      "ParentIndex": 75,
+      "ParentIndex": 74,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -61220,7 +61220,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Redefine_Dropdown",
-      "ParentIndex": 58,
+      "ParentIndex": 57,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -61532,7 +61532,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Redefine_Label",
-      "ParentIndex": 48,
+      "ParentIndex": 47,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -66752,7 +66752,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Screen_Overlay_Unpaid",
-      "ParentIndex": 8,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -78417,7 +78417,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TextInput7_1",
-      "ParentIndex": 91,
+      "ParentIndex": 90,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -79751,7 +79751,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txt_Edit_C",
-      "ParentIndex": 65,
+      "ParentIndex": 64,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80083,7 +80083,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txt_Edit_E",
-      "ParentIndex": 74,
+      "ParentIndex": 73,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80415,7 +80415,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txt_Edit_M",
-      "ParentIndex": 64,
+      "ParentIndex": 63,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84325,7 +84325,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_CLI_Acc_Off_Column1",
-      "ParentIndex": 7,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84430,7 +84430,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_CLI_Acc_Off_Column2",
-      "ParentIndex": 6,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84545,7 +84545,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Client_Code_Column1",
-      "ParentIndex": 8,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84665,7 +84665,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Client_Code_Column2",
-      "ParentIndex": 0,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84770,7 +84770,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Client_Name_Column1",
-      "ParentIndex": 9,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84870,7 +84870,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Client_Name_Column2",
-      "ParentIndex": 7,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -84978,7 +84978,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Contract_ID_Column1",
-      "ParentIndex": 17,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85091,7 +85091,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Contract_ID_Column2",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85197,7 +85197,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_EST_Code_Column1",
-      "ParentIndex": 12,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85317,7 +85317,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_IDesk_Recon_Status_Column1",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85429,7 +85429,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_IDesk_Recon_Status_Column2",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85537,7 +85537,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Insertion_Date_Column1",
-      "ParentIndex": 15,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85650,7 +85650,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Insertion_Date_Column2",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85763,7 +85763,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Insertion_MOS_Month_Column1",
-      "ParentIndex": 16,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85868,7 +85868,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Insertion_MOS_Month_Column2",
-      "ParentIndex": 8,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -85968,7 +85968,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Insertion_Order_Comment_2_Column1",
-      "ParentIndex": 19,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -86168,7 +86168,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Insertion_Order_Comment_Column1",
-      "ParentIndex": 18,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -86268,7 +86268,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Invoice_Comment_Column1",
-      "ParentIndex": 4,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -86368,7 +86368,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Invoice_Comment_Column2",
-      "ParentIndex": 11,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -86860,7 +86860,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Invoice_Dollar_Column1",
-      "ParentIndex": 1,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -86965,7 +86965,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Invoice_Dollar_Column2",
-      "ParentIndex": 10,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87073,7 +87073,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Invoice_Number_Column1",
-      "ParentIndex": 0,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87178,7 +87178,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Invoice_Number_Column2",
-      "ParentIndex": 9,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87278,7 +87278,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Ordered_Net_Column1",
-      "ParentIndex": 12,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87400,7 +87400,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Paid_Net_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87505,7 +87505,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Paid_Net_Column2",
-      "ParentIndex": 13,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87605,7 +87605,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Pay_Address_Column1",
-      "ParentIndex": 21,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87727,7 +87727,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Payable_Net_Column1",
-      "ParentIndex": 2,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87846,7 +87846,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Payable_Net_Column2",
-      "ParentIndex": 3,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -87961,7 +87961,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Product_Code_Column1",
-      "ParentIndex": 10,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88066,7 +88066,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Product_Code_Column2",
-      "ParentIndex": 16,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88181,7 +88181,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Product_Name_Column1",
-      "ParentIndex": 11,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88286,7 +88286,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Product_Name_Column2",
-      "ParentIndex": 15,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88387,7 +88387,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Publication_Code_Column1",
-      "ParentIndex": 14,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88492,7 +88492,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Publication_Code_Column2",
-      "ParentIndex": 14,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88592,7 +88592,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Publication_Name_Column1",
-      "ParentIndex": 13,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88692,7 +88692,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_Publication_Name_Column2",
-      "ParentIndex": 17,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88807,7 +88807,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_TS_Received_Column1",
-      "ParentIndex": 5,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -88919,7 +88919,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Unpaid_Ref_TS_Received_Column2",
-      "ParentIndex": 4,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
