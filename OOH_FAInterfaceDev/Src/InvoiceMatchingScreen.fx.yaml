@@ -3565,7 +3565,7 @@ InvoiceMatchingScreen As screen:
                 Height: =20
                 Size: =8
                 Text: |-
-                    ="UUID :"
+                    ="Updated By :"
                 Visible: =false
                 Width: =50
                 X: =558
