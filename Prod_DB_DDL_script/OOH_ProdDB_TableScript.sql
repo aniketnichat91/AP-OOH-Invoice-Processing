@@ -91,6 +91,24 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
+
+-- OOH_FA_Master
+CREATE TABLE [dbo].[OOH_FA_Master](
+	[FA_ID] [int] IDENTITY(1,1) NOT NULL,
+	[FA_Name] [varchar](200) NULL,
+	[FA_Email_ID] [varchar](500) NULL,
+	[FA_Region] [varchar](200) NULL,
+	[FA_Country] [varchar](200) NULL,
+	[FA_Business_Team] [varchar](200) NULL,
+	[FA_Insertion_Date] [datetime] NULL,
+	[FA_Cease_Date] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[FA_ID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 --OOH_FA_Mapping_Ref
 CREATE TABLE [dbo].[OOH_FA_Mapping_Ref](
 	[FA_Map_ID] [int] IDENTITY(1,1) NOT NULL,
@@ -134,22 +152,6 @@ ALTER TABLE [dbo].[OOH_FA_Mapping_Ref] CHECK CONSTRAINT [FK_FA_Mapping_Vendor]
 GO
 
 
--- OOH_FA_Master
-CREATE TABLE [dbo].[OOH_FA_Master](
-	[FA_ID] [int] IDENTITY(1,1) NOT NULL,
-	[FA_Name] [varchar](200) NULL,
-	[FA_Email_ID] [varchar](500) NULL,
-	[FA_Region] [varchar](200) NULL,
-	[FA_Country] [varchar](200) NULL,
-	[FA_Business_Team] [varchar](200) NULL,
-	[FA_Insertion_Date] [datetime] NULL,
-	[FA_Cease_Date] [datetime] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[FA_ID] ASC
-)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
 
 --OOH_Source_Ref
 CREATE TABLE [dbo].[OOH_Source_Ref](
@@ -284,9 +286,9 @@ GO
 ALTER TABLE [dbo].[OOH_Invoice_Master] CHECK CONSTRAINT [FK_Invoice_Vendor]
 GO
 
--- OOH_ManualUpdate_Reason_Master
+-- OOH_QA_Update_Reason_Master
 
-CREATE TABLE [dbo].[OOH_ManualUpdate_Reason_Master](
+CREATE TABLE [dbo].[OOH_QA_Update_Reason_Master](
 	[MU_Reason_ID] [int] IDENTITY(1,1) NOT NULL,
 	[MU_Reason_Code] [varchar](50) NULL,
 	[MU_Reason_Descirption] [varchar](200) NULL,
@@ -300,27 +302,6 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
---OOH_Media_Ref
-CREATE TABLE [dbo].[OOH_Media_Ref](
-	[Media_ID] [int] IDENTITY(1,1) NOT NULL,
-	[Media_Type] [varchar](100) NULL,
-	[Media_Vendor_ID] [int] NULL,
-	[Media_mDefault] [int] NULL,
-	[Media_Insertion_Date] [datetime] NULL,
-	[Media_Cease_Date] [datetime] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Media_ID] ASC
-)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[OOH_Media_Ref]  WITH CHECK ADD  CONSTRAINT [FK_Media_Vendor] FOREIGN KEY([Media_Vendor_ID])
-REFERENCES [dbo].[OOH_Vendor_Master] ([Vendor_ID])
-GO
-
-ALTER TABLE [dbo].[OOH_Media_Ref] CHECK CONSTRAINT [FK_Media_Vendor]
-GO
 
 --OOH_NoExtraction_Txn
 
@@ -688,6 +669,7 @@ ALTER TABLE [dbo].[OOH_PBT_Txn] CHECK CONSTRAINT [FK_PBT_UpdateRecord_ByFA]
 GO
 
 --OOH_Predictions_Mview
+
 CREATE TABLE [dbo].[OOH_Predictions_Mview](
 	[Prediction_ID] [int] IDENTITY(1,1) NOT NULL,
 	[Prediction_Log_ID] [int] NULL,
@@ -704,6 +686,7 @@ CREATE TABLE [dbo].[OOH_Predictions_Mview](
 	[Prediction_Unpaid_Net_Paid] [varchar](500) NULL,
 	[Prediction_Unpaid_Pay_Address] [varchar](500) NULL,
 	[Prediction_Publication_Code] [varchar](100) NULL,
+	[Prediction_Publication] [varchar](200) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Prediction_ID] ASC
@@ -735,29 +718,51 @@ PRIMARY KEY CLUSTERED
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+ 
+-- OOH_Prediction_Record_Stg
 
---OOH_Temp_Log_Txn
-CREATE TABLE [dbo].[OOH_Temp_Log_Txn](
-	[Temp_ID] [int] IDENTITY(1,1) NOT NULL,
-	[Temp_Row_Number] [int] NULL,
-	[Temp_Log_ID] [int] NULL,
-	[Temp_Log_C] [varchar](10) NULL,
-	[Temp_Log_P] [varchar](10) NULL,
-	[Temp_Log_E] [varchar](10) NULL,
-	[Temp_Log_Contract_Number] [varchar](100) NULL,
-	[Temp_Log_Publication_Code] [varchar](100) NULL,
-	[Temp_Log_MOS] [varchar](100) NULL,
+CREATE TABLE [dbo].[OOH_Prediction_Record_Stg](
+	[PRecord_ID] [int] IDENTITY(1,1) NOT NULL,
+	[PRecord_Row_Number] [int] NULL,
+	[PRecord_Log_ID] [int] NULL,
+	[PRecord_Log_C] [varchar](10) NULL,
+	[PRecord_Log_P] [varchar](10) NULL,
+	[PRecord_Log_E] [varchar](10) NULL,
+	[PRecord_Log_Contract_Number] [varchar](100) NULL,
+	[PRecord_Log_Publication_Code] [varchar](100) NULL,
+	[PRecord_Log_MOS] [varchar](100) NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[Temp_ID] ASC
+	[PRecord_ID] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[OOH_Temp_Log_Txn]  WITH CHECK ADD  CONSTRAINT [FK_Temp_Log_ID] FOREIGN KEY([Temp_Log_ID])
+ALTER TABLE [dbo].[OOH_Prediction_Record_Stg]  WITH CHECK ADD  CONSTRAINT [FK_PR_Log_ID] FOREIGN KEY([PRecord_Log_ID])
 REFERENCES [dbo].[OOH_Log_Txn] ([Log_ID])
 GO
 
-ALTER TABLE [dbo].[OOH_Temp_Log_Txn] CHECK CONSTRAINT [FK_Temp_Log_ID]
+ALTER TABLE [dbo].[OOH_Prediction_Record_Stg] CHECK CONSTRAINT [FK_PR_Log_ID]
 GO
+
+
+--OOH_FormRec_ModelTraining_Master
+
+CREATE TABLE [dbo].[OOH_FormRec_ModelTraining_Master](
+	[FR_Model_Log_ID] [int] IDENTITY(1,1) NOT NULL,
+	[FR_Model_ID] [varchar](100) NULL,
+	[FR_Model_Description] [varchar](100) NULL,
+	[FR_Model_InvNum_Accuracy] [decimal](10, 2) NULL,
+	[FR_Model_InvAmt_Accuracy] [decimal](10, 2) NULL,
+	[FR_Model_InvDate_Accuracy] [decimal](10, 2) NULL,
+	[FR_Model_InvContID_Accuracy] [decimal](10, 2) NULL,
+	[FR_Model_Insertion_Date] [datetime] NULL,
+	[FR_Model_Is_Active] [bit] NULL,
+	[FR_Model_Cease_Date] [datetime] NULL,
+	[FR_Model_UpdatedBy] [varchar](100) NULL
+) ON [PRIMARY]
+GO
+
+
+
 

@@ -651,8 +651,8 @@ BEGIN TRY
 	)
 
 	-- Inserting Data from CTE into Temp table - OOH_Temp_Log_Txn
-	INSERT INTO OOH_Temp_Log_Txn (Temp_Row_Number,
-	Temp_Log_ID,Temp_Log_C,Temp_Log_P,Temp_Log_E,Temp_Log_Contract_Number,Temp_Log_Publication_Code,Temp_Log_MOS)
+	INSERT INTO OOH_Prediction_Record_Stg ([PRecord_Row_Number],
+	[PRecord_Log_ID],[PRecord_Log_C],[PRecord_Log_P],[PRecord_Log_E],[PRecord_Log_Contract_Number],[PRecord_Log_Publication_Code],[PRecord_Log_MOS])
 	SELECT RowNumber,[Log_ID],
 	[Log_Validated_C],
 	[Log_Validated_P],
@@ -663,16 +663,16 @@ BEGIN TRY
 	FROM CTE_Log_txn
 
 	--Getting count of records in Temp table - OOH_Temp_Log_Txn
-	select @Count=count(*) from  OOH_Temp_Log_Txn
+	select @Count=count(*) from  OOH_Prediction_Record_Stg
 
 	--Looping through the Temp Table 
 	WHILE @RowNumber <> @Count+1
 	BEGIN
 		--Extract the details required from current record
-		Select @Log_ID=Temp_Log_ID ,@ClientCode =Temp_Log_C, @ProductCode=Temp_Log_P, @ESTCode =Temp_Log_E,
-		@ContractID =Temp_Log_Contract_Number ,@PubCode =Temp_Log_Publication_Code, @Extracted_MOS = Temp_Log_MOS
-		FROM OOH_Temp_Log_Txn
-		WHERE Temp_Row_Number = @RowNumber
+		Select @Log_ID=PRecord_Log_ID ,@ClientCode =PRecord_Log_C, @ProductCode=PRecord_Log_P, @ESTCode =PRecord_Log_E,
+		@ContractID = PRecord_Log_Contract_Number,@PubCode =PRecord_Log_Publication_Code, @Extracted_MOS = PRecord_Log_MOS
+		FROM OOH_Prediction_Record_Stg
+		WHERE PRecord_Row_Number = @RowNumber
 
 		Select @Log_ID
 
@@ -718,16 +718,15 @@ BEGIN TRY
 			[Prediction_Unpaid_Net_Payable],
 			[Prediction_Unpaid_Net_Paid],
 			[Prediction_Unpaid_Pay_Address],
-			[Prediction_Publication_Code] )
+			[Prediction_Publication_Code],
+			[Prediction_Publication])
 			SELECT  @Log_ID,
-					 -- rank pending
-					--Rank() over (partition by (select null) order by Unpaid_Ref_Insertion_MOS_Month DESC,Unpaid_Ref_EST_Code DESC),
-					DENSE_RANK () OVER ( 
-					PARTITION BY --unpaid_ref_Insertion_MOS_Month
-					CASE WHEN 
-							dateDiff(month,convert(dateTime, concat('01/',unpaid_ref_Insertion_MOS_Month),3),TRY_CAST (@Extracted_MOS AS DATETIME)) = 0 THEN 1
-					END 
-					ORDER BY [unpaid_ref_Insertion_MOS_Month] ),
+					--Rank 
+					CASE WHEN  @Extracted_MOS is NULL or @Extracted_MOS ='' THEN DENSE_RANK () over ( PARTITION BY (SELECT NULL)ORDER BY [unpaid_ref_Insertion_MOS_Month] DESC) 
+						 WHEN DATEDIFF(MONTH,CONVERT(DATETIME, CONCAT('01/',unpaid_ref_Insertion_MOS_Month),3),TRY_CAST (concat(@Extracted_MOS,'-01') AS DATETIME)) = 0 THEN 1
+						 WHEN DATEDIFF(MONTH,CONVERT(DATETIME, CONCAT('01/',unpaid_ref_Insertion_MOS_Month),3),TRY_CAST (concat(@Extracted_MOS,'-01') AS DATETIME)) > 0 THEN 2
+						ELSE 3
+					END,
 					@MCode,
 					Unpaid_Ref_Client_Code,
 					Unpaid_Ref_Product_Code,
@@ -739,7 +738,8 @@ BEGIN TRY
 					Unpaid_Ref_Payable_Net,
 					Unpaid_Ref_Paid_Net, 
 					Unpaid_Ref_Pay_Address, 
-					Unpaid_Ref_Publication_Code
+					Unpaid_Ref_Publication_Code,
+					CONCAT(Unpaid_Ref_Publication_Name,' (',Unpaid_Ref_Publication_Code,')')
 			FROM OOH_Unpaid_Ref 
 			WHERE
 				 Unpaid_Ref_Publication_Code = @PubCode
@@ -774,6 +774,7 @@ BEGIN TRY
 		SET @PubCode =NULL
 		SET @MatchCountInUnpaidRef = NULL
 		SET @Extracted_MOS = NULL
+		
 
 	SET @RowNumber=@RowNumber+1
 	END
@@ -785,6 +786,7 @@ BEGIN CATCH
 	Print @mSG
 END CATCH
 GO
+
 
 
 
