@@ -609,7 +609,7 @@ InvoiceMatchingScreen As screen:
                 DisabledFill: =RGBA(128, 128, 128, 1)
                 DisplayMode: |
                     =If(
-                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or Checkbox_Amount.Value=false Or Checkbox_Invoice.Value=false Or Checkbox_MOS.Value=false,
+                        (IsBlank(C_TextInput.Text) Or  C_TextInput.Text = "" Or IsBlank(P_TextInput.Text) Or P_TextInput.Text = "" Or IsBlank(E_TextInput.Text) Or E_TextInput.Text = "") Or Segmented_Checkbox.Value=false,
                         DisplayMode.Disabled,
                         DisplayMode.Edit
                     )
@@ -659,7 +659,7 @@ InvoiceMatchingScreen As screen:
                 Text: ="SEGMENT"
                 Visible: =varIsQA
                 Width: =72
-                X: =92
+                X: =125
                 Y: =150
                 ZIndex: =12
 
@@ -1863,6 +1863,8 @@ InvoiceMatchingScreen As screen:
                     Reset(ID_TextInput);
                     //Reset(PredictionItemsDataTable);
                     UpdateContext({MySelected: Blank()});
+                PaddingBottom: =10
+                PaddingTop: =10
                 PressedColor: =RGBA(204, 231, 246, 1)
                 PressedFill: =WhiteSmoke
                 RadiusBottomLeft: =0
@@ -1871,8 +1873,8 @@ InvoiceMatchingScreen As screen:
                 RadiusTopRight: =0
                 Size: =9
                 Text: ="SAVE CONTRACT ID"
-                Width: =130
-                X: =178
+                Width: =96
+                X: =211
                 Y: =150
                 ZIndex: =52
 
@@ -2013,6 +2015,21 @@ InvoiceMatchingScreen As screen:
                 X: =620
                 Y: =67
                 ZIndex: =58
+
+            Segmented_Checkbox As checkbox:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.None
+                CheckboxBorderColor: =RGBA(131, 24, 75, 1)
+                CheckboxSize: =28
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =25
+                HoverColor: =RGBA(131, 24, 75, 1)
+                Size: =13
+                Text: =""
+                Width: =25
+                X: =95
+                Y: =150
+                ZIndex: =59
 
         InfoContainer As groupContainer.manualLayoutContainer:
             Width: =966
