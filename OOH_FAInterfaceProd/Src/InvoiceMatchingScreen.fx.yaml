@@ -11069,7 +11069,7 @@ InvoiceMatchingScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Height: =50
             Size: =13
-            Text: ="Please ensure you are tagging this in PBT manually. Bot does not tag PBT."
+            Text: ="Please ensure you are tagging this in PBT manually."
             Visible: =showManualS9Popup
             Width: =365
             X: =145
