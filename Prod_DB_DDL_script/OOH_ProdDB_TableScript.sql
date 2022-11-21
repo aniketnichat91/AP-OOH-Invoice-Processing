@@ -501,6 +501,7 @@ GO
 
 
 -- OOH_Log_TXn table
+
 CREATE TABLE [dbo].[OOH_Log_Txn](
 	[Log_ID] [int] IDENTITY(1,1) NOT NULL,
 	[Log_Vendor_ID] [int] NOT NULL,
@@ -564,6 +565,7 @@ CREATE TABLE [dbo].[OOH_Log_Txn](
 	[Log_FA_Interface_Comment] [varchar](500) NULL,
 	[Log_FA_UpdateBy_ID] [int] NULL,
 	[Log_Manual_Override_Reason_ID] [int] NULL,
+	[Log_Recipe_Job_ID] [nchar](10) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Log_ID] ASC
@@ -603,7 +605,7 @@ ALTER TABLE [dbo].[OOH_Log_Txn] CHECK CONSTRAINT [FK_Log_Inv_Media]
 GO
 
 ALTER TABLE [dbo].[OOH_Log_Txn]  WITH CHECK ADD  CONSTRAINT [FK_Log_ManualUpdate] FOREIGN KEY([Log_Manual_Override_Reason_ID])
-REFERENCES [dbo].[OOH_ManualUpdate_Reason_Master] ([MU_Reason_ID])
+REFERENCES [dbo].[OOH_QA_Update_Reason_Master] ([MU_Reason_ID])
 GO
 
 ALTER TABLE [dbo].[OOH_Log_Txn] CHECK CONSTRAINT [FK_Log_ManualUpdate]
@@ -615,6 +617,8 @@ GO
 
 ALTER TABLE [dbo].[OOH_Log_Txn] CHECK CONSTRAINT [FK_Log_Vendor]
 GO
+
+
 
 
 -- OOH_PBT_Txn
