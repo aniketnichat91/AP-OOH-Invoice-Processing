@@ -15,10 +15,11 @@ ProcessJourneyScreen As screen:
             AcceptsFocus: =true
             BorderColor: =RGBA(131, 24, 75, 1)
             DataSource: |-
-                =With(
+                =//Filter(OOH_Control_Rpt, Ctrl_Execution_Date = Process_Execution_DatePicker.SelectedDate)
+                With(
                     {
-                        StartDate: Process_Execution_DatePicker.SelectedDate,
-                        EndDate: DateAdd(Process_Execution_DatePicker.SelectedDate, 1)
+                        StartDate: DateValue("8/25/2022"),
+                        EndDate: DateValue("8/26/2022")
                     },
                     Filter(
                         OOH_Control_Rpt,
@@ -1140,6 +1141,7 @@ ProcessJourneyScreen As screen:
             BorderColor: =RGBA(131, 24, 75, 1)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
+            DefaultDate: =DateValue("8/25/2022")
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
