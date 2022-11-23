@@ -1244,19 +1244,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.TextInput1_3.AccessibleLabel"
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.Log_ID_TextInput.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.TextInput1_3.AccessibleLabel",
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.Log_ID_TextInput.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DMLOperationsUpdateScreen",
-                "type": "DMLOperationsUpdateScreen.FilterContainer_3.TextInput1_3"
+                "type": "DMLOperationsUpdateScreen.FilterContainer_3.Log_ID_TextInput"
               }
             }
           ],
@@ -2438,6 +2438,606 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_C_DataCard1.DataCardValue2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_C_DataCard1.DataCardValue2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_C_DataCard1.DataCardValue2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_P_DataCard1.DataCardValue13.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_P_DataCard1.DataCardValue13.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_P_DataCard1.DataCardValue13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_E_DataCard1.DataCardValue14.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_E_DataCard1.DataCardValue14.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Validated_E_DataCard1.DataCardValue14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Number_DataCard1.DataCardValue15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Number_DataCard1.DataCardValue15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Number_DataCard1.DataCardValue15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Amount_DataCard1.DataCardValue16.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Amount_DataCard1.DataCardValue16.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Amount_DataCard1.DataCardValue16"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_ContractNumber_DataCard1.DataCardValue28.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_ContractNumber_DataCard1.DataCardValue28.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_ContractNumber_DataCard1.DataCardValue28"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Tax_Amount_DataCard1.DataCardValue29.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Tax_Amount_DataCard1.DataCardValue29.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Tax_Amount_DataCard1.DataCardValue29"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_CPE_DataCard1.DataCardValue30.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_CPE_DataCard1.DataCardValue30.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_CPE_DataCard1.DataCardValue30"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Insertion_Month_DataCard1.DataCardValue31.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Insertion_Month_DataCard1.DataCardValue31.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Insertion_Month_DataCard1.DataCardValue31"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.DataCardValue32.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.DataCardValue32.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.DataCardValue32"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Name_DataCard1.DataCardValue33.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Name_DataCard1.DataCardValue33.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Name_DataCard1.DataCardValue33"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_RemittanceAddress_DataCard1.DataCardValue34.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_RemittanceAddress_DataCard1.DataCardValue34.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_RemittanceAddress_DataCard1.DataCardValue34"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.DataCardValue35.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.DataCardValue35.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.DataCardValue35"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.DataCardValue36.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.DataCardValue36.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.DataCardValue36"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_FA_Interface_Comment_DataCard1.DataCardValue38.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_FA_Interface_Comment_DataCard1.DataCardValue38.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_FA_Interface_Comment_DataCard1.DataCardValue38"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Campaign_ID_Match_DataCard1.DataCardValue41.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Campaign_ID_Match_DataCard1.DataCardValue41.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Campaign_ID_Match_DataCard1.DataCardValue41"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [

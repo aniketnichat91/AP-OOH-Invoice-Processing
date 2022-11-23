@@ -69,7 +69,7 @@ FormRecTrainingScreen As screen:
             ZIndex: =3
 
         DatePicker_From_Insertion_Date_FRT As datepicker:
-            BorderColor: =If(DatePicker_From_Insertion_Date_FRT.SelectedDate < DatePicker_To_Insertion_Date_FRT.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =If(DatePicker_From_Insertion_Date_FRT.SelectedDate > DatePicker_To_Insertion_Date_FRT.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DefaultDate: =DateAdd(Now(),-7)
@@ -96,7 +96,7 @@ FormRecTrainingScreen As screen:
             ZIndex: =5
 
         DatePicker_To_Insertion_Date_FRT As datepicker:
-            BorderColor: =If(DatePicker_From_Insertion_Date_FRT.SelectedDate < DatePicker_To_Insertion_Date_FRT.SelectedDate, Color.Red, Color.Gray)
+            BorderColor: =If(DatePicker_From_Insertion_Date_FRT.SelectedDate > DatePicker_To_Insertion_Date_FRT.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
