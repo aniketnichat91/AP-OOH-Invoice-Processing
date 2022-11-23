@@ -6575,7 +6575,14 @@
         "DisplayMode",
         "ZIndex",
         "AutoHeight",
-        "Wrap",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Wrap",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "PaddingTop",
         "PaddingRight",
         "PaddingBottom",
@@ -17014,7 +17021,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "DateTimeZone",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "DateTimeZone",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Format",
         "InputTextPlaceholder",
         "StartYear",

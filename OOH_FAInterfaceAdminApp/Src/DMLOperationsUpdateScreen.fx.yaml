@@ -11,6 +11,25 @@ DMLOperationsUpdateScreen As screen:
         Y: =203
         ZIndex: =1
 
+        Button3 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: =ResetForm(Form1);
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: ="Cancel"
+            X: =336
+            Y: =513
+            ZIndex: =1
+
         Button1 As button:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -20,6 +39,7 @@ DMLOperationsUpdateScreen As screen:
             FontWeight: =FontWeight.Semibold
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: =//SubmitForm(Form1)
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -28,7 +48,7 @@ DMLOperationsUpdateScreen As screen:
             Text: ="Submit"
             X: =534
             Y: =513
-            ZIndex: =1
+            ZIndex: =2
 
         Form1 As form:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -38,7 +58,7 @@ DMLOperationsUpdateScreen As screen:
             OnFailure: =Notify(Form1.Error, NotificationType.Error)
             OnSuccess: =Notify("Record has been updated successfully!", NotificationType.Success)
             Width: =706
-            ZIndex: =2
+            ZIndex: =3
 
             Log_Validated_C_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -1490,6 +1510,7 @@ DMLOperationsUpdateScreen As screen:
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
             Default: =""
+            DelayOutput: =true
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
