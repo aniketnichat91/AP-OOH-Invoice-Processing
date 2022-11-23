@@ -7,18 +7,20 @@
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "FA_Map_Agency_ID": "FA_Map_Agency_ID",
-      "FA_Map_Cease_Date": "FA_Map_Cease_Date",
-      "FA_Map_FA_ID": "FA_Map_FA_ID",
-      "FA_Map_ID": "FA_Map_ID",
-      "FA_Map_Insertion_Date": "FA_Map_Insertion_Date",
-      "FA_Map_Vendor_ID": "FA_Map_Vendor_ID"
+      "Log_S9_HasRun": "Log_S9_HasRun",
+      "Log_S9_ReProcessed": "Log_S9_ReProcessed",
+      "Log_S9_RetryCounter": "Log_S9_RetryCounter",
+      "Log_S9_Run_Date": "Log_S9_Run_Date",
+      "Log_S9_Stamp_Comment": "Log_S9_Stamp_Comment",
+      "Log_S9_Status": "Log_S9_Status",
+      "S9_ID": "S9_ID",
+      "S9_Log_ID": "S9_Log_ID"
     },
     "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "OOH_FA_Mapping_Ref",
+    "Name": "OOH_S9_Txn",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

@@ -1,0 +1,41 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2022-11-09T18:17:51.4540000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Ctrl_ETL_Exception": "Ctrl_ETL_Exception",
+      "Ctrl_ETL_Execution_Date": "Ctrl_ETL_Execution_Date",
+      "Ctrl_ETL_Is_Executed": "Ctrl_ETL_Is_Executed",
+      "Ctrl_Execution_Date": "Ctrl_Execution_Date",
+      "Ctrl_ID": "Ctrl_ID",
+      "Ctrl_InvExt_Exception": "Ctrl_InvExt_Exception",
+      "Ctrl_InvExt_Execution_Date": "Ctrl_InvExt_Execution_Date",
+      "Ctrl_InvExt_Is_Executed": "Ctrl_InvExt_Is_Executed",
+      "Ctrl_InvRecon_Exception": "Ctrl_InvRecon_Exception",
+      "Ctrl_InvRecon_Execution_Date": "Ctrl_InvRecon_Execution_Date",
+      "Ctrl_InvRecon_Is_Executed": "Ctrl_InvRecon_Is_Executed",
+      "Ctrl_Lookup_Reimport_Exception": "Ctrl_Lookup_Reimport_Exception",
+      "Ctrl_Lookup_Reimport_Execution_Date": "Ctrl_Lookup_Reimport_Execution_Date",
+      "Ctrl_Lookup_Reimport_Is_Executed": "Ctrl_Lookup_Reimport_Is_Executed",
+      "Ctrl_PaidUnpaid_Refresh_Exception": "Ctrl_PaidUnpaid_Refresh_Exception",
+      "Ctrl_PaidUnpaid_Refresh_Execution_Date": "Ctrl_PaidUnpaid_Refresh_Execution_Date",
+      "Ctrl_PaidUnpaid_Refresh_Is_Executed": "Ctrl_PaidUnpaid_Refresh_Is_Executed",
+      "Ctrl_ReportWriter_Exception": "Ctrl_ReportWriter_Exception",
+      "Ctrl_ReportWriter_Execution_Date": "Ctrl_ReportWriter_Execution_Date",
+      "Ctrl_ReportWriter_Is_Executed": "Ctrl_ReportWriter_Is_Executed",
+      "Ctrl_S9_Exception": "Ctrl_S9_Exception",
+      "Ctrl_S9_Execution_Date": "Ctrl_S9_Execution_Date",
+      "Ctrl_S9_Is_Executed": "Ctrl_S9_Is_Executed"
+    },
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "OOH_Control_Rpt",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

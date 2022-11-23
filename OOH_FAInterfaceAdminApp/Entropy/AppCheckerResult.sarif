@@ -194,19 +194,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.TextInput1.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.TextInput1.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.FilterContainer_1.TextInput1"
+                "type": "ProcessJourneyScreen.FilterContainer_1.DatePicker3"
               }
             }
           ],
@@ -278,6 +278,756 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_SendDate.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_SendDate.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_SendDate"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_InvoiceNumber.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_InvoiceNumber.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_InvoiceNumber"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_From_Execution_Date.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_From_Execution_Date.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_From_Execution_Date"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_VendorName.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_VendorName.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_VendorName"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_FileName.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_FileName.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_FileName"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_To_Execution_Date.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_To_Execution_Date.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_To_Execution_Date"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_Action.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_Action.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_Action"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -1484,19 +2234,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_SendDate.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_SendDate.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_SendDate"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1"
               }
             }
           ],
@@ -1514,19 +2264,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_InvoiceNumber.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_InvoiceNumber.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_InvoiceNumber"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5"
               }
             }
           ],
@@ -1544,19 +2294,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_From_Execution_Date.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_From_Execution_Date.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_From_Execution_Date"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8"
               }
             }
           ],
@@ -1574,19 +2324,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_VendorName.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_VendorName.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_VendorName"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11"
               }
             }
           ],
@@ -1604,19 +2354,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_FileName.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_FileName.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_FileName"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18"
               }
             }
           ],
@@ -1634,19 +2384,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_To_Execution_Date.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_To_Execution_Date.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.DatePicker_To_Execution_Date"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21"
               }
             }
           ],
@@ -1664,19 +2414,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_Action.AccessibleLabel"
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_Action.AccessibleLabel",
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.FilterContainer_2.txt_Search_Action"
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25"
               }
             }
           ],
@@ -1688,546 +2438,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Sender_Mail"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_File_Name"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Number"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Amount"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Invoice_Date"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Record_Type"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Send_Date"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.RecordLogHeaderContainer_2.Sort_NoExt_Vendor_Name"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen.GalleryContainer_2.galNoExtraction_Txn"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
         },
         {
           "locations": [
@@ -2307,6 +2517,36 @@
                 "member": "ResetCheck",
                 "module": "ProcessJourneyScreen",
                 "type": "ProcessJourneyScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.ResetCheck"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MailProcessingWorkatoScreen.ResetCheck",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ResetCheck",
+                "module": "MailProcessingWorkatoScreen",
+                "type": "MailProcessingWorkatoScreen"
               }
             }
           ],
@@ -2427,36 +2667,6 @@
                 "member": "ResetCheck",
                 "module": "LogsScreen",
                 "type": "LogsScreen"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.ResetCheck"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MailProcessingWorkatoScreen.ResetCheck",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "ResetCheck",
-                "module": "MailProcessingWorkatoScreen",
-                "type": "MailProcessingWorkatoScreen"
               }
             }
           ],

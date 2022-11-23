@@ -5,11 +5,992 @@ ProcessJourneyScreen As screen:
         =UpdateContext({ResetCheck:true});
     OnVisible: =""
 
+    Galley_Container_1 As groupContainer.manualLayoutContainer:
+        Height: =554
+        Width: =1366
+        Y: =213
+        ZIndex: =1
+
+        FormViewer1 As formViewer:
+            AcceptsFocus: =true
+            BorderColor: =RGBA(131, 24, 75, 1)
+            DataSource: =Filter(OOH_Control_Rpt, Ctrl_Execution_Date = DateValue(Today(), "mm/dd/yyyy"))
+            Height: =551
+            NumberOfColumns: =4
+            Width: =1358
+            X: =6
+            Y: =3
+            ZIndex: =1
+
+            Ctrl_ReportWriter_Is_Executed_DataCard1 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_ReportWriter_Is_Executed"
+                Default: =ThisItem.Ctrl_ReportWriter_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                WidthFit: =true
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue1 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                    ZIndex: =2
+
+            Ctrl_ReportWriter_Exception_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_ReportWriter_Exception"
+                Default: =ThisItem.Ctrl_ReportWriter_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =2
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey4 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue4 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                    ZIndex: =2
+
+            Ctrl_ETL_Is_Executed_DataCard1 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_ETL_Is_Executed"
+                Default: =ThisItem.Ctrl_ETL_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ETL_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                X: =3
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey5 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue5 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                    ZIndex: =2
+
+            Ctrl_ReportWriter_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_ReportWriter_Execution_Date"
+                Default: =ThisItem.Ctrl_ReportWriter_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                WidthFit: =true
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey3 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue3 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                    ZIndex: =2
+
+            Ctrl_ETL_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_ETL_Execution_Date"
+                Default: =ThisItem.Ctrl_ETL_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ETL_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey6 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue6 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                    ZIndex: =2
+
+            Ctrl_ETL_Exception_DataCard2 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_ETL_Exception"
+                Default: =ThisItem.Ctrl_ETL_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ETL_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey7 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue7 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                    ZIndex: =2
+
+            Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_PaidUnpaid_Refresh_Is_Executed"
+                Default: =ThisItem.Ctrl_PaidUnpaid_Refresh_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                X: =2
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey8 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue8 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                    ZIndex: =2
+
+            Ctrl_PaidUnpaid_Refresh_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_PaidUnpaid_Refresh_Execution_Date"
+                Default: =ThisItem.Ctrl_PaidUnpaid_Refresh_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =3
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey9 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue9 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                    ZIndex: =2
+
+            Ctrl_PaidUnpaid_Refresh_Exception_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_PaidUnpaid_Refresh_Exception"
+                Default: =ThisItem.Ctrl_PaidUnpaid_Refresh_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue10 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                    ZIndex: =2
+
+            Ctrl_InvExt_Is_Executed_DataCard1 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_InvExt_Is_Executed"
+                Default: =ThisItem.Ctrl_InvExt_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvExt_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                X: =1
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey11 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue11 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                    ZIndex: =2
+
+            Ctrl_InvExt_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_InvExt_Execution_Date"
+                Default: =ThisItem.Ctrl_InvExt_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvExt_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =2
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey12 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue12 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                    ZIndex: =2
+
+            Ctrl_InvExt_Exception_DataCard2 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_InvExt_Exception"
+                Default: =ThisItem.Ctrl_InvExt_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvExt_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =3
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey17 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue17 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                    ZIndex: =2
+
+            Ctrl_InvRecon_Is_Executed_DataCard2 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_InvRecon_Is_Executed"
+                Default: =ThisItem.Ctrl_InvRecon_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey18 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue18 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                    ZIndex: =2
+
+            Ctrl_InvRecon_Execution_Date_DataCard2 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_InvRecon_Execution_Date"
+                Default: =ThisItem.Ctrl_InvRecon_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =1
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey19 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue19 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                    ZIndex: =2
+
+            Ctrl_InvRecon_Exception_DataCard2 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_InvRecon_Exception"
+                Default: =ThisItem.Ctrl_InvRecon_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =2
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey20 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue20 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey20.Y + DataCardKey20.Height + 5
+                    ZIndex: =2
+
+            Ctrl_S9_Is_Executed_DataCard1 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_S9_Is_Executed"
+                Default: =ThisItem.Ctrl_S9_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_S9_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                X: =3
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey21 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue21 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey21.Y + DataCardKey21.Height + 5
+                    ZIndex: =2
+
+            Ctrl_S9_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_S9_Execution_Date"
+                Default: =ThisItem.Ctrl_S9_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_S9_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey22 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue22 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey22.Y + DataCardKey22.Height + 5
+                    ZIndex: =2
+
+            Ctrl_S9_Exception_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_S9_Exception"
+                Default: =ThisItem.Ctrl_S9_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_S9_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =1
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey23 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue23 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                    ZIndex: =2
+
+            Ctrl_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_Execution_Date"
+                Default: =ThisItem.Ctrl_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =2
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey24 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue24 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey24.Y + DataCardKey24.Height + 5
+                    ZIndex: =2
+
+            Ctrl_Lookup_Reimport_Is_Executed_DataCard1 As typedDataCard.toggleViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_Lookup_Reimport_Is_Executed"
+                Default: =ThisItem.Ctrl_Lookup_Reimport_Is_Executed
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Is_Executed")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =339
+                X: =3
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey25 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue25 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    TrueFill: =RGBA(211, 66, 9, 1)
+                    X: =30
+                    Y: =DataCardKey25.Y + DataCardKey25.Height + 5
+                    ZIndex: =2
+
+            Ctrl_Lookup_Reimport_Execution_Date_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_Lookup_Reimport_Execution_Date"
+                Default: =ThisItem.Ctrl_Lookup_Reimport_Execution_Date
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Execution_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =0
+                Y: =5
+                ZIndex: =1
+
+                DataCardKey26 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue26 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                    ZIndex: =2
+
+            Ctrl_Lookup_Reimport_Exception_DataCard1 As typedDataCard.textualViewCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Ctrl_Lookup_Reimport_Exception"
+                Default: =ThisItem.Ctrl_Lookup_Reimport_Exception
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Exception")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =339
+                X: =1
+                Y: =5
+                ZIndex: =1
+
+                DataCardKey27 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue27 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                    ZIndex: =2
+
     HeaderContainer_1 As groupContainer.manualLayoutContainer:
         Fill: =White
         Height: =64
         Width: =1366
-        ZIndex: =1
+        ZIndex: =2
 
         Screen_Label_1 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -30,34 +1011,17 @@ ProcessJourneyScreen As screen:
         Height: =139
         Width: =1366
         Y: =64
-        ZIndex: =2
+        ZIndex: =3
 
         Label12 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Size: =13
-            Text: ="Text"
+            Text: ="Execution Date"
             X: =40
             Y: =40
             ZIndex: =1
-
-        TextInput1 As text:
-            BorderColor: =RGBA(131, 24, 75, 1)
-            BorderThickness: =2
-            Color: =RGBA(0, 0, 0, 1)
-            Default: ="Text input"
-            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            DisabledFill: =RGBA(244, 244, 244, 1)
-            FocusedBorderThickness: =4
-            HoverBorderColor: =RGBA(131, 24, 75, 1)
-            HoverColor: =RGBA(0, 0, 0, 1)
-            HoverFill: =RGBA(255, 211, 205, 1)
-            Size: =13
-            X: =225
-            Y: =40
-            ZIndex: =2
 
         Label18 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -65,8 +1029,9 @@ ProcessJourneyScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Size: =13
             Text: ="From_Execution_Date *"
+            Width: =217
             X: =602
-            Y: =40
+            Y: =24
             ZIndex: =3
 
         Label19 As label:
@@ -75,6 +1040,7 @@ ProcessJourneyScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Size: =13
             Text: ="To_Execution_Date *"
+            Width: =192
             X: =602
             Y: =80
             ZIndex: =4
@@ -91,7 +1057,7 @@ ProcessJourneyScreen As screen:
             SelectedDateFill: =RGBA(211, 66, 9, 1)
             Width: =200
             X: =855
-            Y: =40
+            Y: =24
             ZIndex: =5
 
         DatePicker2 As datepicker:
@@ -106,7 +1072,7 @@ ProcessJourneyScreen As screen:
             SelectedDateFill: =RGBA(211, 66, 9, 1)
             Width: =200
             X: =855
-            Y: =97
+            Y: =80
             ZIndex: =6
 
         Tagging_Button_3 As button:
@@ -128,10 +1094,10 @@ ProcessJourneyScreen As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10
-            Text: ="Select Date to Export"
+            Text: ="Download"
             Width: =145
             X: =1156
-            Y: =47
+            Y: =24
             ZIndex: =7
 
         Tagging_Button_4 As button:
@@ -156,12 +1122,26 @@ ProcessJourneyScreen As screen:
             Text: ="Reset filters"
             Width: =145
             X: =1156
-            Y: =97
+            Y: =80
             ZIndex: =8
+
+        DatePicker3 As datepicker:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            CalendarHeaderFill: =RGBA(211, 66, 9, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            HoverDateFill: =RGBA(255, 211, 205, 1)
+            IconBackground: =RGBA(211, 66, 9, 1)
+            SelectedDateFill: =RGBA(211, 66, 9, 1)
+            X: =190
+            Y: =40
+            ZIndex: =9
 
     FlyoutMenuComponent_4 As FlyoutMenuComponent:
         CustomMenuItems: =colLeftNavMenu
         Height: =FlyoutMenuComponent_4.MenuHeight
         Width: =FlyoutMenuComponent_4.MenuWidth
-        ZIndex: =8
+        ZIndex: =4
 

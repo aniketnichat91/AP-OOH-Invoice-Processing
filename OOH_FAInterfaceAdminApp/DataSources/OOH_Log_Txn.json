@@ -71,7 +71,7 @@
       "Log_Vendor_ID": "Log_Vendor_ID",
       "Log_VM_FilePath": "Log_VM_FilePath"
     },
-    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,

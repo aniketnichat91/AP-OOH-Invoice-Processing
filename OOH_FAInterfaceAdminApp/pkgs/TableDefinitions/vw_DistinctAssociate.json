@@ -1,7 +1,0 @@
-{
-  "DataEntityMetadataJson": {
-    "[dbo].[vw_DistinctAssociate]": "{\"name\":\"[dbo].[vw_DistinctAssociate]\",\"title\":\"[dbo].[vw_DistinctAssociate]\",\"x-ms-permission\":\"read-only\",\"x-ms-capabilities\":{\"sortRestrictions\":{\"sortable\":true},\"filterRestrictions\":{\"filterable\":true},\"selectRestrictions\":{\"selectable\":true},\"filterFunctionSupport\":[\"lt\",\"le\",\"eq\",\"ne\",\"gt\",\"ge\",\"min\",\"max\",\"countdistinct\",\"add\",\"sub\",\"mul\",\"div\",\"mod\",\"negate\",\"now\",\"not\",\"and\",\"or\",\"day\",\"month\",\"year\",\"hour\",\"minute\",\"second\",\"date\",\"time\",\"totaloffsetminutes\",\"totalseconds\",\"round\",\"floor\",\"ceiling\",\"contains\",\"startswith\",\"endswith\",\"length\",\"indexof\",\"replace\",\"substring\",\"substringof\",\"tolower\",\"toupper\",\"trim\",\"concat\",\"sum\",\"min\",\"max\",\"average\",\"countdistinct\",\"null\"]},\"schema\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[],\"properties\":{\"Finance_Associate\":{\"title\":\"Finance_Associate\",\"x-ms-capabilities\":{\"filterFunctions\":[\"lt\",\"le\",\"eq\",\"ne\",\"gt\",\"ge\",\"min\",\"max\",\"countdistinct\",\"contains\",\"startswith\",\"endswith\",\"length\",\"indexof\",\"replace\",\"substring\",\"substringof\",\"tolower\",\"toupper\",\"trim\",\"concat\"]},\"type\":\"string\",\"maxLength\":255,\"x-ms-permission\":\"read-write\",\"x-ms-sort\":\"none\"}}},\"x-ms-permission\":\"read-only\"}}"
-  },
-  "EntityName": "vw_DistinctAssociate",
-  "TableName": "[dbo].[vw_DistinctAssociate]"
-}

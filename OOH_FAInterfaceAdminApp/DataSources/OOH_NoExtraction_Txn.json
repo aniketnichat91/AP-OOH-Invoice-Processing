@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2022-10-25T16:15:35.7150000Z",
+      "LastChangedTimeString": "2022-11-09T18:17:51.4540000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -31,7 +31,7 @@
       "NoExt_Total_Pages": "NoExt_Total_Pages",
       "NoExt_Vendor_Name": "NoExt_Vendor_Name"
     },
-    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,

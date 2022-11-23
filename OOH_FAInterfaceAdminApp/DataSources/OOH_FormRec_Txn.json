@@ -7,18 +7,21 @@
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "FA_Map_Agency_ID": "FA_Map_Agency_ID",
-      "FA_Map_Cease_Date": "FA_Map_Cease_Date",
-      "FA_Map_FA_ID": "FA_Map_FA_ID",
-      "FA_Map_ID": "FA_Map_ID",
-      "FA_Map_Insertion_Date": "FA_Map_Insertion_Date",
-      "FA_Map_Vendor_ID": "FA_Map_Vendor_ID"
+      "FR_Agency_Name": "FR_Agency_Name",
+      "FR_Client_Name": "FR_Client_Name",
+      "FR_Description": "FR_Description",
+      "FR_ID": "FR_ID",
+      "FR_Insertion_Date": "FR_Insertion_Date",
+      "FR_Log_ID": "FR_Log_ID",
+      "FR_Result_ID": "FR_Result_ID",
+      "FR_TaxFormRec": "FR_TaxFormRec",
+      "FR_Word_Where": "FR_Word_Where"
     },
     "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "OOH_FA_Mapping_Ref",
+    "Name": "OOH_FormRec_Txn",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

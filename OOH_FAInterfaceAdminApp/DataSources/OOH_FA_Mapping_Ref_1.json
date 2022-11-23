@@ -7,20 +7,18 @@
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "CreatedBy": "CreatedBy",
-      "CreatedDate": "CreatedDate",
-      "Doc_Url": "Doc_Url",
-      "DocFileName": "DocFileName",
-      "ID": "ID",
-      "One": "One",
-      "Position": "Position",
-      "ReportID": "ReportID"
+      "FA_Map_Agency_ID": "FA_Map_Agency_ID",
+      "FA_Map_Cease_Date": "FA_Map_Cease_Date",
+      "FA_Map_FA_ID": "FA_Map_FA_ID",
+      "FA_Map_ID": "FA_Map_ID",
+      "FA_Map_Insertion_Date": "FA_Map_Insertion_Date",
+      "FA_Map_Vendor_ID": "FA_Map_Vendor_ID"
     },
-    "DatasetName": "sqlsv-automation-us-dev.database.windows.net,usa-apdigital-fainterface-dev",
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "FA_Interface_Attach_S9",
+    "Name": "OOH_FA_Mapping_Ref_1",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

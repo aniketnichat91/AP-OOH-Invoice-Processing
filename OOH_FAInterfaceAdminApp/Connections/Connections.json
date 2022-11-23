@@ -15,54 +15,8 @@
       "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/7487a4c2595b48a79e33aebf683820a1",
       "xrmConnectionReferenceLogicalName": "new_sharedsql_f4cb7"
     },
-    "datasets": {
-      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
-        "dataSources": {
-          "OOH_Agency_Master": {
-            "tableName": "[dbo].[OOH_Agency_Master]"
-          },
-          "OOH_FA_Mapping_Ref": {
-            "tableName": "[dbo].[OOH_FA_Mapping_Ref]"
-          },
-          "OOH_FA_Master": {
-            "tableName": "[dbo].[OOH_FA_Master]"
-          },
-          "OOH_Invoice_Master": {
-            "tableName": "[dbo].[OOH_Invoice_Master]"
-          },
-          "OOH_NoExtraction_Txn": {
-            "tableName": "[dbo].[OOH_NoExtraction_Txn]"
-          },
-          "OOH_PBT_Txn": {
-            "tableName": "[dbo].[OOH_PBT_Txn]"
-          },
-          "OOH_Predictions_Mview": {
-            "tableName": "[dbo].[OOH_Predictions_Mview]"
-          },
-          "OOH_Unpaid_Ref": {
-            "tableName": "[dbo].[OOH_Unpaid_Ref]"
-          },
-          "OOH_Vendor_Master": {
-            "tableName": "[dbo].[OOH_Vendor_Master]"
-          },
-          "vw_DistinctMOSUnpaid": {
-            "tableName": "[dbo].[vw_DistinctMOSUnpaid]"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "OOH_Vendor_Master",
-      "OOH_Unpaid_Ref",
-      "OOH_FA_Master",
-      "vw_DistinctMOSUnpaid",
-      "OOH_Agency_Master",
-      "OOH_Invoice_Master",
-      "OOH_FA_Mapping_Ref",
-      "OOH_PBT_Txn",
-      "OOH_Predictions_Mview",
-      "OOH_NoExtraction_Txn"
-    ],
+    "datasets": {},
+    "dataSources": [],
     "dependencies": {},
     "dependents": [
       "1bba1d80-ab8f-4ce5-8667-32d384e8b0c9"
@@ -145,18 +99,8 @@
       "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-4a8d4d89-c857-4b37-9ef3-db3f2e0cb32a",
       "xrmConnectionReferenceLogicalName": "new_sharedsql_f63b2"
     },
-    "datasets": {
-      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
-        "dataSources": {
-          "OOH_Log_TXN_VIEW": {
-            "tableName": "[dbo].[OOH_Log_TXN_VIEW]"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "OOH_Log_TXN_VIEW"
-    ],
+    "datasets": {},
+    "dataSources": [],
     "dependencies": {},
     "dependents": [
       "fa61a700-fd02-41ef-b92e-8142ea008385"
@@ -186,38 +130,6 @@
       "43b36aa3-7610-4241-bc91-998a005746de"
     ],
     "id": "2726d45c-0fc4-4ee8-9000-fbec400aa423"
-  },
-  "354979ab-0449-4126-9d32-4c240995c76b": {
-    "connectionParameters": {
-      "database": "eussqdbgrmusaapoohdev01",
-      "server": "eussqsvgrmusafinance01.database.windows.net"
-    },
-    "connectionRef": {
-      "apiTier": "Premium",
-      "authenticationType": "sqlAuthentication",
-      "displayName": "SQL Server",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sql",
-      "parameterHints": {},
-      "parameterHintsV2": {},
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/ce171450c8b948a3b5f71bca2e1b72f3",
-      "xrmConnectionReferenceLogicalName": "new_sharedsql_fb5d4"
-    },
-    "datasets": {
-      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01": {
-        "dataSources": {
-          "OOH_Log_Txn": {
-            "tableName": "[dbo].[OOH_Log_Txn]"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "OOH_Log_Txn"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "354979ab-0449-4126-9d32-4c240995c76b"
   },
   "43b36aa3-7610-4241-bc91-998a005746de": {
     "connectionParameters": {},
@@ -259,6 +171,47 @@
     "dependents": [],
     "id": "43b36aa3-7610-4241-bc91-998a005746de"
   },
+  "43e0d3f6-5746-487d-8138-103aea08ef75": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapooh01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/e886cd8dfc3e49a99efa8a59faf286e0",
+      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_d035e"
+    },
+    "datasets": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01": {
+        "dataSources": {
+          "OOH_Control_Rpt": {
+            "tableName": "[dbo].[OOH_Control_Rpt]"
+          },
+          "OOH_FA_Mapping_Ref": {
+            "tableName": "[dbo].[OOH_FA_Mapping_Ref]"
+          },
+          "OOH_FormRec_Txn": {
+            "tableName": "[dbo].[OOH_FormRec_Txn]"
+          },
+          "OOH_S9_Txn": {
+            "tableName": "[dbo].[OOH_S9_Txn]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "OOH_Control_Rpt",
+      "OOH_FA_Mapping_Ref",
+      "OOH_FormRec_Txn",
+      "OOH_S9_Txn"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "43e0d3f6-5746-487d-8138-103aea08ef75"
+  },
   "6246b8ad-1729-4010-9196-65e558cf7a15": {
     "connectionParameters": {},
     "connectionRef": {
@@ -299,79 +252,50 @@
     "dependents": [],
     "id": "6246b8ad-1729-4010-9196-65e558cf7a15"
   },
-  "aa5cbd7b-10ed-4ca5-ad64-f02423d15ec8": {
+  "8841a054-091b-4c18-8f1d-2cb2070dc57e": {
     "connectionParameters": {
-      "database": "testdatabase",
-      "server": "sqlsv-automation-us-dev.database.windows.net"
+      "database": "eussqdbgrmusaapooh01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
     },
     "connectionRef": {
-      "apiTier": "Premium",
       "authenticationType": "sqlAuthentication",
       "displayName": "SQL Server",
       "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_sql",
-      "parameterHints": {},
-      "parameterHintsV2": {},
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/f247e8d1feab41668859076362ca47d9",
-      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_63128"
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/b944b9ff21c440f1b96caa3e9a3a6739",
+      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_19921"
     },
     "datasets": {
-      "sqlsv-automation-us-dev.database.windows.net,usa-apdigital-fainterface-dev": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01": {
         "dataSources": {
-          "DataSet": {
-            "tableName": "[dbo].[DataSet]"
+          "OOH_FA_Mapping_Ref_1": {
+            "tableName": "[dbo].[OOH_FA_Mapping_Ref]"
           },
-          "FA_Interface_Attach_S9": {
-            "tableName": "[dbo].[FA_Interface_Attach_S9]"
+          "OOH_Invoice_Master": {
+            "tableName": "[dbo].[OOH_Invoice_Master]"
           },
-          "usa_apdigital_unpaid": {
-            "tableName": "[dbo].[usa_apdigital_unpaid]"
+          "OOH_Log_Txn": {
+            "tableName": "[dbo].[OOH_Log_Txn]"
           },
-          "vw_DistinctAssociate": {
-            "tableName": "[dbo].[vw_DistinctAssociate]"
+          "OOH_NoExtraction_Txn": {
+            "tableName": "[dbo].[OOH_NoExtraction_Txn]"
           },
-          "vw_DistinctFA_Status": {
-            "tableName": "[dbo].[vw_DistinctFA_Status]"
-          },
-          "vw_DistinctIs_Matched": {
-            "tableName": "[dbo].[vw_DistinctIs_Matched]"
-          },
-          "vw_DistinctLabel": {
-            "tableName": "[dbo].[vw_DistinctLabel]"
-          },
-          "vw_DistinctPDF_Info": {
-            "tableName": "[dbo].[vw_DistinctPDF_Info]"
-          },
-          "vw_DistinctTag_Status": {
-            "tableName": "[dbo].[vw_DistinctTag_Status]"
-          },
-          "vw_DistinctVendor": {
-            "tableName": "[dbo].[vw_DistinctVendor]"
-          },
-          "vw_DistinctVendorUnpaid": {
-            "tableName": "[dbo].[vw_DistinctVendorUnpaid]"
+          "OOH_Unpaid_Ref": {
+            "tableName": "[dbo].[OOH_Unpaid_Ref]"
           }
         }
       }
     },
     "dataSources": [
-      "usa_apdigital_unpaid",
-      "vw_DistinctVendor",
-      "vw_DistinctIs_Matched",
-      "vw_DistinctFA_Status",
-      "vw_DistinctLabel",
-      "vw_DistinctPDF_Info",
-      "vw_DistinctAssociate",
-      "vw_DistinctTag_Status_1",
-      "DataSet",
-      "vw_DistinctVendorPublicationNameAndCode",
-      "vw_DistinctTag_Status",
-      "FA_Interface_Attach_S9",
-      "vw_DistinctVendorUnpaid"
+      "OOH_Unpaid_Ref",
+      "OOH_Log_Txn",
+      "OOH_FA_Mapping_Ref_1",
+      "OOH_Invoice_Master",
+      "OOH_NoExtraction_Txn"
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "aa5cbd7b-10ed-4ca5-ad64-f02423d15ec8"
+    "id": "8841a054-091b-4c18-8f1d-2cb2070dc57e"
   },
   "b052509e-b575-4c6f-854f-b484d7139530": {
     "connectionParameters": {
@@ -386,21 +310,6 @@
       "parameterHintsV2": {}
     },
     "datasets": {
-      "https://insidemedia.sharepoint.com/sites/GRMUSA-APDIGITAL2022": {
-        "datasetOverride": {
-          "environmentVariableName": "new_OOHSharePointSite",
-          "name": "https://insidemedia.sharepoint.com/sites/GRMUSA-APDIGITAL2022"
-        },
-        "dataSources": {
-          "FA Issue List": {
-            "tableName": "105ed371-cd53-4cbf-91ed-b856453b1fef",
-            "tableNameOverride": {
-              "environmentVariableName": "new_OOHFAIssueList",
-              "name": "105ed371-cd53-4cbf-91ed-b856453b1fef"
-            }
-          }
-        }
-      },
       "https://insidemedia.sharepoint.com/sites/GRMUSA-OOHFinanceAutomation-GRM": {
         "datasetOverride": {
           "environmentVariableName": "new_shared_sharepointonline_04461bb2ef8243a19960aee33e2cd794",
@@ -421,7 +330,6 @@
       }
     },
     "dataSources": [
-      "FA Issue List",
       "fa-interface-users",
       "Documents"
     ],
