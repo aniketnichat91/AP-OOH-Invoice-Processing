@@ -763,7 +763,8 @@ CREATE TABLE [dbo].[OOH_FormRec_ModelTraining_Master](
 	[FR_Model_Insertion_Date] [datetime] NULL,
 	[FR_Model_Is_Active] [bit] NULL,
 	[FR_Model_Cease_Date] [datetime] NULL,
-	[FR_Model_UpdatedBy] [varchar](100) NULL
+	[FR_Model_UpdatedBy] [varchar](100) NULL,
+	[FR_Comment] [nchar](250) NULL
 ) ON [PRIMARY]
 GO
 
