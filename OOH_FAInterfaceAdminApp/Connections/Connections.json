@@ -293,6 +293,35 @@
     "dependents": [],
     "id": "8841a054-091b-4c18-8f1d-2cb2070dc57e"
   },
+  "9ecf1284-437e-4630-b201-48035c433b5d": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapooh01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/46ba71ed99584a5a83d4ac00166ee32d",
+      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_0b602"
+    },
+    "datasets": {
+      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01": {
+        "dataSources": {
+          "OOH_Control_Rpt_View": {
+            "tableName": "[dbo].[OOH_Control_Rpt_View]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "OOH_Control_Rpt_View"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "9ecf1284-437e-4630-b201-48035c433b5d"
+  },
   "b052509e-b575-4c6f-854f-b484d7139530": {
     "connectionParameters": {
       "sku": "Enterprise"
@@ -332,35 +361,6 @@
     "dependencies": {},
     "dependents": [],
     "id": "b052509e-b575-4c6f-854f-b484d7139530"
-  },
-  "b0c9181f-407b-4fef-babb-fd1f290c548a": {
-    "connectionParameters": {
-      "database": "eussqdbgrmusaapooh01",
-      "server": "eussqsvgrmusafinance01.database.windows.net"
-    },
-    "connectionRef": {
-      "authenticationType": "sqlAuthentication",
-      "displayName": "SQL Server",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sql",
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/c7028d3250c7478299e247bc5f94018a",
-      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_3866e"
-    },
-    "datasets": {
-      "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01": {
-        "dataSources": {
-          "OOH_Control_Rpt": {
-            "tableName": "[dbo].[OOH_Control_Rpt]"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "OOH_Control_Rpt"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "b0c9181f-407b-4fef-babb-fd1f290c548a"
   },
   "b7f38b00-4535-4fa3-a777-e6c8cc345ac5": {
     "connectionParameters": {},
