@@ -1596,7 +1596,7 @@ DMLOperationsUpdateScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(IsBlank(SP_FilePath_DataCardValue) Or SP_FilePath_DataCardValue.Text="",DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If(IsBlank(Log_ID_TextInput) Or IsEmpty(gal_Get_Data_From_OOH_Txn.AllItems),DisplayMode.Disabled,DisplayMode.Edit)
             Fill: =RGBA(211, 66, 9, 1)
             FontWeight: =FontWeight.Semibold
             HoverColor: =RGBA(255, 255, 255, 1)

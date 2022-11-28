@@ -46,7 +46,10 @@
       "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
     "datasets": {},
-    "dataSources": [],
+    "dataSources": [
+      "fa-interface-users",
+      "Documents"
+    ],
     "dependencies": {},
     "dependents": [
       "f2c1be41-5dae-4e01-8f81-30d95022896f"
