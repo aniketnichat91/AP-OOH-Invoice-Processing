@@ -4934,6 +4934,34 @@ InvoiceMatchingScreen As screen:
                 Y: =24
                 ZIndex: =30
 
+    PDFName_with_Link_button As button:
+        BorderThickness: =0
+        Color: =RGBA( 63, 189, 191, 1 )
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(39, 113, 194, 1)
+        DisabledFill: =RGBA(0, 0, 0,0)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =0
+        Height: =75
+        HoverColor: =RGBA(39, 113, 194, 1)
+        HoverFill: =RGBA(255, 255, 255, 1)
+        OnSelect: =Launch(LookUp(SelectedItems, rowNumber = ROWNUM, Log_SP_FilePath))
+        PressedColor: =RGBA(39, 113, 194, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_FileName)
+        Tooltip: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_FileName)
+        Underline: =true
+        Width: =405
+        X: =960
+        Y: =4
+        ZIndex: =6
+
     PDFName_with_Link As label:
         Align: =Align.Center
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -4954,17 +4982,18 @@ InvoiceMatchingScreen As screen:
         Text: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_FileName)
         Tooltip: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_FileName)
         Underline: =true
+        Visible: =false
         Width: =405
         X: =960
         Y: =4
-        ZIndex: =6
+        ZIndex: =7
 
     CommentsContainer As groupContainer.manualLayoutContainer:
         Height: =39
         Width: =673
         X: =10
         Y: =375
-        ZIndex: =7
+        ZIndex: =8
 
         ViewCommentS9Input As text:
             BorderColor: =RGBA(230, 230, 230, 1)
@@ -5029,7 +5058,7 @@ InvoiceMatchingScreen As screen:
         Width: =1271
         X: =47
         Y: =191
-        ZIndex: =8
+        ZIndex: =9
 
         Search_Icon_for_no_items_1 As icon.Search:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5066,7 +5095,7 @@ InvoiceMatchingScreen As screen:
         Width: =280
         X: =10
         Y: =140
-        ZIndex: =21
+        ZIndex: =22
 
         "galVendorItems As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
             BorderColor: =RGBA(102, 182, 227, 1)
@@ -5102,6 +5131,7 @@ InvoiceMatchingScreen As screen:
                 Size: =10
                 Text: =ThisItem.Vendor_Name
                 Tooltip: =ThisItem.Vendor_Name
+                Visible: =false
                 Width: =230
                 Wrap: =false
                 X: =5
@@ -5187,6 +5217,57 @@ InvoiceMatchingScreen As screen:
                 Y: =22
                 ZIndex: =6
 
+            Button8 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(246, 88, 16, 1)
+                DisabledFill: =RGBA(0, 0, 0,0)
+                Fill: =RGBA(0, 0, 0, 0)
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                HoverColor: =RGBA(246, 88, 16, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            VAR_Vendor_DEF: galVendorItems.Selected.Vendor_Name,
+                            VAR_PublicationCode_DEF:galVendorItems.Selected.Vendor_Pub_Code,
+                            VAR_PublicationName_DEF:galVendorItems.Selected.Vendor_Pub_Name,
+                            VAR_VendorID_DEF:galVendorItems.Selected.Vendor_ID
+                        }
+                    );
+                    /*
+                    If(IsBlank(LookUp(vw_VendorRemittance, publication_code =galVendorItems.Selected.publication_code And Media_Code=VAR_M_DEF,remittance_address)), UpdateContext({VAR_Remittance_Address: LookUp(vw_VendorRemittance, publication_code =galVendorItems.Selected.publication_code , remittance_address)}),UpdateContext({
+                        VAR_Remittance_Address: LookUp(vw_VendorRemittance, publication_code =galVendorItems.Selected.publication_code And Media_Code=VAR_M_DEF , remittance_address)
+                        })); */
+                        
+                        If(IsBlank(ContractNumber_TextInput.Text),Sort( Filter(OOH_Vendor_Master, (Vendor_TextInput_5.Text in Vendor_Pub_Code And Vendor_TextInput_5.Text in Vendor_Name) Or (Vendor_TextInput_5.Text in Vendor_Pub_Name And Vendor_TextInput_5.Text in Vendor_Name) Or IsBlank(Vendor_TextInput_5)),Vendor_Pub_Name,Ascending),Sort(Filter(OOH_Vendor_Master, (Vendor_TextInput_5.Text in Vendor_Pub_Code And Vendor_TextInput_5.Text in Vendor_Name) Or (Vendor_TextInput_5.Text in Vendor_Pub_Name And Vendor_TextInput_5.Text in Vendor_Name) Or IsBlank(Vendor_TextInput_5)),Vendor_Pub_Name,Ascending));
+                        
+                    Reset(Vendor_TextInput_5);
+                    UpdateContext({showVendorModal: false});
+                    /*UpdateContext({
+                        VAR_Remittance_Address: LookUp(Vendor_Remittance, PUBLICATION_CODE =galVendorItems.Selected.PUBLICATION_CODE  , REMITTANCE_ADDRESS)
+                        })*/
+                    
+                    
+                     
+                PaddingLeft: =0
+                PressedColor: =RGBA(246, 88, 16, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =10
+                Text: =ThisItem.Vendor_Name
+                Tooltip: =ThisItem.Vendor_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =250
+                X: =5
+                ZIndex: =7
+
         Vendor_TextInput_5 As text:
             BorderColor: =RGBA(230, 230, 230, 1)
             Clear: =true
@@ -5229,7 +5310,7 @@ InvoiceMatchingScreen As screen:
         Width: =24
         X: =278
         Y: =124
-        ZIndex: =22
+        ZIndex: =23
 
     grpIgnoreConfirmationDialogue As group:
         Height: =5
@@ -5244,7 +5325,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showIgnoreConfirmationDialogue
             Width: =699
-            ZIndex: =29
+            ZIndex: =30
 
         rctIgnoreConfirmationTop As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5254,7 +5335,7 @@ InvoiceMatchingScreen As screen:
             Width: =460
             X: =124
             Y: =192
-            ZIndex: =30
+            ZIndex: =31
 
         lblIgnoreConfirmationHeader As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5266,7 +5347,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showIgnoreConfirmationDialogue
             X: =150
             Y: =210
-            ZIndex: =31
+            ZIndex: =32
 
         btnCancelIgnoreConfirmation As button:
             BorderColor: =RGBA(0,0,0,1)
@@ -5292,7 +5373,7 @@ InvoiceMatchingScreen As screen:
             Width: =100
             X: =443
             Y: =370
-            ZIndex: =32
+            ZIndex: =33
 
         btnSaveIgnoreConfirmation As button:
             BorderStyle: =BorderStyle.None
@@ -5640,7 +5721,7 @@ InvoiceMatchingScreen As screen:
             Width: =100
             X: =320
             Y: =370
-            ZIndex: =33
+            ZIndex: =34
 
         IconIgnoreConfirmationClose As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5655,7 +5736,7 @@ InvoiceMatchingScreen As screen:
             Width: =30
             X: =555
             Y: =153
-            ZIndex: =34
+            ZIndex: =35
 
         lblIgnoreConfirmationMsg As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5667,7 +5748,7 @@ InvoiceMatchingScreen As screen:
             Width: =420
             X: =150
             Y: =260
-            ZIndex: =35
+            ZIndex: =36
 
     Revert_Label_4 As label:
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -5682,7 +5763,7 @@ InvoiceMatchingScreen As screen:
         Width: =338
         X: =200
         Y: =485
-        ZIndex: =47
+        ZIndex: =48
 
     Revert_to_QA_Dropdown As dropdown:
         BorderColor: =RGBA(230, 230, 230, 1)
@@ -5713,7 +5794,7 @@ InvoiceMatchingScreen As screen:
         Width: =338
         X: =200
         Y: =518
-        ZIndex: =48
+        ZIndex: =49
 
     QARedirectCheckbox As checkbox:
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -5727,7 +5808,7 @@ InvoiceMatchingScreen As screen:
         Width: =44
         X: =340
         Y: =468
-        ZIndex: =49
+        ZIndex: =50
 
     grpIgnoreCommentPopup As group:
         Height: =5
@@ -5742,7 +5823,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showIgnoreCommentBox
             Width: =699
-            ZIndex: =36
+            ZIndex: =37
 
         rctIgnoreCommenttop As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5752,7 +5833,7 @@ InvoiceMatchingScreen As screen:
             Width: =614
             X: =47
             Y: =153
-            ZIndex: =37
+            ZIndex: =38
 
         txtIgnoreComment As text:
             BorderColor: =RGBA(211, 66, 9, 1)
@@ -5774,7 +5855,7 @@ InvoiceMatchingScreen As screen:
             Width: =546
             X: =79
             Y: =231
-            ZIndex: =38
+            ZIndex: =39
 
         lblIgnoreCommentHeader As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -5787,7 +5868,7 @@ InvoiceMatchingScreen As screen:
             Width: =200
             X: =79
             Y: =179
-            ZIndex: =39
+            ZIndex: =40
 
         btnCancelIgnoreComment As button:
             BorderStyle: =BorderStyle.None
@@ -5812,7 +5893,7 @@ InvoiceMatchingScreen As screen:
             Width: =100
             X: =397
             Y: =438
-            ZIndex: =40
+            ZIndex: =41
 
         btnSaveIgnoreComment As button:
             BorderStyle: =BorderStyle.None
@@ -6034,7 +6115,7 @@ InvoiceMatchingScreen As screen:
             Width: =100
             X: =525
             Y: =438
-            ZIndex: =41
+            ZIndex: =42
 
         IconIgnoreCommentClose As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6050,7 +6131,7 @@ InvoiceMatchingScreen As screen:
             Width: =30
             X: =647
             Y: =113
-            ZIndex: =42
+            ZIndex: =43
 
     hide_VendorID As text:
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -6075,7 +6156,7 @@ InvoiceMatchingScreen As screen:
         Visible: =false
         Width: =75
         Y: =325
-        ZIndex: =59
+        ZIndex: =60
 
     grpSplitS9PopupRecordList As group:
         Height: =5
@@ -6090,7 +6171,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showCommentS9Popup
             Width: =699
-            ZIndex: =23
+            ZIndex: =24
 
         rctCommentS9top As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6100,7 +6181,7 @@ InvoiceMatchingScreen As screen:
             Width: =614
             X: =47
             Y: =140
-            ZIndex: =24
+            ZIndex: =25
 
         lblCommentS9Header As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6112,7 +6193,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showCommentS9Popup
             X: =79
             Y: =159
-            ZIndex: =25
+            ZIndex: =26
 
         btnCancelCommentS9 As button:
             BorderStyle: =BorderStyle.None
@@ -6138,7 +6219,7 @@ InvoiceMatchingScreen As screen:
             Width: =80
             X: =450
             Y: =543
-            ZIndex: =26
+            ZIndex: =27
 
         btnSaveCommentS9 As button:
             BorderStyle: =BorderStyle.None
@@ -6517,7 +6598,7 @@ InvoiceMatchingScreen As screen:
             Width: =80
             X: =551
             Y: =543
-            ZIndex: =27
+            ZIndex: =28
 
         IconCommentS9Close As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6534,7 +6615,7 @@ InvoiceMatchingScreen As screen:
             Width: =30
             X: =631
             Y: =100
-            ZIndex: =28
+            ZIndex: =29
 
         "Gallery2_2 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
             BorderColor: =RGBA(204, 204, 204, 1)
@@ -6548,7 +6629,7 @@ InvoiceMatchingScreen As screen:
             Width: =560
             X: =75
             Y: =205
-            ZIndex: =43
+            ZIndex: =44
 
             NextArrow2_2 As icon.ChevronRight:
                 AccessibleLabel: =Self.Tooltip
@@ -6661,7 +6742,7 @@ InvoiceMatchingScreen As screen:
             Width: =40
             X: =589
             Y: =153
-            ZIndex: =44
+            ZIndex: =45
 
         Label24_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6675,7 +6756,7 @@ InvoiceMatchingScreen As screen:
             Width: =230
             X: =210
             Y: =543
-            ZIndex: =45
+            ZIndex: =46
 
         Label24_4 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6689,7 +6770,7 @@ InvoiceMatchingScreen As screen:
             Width: =130
             X: =75
             Y: =543
-            ZIndex: =46
+            ZIndex: =47
 
         Label24_8 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6703,7 +6784,7 @@ InvoiceMatchingScreen As screen:
             Width: =300
             X: =280
             Y: =508
-            ZIndex: =50
+            ZIndex: =51
 
         Checkbox2 As checkbox:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6719,7 +6800,7 @@ InvoiceMatchingScreen As screen:
             Width: =30
             X: =574
             Y: =508
-            ZIndex: =51
+            ZIndex: =52
 
     hide_InvoiceID As text:
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -6745,7 +6826,7 @@ InvoiceMatchingScreen As screen:
         Width: =75
         X: =155
         Y: =338
-        ZIndex: =61
+        ZIndex: =62
 
     grp_SplitS9 As group:
         Height: =5
@@ -6760,7 +6841,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showSplitS9Comment
             Width: =699
-            ZIndex: =52
+            ZIndex: =53
 
         rctViewCommentS9top_2 As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6770,7 +6851,7 @@ InvoiceMatchingScreen As screen:
             Width: =550
             X: =70
             Y: =200
-            ZIndex: =53
+            ZIndex: =54
 
         lbl_Comment As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6783,7 +6864,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSplitS9Comment
             X: =100
             Y: =211
-            ZIndex: =54
+            ZIndex: =55
 
         IconViewCommentS9Close As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6798,7 +6879,7 @@ InvoiceMatchingScreen As screen:
             Width: =30
             X: =585
             Y: =160
-            ZIndex: =55
+            ZIndex: =56
 
         "gal_SplitS9 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
             BorderColor: =RGBA(204, 204, 204, 1)
@@ -6812,7 +6893,7 @@ InvoiceMatchingScreen As screen:
             Width: =495
             X: =100
             Y: =260
-            ZIndex: =56
+            ZIndex: =57
 
             lbl_SplitS9_Description As label:
                 Color: =RGBA(0, 0, 0, 1)
@@ -6885,7 +6966,7 @@ InvoiceMatchingScreen As screen:
             Width: =123
             X: =450
             Y: =465
-            ZIndex: =57
+            ZIndex: =58
 
         lbl_SplitS9_TotalAmount As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6898,7 +6979,7 @@ InvoiceMatchingScreen As screen:
             Width: =140
             X: =310
             Y: =456
-            ZIndex: =58
+            ZIndex: =59
 
     DialogGroup As group:
         Height: =5
@@ -6913,7 +6994,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showDialog
             Width: =704
-            ZIndex: =9
+            ZIndex: =10
 
         Modal_popup As rectangle:
             BorderColor: =RGBA(153, 153, 153, 1)
@@ -6924,7 +7005,7 @@ InvoiceMatchingScreen As screen:
             Width: =490
             X: =124
             Y: =64
-            ZIndex: =10
+            ZIndex: =11
 
         Redirect_Label As label:
             Align: =Align.Center
@@ -6938,7 +7019,7 @@ InvoiceMatchingScreen As screen:
             Width: =154
             X: =282
             Y: =96
-            ZIndex: =11
+            ZIndex: =12
 
         Redefine_Dropdown As dropdown:
             BorderColor: =RGBA(230, 230, 230, 1)
@@ -6973,7 +7054,7 @@ InvoiceMatchingScreen As screen:
             Width: =338
             X: =200
             Y: =207
-            ZIndex: =12
+            ZIndex: =13
 
         Redefine_Label As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6988,7 +7069,7 @@ InvoiceMatchingScreen As screen:
             Width: =338
             X: =200
             Y: =171
-            ZIndex: =13
+            ZIndex: =14
 
         Reassign_Label As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -7003,7 +7084,7 @@ InvoiceMatchingScreen As screen:
             Width: =338
             X: =200
             Y: =283
-            ZIndex: =14
+            ZIndex: =15
 
         Reassign_Dropdown As dropdown:
             BorderColor: =RGBA(230, 230, 230, 1)
@@ -7047,7 +7128,7 @@ InvoiceMatchingScreen As screen:
             Width: =338
             X: =200
             Y: =313
-            ZIndex: =15
+            ZIndex: =16
 
         Revert_Label As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -7062,7 +7143,7 @@ InvoiceMatchingScreen As screen:
             Width: =338
             X: =200
             Y: =394
-            ZIndex: =16
+            ZIndex: =17
 
         Revert_Dropdown As dropdown:
             BorderColor: =RGBA(230, 230, 230, 1)
@@ -7093,7 +7174,7 @@ InvoiceMatchingScreen As screen:
             Width: =338
             X: =200
             Y: =427
-            ZIndex: =17
+            ZIndex: =18
 
         Save_Button As button:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -7459,7 +7540,7 @@ InvoiceMatchingScreen As screen:
             Width: =79
             X: =497
             Y: =591
-            ZIndex: =18
+            ZIndex: =19
 
         Cancel_Redirect_Modal As icon.Cancel:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -7475,7 +7556,7 @@ InvoiceMatchingScreen As screen:
             Width: =33
             X: =580
             Y: =72
-            ZIndex: =19
+            ZIndex: =20
 
         Ignore_Button As button:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -7498,7 +7579,7 @@ InvoiceMatchingScreen As screen:
             Width: =79
             X: =200
             Y: =591
-            ZIndex: =20
+            ZIndex: =21
 
     hide_FA_ID As text:
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -7523,7 +7604,7 @@ InvoiceMatchingScreen As screen:
         Visible: =false
         Width: =65
         Y: =352
-        ZIndex: =85
+        ZIndex: =86
 
     hide_AgencyID As text:
         BorderColor: =RGBA(131, 24, 75, 1)
@@ -7551,7 +7632,7 @@ InvoiceMatchingScreen As screen:
         Width: =75
         X: =32
         Y: =320
-        ZIndex: =86
+        ZIndex: =87
 
     Unpaid_Popoup_Group As group:
         Height: =5
@@ -7567,7 +7648,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showUnpaidDialog
             Width: =1366
             Y: =2
-            ZIndex: =88
+            ZIndex: =89
 
         Modal_popup_Unpaid As rectangle:
             BorderColor: =RGBA(153, 153, 153, 1)
@@ -7578,7 +7659,7 @@ InvoiceMatchingScreen As screen:
             Width: =1300
             X: =32
             Y: =31
-            ZIndex: =89
+            ZIndex: =90
 
         ModalPopupContainer As groupContainer.manualLayoutContainer:
             Height: =159
@@ -7586,7 +7667,7 @@ InvoiceMatchingScreen As screen:
             Width: =1297
             X: =33
             Y: =32
-            ZIndex: =90
+            ZIndex: =91
 
             Cancel_Redirect_Modal_Unpaid As icon.Cancel:
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -8443,12 +8524,12 @@ InvoiceMatchingScreen As screen:
             Width: =1271
             X: =47
             Y: =191
-            ZIndex: =104
+            ZIndex: =105
 
             Unpaid_Ref_Publication_Code_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Pub Num"
+                FieldDisplayName: ="PUB NUM"
                 FieldName: ="Unpaid_Ref_Publication_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8462,7 +8543,7 @@ InvoiceMatchingScreen As screen:
 
             Unpaid_Ref_Publication_Name_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Pub Name"
+                FieldDisplayName: ="PUB NAME"
                 FieldName: ="Unpaid_Ref_Publication_Name"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8492,21 +8573,21 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Client_Code_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Client Code"
+                FieldDisplayName: ="CLIENT CODE"
                 FieldName: ="Unpaid_Ref_Client_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
                 LayoutHeight: =Parent.Height
                 Order: =32
                 Text: =ThisItem.Unpaid_Ref_Client_Code
-                Width: =100
+                Width: =120
                 X: =0
                 Y: =0
                 ZIndex: =88
 
             Unpaid_Ref_Client_Name_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Client Name"
+                FieldDisplayName: ="CLIENT NAME"
                 FieldName: ="Unpaid_Ref_Client_Name"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8521,7 +8602,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Contract_ID_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Contract Id"
+                FieldDisplayName: ="CONTRACT ID"
                 FieldName: ="Unpaid_Ref_Contract_ID"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8536,8 +8617,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_EST_Code_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: |-
-                    ="EST #"
+                FieldDisplayName: ="EST"
                 FieldName: ="Unpaid_Ref_EST_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8552,7 +8632,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_IDesk_Recon_Status_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Idesk"
+                FieldDisplayName: ="IDESK"
                 FieldName: ="Unpaid_Ref_IDesk_Recon_Status"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8567,7 +8647,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Insertion_Date_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Date"
+                FieldDisplayName: ="INS DATE"
                 FieldName: ="Unpaid_Ref_Insertion_Date"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8582,7 +8662,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Insertion_MOS_Month_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Mos"
+                FieldDisplayName: ="INS MOS"
                 FieldName: ="Unpaid_Ref_Insertion_MOS_Month"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8596,7 +8676,7 @@ InvoiceMatchingScreen As screen:
 
             Unpaid_Ref_Insertion_Order_Comment_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Order Comment"
+                FieldDisplayName: ="INS ORDER COMMENT"
                 FieldName: ="Unpaid_Ref_Insertion_Order_Comment"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8610,7 +8690,7 @@ InvoiceMatchingScreen As screen:
 
             Unpaid_Ref_Insertion_Order_Comment_2_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Order Comment 2"
+                FieldDisplayName: ="INS ORDER COMMENT 2"
                 FieldName: ="Unpaid_Ref_Insertion_Order_Comment_2"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8624,7 +8704,7 @@ InvoiceMatchingScreen As screen:
 
             Unpaid_Ref_Invoice_Comment_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="AB Inv Comm"
+                FieldDisplayName: ="AB INV COMM"
                 FieldName: ="Unpaid_Ref_Invoice_Comment"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8639,7 +8719,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Invoice_Dollar_Column1 As dataTableColumn.numberColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Abinv Dollars"
+                FieldDisplayName: ="ABINV DOLLARS"
                 FieldName: ="Unpaid_Ref_Invoice_Dollar"
                 FieldVariantName: ="numberColumn"
                 Height: =Parent.Height
@@ -8648,7 +8728,7 @@ InvoiceMatchingScreen As screen:
                 Text: |-
                     =//Text(Value(ThisItem.Unpaid_Ref_Invoice_Dollar), "[$-en-US],$#,##0.00")
                     ThisItem.Unpaid_Ref_Invoice_Dollar
-                Width: =100
+                Width: =120
                 X: =0
                 Y: =0
                 ZIndex: =100
@@ -8656,7 +8736,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Payable_Net_Column1 As dataTableColumn.numberColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Payable Net"
+                FieldDisplayName: ="PAYABLE NET"
                 FieldName: ="Unpaid_Ref_Payable_Net"
                 FieldVariantName: ="numberColumn"
                 Height: =Parent.Height
@@ -8672,8 +8752,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Invoice_Number_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: |-
-                    ="AB Inv#"
+                FieldDisplayName: ="AB INV"
                 FieldName: ="Unpaid_Ref_Invoice_Number"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8688,7 +8767,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Paid_Net_Column1 As dataTableColumn.numberColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Paid Net"
+                FieldDisplayName: ="PAID NET"
                 FieldName: ="Unpaid_Ref_Paid_Net"
                 FieldVariantName: ="numberColumn"
                 Height: =Parent.Height
@@ -8704,14 +8783,14 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Product_Code_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Product Code"
+                FieldDisplayName: ="PRODUCT CODE"
                 FieldName: ="Unpaid_Ref_Product_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
                 LayoutHeight: =Parent.Height
                 Order: =34
                 Text: =ThisItem.Unpaid_Ref_Product_Code
-                Width: =110
+                Width: =130
                 X: =0
                 Y: =0
                 ZIndex: =107
@@ -8719,7 +8798,7 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_Product_Name_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Product Name"
+                FieldDisplayName: ="PRODUCT NAME"
                 FieldName: ="Unpaid_Ref_Product_Name"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8733,7 +8812,7 @@ InvoiceMatchingScreen As screen:
 
             Unpaid_Ref_Pay_Address_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Pay Address"
+                FieldDisplayName: ="PAY ADDRESS"
                 FieldName: ="Unpaid_Ref_Pay_Address"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8748,21 +8827,21 @@ InvoiceMatchingScreen As screen:
             Unpaid_Ref_TS_Received_Column1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="TS Received"
+                FieldDisplayName: ="TS RECEIVED"
                 FieldName: ="Unpaid_Ref_TS_Received"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
                 LayoutHeight: =Parent.Height
                 Order: =28
                 Text: =ThisItem.Unpaid_Ref_TS_Received
-                Width: =100
+                Width: =120
                 X: =0
                 Y: =0
                 ZIndex: =110
 
             Unpaid_Ref_Insertion_Order_Comment_4_Column1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Order Comment 4"
+                FieldDisplayName: ="INS ORDER COMMENT 4"
                 FieldName: ="Unpaid_Ref_Insertion_Order_Comment_4"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8789,7 +8868,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSegmentPopup
             Width: =699
             Y: =79
-            ZIndex: =60
+            ZIndex: =61
 
         Rectangle4_3 As rectangle:
             BorderColor: =RGBA(0, 0, 0, 1)
@@ -8800,7 +8879,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSegmentPopup
             Width: =966
             Y: =4
-            ZIndex: =62
+            ZIndex: =63
 
         Icon3 As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8816,7 +8895,7 @@ InvoiceMatchingScreen As screen:
             Width: =32
             X: =13
             Y: =18
-            ZIndex: =63
+            ZIndex: =64
 
         Label4 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8828,7 +8907,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSegmentPopup
             X: =52
             Y: =2
-            ZIndex: =64
+            ZIndex: =65
 
         Label5 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8839,7 +8918,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSegmentPopup
             X: =220
             Y: =13
-            ZIndex: =65
+            ZIndex: =66
 
         Label7 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8855,7 +8934,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSegmentPopup
             X: =353
             Y: =13
-            ZIndex: =66
+            ZIndex: =67
 
         Label8 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8867,7 +8946,7 @@ InvoiceMatchingScreen As screen:
             Width: =90
             X: =520
             Y: =13
-            ZIndex: =67
+            ZIndex: =68
 
         Label9 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8883,7 +8962,7 @@ InvoiceMatchingScreen As screen:
             Visible: =showSegmentPopup
             X: =610
             Y: =13
-            ZIndex: =68
+            ZIndex: =69
 
         ReconUnpaidDataTable As dataTable.datatable:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -8917,7 +8996,7 @@ InvoiceMatchingScreen As screen:
             Width: =673
             X: =13
             Y: =427
-            ZIndex: =69
+            ZIndex: =70
 
             Unpaid_Ref_CLI_Acc_Off_Column2 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
@@ -9208,7 +9287,7 @@ InvoiceMatchingScreen As screen:
             Width: =190
             X: =482
             Y: =380
-            ZIndex: =70
+            ZIndex: =71
 
         TextInput7_1 As text:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -9235,7 +9314,7 @@ InvoiceMatchingScreen As screen:
             Width: =130
             X: =337
             Y: =379
-            ZIndex: =71
+            ZIndex: =72
 
         Label10 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -9248,7 +9327,7 @@ InvoiceMatchingScreen As screen:
             Width: =82
             X: =253
             Y: =374
-            ZIndex: =72
+            ZIndex: =73
 
         Label23_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -9263,7 +9342,7 @@ InvoiceMatchingScreen As screen:
             Width: =120
             X: =114
             Y: =374
-            ZIndex: =73
+            ZIndex: =74
 
         Button6_2 As button:
             BorderThickness: =1
@@ -9289,7 +9368,7 @@ InvoiceMatchingScreen As screen:
             Width: =87
             X: =13
             Y: =379
-            ZIndex: =74
+            ZIndex: =75
 
         "Recon_Gallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
             BorderColor: =RGBA(204, 204, 204, 1)
@@ -9303,7 +9382,7 @@ InvoiceMatchingScreen As screen:
             Width: =676
             X: =10
             Y: =124
-            ZIndex: =75
+            ZIndex: =76
 
             Separator6_1 As rectangle:
                 BorderColor: =RGBA(131, 24, 75, 1)
@@ -9721,7 +9800,7 @@ InvoiceMatchingScreen As screen:
             Width: =75
             X: =10
             Y: =94
-            ZIndex: =76
+            ZIndex: =77
 
         Label13 As label:
             Align: =Align.Center
@@ -9737,7 +9816,7 @@ InvoiceMatchingScreen As screen:
             Width: =80
             X: =210
             Y: =94
-            ZIndex: =77
+            ZIndex: =78
 
         Label14 As label:
             Align: =Align.Center
@@ -9753,7 +9832,7 @@ InvoiceMatchingScreen As screen:
             Width: =55
             X: =85
             Y: =94
-            ZIndex: =78
+            ZIndex: =79
 
         Label15 As label:
             Align: =Align.Center
@@ -9769,7 +9848,7 @@ InvoiceMatchingScreen As screen:
             Width: =70
             X: =290
             Y: =94
-            ZIndex: =79
+            ZIndex: =80
 
         Label16 As label:
             Align: =Align.Center
@@ -9785,7 +9864,7 @@ InvoiceMatchingScreen As screen:
             Width: =130
             X: =360
             Y: =94
-            ZIndex: =80
+            ZIndex: =81
 
         Label17 As label:
             Align: =Align.Center
@@ -9801,7 +9880,7 @@ InvoiceMatchingScreen As screen:
             Width: =90
             X: =490
             Y: =94
-            ZIndex: =81
+            ZIndex: =82
 
         Icon4 As icon.Add:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -9830,7 +9909,7 @@ InvoiceMatchingScreen As screen:
             Width: =31
             X: =605
             Y: =87
-            ZIndex: =82
+            ZIndex: =83
 
         Icon14 As icon.Edit:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -9848,7 +9927,7 @@ InvoiceMatchingScreen As screen:
             Width: =32
             X: =640
             Y: =91
-            ZIndex: =83
+            ZIndex: =84
 
         Tag_Button_5 As button:
             BorderStyle: =BorderStyle.None
@@ -10259,7 +10338,7 @@ InvoiceMatchingScreen As screen:
             Width: =105
             X: =762
             Y: =21
-            ZIndex: =84
+            ZIndex: =85
 
         Label14_1 As label:
             Align: =Align.Center
@@ -10275,7 +10354,7 @@ InvoiceMatchingScreen As screen:
             Width: =70
             X: =140
             Y: =94
-            ZIndex: =87
+            ZIndex: =88
 
     grpEditMCPEPopup_1 As group:
         Height: =5
@@ -10290,7 +10369,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showMCPEPopupBox
             Width: =688
-            ZIndex: =91
+            ZIndex: =92
 
         rct_EditMCPE_Top As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10300,7 +10379,7 @@ InvoiceMatchingScreen As screen:
             Width: =393
             X: =150
             Y: =199
-            ZIndex: =92
+            ZIndex: =93
 
         txt_Edit_M As text:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10324,7 +10403,7 @@ InvoiceMatchingScreen As screen:
             Width: =140
             X: =197
             Y: =225
-            ZIndex: =93
+            ZIndex: =94
 
         txt_Edit_P As text:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10348,7 +10427,7 @@ InvoiceMatchingScreen As screen:
             Width: =140
             X: =380
             Y: =225
-            ZIndex: =94
+            ZIndex: =95
 
         txt_Edit_C As text:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10372,7 +10451,7 @@ InvoiceMatchingScreen As screen:
             Width: =140
             X: =197
             Y: =225
-            ZIndex: =95
+            ZIndex: =96
 
         txt_Edit_E As text:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10396,7 +10475,7 @@ InvoiceMatchingScreen As screen:
             Width: =140
             X: =197
             Y: =283
-            ZIndex: =96
+            ZIndex: =97
 
         lbl_EditMCPE_M As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10410,7 +10489,7 @@ InvoiceMatchingScreen As screen:
             Width: =35
             X: =158
             Y: =225
-            ZIndex: =97
+            ZIndex: =98
 
         lbl_EditMCPE_E As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10424,7 +10503,7 @@ InvoiceMatchingScreen As screen:
             Width: =32
             X: =162
             Y: =283
-            ZIndex: =98
+            ZIndex: =99
 
         lbl_EditMCPE_C As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10438,7 +10517,7 @@ InvoiceMatchingScreen As screen:
             Width: =32
             X: =162
             Y: =225
-            ZIndex: =99
+            ZIndex: =100
 
         lbl_EditMCPE_P As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10452,7 +10531,7 @@ InvoiceMatchingScreen As screen:
             Width: =32
             X: =345
             Y: =225
-            ZIndex: =100
+            ZIndex: =101
 
         btn_EditMCPE_Save As button:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -10515,7 +10594,7 @@ InvoiceMatchingScreen As screen:
             Width: =100
             X: =420
             Y: =339
-            ZIndex: =101
+            ZIndex: =102
 
         btn_EditMCPE_Cancel As button:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -10538,7 +10617,7 @@ InvoiceMatchingScreen As screen:
             Width: =100
             X: =300
             Y: =339
-            ZIndex: =102
+            ZIndex: =103
 
         Icon_EditMCPE_Cancel As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10553,7 +10632,7 @@ InvoiceMatchingScreen As screen:
             Width: =35
             X: =508
             Y: =152
-            ZIndex: =103
+            ZIndex: =104
 
     InvoicePdfViewer_1 As pdfViewer:
         Document: =varPDF.pdfurl
@@ -10563,7 +10642,7 @@ InvoiceMatchingScreen As screen:
         Width: =667
         X: =524
         Y: =31
-        ZIndex: =105
+        ZIndex: =106
         Zoom: =varZoom
 
     grpManualS9_Popup As group:
@@ -10579,7 +10658,7 @@ InvoiceMatchingScreen As screen:
             Height: =768
             Visible: =showManualS9Popup
             Width: =686
-            ZIndex: =106
+            ZIndex: =107
 
         rct_ManualS9_top As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10589,7 +10668,7 @@ InvoiceMatchingScreen As screen:
             Width: =423
             X: =115
             Y: =205
-            ZIndex: =107
+            ZIndex: =108
 
         lbl_ManualS9_Header As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -10602,7 +10681,7 @@ InvoiceMatchingScreen As screen:
             Width: =192
             X: =145
             Y: =220
-            ZIndex: =108
+            ZIndex: =109
 
         btn_ManualS9_Cancel As button:
             BorderStyle: =BorderStyle.None
@@ -10626,7 +10705,7 @@ InvoiceMatchingScreen As screen:
             Width: =96
             X: =303
             Y: =370
-            ZIndex: =109
+            ZIndex: =110
 
         btn_ManualS9_Save As button:
             BorderStyle: =BorderStyle.None
@@ -11046,7 +11125,7 @@ InvoiceMatchingScreen As screen:
             Width: =96
             X: =420
             Y: =370
-            ZIndex: =110
+            ZIndex: =111
 
         Icon_ManualS9_Close As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -11061,7 +11140,7 @@ InvoiceMatchingScreen As screen:
             Width: =29
             X: =507
             Y: =170
-            ZIndex: =111
+            ZIndex: =112
 
         lbl_ManualS9_Message As label:
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -11074,5 +11153,5 @@ InvoiceMatchingScreen As screen:
             Width: =365
             X: =145
             Y: =270
-            ZIndex: =112
+            ZIndex: =113
 
