@@ -786,6 +786,94 @@ DMLOperationsUpdateScreen As screen:
                     Y: =DataCardKey30.Y
                     ZIndex: =4
 
+            Log_Publication_Code_DataCard1 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Log_Publication_Code"
+                Default: =ThisItem.Log_Publication_Code
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Publication_Code")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Publication_Code")
+                Required: =false
+                Update: =PUB_Code_DataCardValue.Text
+                Width: =235
+                X: =2
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey32 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                PUB_Code_DataCardValue As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(131, 24, 75, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =10
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey32.Y + DataCardKey32.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =PUB_Code_DataCardValue.Y + PUB_Code_DataCardValue.Height
+                    ZIndex: =3
+
+                StarVisible10 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey32.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey32.Y
+                    ZIndex: =4
+
             Log_Publication_Name_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderStyle: =BorderStyle.Solid
@@ -962,182 +1050,6 @@ DMLOperationsUpdateScreen As screen:
                     Y: =DataCardKey34.Y
                     ZIndex: =4
 
-            Log_Invoice_Date_DataCard1 As typedDataCard.textualEditCard:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_Invoice_Date"
-                Default: =ThisItem.Log_Invoice_Date
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Invoice_Date")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_Date")
-                Required: =false
-                Update: =Inv_Date_DataCardValue.Text
-                Width: =235
-                X: =0
-                Y: =4
-                ZIndex: =1
-
-                DataCardKey36 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                Inv_Date_DataCardValue As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =Parent.Default
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    FocusedBorderThickness: =4
-                    HoverBorderColor: =RGBA(131, 24, 75, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 255, 255, 1)
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =10
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey36.Y + DataCardKey36.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage14 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =Inv_Date_DataCardValue.Y + Inv_Date_DataCardValue.Height
-                    ZIndex: =3
-
-                StarVisible14 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey36.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey36.Y
-                    ZIndex: =4
-
-            Log_Publication_Code_DataCard1 As typedDataCard.textualEditCard:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_Publication_Code"
-                Default: =ThisItem.Log_Publication_Code
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Publication_Code")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Publication_Code")
-                Required: =false
-                Update: =PUB_Code_DataCardValue.Text
-                Width: =235
-                X: =2
-                Y: =2
-                ZIndex: =1
-
-                DataCardKey32 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                PUB_Code_DataCardValue As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =Parent.Default
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    FocusedBorderThickness: =4
-                    HoverBorderColor: =RGBA(131, 24, 75, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 255, 255, 1)
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =10
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey32.Y + DataCardKey32.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage10 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =PUB_Code_DataCardValue.Y + PUB_Code_DataCardValue.Height
-                    ZIndex: =3
-
-                StarVisible10 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey32.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey32.Y
-                    ZIndex: =4
-
             Log_Invoice_MOS_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderStyle: =BorderStyle.Solid
@@ -1224,6 +1136,94 @@ DMLOperationsUpdateScreen As screen:
                     Width: =30
                     Wrap: =false
                     Y: =DataCardKey35.Y
+                    ZIndex: =4
+
+            Log_Invoice_Date_DataCard1 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Log_Invoice_Date"
+                Default: =ThisItem.Log_Invoice_Date
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Invoice_Date")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_Date")
+                Required: =false
+                Update: =Inv_Date_DataCardValue.Text
+                Width: =235
+                X: =0
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey36 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                Inv_Date_DataCardValue As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(131, 24, 75, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =10
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey36.Y + DataCardKey36.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage14 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =Inv_Date_DataCardValue.Y + Inv_Date_DataCardValue.Height
+                    ZIndex: =3
+
+                StarVisible14 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey36.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey36.Y
                     ZIndex: =4
 
     HeaderContainer_3 As groupContainer.manualLayoutContainer:
@@ -1414,6 +1414,26 @@ DMLOperationsUpdateScreen As screen:
                 Visible: =false
                 ZIndex: =2
 
+        Button2_3 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(211, 66, 9, 1)
+            FontWeight: =FontWeight.Semibold
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+            OnSelect: |-
+                =//UpdateContext({varPDF: GetPDFfromSP.Run(Log_ID_TextInput.Text)});
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: ="Get PDF"
+            X: =360
+            Y: =30
+            ZIndex: =11
+
     FlyoutMenuComponent_6 As FlyoutMenuComponent:
         CustomMenuItems: =colLeftNavMenu
         Height: =FlyoutMenuComponent_6.MenuHeight
@@ -1421,6 +1441,7 @@ DMLOperationsUpdateScreen As screen:
         ZIndex: =4
 
     PdfViewer2 As pdfViewer:
+        Document: =//varPDF.pdfcontent
         Height: =565
         Width: =660
         X: =706

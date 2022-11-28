@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "ba0ba104-52d3-42c2-9081-dd89fbf2c363",
+    "Name": "GetPDFfromSP",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "7e1ade3d-f76e-ed11-9561-002248998372"
+  }
+]

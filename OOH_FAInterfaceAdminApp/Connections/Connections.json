@@ -36,6 +36,27 @@
     "dependents": [],
     "id": "43e0d3f6-5746-487d-8138-103aea08ef75"
   },
+  "64d95a7d-71f1-417b-b889-e3865c35d180": {
+    "connectionParameters": {
+      "database": "eussqdbgrmusaapooh01",
+      "server": "eussqsvgrmusafinance01.database.windows.net"
+    },
+    "connectionRef": {
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/release/1609-sql-greyhound/1.0.1609.3089/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-9cc141b1-93f8-49c4-b505-cb8fa84fe386",
+      "xrmConnectionReferenceLogicalName": "crd99_sharedsql_4cfef"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "deb55626-ecc0-44fa-9f93-12d8a9b8998b"
+    ],
+    "id": "64d95a7d-71f1-417b-b889-e3865c35d180"
+  },
   "8841a054-091b-4c18-8f1d-2cb2070dc57e": {
     "connectionParameters": {
       "database": "eussqdbgrmusaapooh01",
@@ -149,5 +170,74 @@
     "dependencies": {},
     "dependents": [],
     "id": "b052509e-b575-4c6f-854f-b484d7139530"
+  },
+  "c4491ed5-3488-41b8-8cbd-da02444f99dd": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1610-greyhound-localization-RelayFix/1.0.1610.3091/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "deb55626-ecc0-44fa-9f93-12d8a9b8998b"
+    ],
+    "id": "c4491ed5-3488-41b8-8cbd-da02444f99dd"
+  },
+  "deb55626-ecc0-44fa-9f93-12d8a9b8998b": {
+    "connectionParameters": {
+      "workFlowCallbackUri": "https://prod-189.westeurope.logic.azure.com:443/workflows/ea82456b26b949f38e4cb86b485efb98/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hmfCebEbQusvlHmefTLoArohx5rlhEhFKMeccElyoO0",
+      "workflowEndpoint": "/subscriptions/5072fcc3-8341-442e-9b98-4b441017c969/resourceGroups/86cbe1bb213f4271b174bd59d03c87a3-3073d787199b494e8763256fcec6b34b-env/providers/Microsoft.Logic/workflows/81b1f6a0-43b0-5fdb-5632-11211a79eecd",
+      "workflowEntityId": "7e1ade3d-f76e-ed11-9561-002248998372",
+      "workflowName": "81b1f6a0-43b0-5fdb-5632-11211a79eecd",
+      "workflowPath": "/subscriptions/5072fcc3-8341-442e-9b98-4b441017c969/resourceGroups/86cbe1bb213f4271b174bd59d03c87a3-3073d787199b494e8763256fcec6b34b-env/providers/Microsoft.Logic/workflows/81b1f6a0-43b0-5fdb-5632-11211a79eecd"
+    },
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "64d95a7d-71f1-417b-b889-e3865c35d180": {
+          "value": "shared_sql_1"
+        },
+        "c4491ed5-3488-41b8-8cbd-da02444f99dd": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "7e1ade3d-f76e-ed11-9561-002248998372"
+        },
+        "workflowName": {
+          "value": "81b1f6a0-43b0-5fdb-5632-11211a79eecd"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "c4491ed5-3488-41b8-8cbd-da02444f99dd"
+        },
+        "shared_sql_1": {
+          "value": "64d95a7d-71f1-417b-b889-e3865c35d180"
+        },
+        "workflowEntityId": {
+          "value": "7e1ade3d-f76e-ed11-9561-002248998372"
+        },
+        "workflowName": {
+          "value": "81b1f6a0-43b0-5fdb-5632-11211a79eecd"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GetPDFfromSP"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "c4491ed5-3488-41b8-8cbd-da02444f99dd",
+      "shared_sql_1": "64d95a7d-71f1-417b-b889-e3865c35d180"
+    },
+    "dependents": [],
+    "id": "deb55626-ecc0-44fa-9f93-12d8a9b8998b"
   }
 }

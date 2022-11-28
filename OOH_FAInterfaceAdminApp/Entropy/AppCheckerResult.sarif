@@ -194,366 +194,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.FilterContainer_1.DatePicker1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.Process_Execution_DatePicker.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.Process_Execution_DatePicker.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.FilterContainer_1.Process_Execution_DatePicker"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.FilterContainer_1.DatePicker2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DMLOperationsUpdateScreen.FilterContainer_3.gal_Get_Data_From_OOH_Txn.AccessibleLabel"
                 }
               ],
@@ -944,36 +584,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.PUB_Code_DataCardValue.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.PUB_Code_DataCardValue.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DMLOperationsUpdateScreen",
-                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.PUB_Code_DataCardValue"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Name_DataCard1.PUB_Name_DataCardValue.AccessibleLabel"
                 }
               ],
@@ -1034,19 +644,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.Inv_Mos_DataCardValue.AccessibleLabel"
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.Inv_Date_DataCardValue.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.Inv_Mos_DataCardValue.AccessibleLabel",
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.Inv_Date_DataCardValue.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DMLOperationsUpdateScreen",
-                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.Inv_Mos_DataCardValue"
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.Inv_Date_DataCardValue"
               }
             }
           ],
@@ -1064,19 +674,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.Inv_Date_DataCardValue.AccessibleLabel"
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.PUB_Code_DataCardValue.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.Inv_Date_DataCardValue.AccessibleLabel",
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.PUB_Code_DataCardValue.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DMLOperationsUpdateScreen",
-                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_Date_DataCard1.Inv_Date_DataCardValue"
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Publication_Code_DataCard1.PUB_Code_DataCardValue"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.Inv_Mos_DataCardValue.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.Inv_Mos_DataCardValue.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DMLOperationsUpdateScreen",
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_MOS_DataCard1.Inv_Mos_DataCardValue"
               }
             }
           ],
@@ -2954,6 +2594,366 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.gal_Get_Data_From_Control_Rpt"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.DatePicker1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.Process_Execution_DatePicker.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.Process_Execution_DatePicker.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.Process_Execution_DatePicker"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.FilterContainer_1.DatePicker2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.FilterContainer_1.DatePicker2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ReportWriter_Is_Executed_DataCard1.DataCardValue1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_ETL_Is_Executed_DataCard1.DataCardValue5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_PaidUnpaid_Refresh_Is_Executed_DataCard1.DataCardValue8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvExt_Is_Executed_DataCard1.DataCardValue11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_InvRecon_Is_Executed_DataCard2.DataCardValue18"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_S9_Is_Executed_DataCard1.DataCardValue21"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen.Galley_Container_1.FormViewer1.Ctrl_Lookup_Reimport_Is_Executed_DataCard1.DataCardValue25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.varIsQA"
                 }
               ],
@@ -2997,36 +2997,6 @@
                 "member": "varRole",
                 "module": "App",
                 "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ProcessJourneyScreen.ResetCheck"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ProcessJourneyScreen.ResetCheck",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "ResetCheck",
-                "module": "ProcessJourneyScreen",
-                "type": "ProcessJourneyScreen"
               }
             }
           ],
@@ -3177,6 +3147,36 @@
                 "member": "ResetCheck",
                 "module": "MailProcessingWorkatoScreen",
                 "type": "MailProcessingWorkatoScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ProcessJourneyScreen.ResetCheck"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ProcessJourneyScreen.ResetCheck",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ResetCheck",
+                "module": "ProcessJourneyScreen",
+                "type": "ProcessJourneyScreen"
               }
             }
           ],
