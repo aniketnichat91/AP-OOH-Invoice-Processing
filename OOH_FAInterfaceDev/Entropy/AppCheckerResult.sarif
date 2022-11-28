@@ -3014,66 +3014,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Icon_ManualS9_Close"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Icon_ManualS9_Close"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "InvoiceMatchingScreen.txt_Edit_M_1.AccessibleLabel"
                 }
               ],
@@ -8084,66 +8024,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Icon_ManualS9_Close_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Icon_ManualS9_Close_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "NRTaggingScreen.txt_Edit_M_2.AccessibleLabel"
                 }
               ],
@@ -8354,19 +8234,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Reassign_Dropdown_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.hide_AgencyID_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Reassign_Dropdown_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.hide_AgencyID_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Reassign_Dropdown_1"
+                "type": "NRTaggingScreen.hide_AgencyID_1"
               }
             }
           ],
@@ -8384,19 +8264,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.hide_AgencyID_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Reassign_Dropdown_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.hide_AgencyID_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Reassign_Dropdown_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.hide_AgencyID_1"
+                "type": "NRTaggingScreen.Reassign_Dropdown_1"
               }
             }
           ],
@@ -10418,6 +10298,126 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "NRTaggingScreen",
+                "type": "NRTaggingScreen.Icon_ManualS9_Close_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NRTaggingScreen.Icon_ManualS9_Close_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "NRTaggingScreen",
+                "type": "NRTaggingScreen.Icon_ManualS9_Close_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InvoiceMatchingScreen",
+                "type": "InvoiceMatchingScreen.Icon_ManualS9_Close"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Icon_ManualS9_Close.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InvoiceMatchingScreen",
+                "type": "InvoiceMatchingScreen.Icon_ManualS9_Close"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
         },
         {
           "locations": [

@@ -14,7 +14,7 @@ ProcessJourneyScreen As screen:
         FormViewer1 As formViewer:
             AcceptsFocus: =true
             BorderColor: =RGBA(131, 24, 75, 1)
-            DataSource: =OOH_Control_Rpt
+            DataSource: =OOH_Control_Rpt_View
             Height: =551
             Item: =gal_Get_Data_From_Control_Rpt.Selected
             NumberOfColumns: =4
@@ -28,7 +28,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_ReportWriter_Is_Executed"
                 Default: =ThisItem.Ctrl_ReportWriter_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -70,7 +70,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_ReportWriter_Execution_Date"
                 Default: =ThisItem.Ctrl_ReportWriter_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -116,7 +116,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_ReportWriter_Exception"
                 Default: =ThisItem.Ctrl_ReportWriter_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_ReportWriter_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -161,7 +161,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_ETL_Is_Executed"
                 Default: =ThisItem.Ctrl_ETL_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ETL_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_ETL_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -202,7 +202,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_ETL_Execution_Date"
                 Default: =ThisItem.Ctrl_ETL_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ETL_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_ETL_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -247,7 +247,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_ETL_Exception"
                 Default: =ThisItem.Ctrl_ETL_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_ETL_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_ETL_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -292,7 +292,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_PaidUnpaid_Refresh_Is_Executed"
                 Default: =ThisItem.Ctrl_PaidUnpaid_Refresh_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -333,7 +333,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_PaidUnpaid_Refresh_Execution_Date"
                 Default: =ThisItem.Ctrl_PaidUnpaid_Refresh_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -378,7 +378,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_PaidUnpaid_Refresh_Exception"
                 Default: =ThisItem.Ctrl_PaidUnpaid_Refresh_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_PaidUnpaid_Refresh_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -423,7 +423,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_InvExt_Is_Executed"
                 Default: =ThisItem.Ctrl_InvExt_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvExt_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_InvExt_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -464,7 +464,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_InvExt_Execution_Date"
                 Default: =ThisItem.Ctrl_InvExt_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvExt_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_InvExt_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -509,7 +509,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_InvExt_Exception"
                 Default: =ThisItem.Ctrl_InvExt_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvExt_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_InvExt_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -554,7 +554,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_InvRecon_Is_Executed"
                 Default: =ThisItem.Ctrl_InvRecon_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -595,7 +595,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_InvRecon_Execution_Date"
                 Default: =ThisItem.Ctrl_InvRecon_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -640,7 +640,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_InvRecon_Exception"
                 Default: =ThisItem.Ctrl_InvRecon_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_InvRecon_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -685,7 +685,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_S9_Is_Executed"
                 Default: =ThisItem.Ctrl_S9_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_S9_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_S9_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -726,7 +726,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_S9_Execution_Date"
                 Default: =ThisItem.Ctrl_S9_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_S9_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_S9_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -771,7 +771,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_S9_Exception"
                 Default: =ThisItem.Ctrl_S9_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_S9_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_S9_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -816,7 +816,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_Execution_Date"
                 Default: =ThisItem.Ctrl_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -861,7 +861,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_Lookup_Reimport_Is_Executed"
                 Default: =ThisItem.Ctrl_Lookup_Reimport_Is_Executed
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Is_Executed")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Is_Executed")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
@@ -902,7 +902,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_Lookup_Reimport_Execution_Date"
                 Default: =ThisItem.Ctrl_Lookup_Reimport_Execution_Date
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Execution_Date")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Execution_Date")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -943,7 +943,7 @@ ProcessJourneyScreen As screen:
                 DataField: ="Ctrl_Lookup_Reimport_Exception"
                 Default: =ThisItem.Ctrl_Lookup_Reimport_Exception
                 DisplayMode: =DisplayMode.View
-                DisplayName: =DataSourceInfo([@OOH_Control_Rpt],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Exception")
+                DisplayName: =DataSourceInfo([@OOH_Control_Rpt_View],DataSourceInfo.DisplayName,"Ctrl_Lookup_Reimport_Exception")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
@@ -1126,7 +1126,9 @@ ProcessJourneyScreen As screen:
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DateTimeZone: =DateTimeZone.UTC
-            DefaultDate: =DateValue("11/23/2022")
+            DefaultDate: |-
+                =//DateValue("11/23/2022")
+                Today()
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1142,10 +1144,17 @@ ProcessJourneyScreen As screen:
             BorderColor: =RGBA(131, 24, 75, 1)
             Height: =139
             Items: |-
-                =First(
-                    Filter(
-                        OOH_Control_Rpt,
-                        Ctrl_ID = 91//Process_Execution_DatePicker.SelectedDate 
+                =With(
+                    {
+                        StartDate: Process_Execution_DatePicker.SelectedDate,
+                        EndDate: DateAdd(Process_Execution_DatePicker.SelectedDate, 1)
+                    },
+                    First(
+                        Filter(
+                            OOH_Control_Rpt_View,
+                            Ctrl_Execution_Date_View >= StartDate,
+                            Ctrl_Execution_Date_View < EndDate
+                        )
                     )
                 )
             Layout: =Layout.Vertical

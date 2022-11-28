@@ -39,7 +39,30 @@ DMLOperationsUpdateScreen As screen:
             FontWeight: =FontWeight.Semibold
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-            OnSelect: =//SubmitForm(Form1)
+            OnSelect: |
+                =
+                Patch(
+                    OOH_Log_Txn,
+                    LookUp(
+                        OOH_Log_Txn,
+                        Log_ID = Value(Log_ID_TextInput.Text)
+                    ),
+                    {
+                        Log_Validated_C: Value(C_DataCardValue.Text),
+                        Log_Validated_P: Value(P_DataCardValue.Text),
+                        Log_Validated_E: Value(E_DataCardValue.Text),     
+                        Log_Invoice_Number: Inv_Num_DataCardValue.Text,
+                        Log_Invoice_Amount: Value(Inv_Amt_DataCardValue.Text),
+                        Log_Invoice_ContractNumber: Contract_Num_DataCardValue.Text,
+                        Log_Tax_Amount: Value(Tax_DataCardValue.Text),
+                        Log_Invoice_CPE: Inv_CPE_DataCardValue.Text,
+                        Log_Publication_Code: PUB_Code_DataCardValue.Text,
+                        Log_Publication_Name: PUB_Name_DataCardValue.Text,
+                        Log_Invoice_RemittanceAddress: Inv_Remittance_Add_DataCardValue.Text,
+                        Log_Invoice_MOS: Inv_Mos_DataCardValue.Text,
+                        Log_Invoice_Date: Inv_Date_DataCardValue.Text
+                    }
+                );
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -71,7 +94,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Validated_C")
                 Required: =false
-                Update: =DataCardValue2.Text
+                Update: =C_DataCardValue.Text
                 Width: =235
                 X: =0
                 Y: =0
@@ -90,7 +113,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue2 As text:
+                C_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -103,7 +126,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -132,7 +155,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue2.Y + DataCardValue2.Height
+                    Y: =C_DataCardValue.Y + C_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible1 As label:
@@ -159,7 +182,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Validated_P")
                 Required: =false
-                Update: =DataCardValue13.Text
+                Update: =P_DataCardValue.Text
                 Width: =235
                 X: =1
                 Y: =0
@@ -178,7 +201,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue13 As text:
+                P_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -191,7 +214,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -220,7 +243,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue13.Y + DataCardValue13.Height
+                    Y: =P_DataCardValue.Y + P_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible2 As label:
@@ -247,7 +270,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Validated_E")
                 Required: =false
-                Update: =DataCardValue14.Text
+                Update: =E_DataCardValue.Text
                 Width: =235
                 X: =2
                 Y: =0
@@ -266,7 +289,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue14 As text:
+                E_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -279,7 +302,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -308,7 +331,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue14.Y + DataCardValue14.Height
+                    Y: =E_DataCardValue.Y + E_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible3 As label:
@@ -335,7 +358,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_Number")
                 Required: =false
-                Update: =DataCardValue15.Text
+                Update: =Inv_Num_DataCardValue.Text
                 Width: =235
                 X: =0
                 Y: =1
@@ -354,7 +377,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue15 As text:
+                Inv_Num_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -367,7 +390,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -396,7 +419,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue15.Y + DataCardValue15.Height
+                    Y: =Inv_Num_DataCardValue.Y + Inv_Num_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible4 As label:
@@ -423,7 +446,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_Amount")
                 Required: =false
-                Update: =DataCardValue16.Text
+                Update: =Inv_Amt_DataCardValue.Text
                 Width: =235
                 X: =1
                 Y: =1
@@ -442,7 +465,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue16 As text:
+                Inv_Amt_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -455,7 +478,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -484,7 +507,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue16.Y + DataCardValue16.Height
+                    Y: =Inv_Amt_DataCardValue.Y + Inv_Amt_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible5 As label:
@@ -511,7 +534,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_ContractNumber")
                 Required: =false
-                Update: =DataCardValue28.Text
+                Update: =Contract_Num_DataCardValue.Text
                 Width: =235
                 X: =2
                 Y: =1
@@ -530,7 +553,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue28 As text:
+                Contract_Num_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -543,7 +566,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -572,7 +595,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue28.Y + DataCardValue28.Height
+                    Y: =Contract_Num_DataCardValue.Y + Contract_Num_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible6 As label:
@@ -598,7 +621,7 @@ DMLOperationsUpdateScreen As screen:
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Update: =Value(DataCardValue29.Text)
+                Update: =Value(Tax_DataCardValue.Text)
                 Width: =235
                 X: =0
                 Y: =2
@@ -617,7 +640,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue29 As text:
+                Tax_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -631,7 +654,7 @@ DMLOperationsUpdateScreen As screen:
                     Format: =TextFormat.Number
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
@@ -659,7 +682,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue29.Y + DataCardValue29.Height
+                    Y: =Tax_DataCardValue.Y + Tax_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible7 As label:
@@ -686,7 +709,7 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_CPE")
                 Required: =false
-                Update: =DataCardValue30.Text
+                Update: =Inv_CPE_DataCardValue.Text
                 Width: =235
                 X: =1
                 Y: =2
@@ -705,7 +728,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue30 As text:
+                Inv_CPE_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -718,7 +741,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -747,7 +770,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue30.Y + DataCardValue30.Height
+                    Y: =Inv_CPE_DataCardValue.Y + Inv_CPE_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible8 As label:
@@ -763,182 +786,6 @@ DMLOperationsUpdateScreen As screen:
                     Y: =DataCardKey30.Y
                     ZIndex: =4
 
-            Log_Insertion_Month_DataCard1 As typedDataCard.textualEditCard:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_Insertion_Month"
-                Default: =ThisItem.Log_Insertion_Month
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Insertion_Month")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Insertion_Month")
-                Required: =false
-                Update: =DataCardValue31.Text
-                Width: =235
-                X: =2
-                Y: =2
-                ZIndex: =1
-
-                DataCardKey31 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue31 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =Parent.Default
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    FocusedBorderThickness: =4
-                    HoverBorderColor: =RGBA(131, 24, 75, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =10
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey31.Y + DataCardKey31.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage9 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue31.Y + DataCardValue31.Height
-                    ZIndex: =3
-
-                StarVisible9 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey31.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey31.Y
-                    ZIndex: =4
-
-            Log_Publication_Code_DataCard1 As typedDataCard.textualEditCard:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_Publication_Code"
-                Default: =ThisItem.Log_Publication_Code
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Publication_Code")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Publication_Code")
-                Required: =false
-                Update: =DataCardValue32.Text
-                Width: =235
-                X: =0
-                Y: =3
-                ZIndex: =1
-
-                DataCardKey32 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue32 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =Parent.Default
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    FocusedBorderThickness: =4
-                    HoverBorderColor: =RGBA(131, 24, 75, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =10
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey32.Y + DataCardKey32.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage10 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue32.Y + DataCardValue32.Height
-                    ZIndex: =3
-
-                StarVisible10 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey32.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey32.Y
-                    ZIndex: =4
-
             Log_Publication_Name_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderStyle: =BorderStyle.Solid
@@ -950,9 +797,9 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Publication_Name")
                 Required: =false
-                Update: =DataCardValue33.Text
+                Update: =PUB_Name_DataCardValue.Text
                 Width: =235
-                X: =1
+                X: =0
                 Y: =3
                 ZIndex: =1
 
@@ -969,7 +816,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue33 As text:
+                PUB_Name_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -982,7 +829,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -1011,7 +858,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue33.Y + DataCardValue33.Height
+                    Y: =PUB_Name_DataCardValue.Y + PUB_Name_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible11 As label:
@@ -1038,9 +885,9 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_RemittanceAddress")
                 Required: =false
-                Update: =DataCardValue34.Text
+                Update: =Inv_Remittance_Add_DataCardValue.Text
                 Width: =235
-                X: =2
+                X: =1
                 Y: =3
                 ZIndex: =1
 
@@ -1057,7 +904,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue34 As text:
+                Inv_Remittance_Add_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -1070,7 +917,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -1099,7 +946,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue34.Y + DataCardValue34.Height
+                    Y: =Inv_Remittance_Add_DataCardValue.Y + Inv_Remittance_Add_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible12 As label:
@@ -1115,94 +962,6 @@ DMLOperationsUpdateScreen As screen:
                     Y: =DataCardKey34.Y
                     ZIndex: =4
 
-            Log_Invoice_MOS_DataCard1 As typedDataCard.textualEditCard:
-                BorderColor: =RGBA(131, 24, 75, 1)
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_Invoice_MOS"
-                Default: =ThisItem.Log_Invoice_MOS
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Invoice_MOS")
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_MOS")
-                Required: =false
-                Update: =DataCardValue35.Text
-                Width: =235
-                X: =0
-                Y: =4
-                ZIndex: =1
-
-                DataCardKey35 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue35 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =Parent.Default
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    FocusedBorderThickness: =4
-                    HoverBorderColor: =RGBA(131, 24, 75, 1)
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
-                    MaxLength: =Parent.MaxLength
-                    PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =10
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey35.Y + DataCardKey35.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage13 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue35.Y + DataCardValue35.Height
-                    ZIndex: =3
-
-                StarVisible13 As label:
-                    Align: =Align.Center
-                    Color: =RGBA(131, 24, 75, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey35.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey35.Y
-                    ZIndex: =4
-
             Log_Invoice_Date_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderStyle: =BorderStyle.Solid
@@ -1214,9 +973,9 @@ DMLOperationsUpdateScreen As screen:
                 Height: =50
                 MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_Date")
                 Required: =false
-                Update: =DataCardValue36.Text
+                Update: =Inv_Date_DataCardValue.Text
                 Width: =235
-                X: =1
+                X: =0
                 Y: =4
                 ZIndex: =1
 
@@ -1233,7 +992,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue36 As text:
+                Inv_Date_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -1246,7 +1005,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -1275,7 +1034,7 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue36.Y + DataCardValue36.Height
+                    Y: =Inv_Date_DataCardValue.Y + Inv_Date_DataCardValue.Height
                     ZIndex: =3
 
                 StarVisible14 As label:
@@ -1291,24 +1050,24 @@ DMLOperationsUpdateScreen As screen:
                     Y: =DataCardKey36.Y
                     ZIndex: =4
 
-            Log_FA_Interface_Comment_DataCard1 As typedDataCard.textualEditCard:
+            Log_Publication_Code_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_FA_Interface_Comment"
-                Default: =ThisItem.Log_FA_Interface_Comment
+                DataField: ="Log_Publication_Code"
+                Default: =ThisItem.Log_Publication_Code
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_FA_Interface_Comment")
+                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Publication_Code")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_FA_Interface_Comment")
+                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Publication_Code")
                 Required: =false
-                Update: =DataCardValue38.Text
+                Update: =PUB_Code_DataCardValue.Text
                 Width: =235
                 X: =2
-                Y: =4
+                Y: =2
                 ZIndex: =1
 
-                DataCardKey40 As label:
+                DataCardKey32 As label:
                     AutoHeight: =true
                     Color: =RGBA(131, 24, 75, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1321,7 +1080,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue38 As text:
+                PUB_Code_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -1334,7 +1093,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -1345,10 +1104,10 @@ DMLOperationsUpdateScreen As screen:
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey40.Y + DataCardKey40.Height + 5
+                    Y: =DataCardKey32.Y + DataCardKey32.Height + 5
                     ZIndex: =2
 
-                ErrorMessage18 As label:
+                ErrorMessage10 As label:
                     AutoHeight: =true
                     Color: =RGBA(168, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1363,40 +1122,40 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue38.Y + DataCardValue38.Height
+                    Y: =PUB_Code_DataCardValue.Y + PUB_Code_DataCardValue.Height
                     ZIndex: =3
 
-                StarVisible18 As label:
+                StarVisible10 As label:
                     Align: =Align.Center
                     Color: =RGBA(131, 24, 75, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey40.Height
+                    Height: =DataCardKey32.Height
                     Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey40.Y
+                    Y: =DataCardKey32.Y
                     ZIndex: =4
 
-            Log_Campaign_ID_Match_DataCard1 As typedDataCard.textualEditCard:
+            Log_Invoice_MOS_DataCard1 As typedDataCard.textualEditCard:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderStyle: =BorderStyle.Solid
-                DataField: ="Log_Campaign_ID_Match"
-                Default: =ThisItem.Log_Campaign_ID_Match
+                DataField: ="Log_Invoice_MOS"
+                Default: =ThisItem.Log_Invoice_MOS
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Campaign_ID_Match")
+                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Invoice_MOS")
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Campaign_ID_Match")
+                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_MOS")
                 Required: =false
-                Update: =DataCardValue41.Text
+                Update: =Inv_Mos_DataCardValue.Text
                 Width: =235
-                X: =0
-                Y: =5
+                X: =2
+                Y: =3
                 ZIndex: =1
 
-                DataCardKey43 As label:
+                DataCardKey35 As label:
                     AutoHeight: =true
                     Color: =RGBA(131, 24, 75, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1409,7 +1168,7 @@ DMLOperationsUpdateScreen As screen:
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue41 As text:
+                Inv_Mos_DataCardValue As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
@@ -1422,7 +1181,7 @@ DMLOperationsUpdateScreen As screen:
                     FocusedBorderThickness: =4
                     HoverBorderColor: =RGBA(131, 24, 75, 1)
                     HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =RGBA(255, 211, 205, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
                     MaxLength: =Parent.MaxLength
                     PaddingLeft: =5
                     RadiusBottomLeft: =0
@@ -1433,10 +1192,10 @@ DMLOperationsUpdateScreen As screen:
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                    Y: =DataCardKey35.Y + DataCardKey35.Height + 5
                     ZIndex: =2
 
-                ErrorMessage21 As label:
+                ErrorMessage13 As label:
                     AutoHeight: =true
                     Color: =RGBA(168, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1451,20 +1210,20 @@ DMLOperationsUpdateScreen As screen:
                     Visible: =Parent.DisplayMode=DisplayMode.Edit
                     Width: =Parent.Width - 60
                     X: =30
-                    Y: =DataCardValue41.Y + DataCardValue41.Height
+                    Y: =Inv_Mos_DataCardValue.Y + Inv_Mos_DataCardValue.Height
                     ZIndex: =3
 
-                StarVisible21 As label:
+                StarVisible13 As label:
                     Align: =Align.Center
                     Color: =RGBA(131, 24, 75, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    Height: =DataCardKey43.Height
+                    Height: =DataCardKey35.Height
                     Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
                     Wrap: =false
-                    Y: =DataCardKey43.Y
+                    Y: =DataCardKey35.Y
                     ZIndex: =4
 
     HeaderContainer_3 As groupContainer.manualLayoutContainer:
@@ -1508,6 +1267,7 @@ DMLOperationsUpdateScreen As screen:
         Log_ID_TextInput As text:
             BorderColor: =RGBA(131, 24, 75, 1)
             BorderThickness: =2
+            Clear: =true
             Color: =RGBA(0, 0, 0, 1)
             Default: =""
             DelayOutput: =true

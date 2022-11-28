@@ -7,10 +7,12 @@
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
+      "57dfb1b5-7d79-4046-a4da-fd831d5befe1-KeyId": "KeyId",
       "Ctrl_ETL_Exception": "Ctrl_ETL_Exception",
       "Ctrl_ETL_Execution_Date": "Ctrl_ETL_Execution_Date",
       "Ctrl_ETL_Is_Executed": "Ctrl_ETL_Is_Executed",
       "Ctrl_Execution_Date": "Ctrl_Execution_Date",
+      "Ctrl_Execution_Date_View": "Ctrl_Execution_Date_View",
       "Ctrl_ID": "Ctrl_ID",
       "Ctrl_InvExt_Exception": "Ctrl_InvExt_Exception",
       "Ctrl_InvExt_Execution_Date": "Ctrl_InvExt_Execution_Date",
@@ -34,8 +36,8 @@
     "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
-    "IsWritable": true,
-    "Name": "OOH_Control_Rpt",
+    "IsWritable": false,
+    "Name": "OOH_Control_Rpt_View",
     "Type": "ConnectedDataSourceInfo"
   }
 ]
