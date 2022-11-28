@@ -1226,9 +1226,187 @@ DMLOperationsUpdateScreen As screen:
                     Y: =DataCardKey36.Y
                     ZIndex: =4
 
+            Log_SP_FilePath_DataCard1 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Log_SP_FilePath"
+                Default: =ThisItem.Log_SP_FilePath
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_SP_FilePath")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_SP_FilePath")
+                Required: =false
+                Update: =SP_FilePath_DataCardValue.Text
+                Visible: =false
+                Width: =235
+                X: =1
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey31 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                SP_FilePath_DataCardValue As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(131, 24, 75, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 211, 205, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey31.Y + DataCardKey31.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage9 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =SP_FilePath_DataCardValue.Y + SP_FilePath_DataCardValue.Height
+                    ZIndex: =3
+
+                StarVisible9 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey31.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey31.Y
+                    ZIndex: =4
+
+            Log_Invoice_FileName_DataCard1 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Log_Invoice_FileName"
+                Default: =ThisItem.Log_Invoice_FileName
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@OOH_Log_Txn],DataSourceInfo.DisplayName,"Log_Invoice_FileName")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@OOH_Log_Txn], DataSourceInfo.MaxLength, "Log_Invoice_FileName")
+                Required: =false
+                Update: =SP_Filename_DataCardValue.Text
+                Visible: =false
+                Width: =235
+                X: =2
+                Y: =4
+                ZIndex: =1
+
+                DataCardKey37 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                SP_Filename_DataCardValue As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(131, 24, 75, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 211, 205, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey37.Y + DataCardKey37.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage15 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =SP_Filename_DataCardValue.Y + SP_Filename_DataCardValue.Height
+                    ZIndex: =3
+
+                StarVisible15 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(131, 24, 75, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey37.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey37.Y
+                    ZIndex: =4
+
     HeaderContainer_3 As groupContainer.manualLayoutContainer:
         Fill: =White
-        Height: =64
+        Height: =52
         Width: =1366
         ZIndex: =2
 
@@ -1250,7 +1428,7 @@ DMLOperationsUpdateScreen As screen:
         Fill: =WhiteSmoke
         Height: =139
         Width: =1366
-        Y: =64
+        Y: =52
         ZIndex: =3
 
         Label12_2 As label:
@@ -1418,18 +1596,54 @@ DMLOperationsUpdateScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(IsBlank(SP_FilePath_DataCardValue) Or SP_FilePath_DataCardValue.Text="",DisplayMode.Disabled,DisplayMode.Edit)
             Fill: =RGBA(211, 66, 9, 1)
             FontWeight: =FontWeight.Semibold
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
             OnSelect: |-
-                =//UpdateContext({varPDF: GetPDFfromSP.Run(Log_ID_TextInput.Text)});
+                =Set(
+                    varPDF,
+                    GetPDFfromSP.Run(
+                        Substitute(
+                            Concat(
+                                FirstN(
+                                    Split(
+                                        Mid(
+                                            SP_FilePath_DataCardValue.Text,
+                                            Find(
+                                                "/GMUSA-KineticFinanceAutomation",
+                                                SP_FilePath_DataCardValue.Text
+                                            )
+                                        ),
+                                        "/"
+                                    ).Result,
+                                    CountRows(
+                                        Split(
+                                            Mid(
+                                                SP_FilePath_DataCardValue.Text,
+                                                Find(
+                                                    "/GMUSA-KineticFinanceAutomation",
+                                                    SP_FilePath_DataCardValue.Text
+                                                )
+                                            ),
+                                            "/"
+                                        ).Result
+                                    ) - 1
+                                ),
+                                Result & "/"
+                            ),
+                            "/GMUSA-KineticFinanceAutomation",
+                            ""
+                        ) & SP_Filename_DataCardValue.Text
+                    )
+                );
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =15
-            Text: ="Get PDF"
+            Text: ="Get PDF >"
             X: =360
             Y: =30
             ZIndex: =11
@@ -1441,10 +1655,11 @@ DMLOperationsUpdateScreen As screen:
         ZIndex: =4
 
     PdfViewer2 As pdfViewer:
-        Document: =//varPDF.pdfcontent
-        Height: =565
+        Document: =varPDF.pdfcontent
+        Height: =577
+        ShowControls: =true
         Width: =660
         X: =706
-        Y: =203
+        Y: =191
         ZIndex: =5
 

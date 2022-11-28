@@ -24,7 +24,7 @@
           </param>
           <representation mediaType="application/json">
             <param style="plain" name="text" path="/text" type="xs:string" required="true">
-              <doc title="ID" />
+              <doc title="FilePath" />
             </param>
           </representation>
         </request>

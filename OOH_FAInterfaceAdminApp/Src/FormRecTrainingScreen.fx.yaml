@@ -163,7 +163,7 @@ FormRecTrainingScreen As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10
-            Text: ="Select Date to Export"
+            Text: ="Download"
             Width: =145
             X: =854
             Y: =20
