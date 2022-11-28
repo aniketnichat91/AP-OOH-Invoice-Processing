@@ -8292,7 +8292,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Publication_Code_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Pub Num"
+                FieldDisplayName: ="PUB NUM"
                 FieldName: ="Unpaid_Ref_Publication_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8306,7 +8306,7 @@ NRTaggingScreen As screen:
 
             Unpaid_Ref_Publication_Name_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Pub Name"
+                FieldDisplayName: ="PUB NAME"
                 FieldName: ="Unpaid_Ref_Publication_Name"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8336,21 +8336,21 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Client_Code_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Client Code"
+                FieldDisplayName: ="CLIENT CODE"
                 FieldName: ="Unpaid_Ref_Client_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
                 LayoutHeight: =Parent.Height
                 Order: =32
                 Text: =ThisItem.Unpaid_Ref_Client_Code
-                Width: =100
+                Width: =120
                 X: =0
                 Y: =0
                 ZIndex: =88
 
             Unpaid_Ref_Client_Name_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Client Name"
+                FieldDisplayName: ="CLIENT NAME"
                 FieldName: ="Unpaid_Ref_Client_Name"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8365,7 +8365,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Contract_ID_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Contract Id"
+                FieldDisplayName: ="CONTRACT ID"
                 FieldName: ="Unpaid_Ref_Contract_ID"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8396,7 +8396,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_IDesk_Recon_Status_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Idesk"
+                FieldDisplayName: ="IDESK"
                 FieldName: ="Unpaid_Ref_IDesk_Recon_Status"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8411,7 +8411,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Insertion_Date_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Date"
+                FieldDisplayName: ="INS DATE"
                 FieldName: ="Unpaid_Ref_Insertion_Date"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8426,7 +8426,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Insertion_MOS_Month_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Mos"
+                FieldDisplayName: ="INS MOS"
                 FieldName: ="Unpaid_Ref_Insertion_MOS_Month"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8440,7 +8440,7 @@ NRTaggingScreen As screen:
 
             Unpaid_Ref_Insertion_Order_Comment_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Order Comment"
+                FieldDisplayName: ="INS ORDER COMMENT"
                 FieldName: ="Unpaid_Ref_Insertion_Order_Comment"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8454,7 +8454,7 @@ NRTaggingScreen As screen:
 
             Unpaid_Ref_Insertion_Order_Comment_2_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Order Comment 2"
+                FieldDisplayName: ="INS ORDER COMMENT 2"
                 FieldName: ="Unpaid_Ref_Insertion_Order_Comment_2"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8468,7 +8468,7 @@ NRTaggingScreen As screen:
 
             Unpaid_Ref_Invoice_Comment_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="AB Inv Comm"
+                FieldDisplayName: ="AB INV COMM"
                 FieldName: ="Unpaid_Ref_Invoice_Comment"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8483,7 +8483,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Invoice_Dollar_Column1_1 As dataTableColumn.numberColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Abinv Dollars"
+                FieldDisplayName: ="ABINV DOLLARS"
                 FieldName: ="Unpaid_Ref_Invoice_Dollar"
                 FieldVariantName: ="numberColumn"
                 Height: =Parent.Height
@@ -8492,7 +8492,7 @@ NRTaggingScreen As screen:
                 Text: |-
                     =//Text(Value(ThisItem.Unpaid_Ref_Invoice_Dollar), "[$-en-US],$#,##0.00")
                     ThisItem.Unpaid_Ref_Invoice_Dollar
-                Width: =100
+                Width: =120
                 X: =0
                 Y: =0
                 ZIndex: =100
@@ -8500,7 +8500,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Payable_Net_Column1_1 As dataTableColumn.numberColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Payable Net"
+                FieldDisplayName: ="PAYABLE NET"
                 FieldName: ="Unpaid_Ref_Payable_Net"
                 FieldVariantName: ="numberColumn"
                 Height: =Parent.Height
@@ -8516,8 +8516,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Invoice_Number_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: |-
-                    ="AB Inv#"
+                FieldDisplayName: ="AB INV"
                 FieldName: ="Unpaid_Ref_Invoice_Number"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8532,7 +8531,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Paid_Net_Column1_1 As dataTableColumn.numberColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Paid Net"
+                FieldDisplayName: ="PAID NET"
                 FieldName: ="Unpaid_Ref_Paid_Net"
                 FieldVariantName: ="numberColumn"
                 Height: =Parent.Height
@@ -8548,7 +8547,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Product_Code_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Product Code"
+                FieldDisplayName: ="PRODUCT CODE"
                 FieldName: ="Unpaid_Ref_Product_Code"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8563,7 +8562,7 @@ NRTaggingScreen As screen:
             Unpaid_Ref_Product_Name_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Product Name"
+                FieldDisplayName: ="PRODUCT NAME"
                 FieldName: ="Unpaid_Ref_Product_Name"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8577,7 +8576,7 @@ NRTaggingScreen As screen:
 
             Unpaid_Ref_Pay_Address_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Pay Address"
+                FieldDisplayName: ="PAY ADDRESS"
                 FieldName: ="Unpaid_Ref_Pay_Address"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
@@ -8592,21 +8591,21 @@ NRTaggingScreen As screen:
             Unpaid_Ref_TS_Received_Column1_1 As dataTableColumn.textualColumn:
                 AutoWidth: =false
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="TS Received"
+                FieldDisplayName: ="TS RECEIVED"
                 FieldName: ="Unpaid_Ref_TS_Received"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
                 LayoutHeight: =Parent.Height
                 Order: =28
                 Text: =ThisItem.Unpaid_Ref_TS_Received
-                Width: =100
+                Width: =120
                 X: =0
                 Y: =0
                 ZIndex: =110
 
             Unpaid_Ref_Insertion_Order_Comment_4_Column1_1 As dataTableColumn.textualColumn:
                 DisplayMode: =DisplayMode.Edit
-                FieldDisplayName: ="Ins Order Comment 4"
+                FieldDisplayName: ="INS ORDER COMMENT 4"
                 FieldName: ="Unpaid_Ref_Insertion_Order_Comment_4"
                 FieldVariantName: ="textualColumn"
                 Height: =Parent.Height
