@@ -5102,6 +5102,7 @@ InvoiceMatchingScreen As screen:
                 Size: =10
                 Text: =ThisItem.Vendor_Name
                 Tooltip: =ThisItem.Vendor_Name
+                Visible: =false
                 Width: =230
                 Wrap: =false
                 X: =5
@@ -5186,6 +5187,57 @@ InvoiceMatchingScreen As screen:
                 X: =5
                 Y: =22
                 ZIndex: =6
+
+            Button8 As button:
+                Align: =Align.Left
+                BorderThickness: =0
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(246, 88, 16, 1)
+                DisabledFill: =RGBA(0, 0, 0,0)
+                Fill: =RGBA(0, 0, 0, 0)
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                HoverColor: =RGBA(246, 88, 16, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =UpdateContext(
+                        {
+                            VAR_Vendor_DEF: galVendorItems.Selected.Vendor_Name,
+                            VAR_PublicationCode_DEF:galVendorItems.Selected.Vendor_Pub_Code,
+                            VAR_PublicationName_DEF:galVendorItems.Selected.Vendor_Pub_Name,
+                            VAR_VendorID_DEF:galVendorItems.Selected.Vendor_ID
+                        }
+                    );
+                    /*
+                    If(IsBlank(LookUp(vw_VendorRemittance, publication_code =galVendorItems.Selected.publication_code And Media_Code=VAR_M_DEF,remittance_address)), UpdateContext({VAR_Remittance_Address: LookUp(vw_VendorRemittance, publication_code =galVendorItems.Selected.publication_code , remittance_address)}),UpdateContext({
+                        VAR_Remittance_Address: LookUp(vw_VendorRemittance, publication_code =galVendorItems.Selected.publication_code And Media_Code=VAR_M_DEF , remittance_address)
+                        })); */
+                        
+                        If(IsBlank(ContractNumber_TextInput.Text),Sort( Filter(OOH_Vendor_Master, (Vendor_TextInput_5.Text in Vendor_Pub_Code And Vendor_TextInput_5.Text in Vendor_Name) Or (Vendor_TextInput_5.Text in Vendor_Pub_Name And Vendor_TextInput_5.Text in Vendor_Name) Or IsBlank(Vendor_TextInput_5)),Vendor_Pub_Name,Ascending),Sort(Filter(OOH_Vendor_Master, (Vendor_TextInput_5.Text in Vendor_Pub_Code And Vendor_TextInput_5.Text in Vendor_Name) Or (Vendor_TextInput_5.Text in Vendor_Pub_Name And Vendor_TextInput_5.Text in Vendor_Name) Or IsBlank(Vendor_TextInput_5)),Vendor_Pub_Name,Ascending));
+                        
+                    Reset(Vendor_TextInput_5);
+                    UpdateContext({showVendorModal: false});
+                    /*UpdateContext({
+                        VAR_Remittance_Address: LookUp(Vendor_Remittance, PUBLICATION_CODE =galVendorItems.Selected.PUBLICATION_CODE  , REMITTANCE_ADDRESS)
+                        })*/
+                    
+                    
+                     
+                PaddingLeft: =0
+                PressedColor: =RGBA(246, 88, 16, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =10
+                Text: =ThisItem.Vendor_Name
+                Tooltip: =ThisItem.Vendor_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =250
+                X: =5
+                ZIndex: =7
 
         Vendor_TextInput_5 As text:
             BorderColor: =RGBA(230, 230, 230, 1)
