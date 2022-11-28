@@ -1126,7 +1126,9 @@ ProcessJourneyScreen As screen:
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DateTimeZone: =DateTimeZone.UTC
-            DefaultDate: =DateValue("11/23/2022")
+            DefaultDate: |-
+                =//DateValue("11/23/2022")
+                Today()
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
