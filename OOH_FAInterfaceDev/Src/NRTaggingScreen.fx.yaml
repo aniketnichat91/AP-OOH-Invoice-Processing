@@ -2476,6 +2476,7 @@ NRTaggingScreen As screen:
                         //Reset(galPredictionItems);
                         UpdateContext({MySelected: Blank()});
                         UpdateContext({showCommentS9Popup: false});
+                        UpdateContext({showManualS9Popup:false});
                         UpdateContext({showIgnoreCommentBox: false});
                         ClearCollect(
                             colSplitS9Records,
@@ -2692,6 +2693,7 @@ NRTaggingScreen As screen:
                         //Reset(galPredictionItems);
                         UpdateContext({MySelected: Blank()});
                         UpdateContext({showCommentS9Popup: false});
+                        UpdateContext({showManualS9Popup:false});
                         UpdateContext({showIgnoreCommentBox: false});
                         ClearCollect(
                             colSplitS9Records,
@@ -10421,7 +10423,7 @@ NRTaggingScreen As screen:
             Fill: =RGBA(0, 0, 0, .7)
             Height: =768
             Visible: =showManualS9Popup
-            Width: =688
+            Width: =700
             ZIndex: =106
 
         rct_ManualS9_top_1 As rectangle:
@@ -10880,6 +10882,7 @@ NRTaggingScreen As screen:
                 Reset(Checkbox_Invoice_1);
                 Reset(Checkbox_MOS_1);
                 Reset(ViewCommentS9Input_1);
+                UpdateContext({showManualS9Popup:false});
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
