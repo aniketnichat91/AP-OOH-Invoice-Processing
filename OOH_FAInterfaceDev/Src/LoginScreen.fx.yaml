@@ -127,7 +127,7 @@ LoginScreen As screen:
         Height: =339
         LineHeight: =1.6
         Size: =25
-        Text: ="Finance Interface App (FAI) is is for checking, correcting and tagging invoices into PrintBuyToolkit and Globalsearch Square9."
+        Text: ="Finance Interface App (FAI) is for checking, correcting and tagging invoices into PrintBuyToolkit and Globalsearch Square9."
         VerticalAlign: =VerticalAlign.Top
         Width: =716
         X: =46
