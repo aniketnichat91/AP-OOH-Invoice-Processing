@@ -2580,6 +2580,7 @@ InvoiceMatchingScreen As screen:
                         //Reset(galPredictionItems);
                         UpdateContext({MySelected: Blank()});
                         UpdateContext({showCommentS9Popup: false});
+                        UpdateContext({showManualS9Popup:false});
                         UpdateContext({showIgnoreCommentBox: false});
                         ClearCollect(
                             colSplitS9Records,
@@ -2796,6 +2797,7 @@ InvoiceMatchingScreen As screen:
                         //Reset(galPredictionItems);
                         UpdateContext({MySelected: Blank()});
                         UpdateContext({showCommentS9Popup: false});
+                        UpdateContext({showManualS9Popup:false});
                         UpdateContext({showIgnoreCommentBox: false});
                         ClearCollect(
                             colSplitS9Records,
@@ -10657,7 +10659,7 @@ InvoiceMatchingScreen As screen:
             Fill: =RGBA(0, 0, 0, .7)
             Height: =768
             Visible: =showManualS9Popup
-            Width: =686
+            Width: =700
             ZIndex: =107
 
         rct_ManualS9_top As rectangle:
@@ -10717,7 +10719,7 @@ InvoiceMatchingScreen As screen:
             Height: =30
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-            OnSelect: |
+            OnSelect: |-
                 =UpdateContext({TempFA_Mapping_Ref_Data: Blank()});
                 UpdateContext({showVendorModal: false});
                 If(
@@ -11115,6 +11117,7 @@ InvoiceMatchingScreen As screen:
                 Reset(Checkbox_MOS);
                 Reset(Checkbox_Amount);
                 Reset(ViewCommentS9Input);
+                UpdateContext({showManualS9Popup:false});
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
