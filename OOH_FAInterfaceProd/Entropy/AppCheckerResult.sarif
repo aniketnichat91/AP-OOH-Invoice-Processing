@@ -584,6 +584,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.PDFName_with_Link_button.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InvoiceMatchingScreen.PDFName_with_Link_button.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "InvoiceMatchingScreen",
+                "type": "InvoiceMatchingScreen.PDFName_with_Link_button"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "InvoiceMatchingScreen.PDFName_with_Link.TabIndex"
                 }
               ],
@@ -5714,6 +5744,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "NRTaggingScreen.PDFName_with_Link_button_NR.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NRTaggingScreen.PDFName_with_Link_button_NR.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "NRTaggingScreen",
+                "type": "NRTaggingScreen.PDFName_with_Link_button_NR"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "NRTaggingScreen.PDFName_with_Link_NR.TabIndex"
                 }
               ],
@@ -10478,66 +10538,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.PDFName_with_Link_button.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.PDFName_with_Link_button.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.PDFName_with_Link_button"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "NRTaggingScreen.PDFName_with_Link_button_NR.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.PDFName_with_Link_button_NR.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.PDFName_with_Link_button_NR"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
         },
         {
           "locations": [
