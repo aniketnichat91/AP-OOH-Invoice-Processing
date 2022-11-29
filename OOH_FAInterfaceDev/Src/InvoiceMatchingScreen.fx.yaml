@@ -4428,9 +4428,7 @@ InvoiceMatchingScreen As screen:
                     Tooltip: |-
                         =If((C_TextInput.Text = "" Or P_TextInput.Text = "") Or ((MOS_TextInput.Text = "" Or MOS_TextInput.Text = "FFM") Or (Amount_TextInput.Text Or Amount_TextInput.Text ="FFM") Or (InvoiceNum_TextInput.Text = "" Or InvoiceNum_TextInput.Text = "FFM") Or (InvDate_TextInput.Text = "" Or InvDate_TextInput.Text =  "FFM")),
                         "The value of C P or MOS or Amount or Invoice number or Invoice date is  missing/invalid.","")
-                    Visible: |-
-                        =//showTaggingDropdown
-                        false
+                    Visible: =If(showTaggingDropdown && varIsQA = true,true,false)
                     Width: =130
                     Y: =25
                     ZIndex: =3
