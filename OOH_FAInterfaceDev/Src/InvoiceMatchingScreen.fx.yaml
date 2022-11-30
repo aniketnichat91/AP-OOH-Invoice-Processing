@@ -9408,7 +9408,7 @@ InvoiceMatchingScreen As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                 OnSelect: |-
-                    =If(CountRows(Filter(colSegmentRecords,Ins_Date_Segment=ReconUnpaidDataTable.Selected.Unpaid_Ref_Insertion_Date))>0,Notify("Record already exists in current table"),
+                    =If(CountRows(Filter(colSegmentRecords,PBT_Segment_Insertion_Date=ReconUnpaidDataTable.Selected.Unpaid_Ref_Insertion_Date))>0,Notify("Record already exists in current table"),
                     
                     UpdateIf(
                         colSegmentRecords,
@@ -9995,11 +9995,11 @@ InvoiceMatchingScreen As screen:
                             PBT_Log_ID: 0,
                             PBT_Segment_IDesk_Recon: "",
                             PBT_Segment_ContractID: "",
-                            Ins_Date_Segment: "",
-                            TS_Received: "",
+                            PBT_Segment_Insertion_Date: "",
+                            PBT_TS_Received: "",
                             Buy_Amount: "",
                             Inv_Amount: "",
-                            Segment_Comment: ""
+                            PBT_Segment_Comment: ""
                         }
                     );
                     UpdateContext({showSegmentPopup: false});
