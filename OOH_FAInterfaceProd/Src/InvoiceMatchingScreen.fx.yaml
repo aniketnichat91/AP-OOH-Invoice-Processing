@@ -9493,7 +9493,7 @@ InvoiceMatchingScreen As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                 OnSelect: |-
-                    =If(CountRows(Filter(colSegmentRecords,Ins_Date_Segment=ReconUnpaidDataTable.Selected.Unpaid_Ref_Insertion_Date))>0,Notify("Record already exists in current table"),
+                    =If(CountRows(Filter(colSegmentRecords,PBT_Segment_Insertion_Date=ReconUnpaidDataTable.Selected.Unpaid_Ref_Insertion_Date))>0,Notify("Record already exists in current table"),
                     
                     UpdateIf(
                         colSegmentRecords,
@@ -9804,7 +9804,7 @@ InvoiceMatchingScreen As screen:
             Y: =94
             ZIndex: =77
 
-        Label13 As label:
+        lbl_Segment_InsDate As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1
