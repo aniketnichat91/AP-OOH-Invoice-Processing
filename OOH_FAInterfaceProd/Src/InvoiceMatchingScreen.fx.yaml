@@ -9295,7 +9295,7 @@ InvoiceMatchingScreen As screen:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             Default: |-
-                =Text(Value(Sum(Recon_Gallery.AllItems, Segment_Inv_Amt.Text)),"[$-en-US] #,#0.00")
+                =Text(Value(Sum(Recon_Gallery.AllItems, txt_Segment_InvAmt.Text)),"[$-en-US] #,#0.00")
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(0, 0, 0, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -9395,7 +9395,7 @@ InvoiceMatchingScreen As screen:
                 Y: =Parent.TemplateHeight - 1
                 ZIndex: =4
 
-            Recon_CPE_Label As text:
+            txt_Segment_CPE As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =If(IsBlank(VAR_C_DEF)Or IsBlank(VAR_P_DEF) Or IsBlank(VAR_E_DEF),"Edit CPE value.",VAR_C_DEF&"/"&VAR_P_DEF&"/"&VAR_E_DEF)
@@ -9423,7 +9423,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =5
 
-            Ins_Date_Segment As text:
+            txt_Segment_InsDate As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.PBT_Segment_Insertion_Date
@@ -9450,7 +9450,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =6
 
-            segment_Buy_Amt As text:
+            txt_Segment_BuyAmt As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -9480,7 +9480,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =7
 
-            Recon_Match_Button As button:
+            btn_Segment_Match As button:
                 BorderThickness: =1
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -9525,7 +9525,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =8
 
-            Recon_Cancel_Icon As icon.Add:
+            icon_Segment_Cancel As icon.Add:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -9669,7 +9669,7 @@ InvoiceMatchingScreen As screen:
                 Y: =5
                 ZIndex: =21
 
-            Segment_Comment As text:
+            txt_Segment_Comment As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.PBT_Segment_Comment
@@ -9697,7 +9697,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =22
 
-            Segment_Inv_Amt As text:
+            txt_Segment_InvAmt As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.PBT_Segment_InvoiceAmount
@@ -9725,7 +9725,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =23
 
-            Recon_Dropdown As dropdown:
+            ddl_Segment_OkToPay As dropdown:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderThickness: =1
@@ -9758,7 +9758,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =24
 
-            Recon_TS_TextInput As text:
+            txt_Segment_TSReceived As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -9787,7 +9787,7 @@ InvoiceMatchingScreen As screen:
                 Y: =8
                 ZIndex: =25
 
-        CPE_seg_Label As label:
+        lbl_Segment_CPE As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1
@@ -9820,7 +9820,7 @@ InvoiceMatchingScreen As screen:
             Y: =94
             ZIndex: =78
 
-        Label14 As label:
+        lbl_Segment_BuyAmt As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1
@@ -9836,7 +9836,7 @@ InvoiceMatchingScreen As screen:
             Y: =94
             ZIndex: =79
 
-        Label15 As label:
+        lbl_Segment_InvAmt As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1
@@ -9852,7 +9852,7 @@ InvoiceMatchingScreen As screen:
             Y: =94
             ZIndex: =80
 
-        Label16 As label:
+        lbl_Segment_Comment As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1
@@ -9868,7 +9868,7 @@ InvoiceMatchingScreen As screen:
             Y: =94
             ZIndex: =81
 
-        Label17 As label:
+        lbl_Segment_OkToPay As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1
@@ -10060,13 +10060,13 @@ InvoiceMatchingScreen As screen:
                                 PBT_Insertion_Date: Now(),
                                 PBT_Segment_UnpaidRef_ContractID: lbl_hidden_ContractID.Text,
                                 //PBT_Is_Recon: true,
-                                PBT_Segment_BuyAmount:Value(segment_Buy_Amt.Text),
-                                PBT_TS_Received:Recon_TS_TextInput.Text,
-                                PBT_Segment_Insertion_Date:Ins_Date_Segment.Text,
-                                PBT_Segment_InvoiceAmount:Value(Segment_Inv_Amt.Text),
+                                PBT_Segment_BuyAmount:Value(txt_Segment_BuyAmt.Text),
+                                PBT_TS_Received:txt_Segment_TSReceived.Text,
+                                PBT_Segment_Insertion_Date:txt_Segment_InsDate.Text,
+                                PBT_Segment_InvoiceAmount:Value(txt_Segment_InvAmt.Text),
                                 PBT_Is_Segement: true,
-                                PBT_Segment_Comment: Segment_Comment.Text,
-                                PBT_Recon_Status: Recon_Dropdown.Selected.Value,
+                                PBT_Segment_Comment: txt_Segment_Comment.Text,
+                                PBT_Recon_Status: ddl_Segment_OkToPay.Selected.Value,
                                 PBT_Segment_UnpaidRef_IDesk_Recon:lbl_hidden_Idesk_Recon.Text,
                                 PBT_Update_Date: Now(),
                                 PBT_FA_UpdatedBy_ID: Value(hide_FA_ID.Text)
@@ -10342,7 +10342,7 @@ InvoiceMatchingScreen As screen:
             Y: =21
             ZIndex: =85
 
-        Label14_1 As label:
+        lbl_Segment_TSReceived As label:
             Align: =Align.Center
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderThickness: =1

@@ -1572,7 +1572,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638053053960622441",
+    "LastModifiedTimestamp": "638053966560923765",
     "Name": "FlyoutMenuComponent",
     "Rules": [
       {
@@ -1723,7 +1723,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638053053960622441",
+  "LastModifiedTimestamp": "638053966560923765",
   "Name": "6b0faf605e74423f862ffac49785b36e",
   "OverridableProperties": {},
   "Version": "637862183358163993"

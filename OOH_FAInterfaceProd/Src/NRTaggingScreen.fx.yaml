@@ -8898,7 +8898,7 @@ NRTaggingScreen As screen:
             Y: =18
             ZIndex: =64
 
-        Label4_1 As label:
+        lbl_SegmentTop_Vendor_NR As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -8910,7 +8910,7 @@ NRTaggingScreen As screen:
             Y: =2
             ZIndex: =65
 
-        Label5_1 As label:
+        lbl_SegmentTop_InsDate_NR As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -8921,7 +8921,7 @@ NRTaggingScreen As screen:
             Y: =13
             ZIndex: =66
 
-        Label7_1 As label:
+        lbl_SegmentTop_InvNum_NR As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -8937,7 +8937,7 @@ NRTaggingScreen As screen:
             Y: =13
             ZIndex: =67
 
-        Label8_1 As label:
+        lbl_SegmentTop_MOS_NR As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -8949,7 +8949,7 @@ NRTaggingScreen As screen:
             Y: =13
             ZIndex: =68
 
-        Label9_1 As label:
+        lbl_SegmentTop_InvAmt_NR As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -9294,7 +9294,7 @@ NRTaggingScreen As screen:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             Default: |-
-                =Text(Value(Sum(Recon_Gallery_1.AllItems, Segment_Inv_Amt.Text)),"[$-en-US] #,#0.00")
+                =Text(Value(Sum(Recon_Gallery_1.AllItems, txt_Segment_InvAmt.Text)),"[$-en-US] #,#0.00")
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(0, 0, 0, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -9394,7 +9394,7 @@ NRTaggingScreen As screen:
                 Y: =Parent.TemplateHeight - 1
                 ZIndex: =4
 
-            Recon_CPE_Label_1 As text:
+            txt_Segment_CPE_NR As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =If(IsBlank(VAR_C_DEF)Or IsBlank(VAR_P_DEF) Or IsBlank(VAR_E_DEF),"Edit CPE value.",VAR_C_DEF&"/"&VAR_P_DEF&"/"&VAR_E_DEF)
@@ -9422,7 +9422,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =5
 
-            Ins_Date_Segment_1 As text:
+            txt_Segment_InsDate_NR As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.PBT_Segment_Insertion_Date
@@ -9449,7 +9449,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =6
 
-            segment_Buy_Amt_1 As text:
+            txt_Segment_BuyAmt_NR As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -9479,7 +9479,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =7
 
-            Recon_Match_Button_1 As button:
+            btn_Segment_Match_NR As button:
                 BorderThickness: =1
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -9524,7 +9524,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =8
 
-            Recon_Cancel_Icon_1 As icon.Add:
+            icon_Segment_Cancel_NR As icon.Add:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -9668,7 +9668,7 @@ NRTaggingScreen As screen:
                 Y: =5
                 ZIndex: =21
 
-            Segment_Comment_1 As text:
+            txt_Segment_Comment_NR As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.PBT_Segment_Comment
@@ -9696,7 +9696,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =22
 
-            Segment_Inv_Amt_1 As text:
+            txt_Segment_InvAmt_NR As text:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =ThisItem.PBT_Segment_InvoiceAmount
@@ -9724,7 +9724,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =23
 
-            Recon_Dropdown_1 As dropdown:
+            ddl_Segment_OkToPay_NR As dropdown:
                 AllowEmptySelection: =true
                 BorderColor: =RGBA(131, 24, 75, 1)
                 BorderThickness: =1
@@ -9757,7 +9757,7 @@ NRTaggingScreen As screen:
                 Y: =8
                 ZIndex: =24
 
-            Recon_TS_TextInput_1 As text:
+            txt_Segment_TSReceived_NR As text:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -10059,13 +10059,13 @@ NRTaggingScreen As screen:
                                 PBT_Insertion_Date: Now(),
                                 PBT_Segment_UnpaidRef_ContractID: lbl_hidden_ContractID.Text,
                                 //PBT_Is_Recon: true,
-                                PBT_Segment_BuyAmount:Value(segment_Buy_Amt.Text),
-                                PBT_TS_Received:Recon_TS_TextInput.Text,
+                                PBT_Segment_BuyAmount:Value(txt_Segment_BuyAmt.Text),
+                                PBT_TS_Received:txt_Segment_TSReceived.Text,
                                // PBT_Segment_Insertion_Date:Ins_Date_Segment.Text,
-                                PBT_Segment_InvoiceAmount:Value(Segment_Inv_Amt.Text),
+                                PBT_Segment_InvoiceAmount:Value(txt_Segment_InvAmt.Text),
                                 PBT_Is_Segement: true,
                                 //PBT_Segment_Comment: Segment_Comment.Text,
-                                PBT_Recon_Status: Recon_Dropdown.Selected.Value,
+                                PBT_Recon_Status: ddl_Segment_OkToPay.Selected.Value,
                                 PBT_Segment_UnpaidRef_IDesk_Recon:lbl_hidden_Idesk_Recon.Text,
                                 PBT_Update_Date: Now(),
                                 PBT_FA_UpdatedBy_ID: Value(hide_FA_ID_NR.Text)
