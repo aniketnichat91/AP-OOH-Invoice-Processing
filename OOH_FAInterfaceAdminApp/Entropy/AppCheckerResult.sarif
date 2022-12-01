@@ -644,19 +644,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_RemittanceAddress_DataCard1.Inv_Remittance_Add_DataCardValue.AccessibleLabel"
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Embargo_Reason_DataCard1.Log_Embargo_Reason_DataCardValue.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_RemittanceAddress_DataCard1.Inv_Remittance_Add_DataCardValue.AccessibleLabel",
+                  "fullyQualifiedName": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Embargo_Reason_DataCard1.Log_Embargo_Reason_DataCardValue.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DMLOperationsUpdateScreen",
-                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Invoice_RemittanceAddress_DataCard1.Inv_Remittance_Add_DataCardValue"
+                "type": "DMLOperationsUpdateScreen.Update_Container_3.Form1.Log_Embargo_Reason_DataCard1.Log_Embargo_Reason_DataCardValue"
               }
             }
           ],
