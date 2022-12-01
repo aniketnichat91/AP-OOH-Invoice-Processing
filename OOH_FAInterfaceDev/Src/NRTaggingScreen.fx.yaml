@@ -4792,7 +4792,7 @@ NRTaggingScreen As screen:
         Font: =Font.Arial
         Height: =75
         HoverColor: =RGBA( 63, 125, 191, 1 )
-        OnSelect: =Launch(LookUp(SelectedItems, rowNumber = ROWNUM, Log_SP_FilePath))
+        OnSelect: =Launch(LookUp(SelectedNRItems, rowNumber = ROWNUM, Log_SP_FilePath))
         PaddingBottom: =0
         PaddingRight: =0
         PaddingTop: =0

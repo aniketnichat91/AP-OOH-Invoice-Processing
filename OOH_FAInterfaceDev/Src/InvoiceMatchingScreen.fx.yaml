@@ -4947,7 +4947,7 @@ InvoiceMatchingScreen As screen:
         PaddingTop: =0
         PressedColor: =RGBA( 89, 126, 165, 1 )
         Size: =10
-        Text: =LookUp(SelectedNRItems, rowNumber = ROWNUM, Log_Invoice_FileName)
+        Text: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_FileName)
         Tooltip: =LookUp(SelectedItems, rowNumber = ROWNUM, Log_Invoice_FileName)
         Underline: =true
         Width: =405
