@@ -1293,7 +1293,7 @@ NRListScreen As screen:
             Items: |-
                 =Switch(
                     locSortColumn,
-                    "Log_Invoice_Date",
+                    "Log_Insertion_Date",
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
@@ -1307,20 +1307,20 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             )
                         ),
-                        Log_Invoice_Date,
+                        Log_Insertion_Date,
                         If(
                             locSortAscending,
                             Ascending,
@@ -1341,13 +1341,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1375,13 +1375,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1409,13 +1409,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1443,13 +1443,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1477,13 +1477,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1511,13 +1511,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1545,13 +1545,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1579,13 +1579,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1613,13 +1613,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1647,13 +1647,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1680,13 +1680,13 @@ NRListScreen As screen:
                             Client_Code_Search_1.Text in Log_Validated_C Or IsBlank(Client_Code_Search_1.Text),
                             Invoice_ContractNumber_Searchbox_1.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_1.Text),
                             Invoice_Num_Search_1.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_1.Text),
-                            Log_InvoiceDateAsInt >= Value(
+                            Log_InsertionDateAsInt >= Value(
                                 Text(
                                     Start_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
-                            Log_InvoiceDateAsInt <= Value(
+                            Log_InsertionDateAsInt <= Value(
                                 Text(
                                     End_Date_DatePicker_1.SelectedDate,
                                     "[$-en-US]yyyymmdd"
@@ -1832,7 +1832,7 @@ NRListScreen As screen:
                 X: =200
                 ZIndex: =20
 
-            PDF_Invoice_Date_Label_1 As label:
+            PDF_Insertion_Date_Label_1 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2125,14 +2125,14 @@ NRListScreen As screen:
                 Height: =20
                 Icon: |-
                     =If(
-                        locSortColumn<>"Log_Invoice_Date" 
-                        Or locSortColumn="Log_Invoice_Date" And !locSortAscending,
+                        locSortColumn<>"Log_Insertion_Date" 
+                        Or locSortColumn="Log_Insertion_Date" And !locSortAscending,
                         Icon.ChevronDown, Icon.ChevronUp
                     )
                 OnSelect: |-
                     =UpdateContext({
-                        locSortColumn: "Log_Invoice_Date",
-                        locSortAscending: locSortColumn<>"Log_Invoice_Date" Or !locSortAscending
+                        locSortColumn: "Log_Insertion_Date",
+                        locSortAscending: locSortColumn<>"Log_Insertion_Date" Or !locSortAscending
                     })
                 Width: =20
                 X: =192

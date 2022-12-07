@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
     "CdpRevision": {
       "BaseUrl": "/v2",
-      "LastChangedTimeString": "2022-10-25T16:14:55.8420000Z",
+      "LastChangedTimeString": "2022-11-09T18:17:09.8050000Z",
       "RevisionNumber": 2
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -31,6 +31,7 @@
       "Log_Insertion_Date": "Log_Insertion_Date",
       "Log_Insertion_Month": "Log_Insertion_Month",
       "Log_Insertion_Order_Ext_Match": "Log_Insertion_Order_Ext_Match",
+      "Log_InsertionDateAsInt": "Log_InsertionDateAsInt",
       "Log_Invoice_Advertiser_Name": "Log_Invoice_Advertiser_Name",
       "Log_Invoice_Amount": "Log_Invoice_Amount",
       "Log_Invoice_ConfidenceScore": "Log_Invoice_ConfidenceScore",
@@ -51,7 +52,6 @@
       "Log_Invoice_Sender_GUID": "Log_Invoice_Sender_GUID",
       "Log_Invoice_Sender_Name": "Log_Invoice_Sender_Name",
       "Log_InvoiceAmountAsFlt": "Log_InvoiceAmountAsFlt",
-      "Log_InvoiceDateAsInt": "Log_InvoiceDateAsInt",
       "Log_IsMatched": "Log_IsMatched",
       "Log_IsMatched_YesNo": "Log_IsMatched_YesNo",
       "Log_IsZipped": "Log_IsZipped",

@@ -1694,19 +1694,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_CPE_Label.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_CPE.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_CPE_Label.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_CPE.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Recon_CPE_Label"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_CPE"
               }
             }
           ],
@@ -1724,19 +1724,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.segment_Buy_Amt.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_BuyAmt.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.segment_Buy_Amt.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_BuyAmt.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.segment_Buy_Amt"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_BuyAmt"
               }
             }
           ],
@@ -1754,19 +1754,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_TS_TextInput.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_TSReceived.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_TS_TextInput.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_TSReceived.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Recon_TS_TextInput"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_TSReceived"
               }
             }
           ],
@@ -1784,19 +1784,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Ins_Date_Segment.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_InsDate.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Ins_Date_Segment.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_InsDate.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Ins_Date_Segment"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_InsDate"
               }
             }
           ],
@@ -1814,19 +1814,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Segment_Inv_Amt.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_InvAmt.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Segment_Inv_Amt.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_InvAmt.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Segment_Inv_Amt"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_InvAmt"
               }
             }
           ],
@@ -1844,19 +1844,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Segment_Comment.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_Comment.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Segment_Comment.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_Comment.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Segment_Comment"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.txt_Segment_Comment"
               }
             }
           ],
@@ -1874,19 +1874,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Dropdown.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.ddl_Segment_OkToPay.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Dropdown.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.ddl_Segment_OkToPay.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Recon_Dropdown"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.ddl_Segment_OkToPay"
               }
             }
           ],
@@ -1904,19 +1904,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Dropdown.TabIndex"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.ddl_Segment_OkToPay.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Dropdown.TabIndex",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.ddl_Segment_OkToPay.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Recon_Dropdown"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.ddl_Segment_OkToPay"
               }
             }
           ],
@@ -1934,19 +1934,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Cancel_Icon.AccessibleLabel"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.icon_Segment_Cancel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Cancel_Icon.AccessibleLabel",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.icon_Segment_Cancel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Recon_Cancel_Icon"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.icon_Segment_Cancel"
               }
             }
           ],
@@ -1964,19 +1964,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Cancel_Icon.TabIndex"
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.icon_Segment_Cancel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.Recon_Cancel_Icon.TabIndex",
+                  "fullyQualifiedName": "InvoiceMatchingScreen.Recon_Gallery.icon_Segment_Cancel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "InvoiceMatchingScreen",
-                "type": "InvoiceMatchingScreen.Recon_Gallery.Recon_Cancel_Icon"
+                "type": "InvoiceMatchingScreen.Recon_Gallery.icon_Segment_Cancel"
               }
             }
           ],
@@ -6854,19 +6854,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_CPE_Label_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_CPE_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_CPE_Label_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_CPE_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Recon_CPE_Label_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_CPE_NR"
               }
             }
           ],
@@ -6884,19 +6884,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.segment_Buy_Amt_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_BuyAmt_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.segment_Buy_Amt_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_BuyAmt_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.segment_Buy_Amt_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_BuyAmt_NR"
               }
             }
           ],
@@ -6914,19 +6914,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_TS_TextInput_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_TSReceived_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_TS_TextInput_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_TSReceived_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Recon_TS_TextInput_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_TSReceived_NR"
               }
             }
           ],
@@ -6944,19 +6944,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Ins_Date_Segment_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_InsDate_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Ins_Date_Segment_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_InsDate_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Ins_Date_Segment_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_InsDate_NR"
               }
             }
           ],
@@ -6974,19 +6974,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Segment_Inv_Amt_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_InvAmt_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Segment_Inv_Amt_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_InvAmt_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Segment_Inv_Amt_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_InvAmt_NR"
               }
             }
           ],
@@ -7004,19 +7004,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Segment_Comment_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_Comment_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Segment_Comment_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_Comment_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Segment_Comment_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.txt_Segment_Comment_NR"
               }
             }
           ],
@@ -7034,19 +7034,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Dropdown_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.ddl_Segment_OkToPay_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Dropdown_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.ddl_Segment_OkToPay_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Recon_Dropdown_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.ddl_Segment_OkToPay_NR"
               }
             }
           ],
@@ -7064,19 +7064,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Dropdown_1.TabIndex"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.ddl_Segment_OkToPay_NR.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Dropdown_1.TabIndex",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.ddl_Segment_OkToPay_NR.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Recon_Dropdown_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.ddl_Segment_OkToPay_NR"
               }
             }
           ],
@@ -7094,19 +7094,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Cancel_Icon_1.AccessibleLabel"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.icon_Segment_Cancel_NR.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Cancel_Icon_1.AccessibleLabel",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.icon_Segment_Cancel_NR.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Recon_Cancel_Icon_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.icon_Segment_Cancel_NR"
               }
             }
           ],
@@ -7124,19 +7124,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Cancel_Icon_1.TabIndex"
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.icon_Segment_Cancel_NR.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.Recon_Cancel_Icon_1.TabIndex",
+                  "fullyQualifiedName": "NRTaggingScreen.Recon_Gallery_1.icon_Segment_Cancel_NR.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "NRTaggingScreen",
-                "type": "NRTaggingScreen.Recon_Gallery_1.Recon_Cancel_Icon_1"
+                "type": "NRTaggingScreen.Recon_Gallery_1.icon_Segment_Cancel_NR"
               }
             }
           ],
