@@ -2024,6 +2024,7 @@ InvoiceMatchingScreen As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =25
                 HoverColor: =RGBA(131, 24, 75, 1)
+                Reset: =ResetCheck
                 Size: =13
                 Text: =""
                 Width: =25
@@ -8893,6 +8894,8 @@ InvoiceMatchingScreen As screen:
             OnSelect: |-
                 =UpdateContext({showSegmentPopup:false});
                 UpdateContext({showSegmentUnpaidPopup:false});
+                UpdateContext({ResetCheck: false});
+                UpdateContext({ResetCheck: true});
             Visible: =showSegmentPopup
             Width: =32
             X: =13

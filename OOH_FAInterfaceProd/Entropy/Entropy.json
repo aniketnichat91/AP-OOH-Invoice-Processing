@@ -959,7 +959,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "12/07/2022 07:14:12",
+  "HeaderLastSavedDateTimeUTC": "12/08/2022 10:34:18",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "05091492-e41e-4c7f-8355-94d11c0d0feb": "\"/providers/microsoft.powerapps/apis/shared_onedriveforbusiness/connections/6e9d70c54737462fa7672d7655ed6849\"",
@@ -983,7 +983,7 @@
     "groupmLogo": "0001.png"
   },
   "LocalResourceRootPaths": {
-    "groupmLogo": "https://docserverpwaprodweu.blob.core.windows.net/3b0d5bc9-4a2d-4cb4-ac08-2d8d0d007cbf-1/resource/Assets0Images00001.png?sv=2017-04-17&sr=b&sig=GkmYR7En%2FcmuQGfkaw7VGeC6cP0rJDmWH6dmFY2uiJs%3D&spr=https&se=2022-12-08T06%3A02%3A48Z&sp=r"
+    "groupmLogo": "https://docserverpwaprodneu.blob.core.windows.net/b5b6c283-5e35-43e6-a892-fc40481c9db6-1/resource/Assets0Images00001.png?sv=2017-04-17&sr=b&sig=cyHIapDi%2FSZQ26wLKTmcIjNuaC%2FQZ0gdhLPFjCRoePY%3D&spr=https&se=2022-12-09T10%3A46%3A05Z&sp=r"
   },
   "OrderComponentMetadata": {
     "6b0faf605e74423f862ffac49785b36e": 0
@@ -2265,7 +2265,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 8.5380628,
+    "AnalysisLoadTime": 9.6043316,
     "ControlCount": {
       "6b0faf605e74423f862ffac49785b36e": 3,
       "button": 93,
@@ -2290,7 +2290,7 @@
       "TestSuite": 1,
       "text": 112
     },
-    "DeserializationLoadTime": 9.6409867,
+    "DeserializationLoadTime": 10.7253733,
     "ErrorCount": 0
   },
   "WasLocalDatabaseReferencesEmpty": true
