@@ -113,6 +113,7 @@
     "LoginScreen",
     "FailScreen",
     "RecordListScreen",
+    "SearchListScreen",
     "NRListScreen",
     "InvoiceMatchingScreen",
     "NRTaggingScreen"

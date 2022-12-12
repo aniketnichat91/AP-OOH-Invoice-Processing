@@ -1,73 +1,54 @@
-RecordListScreen As screen:
+SearchListScreen As screen:
     Fill: =WhiteSmoke
     LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
     OnHidden: |-
         =UpdateContext({ResetCheck:true});
-    OnVisible: |-
+    OnVisible: |+
         =UpdateContext({initGalleryLoading: true});
         UpdateContext(
             {
                 _numberOfSelectedRecords: CountRows(
                     Filter(
-                        galMasterLogItems.AllItems,
-                        CheckItem.Value = true
+                        galMasterLogItems_1.AllItems,
+                        CheckItem_1.Value = true
                     )
                 )
             }
         );
-        //OOHGetUntaggedFARecords.Run("a","a","a","a");
-        UpdateContext(
-            {
-                varCountFARecords: OOHGetUntaggedFARecords.Run(
-                    Text(Associate_Dropdown.Selected.Result),
-                    If(
-                        Agency_Dropdown.Selected.Agency_Name = "All",
-                        "",
-                        Text(Agency_Dropdown.Selected.Agency_Name)
-                    ),
-                    Text(
-                        Start_Date_DatePicker.SelectedDate,
-                        "[$-en-US]yyyy-mm-dd"
-                    ),
-                    Text(
-                        End_Date_DatePicker.SelectedDate,
-                        "[$-en-US]yyyy-mm-dd"
-                    )
-                ).countfarecords
-            }
-        )
+        
 
-    HeaderContainer As groupContainer.manualLayoutContainer:
+    HeaderContainer_2 As groupContainer.manualLayoutContainer:
         Fill: =White
         Height: =64
         Width: =1366
         ZIndex: =1
 
-        Screen_Label As label:
+        Screen_Label_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =Font.Arial
             Height: =34
             Size: =20
-            Text: ="Record List"
+            Text: ="Search List"
             Width: =161
             X: =65
             Y: =12
             ZIndex: =2
 
-        Show_Selected_Records As htmlViewer:
+        Show_Selected_Records_2 As htmlViewer:
             Font: =Font.Arial
             Height: =33
             HtmlText: ="<b>" & _numberOfSelectedRecords & "</b>  Invoices  Selected"
             PaddingLeft: =12
             Size: =12
+            Visible: =false
             Width: =222
             X: =935
             Y: =13
             ZIndex: =3
 
-        Tagging_Button As button:
+        Tagging_Button_1 As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -83,11 +64,11 @@ RecordListScreen As screen:
             OnSelect: |-
                 =// Add Row number code to selected Items collection from gallery
                 If(
-                    CountRows(Filter(galMasterLogItems.AllItems,CheckItem.Value = true)) = 0,
+                    CountRows(Filter(galMasterLogItems_1.AllItems,CheckItem.Value = true)) = 0,
                     ClearCollect(
                         SelectedItems,
                         With(
-                            {records: galMasterLogItems.AllItems},
+                            {records: galMasterLogItems_1.AllItems},
                             ForAll(
                                 Sequence(CountRows(records)),
                                 Patch(
@@ -107,7 +88,7 @@ RecordListScreen As screen:
                     With(
                         {
                             records: Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         },
@@ -177,36 +158,36 @@ RecordListScreen As screen:
             Text: |-
                 =If(
                     First(
-                        galMasterLogItems.AllItems
+                        galMasterLogItems_1.AllItems
                     ).Log_FA_Action_Status = "" Or First(
-                        galMasterLogItems.AllItems
+                        galMasterLogItems_1.AllItems
                     ).Log_FA_Action_Status=Blank(),
                     "START TAGGING",
                     "VIEW TAGGING"
                 )
+            Visible: =false
             Width: =145
             X: =1181
             Y: =13
             ZIndex: =4
 
-        Show_Records As htmlViewer:
+        Show_Records_1 As htmlViewer:
             Font: =Font.Arial
-            HtmlText: |-
-                =//"Showing <b>" & CountRows(galMasterLogItems.AllItems) & "</b> Invoices"
+            HtmlText: |+
+                ="Showing <b>" & CountRows(galMasterLogItems_1.AllItems) & "</b> Invoices"
                 
-                If(Value(varCountFARecords) >= 100 && CountRows(galMasterLogItems.AllItems)>=100 && IsBlank(FA_Status_Dropdown.Selected.Value) && FA_Status_Checkbox.Value = false && CountRows(galMasterLogItems.AllItems)<=Value(varCountFARecords),"Showing <b>" & CountRows(galMasterLogItems.AllItems) & "</b> out of "& varCountFARecords &" Untagged Invoices","Showing <b>" & CountRows(galMasterLogItems.AllItems) & "</b> Invoices")
             Size: =15
             Width: =510
             X: =410
             Y: =12
             ZIndex: =7
 
-        btn_Embargo As button:
+        btn_Embargo_1 As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(CountRows(Filter(galMasterLogItems.AllItems,CheckItem.Value= true)) = 0,DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If(CountRows(Filter(galMasterLogItems_1.AllItems,CheckItem.Value= true)) = 0,DisplayMode.Disabled,DisplayMode.Edit)
             Fill: =RGBA(211, 66, 9, 1)
             Font: =Font.Arial
             Height: =33
@@ -220,13 +201,13 @@ RecordListScreen As screen:
             RadiusTopRight: =0
             Size: =10
             Text: ="EMBARGO"
-            Visible: =varIsQA
+            Visible: =false
             Width: =102
             X: =243
             Y: =15
             ZIndex: =8
 
-        lbl_RowCounter As label:
+        lbl_RowCounter_1 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -237,7 +218,7 @@ RecordListScreen As screen:
             Y: =15
             ZIndex: =9
 
-    FilterContainer As groupContainer.manualLayoutContainer:
+    FilterContainer_2 As groupContainer.manualLayoutContainer:
         BorderStyle: =BorderStyle.None
         Fill: =WhiteSmoke
         Height: =139
@@ -245,7 +226,7 @@ RecordListScreen As screen:
         Y: =64
         ZIndex: =2
 
-        Associate_Dropdown As dropdown:
+        Associate_Dropdown_2 As dropdown:
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.None
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -274,7 +255,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -287,18 +268,18 @@ RecordListScreen As screen:
                 UpdateContext(
                     {
                         varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
+                            Text(Associate_Dropdown_2.Selected.Result),
                             If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            Agency_Dropdown_2.Selected.Agency_Name = "All",
                             "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            Text(Agency_Dropdown_2.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker.SelectedDate,
+                                Start_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
-                                End_Date_DatePicker.SelectedDate,
+                                End_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             )
                         ).countfarecords
@@ -309,7 +290,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -324,7 +305,7 @@ RecordListScreen As screen:
             Y: =36
             ZIndex: =1
 
-        Associate_Label As label:
+        Associate_Label_2 As label:
             Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -337,7 +318,7 @@ RecordListScreen As screen:
             X: =25
             ZIndex: =2
 
-        Agency_Dropdown As dropdown:
+        Agency_Dropdown_2 As dropdown:
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.None
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -362,7 +343,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -375,18 +356,18 @@ RecordListScreen As screen:
                 UpdateContext(
                     {
                         varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
+                            Text(Associate_Dropdown_2.Selected.Result),
                             If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            Agency_Dropdown_2.Selected.Agency_Name = "All",
                             "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            Text(Agency_Dropdown_2.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker.SelectedDate,
+                                Start_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
-                                End_Date_DatePicker.SelectedDate,
+                                End_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             )
                         ).countfarecords
@@ -397,7 +378,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -412,7 +393,7 @@ RecordListScreen As screen:
             Y: =37
             ZIndex: =3
 
-        Agency_Label As label:
+        Agency_Label_2 As label:
             Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -426,7 +407,7 @@ RecordListScreen As screen:
             Y: =5
             ZIndex: =4
 
-        RecordType_Dropdown As dropdown:
+        RecordType_Dropdown_2 As dropdown:
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.None
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -453,7 +434,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -468,7 +449,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -484,7 +465,7 @@ RecordListScreen As screen:
             Y: =37
             ZIndex: =5
 
-        Record_Type_Label As label:
+        Record_Type_Label_2 As label:
             Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -498,7 +479,7 @@ RecordListScreen As screen:
             Y: =6
             ZIndex: =6
 
-        Vendor_Search As text:
+        Vendor_Search_2 As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -520,7 +501,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -537,7 +518,7 @@ RecordListScreen As screen:
             Y: =11
             ZIndex: =7
 
-        "'Vendor Label' As label":
+        "'Vendor Label_4' As label":
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -546,11 +527,11 @@ RecordListScreen As screen:
             Size: =10
             Text: ="Vendor"
             Width: =80
-            X: =580
+            X: =589
             Y: =11
             ZIndex: =8
 
-        Client_Code_Search As text:
+        Client_Code_Search_2 As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -561,7 +542,7 @@ RecordListScreen As screen:
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderThickness: =4
             Font: =Font.Arial
-            Height: =22
+            Height: =26
             HintText: ="Enter Code..."
             HoverBorderColor: =RGBA(255, 255, 255, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -572,7 +553,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -584,26 +565,26 @@ RecordListScreen As screen:
             OnSelect: |
                 =
             Size: =10
-            Width: =235
-            X: =667
-            Y: =60
+            Width: =163
+            X: =219
+            Y: =97
             ZIndex: =9
 
-        Client_Code_Label As label:
+        Client_Code_Label_2 As label:
+            Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =Font.Arial
-            Height: =38
+            Height: =28
             Size: =10
             Text: ="Client Code"
-            Width: =85
-            X: =580
-            Y: =50
+            X: =224
+            Y: =66
             ZIndex: =10
 
-        Start_Date_DatePicker As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+        Start_Date_DatePicker_2 As datepicker:
+            BorderColor: =If(End_Date_DatePicker_2.SelectedDate < End_Date_DatePicker_2.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DefaultDate: =DateValue("1/11/2022","en-GB")
@@ -624,7 +605,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -637,18 +618,18 @@ RecordListScreen As screen:
                 UpdateContext(
                     {
                         varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
+                            Text(Associate_Dropdown_2.Selected.Result),
                             If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            Agency_Dropdown_2.Selected.Agency_Name = "All",
                             "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            Text(Agency_Dropdown_2.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker.SelectedDate,
+                                Start_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
-                                End_Date_DatePicker.SelectedDate,
+                                End_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             )
                         ).countfarecords
@@ -659,12 +640,13 @@ RecordListScreen As screen:
             SelectedDateFill: =RGBA(211, 66, 9, 1)
             Size: =11
             StartYear: =2022
+            Visible: =false
             Width: =127
             X: =997
             Y: =55
             ZIndex: =11
 
-        Start_Date_Label As label:
+        Start_Date_Label_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -672,13 +654,14 @@ RecordListScreen As screen:
             Height: =30
             Size: =10
             Text: ="From Date"
+            Visible: =false
             Width: =75
             X: =920
             Y: =55
             ZIndex: =12
 
-        End_Date_DatePicker As datepicker:
-            BorderColor: =If(End_Date_DatePicker.SelectedDate < End_Date_DatePicker.SelectedDate, Color.Red, Color.Gray)
+        End_Date_DatePicker_2 As datepicker:
+            BorderColor: =If(End_Date_DatePicker_2.SelectedDate < End_Date_DatePicker_2.SelectedDate, Color.Red, Color.Gray)
             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -695,7 +678,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -708,18 +691,18 @@ RecordListScreen As screen:
                 UpdateContext(
                     {
                         varCountFARecords: OOHGetUntaggedFARecords.Run(
-                            Text(Associate_Dropdown.Selected.Result),
+                            Text(Associate_Dropdown_2.Selected.Result),
                             If(
-                            Agency_Dropdown.Selected.Agency_Name = "All",
+                            Agency_Dropdown_2.Selected.Agency_Name = "All",
                             "",
-                            Text(Agency_Dropdown.Selected.Agency_Name)
+                            Text(Agency_Dropdown_2.Selected.Agency_Name)
                             ),
                             Text(
-                                Start_Date_DatePicker.SelectedDate,
+                                Start_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             ),
                             Text(
-                                End_Date_DatePicker.SelectedDate,
+                                End_Date_DatePicker_2.SelectedDate,
                                 "[$-en-US]yyyy-mm-dd"
                             )
                         ).countfarecords
@@ -729,12 +712,13 @@ RecordListScreen As screen:
             PaddingTop: =5
             SelectedDateFill: =RGBA(211, 66, 9, 1)
             Size: =11
+            Visible: =false
             Width: =127
             X: =997
             Y: =95
             ZIndex: =13
 
-        End_Date_Label As label:
+        End_Date_Label_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -742,12 +726,13 @@ RecordListScreen As screen:
             Height: =30
             Size: =10
             Text: ="To Date"
+            Visible: =false
             Width: =75
             X: =920
             Y: =95
             ZIndex: =14
 
-        Clear_Filter_Button As button:
+        Clear_Filter_Button_2 As button:
             BorderColor: =White
             BorderStyle: =BorderStyle.None
             BorderThickness: =0
@@ -767,7 +752,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -776,31 +761,19 @@ RecordListScreen As screen:
                 UpdateContext({varAllCheckboxSelected: false});
                 UpdateContext({ResetCheck: true});
                 UpdateContext({ResetCheck: false});
-                Reset(Associate_Dropdown);
-                Reset(Agency_Dropdown);
-                Reset(RecordType_Dropdown);
-                Reset(DDL_Recordtype);
-                Reset(Vendor_Search);
-                Reset(Client_Code_Search);
-                Reset(Start_Date_DatePicker);
-                Reset(End_Date_DatePicker);
-                Reset(Is_Matched_Dropdown);
-                Reset(FA_Status_Dropdown);
-                Reset(Invoice_Num_Search);
-                Reset(FA_Status_Search);
-                Reset(Invoice_ContractNumber_Searchbox);
-                Set(
-                    globalSearchVar_InvoiceNumber,""
-                );
-                Set(
-                    globalSearchVar_FAAction,""
-                );
-                Set(
-                    globalSearchVar_InvoiceFormat,"New"
-                );
-                Set(
-                    globalSearchVar_InboundDate,"1/1/2022"
-                );
+                Reset(Associate_Dropdown_2);
+                Reset(Agency_Dropdown_2);
+                Reset(RecordType_Dropdown_2);
+                Reset(DDL_Recordtype_2);
+                Reset(Vendor_Search_2);
+                Reset(Client_Code_Search_2);
+                Reset(Start_Date_DatePicker_2);
+                Reset(End_Date_DatePicker_2);
+                Reset(Is_Matched_Dropdown_2);
+                Reset(FA_Status_Dropdown_2);
+                Reset(Invoice_Num_Search_2);
+                Reset(FA_Status_Search_2);
+                Reset(Invoice_ContractNumber_Searchbox_2);
             PressedColor: =RGBA(246, 88, 16, 1)
             PressedFill: =WhiteSmoke
             RadiusBottomLeft: =0
@@ -815,48 +788,48 @@ RecordListScreen As screen:
             Y: =11
             ZIndex: =15
 
-        Vendor_Search_Cancel As icon.Cancel:
+        Vendor_Search_Cancel_2 As icon.Cancel:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(211, 66, 9, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =34
             Icon: =Icon.Cancel
-            OnSelect: =Reset(Vendor_Search)
-            Visible: =If(IsBlank(Vendor_Search),false,true)
+            OnSelect: =Reset(Vendor_Search_2)
+            Visible: =If(IsBlank(Vendor_Search_2),false,true)
             Width: =20
             X: =880
             Y: =6
             ZIndex: =17
 
-        Client_Code_Search_Cancel As icon.Cancel:
+        Client_Code_Search_Cancel_2 As icon.Cancel:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(211, 66, 9, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =32
             Icon: =Icon.Cancel
-            OnSelect: =Reset(Client_Code_Search)
-            Visible: =If(IsBlank(Client_Code_Search),false,true)
+            OnSelect: =Reset(Client_Code_Search_2)
+            Visible: =If(IsBlank(Client_Code_Search_2),false,true)
             Width: =21
             X: =879
             Y: =56
             ZIndex: =18
 
-        labelInvalidDates As label:
+        labelInvalidDates_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(255, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Height: =57
             Size: =10
             Text: ="The end date must greater than the start date"
-            Visible: =End_Date_DatePicker.SelectedDate < Start_Date_DatePicker.SelectedDate
+            Visible: =End_Date_DatePicker_2.SelectedDate < Start_Date_DatePicker_2.SelectedDate
             Width: =166
             X: =1162
             Y: =64
             ZIndex: =19
 
-        Records_Matched_Label As label:
+        Records_Matched_Label_2 As label:
             Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -865,12 +838,13 @@ RecordListScreen As screen:
             Height: =35
             Size: =10
             Text: ="Records Matched"
+            Visible: =false
             Width: =190
             X: =25
             Y: =64
             ZIndex: =21
 
-        Is_Matched_Dropdown As dropdown:
+        Is_Matched_Dropdown_2 As dropdown:
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.None
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -896,7 +870,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -911,7 +885,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -921,12 +895,13 @@ RecordListScreen As screen:
             PressedFill: =RGBA(204, 204, 204, 1)
             SelectionColor: =RGBA(246, 88, 16, 1)
             SelectionFill: =RGBA(255, 255, 255, 1)
+            Visible: =false
             Width: =190
             X: =10
             Y: =100
             ZIndex: =22
 
-        FA_Status_Dropdown_Label As label:
+        FA_Status_Dropdown_Label_2 As label:
             Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
@@ -935,12 +910,13 @@ RecordListScreen As screen:
             Height: =26
             Size: =10
             Text: ="FA Action"
+            Visible: =false
             Width: =163
             X: =215
             Y: =70
             ZIndex: =23
 
-        FA_Status_Dropdown As dropdown:
+        FA_Status_Dropdown_2 As dropdown:
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.None
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -953,19 +929,19 @@ RecordListScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(FA_Status_Checkbox.Value = true,DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If(FA_Status_Checkbox_2.Value = true,DisplayMode.Disabled,DisplayMode.Edit)
             Font: =Font.Arial
             Height: =26
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(204, 204, 204, 1)
-            Items: =[Blank(),"Manual - S9","Ignore","NR"]
+            Items: =[Blank(),"Manual - S9","Ignore"]
             OnChange: |+
                 =UpdateContext({initGalleryLoading: false});
                 UpdateContext(
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -980,7 +956,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -990,12 +966,13 @@ RecordListScreen As screen:
             PressedFill: =RGBA(204, 204, 204, 1)
             SelectionColor: =RGBA(246, 88, 16, 1)
             SelectionFill: =RGBA(255, 255, 255, 1)
+            Visible: =false
             Width: =169
             X: =215
             Y: =100
             ZIndex: =24
 
-        Invoice_Num_Label As label:
+        Invoice_Num_Label_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1004,11 +981,11 @@ RecordListScreen As screen:
             Size: =10
             Text: ="Invoice Number"
             Width: =80
-            X: =580
-            Y: =99
+            X: =587
+            Y: =96
             ZIndex: =25
 
-        Invoice_Num_Search As text:
+        Invoice_Num_Search_2 As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -1030,7 +1007,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -1047,21 +1024,21 @@ RecordListScreen As screen:
             Y: =105
             ZIndex: =26
 
-        Invoice_Num_Search_Cancel As icon.Cancel:
+        Invoice_Num_Search_Cancel_5 As icon.Cancel:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(211, 66, 9, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =32
             Icon: =Icon.Cancel
-            OnSelect: =Reset(Invoice_Num_Search)
-            Visible: =If(IsBlank(Invoice_Num_Search),false,true)
+            OnSelect: =Reset(Invoice_Num_Search_2)
+            Visible: =If(IsBlank(Invoice_Num_Search_2),false,true)
             Width: =21
             X: =881
             Y: =101
             ZIndex: =27
 
-        DDL_Recordtype As dropdown:
+        DDL_Recordtype_2 As dropdown:
             BorderColor: =RGBA(179, 179, 179, 1)
             BorderStyle: =BorderStyle.None
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -1075,7 +1052,7 @@ RecordListScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Font: =Font.Arial
-            Height: =26
+            Height: =27
             HoverBorderColor: =RGBA(204, 204, 204, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(204, 204, 204, 1)
@@ -1086,7 +1063,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -1101,7 +1078,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -1111,25 +1088,26 @@ RecordListScreen As screen:
             PressedFill: =RGBA(204, 204, 204, 1)
             SelectionColor: =RGBA(246, 88, 16, 1)
             SelectionFill: =RGBA(255, 255, 255, 1)
-            Width: =150
-            X: =407
-            Y: =37
+            Width: =175
+            X: =17
+            Y: =96
             ZIndex: =29
 
-        PDF_Info_Type_Label As label:
+        PDF_Info_Type_Label_2 As label:
             Align: =Align.Center
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =Font.Arial
-            Height: =24
+            Height: =22
             Size: =10
             Text: ="Record Type"
-            X: =404
-            Y: =5
+            Width: =167
+            X: =25
+            Y: =66
             ZIndex: =30
 
-        Refresh_Masterlog_Data As icon.Reload:
+        Refresh_Masterlog_Data_2 As icon.Reload:
             BorderColor: =RGBA(255, 255, 255, 1)
             Color: =RGBA(246, 88, 16, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1145,8 +1123,8 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
-                                CheckItem.Value = true
+                                galMasterLogItems_1.AllItems,
+                                CheckItem_1.Value = true
                             )
                         )
                     }
@@ -1155,7 +1133,7 @@ RecordListScreen As screen:
             X: =1328
             ZIndex: =32
 
-        FA_Status_Search As text:
+        FA_Status_Search_2 As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Clear: =true
@@ -1165,7 +1143,7 @@ RecordListScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(FA_Status_Checkbox.Value = false,DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If(FA_Status_Checkbox_2.Value = false,DisplayMode.Disabled,DisplayMode.Edit)
             FocusedBorderThickness: =4
             Font: =Font.Arial
             Height: =28
@@ -1179,7 +1157,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -1197,13 +1175,13 @@ RecordListScreen As screen:
             Y: =71
             ZIndex: =33
 
-        Icon2 As icon.Add:
+        Icon2_2 As icon.Add:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(246, 88, 16, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(204, 204, 204, 1)
-            DisplayMode: =If(FA_Status_Checkbox.Value = false,DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If(FA_Status_Checkbox_2.Value = false,DisplayMode.Disabled,DisplayMode.Edit)
             Height: =27
             Icon: =Icon.ChevronDown
             OnSelect: |-
@@ -1214,7 +1192,7 @@ RecordListScreen As screen:
             Y: =72
             ZIndex: =34
 
-        lbl_InvoiceInbound_Date As label:
+        lbl_InvoiceInbound_Date_1 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1222,25 +1200,26 @@ RecordListScreen As screen:
             Height: =20
             Size: =11
             Text: ="Invoice Inbound Date"
+            Visible: =false
             Width: =240
             X: =920
             Y: =15
             ZIndex: =35
 
-        "'Vendor Label_1' As label":
+        "'Vendor Label_5' As label":
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =Font.Arial
-            Height: =25
+            Height: =31
             Size: =10
             Text: ="Contract Number"
-            Width: =120
-            X: =423
-            Y: =70
+            Width: =66
+            X: =587
+            Y: =53
             ZIndex: =37
 
-        Invoice_ContractNumber_Searchbox As text:
+        Invoice_ContractNumber_Searchbox_2 As text:
             BorderColor: =RGBA(204, 204, 204, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -1251,8 +1230,8 @@ RecordListScreen As screen:
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderThickness: =4
             Font: =Font.Arial
-            Height: =22
-            HintText: ="Enter Contract Number..."
+            Height: =27
+            HintText: ="Enter Contract Num..."
             HoverBorderColor: =RGBA(255, 255, 255, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
@@ -1262,7 +1241,7 @@ RecordListScreen As screen:
                     {
                         _numberOfSelectedRecords: CountRows(
                             Filter(
-                                galMasterLogItems.AllItems,
+                                galMasterLogItems_1.AllItems,
                                 CheckItem.Value = true
                             )
                         )
@@ -1274,32 +1253,32 @@ RecordListScreen As screen:
             OnSelect: |
                 =
             Size: =10
-            Width: =170
-            X: =397
-            Y: =104
+            Width: =235
+            X: =669
+            Y: =53
             ZIndex: =38
 
-        Invoice_Num_Search_Cancel_1 As icon.Cancel:
+        Invoice_Num_Search_Cancel_4 As icon.Cancel:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(211, 66, 9, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =32
             Icon: =Icon.Cancel
-            OnSelect: =Reset(Invoice_ContractNumber_Searchbox)
-            Visible: =If(IsBlank(Invoice_ContractNumber_Searchbox),false,true)
+            OnSelect: =Reset(Invoice_ContractNumber_Searchbox_2)
+            Visible: =If(IsBlank(Invoice_ContractNumber_Searchbox_2),false,true)
             Width: =21
             X: =545
             Y: =100
             ZIndex: =39
 
-    GalleryContainer As groupContainer.manualLayoutContainer:
+    GalleryContainer_2 As groupContainer.manualLayoutContainer:
         Height: =565
         Width: =1366
         Y: =203
         ZIndex: =3
 
-        galMasterLogItems As gallery.galleryVertical:
+        galMasterLogItems_1 As gallery.galleryVertical:
             BorderColor: =RGBA(131, 24, 75, 1)
             Height: =527
             Items: |-
@@ -1309,27 +1288,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Insertion_Date,
                         If(
@@ -1342,27 +1320,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Validated_C,
                         If(
@@ -1375,27 +1352,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Vendor_Name,
                         If(
@@ -1408,27 +1384,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Invoice_MOS,
                         If(
@@ -1441,27 +1416,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Insertion_Month,
                         If(
@@ -1474,27 +1448,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Invoice_Number,
                         If(
@@ -1507,27 +1480,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_InvoiceAmountAsFlt,
                         If(
@@ -1540,27 +1512,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Invoice_ContractNumber,
                         If(
@@ -1573,27 +1544,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Invoice_ExtractedTax,
                         If(
@@ -1606,27 +1576,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Record_Type,
                         If(
@@ -1639,27 +1608,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_S9_Run_Date,
                         If(
@@ -1671,27 +1639,26 @@ RecordListScreen As screen:
                     Sort(
                         Filter(
                             OOH_Log_TXN_VIEW,
-                            Agency_Dropdown.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown.Selected.Agency_ID,
-                            Associate_Dropdown.Selected.Result = "All" Or FA_NAME = Associate_Dropdown.Selected.Result,
-                            Is_Matched_Dropdown.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown.Selected.Value,
-                            DDL_Recordtype.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype.Selected.Value,
-                            FA_Status_Dropdown.Selected.Value = "" Or Log_FA_Action_Status = FA_Status_Dropdown.Selected.Value,
-                            Vendor_Search.Text in Vendor_Name Or IsBlank(Vendor_Search.Text),
-                            Client_Code_Search.Text in Log_Validated_C Or IsBlank(Client_Code_Search.Text),
-                            Invoice_ContractNumber_Searchbox.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox.Text),
-                            Invoice_Num_Search.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search.Text),
-                            Log_InsertionDateAsInt >= Value(
+                            Agency_Dropdown_2.Selected.Agency_ID = 0 Or Agency_ID = Agency_Dropdown_2.Selected.Agency_ID,
+                            Associate_Dropdown_2.Selected.Result = "All" Or FA_NAME = Associate_Dropdown_2.Selected.Result,
+                            //Is_Matched_Dropdown_2.Selected.Value = "All" Or Log_IsMatched_YesNo = Is_Matched_Dropdown_2.Selected.Value,
+                            DDL_Recordtype_2.Selected.Value = "All" Or Log_Record_Type = DDL_Recordtype_2.Selected.Value,
+                            Vendor_Search_2.Text in Vendor_Name Or IsBlank(Vendor_Search_2.Text),
+                            Client_Code_Search_2.Text in Log_Validated_C Or IsBlank(Client_Code_Search_2.Text),
+                            Invoice_ContractNumber_Searchbox_2.Text in Log_Invoice_ContractNumber Or IsBlank(Invoice_ContractNumber_Searchbox_2.Text),
+                            Invoice_Num_Search_2.Text in Log_Invoice_Number Or IsBlank(Invoice_Num_Search_2.Text)
+                            /*Log_InsertionDateAsInt >= Value(
                                 Text(
-                                    Start_Date_DatePicker.SelectedDate,
+                                    Start_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
                             ),
                             Log_InsertionDateAsInt <= Value(
                                 Text(
-                                    End_Date_DatePicker.SelectedDate,
+                                    End_Date_DatePicker_2.SelectedDate,
                                     "[$-en-US]yyyymmdd"
                                 )
-                            )
+                            )*/
                         ),
                         Log_Insertion_Date,
                         Descending
@@ -1700,14 +1667,14 @@ RecordListScreen As screen:
             Layout: =Layout.Vertical
             TemplateFill: |-
                 =//If(CheckItem.Value= true,RGBA(250,155,112,1),RGBA(0, 0, 0, 0))
-                If(CheckItem.Value= true,RGBA(250,155,112,1), If(ThisItem.Log_Record_Type = "Duplicate", RGBA(7, 0, 0, 0.11), RGBA(0, 0, 0, 0)))
+                If(CheckItem_1.Value= true,RGBA(250,155,112,1), If(ThisItem.Log_Record_Type = "Duplicate", RGBA(7, 0, 0, 0.11), RGBA(0, 0, 0, 0)))
             TemplateSize: =31
-            Visible: =If(CountRows(galMasterLogItems.AllItems) = 0,false,true)
+            Visible: =If(CountRows(galMasterLogItems_1.AllItems) = 0,false,true)
             Width: =1366
             Y: =38
             ZIndex: =3
 
-            PDF_Invoice_Date As label:
+            PDF_Invoice_Date_2 As label:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -1722,7 +1689,7 @@ RecordListScreen As screen:
                 Y: =2
                 ZIndex: =2
 
-            PDF_TAX_Amount_label As label:
+            PDF_TAX_Amount_label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1737,7 +1704,7 @@ RecordListScreen As screen:
                 X: =1057
                 ZIndex: =14
 
-            PDF_Amount_Label As label:
+            PDF_Amount_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1749,26 +1716,25 @@ RecordListScreen As screen:
                 Text: |-
                     =Text(ThisItem.Log_InvoiceAmountAsFlt, "[$-en-US],$#,##0.00")
                 Width: =100
-                X: =865
+                X: =892
                 ZIndex: =15
 
-            InvoiceNum_Label As label:
+            InvoiceNum_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.Arial
-                Height: =29
+                Height: =28
                 OnSelect: =Select(Parent)
                 Size: =8
                 Text: =ThisItem.Log_Invoice_Number
                 Tooltip: =ThisItem.Log_Invoice_Number
-                Width: =174
-                X: =696
-                Y: =2
+                Width: =145
+                X: =746
                 ZIndex: =16
 
-            PDF_MOS_Label As label:
+            PDF_MOS_Label_4 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1781,10 +1747,10 @@ RecordListScreen As screen:
                     =If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
                 Tooltip: =If(IsBlank(ThisItem.Log_Invoice_MOS),ThisItem.Log_Invoice_MOS,If(IsBlankOrError((Find("-",ThisItem.Log_Invoice_MOS))),ThisItem.Log_Invoice_MOS,Concatenate(Last(Split(ThisItem.Log_Invoice_MOS,"-")).Result,If(IsBlank(ThisItem.Log_Invoice_MOS),"","/"),Replace(First(Split(ThisItem.Log_Invoice_MOS,"-")).Result,1,2,""))))
                 Width: =40
-                X: =555
+                X: =614
                 ZIndex: =17
 
-            Vendor_Label As label:
+            Vendor_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1797,11 +1763,11 @@ RecordListScreen As screen:
                     =ThisItem.Vendor_Name
                     //LookUp(OOH_Vendor_Master, Vendor_ID = ThisItem.Log_Vendor_ID, Vendor_Name)
                 Width: =221
-                X: =328
+                X: =393
                 Y: =2
                 ZIndex: =18
 
-            PDF_CPE_Label As label:
+            PDF_CPE_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1812,18 +1778,18 @@ RecordListScreen As screen:
                 Size: =8
                 Text: =Text(Concatenate(ThisItem.Log_Validated_C, If(!IsBlank(ThisItem.Log_Validated_P), "/", ""), ThisItem.Log_Validated_P, If(!IsBlank(ThisItem.Log_Validated_E), "/", ""), ThisItem.Log_Validated_E))
                 Tooltip: =Text(Concatenate(ThisItem.Log_Validated_C, If(!IsBlank(ThisItem.Log_Validated_P), "/", ""), ThisItem.Log_Validated_P, If(!IsBlank(ThisItem.Log_Validated_E), "/", ""), ThisItem.Log_Validated_E))
-                Width: =120
+                Width: =107
                 Wrap: =false
-                X: =208
+                X: =286
                 ZIndex: =19
 
-            M_Label As label:
+            M_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.Arial
-                Height: =34
+                Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
                 Text: =//ThisItem.MediaLookup
@@ -1832,13 +1798,13 @@ RecordListScreen As screen:
                 X: =200
                 ZIndex: =20
 
-            PDF_Insertion_Date_Label As label:
+            PDF_Insertion_Date_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =Font.Arial
-                Height: =32
+                Height: =31
                 OnSelect: =Select(Parent)
                 Size: =8
                 Text: |
@@ -1847,10 +1813,10 @@ RecordListScreen As screen:
                     //LookUp(OOH_Log_Txn, Log_ID = Value(ThisItem.Log_ID), Log_Invoice_Date)
                 Tooltip: =ThisItem.Log_FA_Interface_Log_Status
                 Width: =80
-                X: =114
+                X: =193
                 ZIndex: =21
 
-            CheckItem As checkbox:
+            CheckItem_1 As checkbox:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 CheckboxBorderColor: =RGBA(246, 88, 16, 1)
                 CheckboxSize: =25
@@ -1865,7 +1831,7 @@ RecordListScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galMasterLogItems.AllItems,
+                                    galMasterLogItems_1.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -1877,7 +1843,7 @@ RecordListScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galMasterLogItems.AllItems,
+                                    galMasterLogItems_1.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -1886,10 +1852,11 @@ RecordListScreen As screen:
                 Reset: =ResetCheck
                 Size: =8
                 Text: =
+                Visible: =false
                 Width: =40
                 ZIndex: =22
 
-            Icon1 As icon.Check:
+            Icon1_2 As icon.Check:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: |-
                     =/*If(
@@ -1914,12 +1881,13 @@ RecordListScreen As screen:
                         Icon.Cancel
                     )
                 OnSelect: =Select(Parent)
+                Visible: =false
                 Width: =22
                 X: =1315
                 Y: =3
                 ZIndex: =23
 
-            Record_Type_label As label:
+            Record_Type_label_4 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1930,10 +1898,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: =ThisItem.Log_Record_Type
                 Width: =78
-                X: =1125
+                X: =1154
                 ZIndex: =24
 
-            FA_Status_Label_To_Be As label:
+            FA_Status_Label_To_Be_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1946,10 +1914,10 @@ RecordListScreen As screen:
                     =//If(ThisItem.Log_FA_Interface_Log_Status = "FA Redirected", "Redirected", If(ThisItem.PDF_Info = "Duplicate", "Duplicate", If(ThisItem.Log_FA_Action_Status = "" Or ThisItem.Log_FA_Action_Status = Blank(), "to be", ThisItem.Log_FA_Action_Status)))
                     If(ThisItem.Log_FA_Action_Status = Blank(),"to be", ThisItem.Log_FA_Action_Status)
                 Width: =93
-                X: =21
+                X: =100
                 ZIndex: =25
 
-            PDF_Invoice_Date_Label_5 As label:
+            PDF_Invoice_Date_Label_7 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1961,10 +1929,10 @@ RecordListScreen As screen:
                 Text: =ThisItem.Log_Invoice_ContractNumber
                 Tooltip: =ThisItem.Log_FA_Interface_Log_Status
                 Width: =80
-                X: =968
+                X: =992
                 ZIndex: =30
 
-            PDF_MOS_Label_1 As label:
+            PDF_MOS_Label_5 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1977,10 +1945,10 @@ RecordListScreen As screen:
                 Text: =If(IsBlank(ThisItem.Log_Invoice_Date),"",Text(ThisItem.Log_Invoice_Date, "yyyy-mm-dd"))
                 Tooltip: =ThisItem.Log_Insertion_Month
                 Width: =70
-                X: =631
+                X: =685
                 ZIndex: =31
 
-            Record_Type_label_1 As label:
+            Record_Type_label_5 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -1993,16 +1961,48 @@ RecordListScreen As screen:
                     =//ThisItem.Log_S9_Run_Date
                     If(IsBlank(ThisItem.Log_S9_Run_Date),"",Text(ThisItem.Log_S9_Run_Date, "yyyy-mm-dd"))
                 Width: =92
-                X: =1203
+                X: =1259
                 ZIndex: =32
 
-        RecordLogHeaderContainer As groupContainer.manualLayoutContainer:
+            Button1 As button:
+                Color: =RGBA(246, 88, 16, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FontWeight: =FontWeight.Semibold
+                Height: =31
+                HoverColor: =RGBA(246, 88, 16, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                OnSelect: |-
+                    =If(
+                        ThisItem.Log_FA_Action_Status = "NR",
+                        Navigate(NRListScreen),
+                        Set(globalSearchVar_InvoiceNumber,ThisItem.Log_Invoice_Number);
+                        Set(globalSearchVar_FAAction,If(ThisItem.Log_FA_Action_Status="Manual - S9" Or ThisItem.Log_FA_Action_Status="MANUAL - S9","Manual - S9",If(ThisItem.Log_FA_Action_Status="Ignore",Upper(ThisItem.Log_FA_Action_Status))));
+                                //Set(globalSearchVar_InvoiceFormat,(ThisItem.PDF_Info_FA_Interface));
+                                Set(globalSearchVar_InboundDate,"1/1/2022");
+                                Navigate(RecordListScreen)
+                    )
+                PressedColor: =RGBA(246, 88, 16, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Text: ="View Details"
+                Underline: =true
+                Width: =115
+                ZIndex: =33
+
+        RecordLogHeaderContainer_2 As groupContainer.manualLayoutContainer:
             Fill: =White
             Height: =38
             Width: =1366
             ZIndex: =4
 
-            Header_FA_Status_Label As label:
+            Header_FA_Status_Label_2 As label:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2011,11 +2011,12 @@ RecordListScreen As screen:
                 Height: =35
                 Size: =8
                 Text: ="Records Matched"
+                Visible: =false
                 Width: =55
                 X: =1308
                 ZIndex: =1
 
-            Header_CPE As label:
+            Header_CPE_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2026,10 +2027,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="CPE"
                 Width: =60
-                X: =225
+                X: =305
                 ZIndex: =2
 
-            Header_Inbound_Date As label:
+            Header_Inbound_Date_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2040,10 +2041,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Inbound Date"
                 Width: =80
-                X: =112
+                X: =200
                 ZIndex: =3
 
-            Header_Invoice_Amount As label:
+            Header_Invoice_Amount_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2054,11 +2055,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Invoice Amount"
                 Width: =60
-                X: =890
-                Y: =2
+                X: =903
                 ZIndex: =4
 
-            Header_M As label:
+            Header_M_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2073,7 +2073,7 @@ RecordListScreen As screen:
                 X: =200
                 ZIndex: =5
 
-            Header_MOS As label:
+            Header_MOS_4 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2084,10 +2084,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="MOS"
                 Width: =40
-                X: =555
+                X: =620
                 ZIndex: =6
 
-            Header_Vendor As label:
+            Header_Vendor_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2097,12 +2097,12 @@ RecordListScreen As screen:
                 OnSelect: =
                 Size: =8
                 Text: ="Vendor"
-                Width: =80
-                X: =379
+                Width: =112
+                X: =449
                 Y: =3
                 ZIndex: =7
 
-            Header_Tax As label:
+            Header_Tax_6 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2113,11 +2113,11 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Tax"
                 Width: =50
-                X: =1065
+                X: =1080
                 Y: =1
                 ZIndex: =8
 
-            Sort_Inbound_Date As icon.ArrowsUpDown:
+            Sort_Inbound_Date_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2135,11 +2135,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_Insertion_Date" Or !locSortAscending
                     })
                 Width: =20
-                X: =192
-                Y: =10
+                X: =282
+                Y: =9
                 ZIndex: =9
 
-            Sort_S9_Upload As icon.ArrowsUpDown:
+            Sort_S9_Upload_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2157,11 +2157,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_S9_Run_Date" Or !locSortAscending
                     })
                 Width: =20
-                X: =1288
-                Y: =10
+                X: =1325
+                Y: =8
                 ZIndex: =10
 
-            Sort_CPE As icon.ArrowsUpDown:
+            Sort_CPE_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2179,11 +2179,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_Validated_C" Or !locSortAscending
                     })
                 Width: =20
-                X: =296
+                X: =386
                 Y: =10
                 ZIndex: =11
 
-            Sort_Vendor As icon.ArrowsUpDown:
+            Sort_Vendor_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2201,11 +2201,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Vendor_Name" Or !locSortAscending
                     })
                 Width: =20
-                X: =451
+                X: =561
                 Y: =10
                 ZIndex: =12
 
-            Sort_MOS As icon.ArrowsUpDown:
+            Sort_MOS_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2223,11 +2223,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_Invoice_MOS" Or !locSortAscending
                     })
                 Width: =20
-                X: =595
+                X: =661
                 Y: =10
                 ZIndex: =13
 
-            Sort_Invoice_Amount As icon.ArrowsUpDown:
+            Sort_Invoice_Amount_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2245,11 +2245,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_InvoiceAmountAsFlt" Or !locSortAscending
                     })
                 Width: =20
-                X: =950
-                Y: =10
+                X: =963
+                Y: =7
                 ZIndex: =14
 
-            Sort_TAX As icon.ArrowsUpDown:
+            Sort_TAX_4 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2268,11 +2268,11 @@ RecordListScreen As screen:
                     })
                 TabIndex: =
                 Width: =20
-                X: =1110
+                X: =1137
                 Y: =10
                 ZIndex: =15
 
-            Header_Invoice_Num_Label As label:
+            Header_Invoice_Num_Label_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2282,10 +2282,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Invoice Number"
                 Width: =100
-                X: =733
+                X: =758
                 ZIndex: =16
 
-            Sort_Invoice_Num As icon.ChevronDown:
+            Sort_Invoice_Num_2 As icon.ChevronDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2303,11 +2303,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_Invoice_Number" Or !locSortAscending
                     })
                 Width: =20
-                X: =827
-                Y: =10
+                X: =858
+                Y: =8
                 ZIndex: =17
 
-            SelectAll_Checkbox As checkbox:
+            SelectAll_Checkbox_1 As checkbox:
                 BorderColor: =RGBA(246, 88, 16, 1)
                 CheckboxBorderColor: =RGBA(246, 88, 16, 1)
                 CheckboxSize: =25
@@ -2321,7 +2321,7 @@ RecordListScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galMasterLogItems.AllItems,
+                                    galMasterLogItems_1.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -2333,7 +2333,7 @@ RecordListScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galMasterLogItems.AllItems,
+                                    galMasterLogItems_1.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -2344,7 +2344,7 @@ RecordListScreen As screen:
                         {
                             _numberOfSelectedRecords: CountRows(
                                 Filter(
-                                    galMasterLogItems.AllItems,
+                                    galMasterLogItems_1.AllItems,
                                     CheckItem.Value = true
                                 )
                             )
@@ -2355,10 +2355,11 @@ RecordListScreen As screen:
                 Reset: =ResetCheck
                 Size: =13
                 Text: =
+                Visible: =false
                 Width: =35
                 ZIndex: =18
 
-            Header_Tax_1 As label:
+            Header_Tax_7 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2369,11 +2370,11 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Record Type"
                 Width: =51
-                X: =1140
-                Y: =2
+                X: =1167
+                Y: =1
                 ZIndex: =19
 
-            Sort_TAX_1 As icon.ArrowsUpDown:
+            Sort_TAX_5 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2391,11 +2392,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_Record_Type" Or !locSortAscending
                     })
                 Width: =20
-                X: =1190
-                Y: =10
+                X: =1218
+                Y: =7
                 ZIndex: =20
 
-            Header_FA_Action As label:
+            Header_FA_Action_2 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2405,11 +2406,11 @@ RecordListScreen As screen:
                 OnSelect: =
                 Size: =8
                 Text: ="Status"
-                Width: =60
-                X: =45
+                Width: =71
+                X: =116
                 ZIndex: =21
 
-            FA_Status_Checkbox As checkbox:
+            FA_Status_Checkbox_2 As checkbox:
                 BorderColor: =RGBA(246, 88, 16, 1)
                 BorderStyle: =BorderStyle.None
                 CheckboxBorderColor: =RGBA(246, 88, 16, 1)
@@ -2418,12 +2419,12 @@ RecordListScreen As screen:
                 Height: =38
                 HoverColor: =RGBA(131, 24, 75, 1)
                 OnCheck: |-
-                    =Reset(FA_Status_Search);
-                    Reset(FA_Status_Dropdown);
+                    =Reset(FA_Status_Search_2);
+                    Reset(FA_Status_Dropdown_2);
                     UpdateContext({VAR_FAStatus_DEF: ""});
                 OnUncheck: |-
-                    =Reset(FA_Status_Search);
-                    Reset(FA_Status_Dropdown);
+                    =Reset(FA_Status_Search_2);
+                    Reset(FA_Status_Dropdown_2);
                     UpdateContext({VAR_FAStatus_DEF: ""});
                 Size: =13
                 Text: =""
@@ -2432,7 +2433,7 @@ RecordListScreen As screen:
                 X: =116
                 ZIndex: =22
 
-            Header_Inbound_Date_5 As label:
+            Header_Inbound_Date_7 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2443,10 +2444,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Contract Number"
                 Width: =63
-                X: =980
+                X: =994
                 ZIndex: =23
 
-            Sort_Inbound_Date_5 As icon.ArrowsUpDown:
+            Sort_Inbound_Date_7 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2464,11 +2465,11 @@ RecordListScreen As screen:
                         locSortAscending: locSortColumn<>"Log_Invoice_ContractNumber" Or !locSortAscending
                     })
                 Width: =20
-                X: =1040
+                X: =1060
                 Y: =8
                 ZIndex: =24
 
-            Header_MOS_1 As label:
+            Header_MOS_5 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2479,10 +2480,10 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="Invoice Date"
                 Width: =68
-                X: =631
+                X: =685
                 ZIndex: =25
 
-            Sort_INS_MON As icon.ArrowsUpDown:
+            Sort_INS_MON_2 As icon.ArrowsUpDown:
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(246, 88, 16, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2505,7 +2506,7 @@ RecordListScreen As screen:
                 Y: =10
                 ZIndex: =26
 
-            Header_Tax_2 As label:
+            Header_Tax_8 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(131, 24, 75, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -2516,18 +2517,31 @@ RecordListScreen As screen:
                 Size: =8
                 Text: ="S9 Uploaded Date"
                 Width: =78
-                X: =1210
+                X: =1247
                 Y: =2
                 ZIndex: =27
 
-    NoRecordsContainer As groupContainer.manualLayoutContainer:
+            Label12 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.Arial
+                Height: =38
+                Size: =8
+                Text: ="Click here to Navigate Screen"
+                Width: =99
+                X: =17
+                ZIndex: =28
+
+    NoRecordsContainer_2 As groupContainer.manualLayoutContainer:
         Height: =521
-        Visible: =If(CountRows(galMasterLogItems.AllItems) = 0,true,false) && !initGalleryLoading
+        Visible: =If(CountRows(galMasterLogItems_1.AllItems) = 0,true,false) && !initGalleryLoading
         Width: =1366
         Y: =245
         ZIndex: =4
 
-        Search_Icon_for_no_items As icon.Search:
+        Search_Icon_for_no_items_4 As icon.Search:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(246, 88, 16, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2535,13 +2549,13 @@ RecordListScreen As screen:
             DisplayMode: =DisplayMode.View
             Height: =366
             Icon: =Icon.Search
-            Visible: =If(CountRows(galMasterLogItems.AllItems) = 0,true,false) && !initGalleryLoading
+            Visible: =If(CountRows(galMasterLogItems_1.AllItems) = 0,true,false) && !initGalleryLoading
             Width: =161
             X: =603
             Y: =62
             ZIndex: =1
 
-        No_Record_Found_Label As label:
+        No_Record_Found_Label_4 As label:
             Align: =Align.Center
             AutoHeight: =true
             BorderColor: =RGBA(131, 24, 75, 1)
@@ -2550,12 +2564,12 @@ RecordListScreen As screen:
             Height: =61
             Size: =30
             Text: ="No Records Found"
-            Visible: =If(CountRows(galMasterLogItems.AllItems) = 0,true,false) && !initGalleryLoading
+            Visible: =If(CountRows(galMasterLogItems_1.AllItems) = 0,true,false) && !initGalleryLoading
             Width: =1366
             Y: =368
             ZIndex: =2
 
-    "galFAStatusItems As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+    "galFAStatusItems_2 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         BorderColor: =RGBA(179, 179, 179, 1)
         BorderThickness: =3
         Fill: =RGBA(255, 255, 255, 1)
@@ -2574,7 +2588,7 @@ RecordListScreen As screen:
         Y: =203
         ZIndex: =6
 
-        Title5_1 As label:
+        Title5_3 As label:
             Align: =Align.Justify
             Color: =RGBA(246, 88, 16, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2593,7 +2607,7 @@ RecordListScreen As screen:
             X: =10
             ZIndex: =1
 
-        NextArrow5_1 As icon.ChevronRight:
+        NextArrow5_4 As icon.ChevronRight:
             AccessibleLabel: =Self.Tooltip
             BorderColor: =RGBA(230, 230, 230, 1)
             Color: =RGBA(211, 66, 9, 1)
@@ -2605,7 +2619,7 @@ RecordListScreen As screen:
             OnSelect: |-
                 =UpdateContext(
                     {
-                        VAR_FAStatus_DEF: galFAStatusItems.Selected.Value
+                        VAR_FAStatus_DEF: galFAStatusItems_2.Selected.Value
                     }
                 );
                 Reset(Vendor_TextInput);
@@ -2621,7 +2635,7 @@ RecordListScreen As screen:
             Y: =1
             ZIndex: =3
 
-        Separator5_1 As rectangle:
+        Separator5_3 As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
             Fill: =RGBA(0, 134, 208, 1)
             Height: =1
@@ -2630,7 +2644,7 @@ RecordListScreen As screen:
             Y: =Parent.TemplateHeight - 1
             ZIndex: =4
 
-    CancelFAModal As icon.CancelBadge:
+    CancelFAModal_2 As icon.CancelBadge:
         BorderColor: =RGBA(131, 24, 75, 1)
         Color: =RGBA(211, 66, 9, 1)
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2645,20 +2659,20 @@ RecordListScreen As screen:
         Y: =189
         ZIndex: =7
 
-    FlyoutMenuComponent_3 As FlyoutMenuComponent:
+    FlyoutMenuComponent_5 As FlyoutMenuComponent:
         CustomMenuItems: =colLeftNavMenu
-        Height: =FlyoutMenuComponent_3.MenuHeight
-        Width: =FlyoutMenuComponent_3.MenuWidth
+        Height: =FlyoutMenuComponent_5.MenuHeight
+        Width: =FlyoutMenuComponent_5.MenuWidth
         ZIndex: =8
 
-    grpEmbargoCommentPopup As group:
+    grpEmbargoCommentPopup_2 As group:
         Height: =5
         Width: =5
         X: =20
         Y: =40
         ZIndex: =16
 
-        rctEmbargoCommentback As rectangle:
+        rctEmbargoCommentback_2 As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
             Fill: =RGBA(0, 0, 0, .7)
             Height: =768
@@ -2666,7 +2680,7 @@ RecordListScreen As screen:
             Width: =1366
             ZIndex: =9
 
-        rctEmbargoCommenttop As rectangle:
+        rctEmbargoCommenttop_2 As rectangle:
             BorderColor: =RGBA(131, 24, 75, 1)
             Fill: =RGBA(230, 230, 230, 1)
             Height: =300
@@ -2676,7 +2690,7 @@ RecordListScreen As screen:
             Y: =201
             ZIndex: =10
 
-        txtEmbargoComment As text:
+        txtEmbargoComment_2 As text:
             BorderColor: =RGBA(131, 24, 75, 1)
             BorderThickness: =2
             Color: =RGBA(0, 0, 0, 1)
@@ -2698,7 +2712,7 @@ RecordListScreen As screen:
             Y: =278
             ZIndex: =11
 
-        lblEmbargoCommentHeader As label:
+        lblEmbargoCommentHeader_2 As label:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2711,7 +2725,7 @@ RecordListScreen As screen:
             Y: =217
             ZIndex: =12
 
-        btnCancelEmbargoComment As button:
+        btnCancelEmbargoComment_2 As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -2723,7 +2737,7 @@ RecordListScreen As screen:
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
             OnSelect: |-
                 =UpdateContext({showEmbargoCommentsPopup:false});
-                Reset(txtEmbargoComment);
+                Reset(txtEmbargoComment_2);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -2736,12 +2750,12 @@ RecordListScreen As screen:
             Y: =445
             ZIndex: =13
 
-        btnSaveEmbargoComment As button:
+        btnSaveEmbargoComment_2 As button:
             BorderStyle: =BorderStyle.None
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(IsBlank(txtEmbargoComment.Text),DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If(IsBlank(txtEmbargoComment_2.Text),DisplayMode.Disabled,DisplayMode.Edit)
             Fill: =RGBA(211, 66, 9, 1)
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -2751,7 +2765,7 @@ RecordListScreen As screen:
                 =ClearCollect(
                     colEmbargo,
                     Filter(
-                        galMasterLogItems.AllItems,
+                        galMasterLogItems_1.AllItems,
                         CheckItem.Value = true
                     ).Log_ID
                 );
@@ -2773,7 +2787,7 @@ RecordListScreen As screen:
                     )
                 );
                 UpdateContext({showEmbargoCommentsPopup:false});
-                Reset(txtEmbargoComment);
+                Reset(txtEmbargoComment_2);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -2786,7 +2800,7 @@ RecordListScreen As screen:
             Y: =445
             ZIndex: =14
 
-        IconEmbargoCommentClose As icon.CancelBadge:
+        IconEmbargoCommentClose_2 As icon.CancelBadge:
             BorderColor: =RGBA(131, 24, 75, 1)
             Color: =RGBA(255, 255, 255, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2795,7 +2809,7 @@ RecordListScreen As screen:
             Icon: =Icon.CancelBadge
             OnSelect: |-
                 =UpdateContext({showEmbargoCommentsPopup:false});
-                Reset(txtEmbargoComment);
+                Reset(txtEmbargoComment_2);
             Visible: =showEmbargoCommentsPopup
             Width: =58
             X: =900

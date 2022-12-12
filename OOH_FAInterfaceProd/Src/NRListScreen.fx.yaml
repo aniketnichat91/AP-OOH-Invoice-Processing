@@ -789,6 +789,18 @@ NRListScreen As screen:
                 Reset(Invoice_Num_Search_1);
                 Reset(FA_Status_Search_1);
                 Reset(Invoice_ContractNumber_Searchbox_1);
+                Set(
+                    globalSearchVar_InvoiceNumber,""
+                );
+                Set(
+                    globalSearchVar_FAAction,""
+                );
+                Set(
+                    globalSearchVar_InvoiceFormat,"New"
+                );
+                Set(
+                    globalSearchVar_InboundDate,"1/1/2022"
+                );
             PressedColor: =RGBA(246, 88, 16, 1)
             PressedFill: =WhiteSmoke
             RadiusBottomLeft: =0
