@@ -1,5 +1,5 @@
 {
-  "name": "Main_Dispatcher",
+  "name": "OOH_PBT_Dispatcher",
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {

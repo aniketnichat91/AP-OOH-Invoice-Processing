@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1326,3124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1326,3084</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrintBuyToolKit_DLCriteria_Vendor_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -45,7 +45,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -80,6 +80,8 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Orchestrator</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="PrintBuyToolKit_DLCriteria_Vendor" sap:VirtualizedContainerService.HintSize="1336,3019" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -182,8 +184,8 @@
                         </ui:Target>
                       </ui:TakeScreenshot.Target>
                     </ui:TakeScreenshot>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" />
-                    <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[imgScreenshot]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;ID&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" />
+                    <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;ID&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[imgScreenshot]" />
                     <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">

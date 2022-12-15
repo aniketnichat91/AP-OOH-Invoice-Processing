@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1348,4445</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1000,4450</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrintBuyToolKit_Logon_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="72">
@@ -102,7 +102,7 @@
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrintBuyToolKit_Logon" sap:VirtualizedContainerService.HintSize="1328,4385" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrintBuyToolKit_Logon" sap:VirtualizedContainerService.HintSize="1010,4385" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Result" />
       <Variable x:TypeArguments="x:Boolean" Name="Invalidpassword" />
@@ -114,7 +114,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="1286,4293" sap2010:WorkflowViewState.IdRef="Sequence_37">
+    <Sequence sap:VirtualizedContainerService.HintSize="968,4293" sap2010:WorkflowViewState.IdRef="Sequence_37">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="Download_Wizard" />
         <Variable x:TypeArguments="x:Boolean" Name="PBT_Window" />
@@ -125,8 +125,8 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="1244,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="ADBuyer" />
-      <Sequence DisplayName="Double Click Icon" sap:VirtualizedContainerService.HintSize="1244,729" sap2010:WorkflowViewState.IdRef="Sequence_24">
+      <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="926,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="ADBuyer" />
+      <Sequence DisplayName="Double Click Icon" sap:VirtualizedContainerService.HintSize="926,729" sap2010:WorkflowViewState.IdRef="Sequence_24">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -225,7 +225,7 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:CommentOut>
       </Sequence>
-      <ui:UiElementExists DisplayName="Element Exists 'adbuyer.exe Welcome'" Exists="[PBT_Window]" sap:VirtualizedContainerService.HintSize="1244,106" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
+      <ui:UiElementExists DisplayName="Element Exists 'adbuyer.exe Welcome'" Exists="[PBT_Window]" sap:VirtualizedContainerService.HintSize="926,106" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
         <ui:UiElementExists.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0cc0312b-40bb-4c6b-8703-2054dcbd8d16" InformativeScreenshot="a67dd8b19c69e9fe8581268bc12e54f4" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6FormDC' title='Welcome to Print Buy Toolkit' /&gt;">
             <ui:Target.TimeoutMS>
@@ -237,9 +237,9 @@
           </ui:Target>
         </ui:UiElementExists.Target>
       </ui:UiElementExists>
-      <If Condition="[PBT_Window]" sap:VirtualizedContainerService.HintSize="1244,3224" sap2010:WorkflowViewState.IdRef="If_9">
+      <If Condition="[PBT_Window]" sap:VirtualizedContainerService.HintSize="926,3224" sap2010:WorkflowViewState.IdRef="If_9">
         <If.Else>
-          <Sequence sap:VirtualizedContainerService.HintSize="1099,3076" sap2010:WorkflowViewState.IdRef="Sequence_42">
+          <Sequence sap:VirtualizedContainerService.HintSize="781,3076" sap2010:WorkflowViewState.IdRef="Sequence_42">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="isExists" />
             </Sequence.Variables>
@@ -248,8 +248,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1057,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[new System.Net.NetworkCredential(string.Empty, secStrPassword).Password]" />
-            <If Condition="True" DisplayName="If Get pass from Credential Manager" sap:VirtualizedContainerService.HintSize="1057,822" sap2010:WorkflowViewState.IdRef="If_4">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="739,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[new System.Net.NetworkCredential(string.Empty, secStrPassword).Password]" />
+            <If Condition="True" DisplayName="If Get pass from Credential Manager" sap:VirtualizedContainerService.HintSize="739,822" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -330,12 +330,12 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:UiElementExists DisplayName="DDS error" Exists="[error_DDS]" sap:VirtualizedContainerService.HintSize="1057,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+            <ui:UiElementExists DisplayName="DDS error" Exists="[error_DDS]" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f2d3d745-b02e-4a88-bfa4-ad6c33212938" InformativeScreenshot="dccf2f6e9e106891d2b7339376ba5ea2" Selector="&lt;wnd app='adbuyer.exe' omit:cls='#32770' title='DDS Error Report *' /&gt;" TimeoutMS="500" WaitForReady="INTERACTIVE" />
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[error_DDS]" DisplayName="If DDS Error" sap:VirtualizedContainerService.HintSize="1057,51" sap2010:WorkflowViewState.IdRef="If_5">
+            <If Condition="[error_DDS]" DisplayName="If DDS Error" sap:VirtualizedContainerService.HintSize="739,51" sap2010:WorkflowViewState.IdRef="If_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -384,7 +384,7 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:UiElementExists DisplayName="Invalid password" Exists="[Invalidpassword]" sap:VirtualizedContainerService.HintSize="1057,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+            <ui:UiElementExists DisplayName="Invalid password" Exists="[Invalidpassword]" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4bc47f45-02e9-47e5-ac43-bb6623d74d6d" InformativeScreenshot="bfa9a2b9de2c0e9a3fef09d57a3db2e3" Selector="&lt;wnd app='cnctmgr.exe' cls='#32770' title='DDS Logon' /&gt;&lt;wnd ctrlid='210' title='Invalid Personal Password. ' /&gt;" TimeoutMS="500" WaitForReady="INTERACTIVE" />
               </ui:UiElementExists.Target>
@@ -395,7 +395,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[Invalidpassword]" DisplayName="If invalid password" sap:VirtualizedContainerService.HintSize="1057,51" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[Invalidpassword]" DisplayName="If invalid password" sap:VirtualizedContainerService.HintSize="739,51" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -452,7 +452,7 @@
                 </Sequence>
               </If.Then>
             </If>
-            <ui:UiElementExists DisplayName="password expiry" Exists="[isExists]" sap:VirtualizedContainerService.HintSize="1057,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+            <ui:UiElementExists DisplayName="password expiry" Exists="[isExists]" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4bc47f45-02e9-47e5-ac43-bb6623d74d6d" InformativeScreenshot="f7b6c47f829784d44286a16781ebcdf4" Selector="&lt;wnd app='cnctmgr.exe' cls='#32770' title='Password Expiration Warning*)' /&gt;&lt;wnd ctrlid='65535' title='Your password will expire*' /&gt;" TimeoutMS="500" WaitForReady="INTERACTIVE" />
               </ui:UiElementExists.Target>
@@ -463,7 +463,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[isExists]" DisplayName="If password expiry popup" sap:VirtualizedContainerService.HintSize="1057,1401" sap2010:WorkflowViewState.IdRef="If_10">
+            <If Condition="[isExists]" DisplayName="If password expiry popup" sap:VirtualizedContainerService.HintSize="739,1401" sap2010:WorkflowViewState.IdRef="If_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -538,7 +538,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <umam:SendMail Account="{x:Null}" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" ReplyTo="{x:Null}" Body="Update the Login Password for PBT" DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="434,354" sap2010:WorkflowViewState.IdRef="SendMail_1" Importance="Normal" IsBodyHTML="False" IsDraft="False" Subject="PBT Login Cred Expiring" To="[{&quot;souravra@cybage.com&quot;}]">
+                            <umam:SendMail Account="{x:Null}" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" ReplyTo="{x:Null}" Body="Hi Team,&#xD;&#xA;OOH PBT Login Cred Expiring soon please Update the Login Password for OOH PBT&#xD;&#xA;&#xD;&#xA;Regards,&#xD;&#xA;OOH PBT BOT" DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="434,354" sap2010:WorkflowViewState.IdRef="SendMail_1" Importance="High" IsBodyHTML="False" IsDraft="False" Subject="OOH PBT Login Cred Expiring soon" To="[{in_Config(&quot;ApdigitalUSA&quot;).ToString}]">
                               <umam:SendMail.Attachments>
                                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                               </umam:SendMail.Attachments>

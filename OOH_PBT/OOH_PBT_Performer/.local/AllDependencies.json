@@ -7198,11 +7198,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "PBT_Dispather_Performer_Model",
-      "projectName": "PBT_Dispather_Performer_Model",
-      "projectPath": "C:\\1files\\UPProjects\\OOH_PBT\\OOH_PBT_Performer\\.local",
+      "projectUniqueName": "OOH_PBT_Performer_Model",
+      "projectName": "OOH_PBT_Performer_Model",
+      "projectPath": "C:\\1Files\\UPProjects\\OOH_PBT\\OOH_PBT_Performer\\.local",
       "packagesPath": "C:\\Users\\NTMGRM.RPA1\\.nuget\\packages\\",
-      "outputPath": "C:\\1files\\UPProjects\\OOH_PBT\\OOH_PBT_Performer\\.local"
+      "outputPath": "C:\\1Files\\UPProjects\\OOH_PBT\\OOH_PBT_Performer\\.local"
     },
     "frameworks": {
       "net461": {

@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1619,4742</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1619,4884</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_if_Multi_Invoice_1_Buy_invoices_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -87,7 +87,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Check_if_Multi_Invoice_1_Buy_invoices" sap:VirtualizedContainerService.HintSize="1629,4597" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Check_if_Multi_Invoice_1_Buy_invoices" sap:VirtualizedContainerService.HintSize="1629,4819" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="varquery" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtTagInvoices" />
@@ -133,18 +133,19 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUntagInvoices]" DisplayName="using For Each Row loop dtUntagInvoices table (contains all invoices which we need to be process)" sap:VirtualizedContainerService.HintSize="1587,3594" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUntagInvoices]" DisplayName="using For Each Row loop dtUntagInvoices table (contains all invoices which we need to be process)" sap:VirtualizedContainerService.HintSize="1587,3816" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1553,3474" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1553,3696" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtFAName" />
               <Variable x:TypeArguments="sd:DataTable" Name="dtBatchPresent" />
               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrResult" />
               <Variable x:TypeArguments="x:String" Name="Pub_Code" />
+              <Variable x:TypeArguments="x:String" Name="strMultiInvID" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -247,17 +248,58 @@
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:ExecuteQuery.Parameters>
             </ui:ExecuteQuery>
-            <If Condition="[dtBatchPresent.Rows.Count = 0]" DisplayName="If - same batch untagged invoice already added to staging table, proceed to next item, Do not add item to the queue" sap:VirtualizedContainerService.HintSize="1511,1948" sap2010:WorkflowViewState.IdRef="If_8">
+            <If Condition="[dtBatchPresent.Rows.Count = 0]" DisplayName="If - same batch untagged invoice already added to staging table, proceed to next item, Do not add item to the queue" sap:VirtualizedContainerService.HintSize="1511,2170" sap2010:WorkflowViewState.IdRef="If_8">
               <If.Then>
-                <If Condition="[isMultiInvoice1Buy]" DisplayName=" If Check Is multi invoice 1 buy invice" sap:VirtualizedContainerService.HintSize="1266,1800" sap2010:WorkflowViewState.IdRef="If_2">
+                <If Condition="[isMultiInvoice1Buy]" DisplayName=" If Check Is multi invoice 1 buy invice" sap:VirtualizedContainerService.HintSize="1266,2022" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="568,828" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence sap:VirtualizedContainerService.HintSize="568,1471" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strMultiInvID]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtFilterMultiInvoice]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="526,272" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                        <ui:ForEachRow.Body>
+                          <ActivityAction x:TypeArguments="sd:DataRow">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[strMultiInvID]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[strMultiInvID + ","+ CurrentRow("PBT_Log_ID").ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEachRow.Body>
+                      </ui:ForEachRow>
+                      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strMultiInvID]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[strMultiInvID.Substring(1,strMultiInvID.Length-1)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[strMultiInvID]" />
                       <Sequence sap:VirtualizedContainerService.HintSize="526,736" sap2010:WorkflowViewState.IdRef="Sequence_12">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="strInvName" />
@@ -270,7 +312,7 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this xaml we check if it is the first batch with same MCPE,MOS,PubCode,Agency&#xD;&#xA;If yes, the invoice with maximum amount is assigned as leading invoice and also bot updates the values for amount sum, batch details, invoice comment, stamp comment&#xD;&#xA;If not the first batch, bot gets the leading invoice for the same existing batch and adds the other columns (amount sum, invoice comment, stamp comment) values for only the untagged invoices&#xD;&#xA;Leading invoice remains the same throughout for all batches." DisplayName="Invoke Recalculations for Multi Invoice 1Buy workflow" sap:VirtualizedContainerService.HintSize="484,304" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Recalculations for Multi Invoice 1Buy.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this xaml we check if it is the first batch with same MCPE,MOS,PubCode,Agency&#xA;If yes, the invoice with maximum amount is assigned as leading invoice and also bot updates the values for amount sum, batch details, invoice comment, stamp comment&#xA;If not the first batch, bot gets the leading invoice for the same existing batch and adds the other columns (amount sum, invoice comment, stamp comment) values for only the untagged invoices&#xA;Leading invoice remains the same throughout for all batches." DisplayName="Invoke Recalculations for Multi Invoice 1Buy workflow" sap:VirtualizedContainerService.HintSize="484,304" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Recalculations for Multi Invoice 1Buy.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="inInvoiceDT">[dtFilterMultiInvoice]</InArgument>
                             <OutArgument x:TypeArguments="sd:DataRow" x:Key="outInvoiceDT">[outRow]</OutArgument>
@@ -285,6 +327,7 @@
                             <InArgument x:TypeArguments="x:String" x:Key="in_SPURL_GPC">[in_SPURL_GPC]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="isSegmentBuy">[IsSegmentBuy]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="ID">[row(1).ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="argMultiInvID">[strMultiInvID]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -315,17 +358,18 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="653,1652" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                    <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="653,1874" sap2010:WorkflowViewState.IdRef="Sequence_38">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Sequence - update required columns in Staging table" sap:VirtualizedContainerService.HintSize="611,859" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                      <Sequence DisplayName="Sequence - update required columns in Staging table" sap:VirtualizedContainerService.HintSize="611,1118" sap2010:WorkflowViewState.IdRef="Sequence_34">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="sd:DataTable" Name="dtIsSegmentBuy" />
                           <Variable x:TypeArguments="x:String" Name="dblTaxAmount" />
+                          <Variable x:TypeArguments="x:String" Name="strStampComment" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -381,12 +425,18 @@
                             <OutArgument x:TypeArguments="x:String">[IsSegmentBuy]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[dtIsSegmentBuy(0)("PBT_Is_Segement").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[dtIsSegmentBuy(0)("PBT_Is_Segment").ToString]</InArgument>
                           </Assign.Value>
                         </Assign>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="569,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Adding data to queue : &quot; + intQueueCounter.ToString]" />
+                        <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_13" Sql="[&quot;update OOH_pbt_Txn set PBT_MultiInv_Leading_Invoice_Flag = 1,PBT_Is_MultiInvoice=1,PBT_MultiInv_Batch_Details ='&quot;+row(&quot;Log_Validated_C&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_P&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_E&quot;).tostring+&quot;_&quot;+row(&quot;Log_Invoice_MOS&quot;).tostring+&quot;_&quot;+Pub_Code+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;',PBT_MultiInv_Leading_InvoiceNumber ='&quot;+row(&quot;Log_Invoice_Number&quot;).tostring+&quot;', PBT_MultiInv_Invoice_Amount_Sum = '&quot;+row(&quot;Log_Invoice_Amount&quot;).tostring+&quot;' , PBT_MultiInv_Tax_Amount_Sum = '&quot;+ dblTaxAmount+&quot;'  where (PBT_Is_Segment is null or PBT_Is_Segment = 0 or PBT_Is_Segment =  '') and PBT_Log_ID='&quot;+row(&quot;PBT_Log_ID&quot;).tostring+&quot;'&quot;]">
+                          <ui:ExecuteQuery.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:ExecuteQuery.Parameters>
+                        </ui:ExecuteQuery>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="569,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;update OOH_pbt_Txn set PBT_MultiInv_Leading_Invoice_Flag = 1,PBT_Is_MultiInvoice=1,PBT_MultiInv_Batch_Details ='&quot;+row(&quot;Log_Validated_C&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_P&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_E&quot;).tostring+&quot;_&quot;+row(&quot;Log_Invoice_MOS&quot;).tostring+&quot;_&quot;+Pub_Code+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;',PBT_MultiInv_Leading_InvoiceNumber ='&quot;+row(&quot;Log_Invoice_Number&quot;).tostring+&quot;', PBT_MultiInv_Invoice_Amount_Sum = '&quot;+row(&quot;Log_Invoice_Amount&quot;).tostring+&quot;' , PBT_MultiInv_Tax_Amount_Sum = '&quot;+ dblTaxAmount+&quot;'  where (PBT_Is_Segment is null or PBT_Is_Segment = 0 or PBT_Is_Segment =  '') and PBT_Log_ID='&quot;+row(&quot;PBT_Log_ID&quot;).tostring+&quot;'&quot;]" />
                       </Sequence>
-                      <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="611,661" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="611,624" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -394,13 +444,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="376,434" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                          <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="304,397" sap2010:WorkflowViewState.IdRef="Sequence_37">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                            <Sequence sap:VirtualizedContainerService.HintSize="262,114" sap2010:WorkflowViewState.IdRef="Sequence_35">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -426,15 +476,33 @@
                                   <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[String.Empty]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="IsSegmentBuy">[IsSegmentBuy]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="PBT_Recon_Status">[row("PBT_Recon_Status").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="Multi Invoice ID">[row("PBT_Log_ID").ToString]</InArgument>
                                 </ui:AddQueueItem.ItemInformation>
                               </ui:AddQueueItem>
                             </Sequence>
-                            <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_12" Sql="[&quot;update OOH_Log_Txn set Log_FA_Interface_Log_Status = 'In Queue' where Log_Invoice_Number like '&quot;+row(&quot;Log_Invoice_Number&quot;).ToString+&quot;' and Log_Publication_Code like '&quot;+row(&quot;Log_Publication_Code&quot;).ToString+&quot;'&quot;]">
-                              <ui:ExecuteQuery.Parameters>
-                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                              </ui:ExecuteQuery.Parameters>
-                            </ui:ExecuteQuery>
-                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_12" Sql="[&quot;update OOH_Log_Txn set Log_FA_Interface_Log_Status = 'In OOH PBT Queue' where Log_ID in( '&quot;+strMultiInvID+&quot;')&quot;]">
+                                    <ui:ExecuteQuery.Parameters>
+                                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                    </ui:ExecuteQuery.Parameters>
+                                  </ui:ExecuteQuery>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_33">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Int32">[intQueueCounter]</OutArgument>
                               </Assign.To>

@@ -6423,11 +6423,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "Main_Dispatcher",
-      "projectName": "Main_Dispatcher",
-      "projectPath": "C:\\1files\\UPProjects\\OOH_PBT\\OOH_PBT_Dispatcher\\.local",
+      "projectUniqueName": "OOH_PBT_Dispatcher",
+      "projectName": "OOH_PBT_Dispatcher",
+      "projectPath": "C:\\1Files\\UPProjects\\OOH_PBT\\OOH_PBT_Dispatcher\\.local",
       "packagesPath": "C:\\Users\\NTMGRM.RPA1\\.nuget\\packages\\",
-      "outputPath": "C:\\1files\\UPProjects\\OOH_PBT\\OOH_PBT_Dispatcher\\.local"
+      "outputPath": "C:\\1Files\\UPProjects\\OOH_PBT\\OOH_PBT_Dispatcher\\.local"
     },
     "frameworks": {
       "net461": {

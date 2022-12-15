@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1300,4510</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1300,4498</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Segment_Buys_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -91,9 +91,10 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,4405" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,4393" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strText" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:TextInfo)" Name="strWordsInfo" />
@@ -121,13 +122,13 @@
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
     <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="PBT_Segment_Insertion_Date" DataTable="[dtSegmentBuys]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="1268,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtSegmentBuys]" SortOrder="Ascending" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,4023" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,4011" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,3875" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,3863" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strSegmentCount" />
               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrresult" />
@@ -140,7 +141,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:Matches sap:VirtualizedContainerService.HintSize="1176,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[row(&quot;PBT_Segment_Insertion_Date&quot;).tostring]" IsBuilderTabModified="False" Pattern="\d{2}" RegexOption="IgnoreCase, Compiled" Result="[arrresult]" />
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[arrresult(0).tostring]" sap:VirtualizedContainerService.HintSize="1176,380" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[arrresult(0).tostring]" sap:VirtualizedContainerService.HintSize="1176,368" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -486,7 +487,7 @@
                       </ui:Target>
                     </ui:TakeScreenshot.Target>
                   </ui:TakeScreenshot>
-                  <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[argimgScreenshot]" />
+                  <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;ID&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[argimgScreenshot]" />
                 </Sequence>
               </If.Else>
             </If>
