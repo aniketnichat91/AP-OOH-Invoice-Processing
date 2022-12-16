@@ -279,7 +279,7 @@
         <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["select opt.*,a.Log_Invoice_Number,a.Log_Invoice_Amount,a.Log_Tax_Amount,a.Log_Validated_C,a.Log_Validated_P,a.Log_Validated_E,a.Log_Invoice_MOS,a.Log_Tax_Amount,ovm.Vendor_Name,oam.Agency_Name from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID left join OOH_Vendor_Master ovm on ovm.Vendor_ID=a.Log_Vendor_ID left join OOH_Agency_Master oam on oam.Agency_ID=a.Log_Agency_ID where a.Log_Validated_C like '"+C+"' and a.Log_Validated_P like '"+P+"' and a.Log_Validated_E like '"+E+"' and a.Log_Invoice_MOS like '"+MOS+"' and ovm.Vendor_Name like '"+Vendor+"' "]</InArgument>
+        <InArgument x:TypeArguments="x:String">["select opt.*,a.Log_Invoice_Number,try_convert(decimal(10, 2), a.Log_Invoice_Amount) Log_Invoice_Amount,a.Log_Tax_Amount,a.Log_Validated_C,a.Log_Validated_P,a.Log_Validated_E,a.Log_Invoice_MOS,a.Log_Tax_Amount,ovm.Vendor_Name,oam.Agency_Name from ooh_pbt_txn opt left join OOH_Log_Txn a on opt.PBT_Log_ID=a.Log_ID left join OOH_Vendor_Master ovm on ovm.Vendor_ID=a.Log_Vendor_ID left join OOH_Agency_Master oam on oam.Agency_ID=a.Log_Agency_ID where a.Log_Validated_C like '"+C+"' and a.Log_Validated_P like '"+P+"' and a.Log_Validated_E like '"+E+"' and a.Log_Invoice_MOS like '"+MOS+"' and ovm.Vendor_Name like '"+Vendor+"' "]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtFilterMultiInvoice]" DisplayName="Execute Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="1700,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[varQuery]">
@@ -954,7 +954,7 @@
         </ui:ExecuteQuery.Parameters>
       </ui:ExecuteQuery>
     </Sequence>
-    <ui:BuildDataTable DataTable="[dtInvoiceDetails]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1700,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;M&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Vendor&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;MOS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Agency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Inv_Num&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Inv_Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Inv_Tax_Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Invocie_Comment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Invoice_Comment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PBT_Recon_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:BuildDataTable DataTable="[dtInvoiceDetails]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1700,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;M&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Vendor&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;MOS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Agency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Inv_Num&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Inv_Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Inv_Tax_Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invocie_Comment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Comment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PBT_Recon_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
     <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{}]" DataTable="[dtInvoiceDetails]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="1700,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
     <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1700,470" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
@@ -1119,63 +1119,25 @@
           </ui:CommentOut>
           <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_10" Priority="High" QueueType="[argQueueName]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
             <ui:AddQueueItem.ItemInformation>
-              <InArgument x:TypeArguments="x:String" x:Key="ID">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ID" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(7).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(0).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="C">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(1).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="P">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(2).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="E">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(3).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(5).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(8).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(9).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Vendor">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(4).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Agency">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(6).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="argFAName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Tag Status">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Empty" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(11).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="IsMultiBuy">
-                <Literal x:TypeArguments="x:String">True</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(10).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="IsSegmentBuy">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="String.Empty" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="PBT_Recon_Status">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outInvoiceDT(12).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Multi Invoice ID">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="argMultiInvID" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ID">[ID]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT(7).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="MediaLookup">[outInvoiceDT(0).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="C">[outInvoiceDT(1).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="P">[outInvoiceDT(2).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="E">[outInvoiceDT(3).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="PDF_MOS">[outInvoiceDT(5).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="PDF_Amount">[outInvoiceDT(8).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="PDF_TAX_Amount">[outInvoiceDT(9).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Vendor">[outInvoiceDT(4).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Agency">[outInvoiceDT(6).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Finance Associate">[argFAName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Tag Status">[String.Empty]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Invoice Comment">[outInvoiceDT(11).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="IsMultiBuy">True</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Stamp Comment">[outInvoiceDT(10).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="IsSegmentBuy">[String.Empty]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="PBT_Recon_Status">[outInvoiceDT(12).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Multi Invoice ID">[argMultiInvID]</InArgument>
             </ui:AddQueueItem.ItemInformation>
           </ui:AddQueueItem>
           <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_55">

@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>4229,13462</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>3632,13838</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -105,7 +105,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="4239,13645" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="4239,13773" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="M" />
       <Variable x:TypeArguments="x:String" Name="C" />
@@ -804,9 +804,9 @@
         <InArgument x:TypeArguments="x:String">[E.TrimStart("0"c).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[isValidTax and not string.IsNullOrEmpty(E.Trim) and not String.IsNullOrEmpty(PDF_Amount) and isTaxAmountValid and isTaxRowPresent]" DisplayName="If - M,C,P,E data not matches with data in Database" sap:VirtualizedContainerService.HintSize="4197,9831" sap2010:WorkflowViewState.IdRef="If_26">
+    <If Condition="[isValidTax and not string.IsNullOrEmpty(E.Trim) and not String.IsNullOrEmpty(PDF_Amount) and isTaxAmountValid and isTaxRowPresent]" DisplayName="If - M,C,P,E data not matches with data in Database" sap:VirtualizedContainerService.HintSize="4197,9959" sap2010:WorkflowViewState.IdRef="If_26">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="3355,9683" sap2010:WorkflowViewState.IdRef="Sequence_18">
+        <Sequence sap:VirtualizedContainerService.HintSize="3355,9811" sap2010:WorkflowViewState.IdRef="Sequence_18">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -843,7 +843,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If Condition="[Flag = 0]" sap:VirtualizedContainerService.HintSize="3313,9042" sap2010:WorkflowViewState.IdRef="If_24">
+          <If Condition="[Flag = 0]" sap:VirtualizedContainerService.HintSize="3313,9170" sap2010:WorkflowViewState.IdRef="If_24">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -851,10 +851,10 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="797,3568" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence sap:VirtualizedContainerService.HintSize="797,3440" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -873,13 +873,8 @@
                     <InArgument x:TypeArguments="x:String">Invalid CPE Combination</InArgument>
                   </Assign.Value>
                 </Assign>
-                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="755,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Update ooh_pbt_txn set PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]" />
-                <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_6" Sql="[&quot;Update ooh_pbt_txn set PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]">
-                  <ui:ExecuteQuery.Parameters>
-                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                  </ui:ExecuteQuery.Parameters>
-                </ui:ExecuteQuery>
-                <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_19" Sql="[&quot;update ooh_pbt_txn set PBT_Tagged = 0 where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]">
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="755,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]" />
+                <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_6" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]">
                   <ui:ExecuteQuery.Parameters>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:ExecuteQuery.Parameters>
@@ -944,7 +939,7 @@
                               <OutArgument x:TypeArguments="x:String">[Tag_Status]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">Multi_Invoice_Yes</InArgument>
+                              <InArgument x:TypeArguments="x:String">["Invalid CPE Combination"]</InArgument>
                             </Assign.Value>
                           </Assign>
                           <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,445" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[arrInv_Comment]">
@@ -1115,7 +1110,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="2471,8894" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap:VirtualizedContainerService.HintSize="2471,9022" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:Image" Name="argimgScreenshot" />
                 </Sequence.Variables>
@@ -1245,7 +1240,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[(insertion_Count = 1 or (insertion_Count = 2 and not string.IsNullOrEmpty(PDF_TaxAmount))) and isEligibleforTagging]" sap:VirtualizedContainerService.HintSize="2429,6896" sap2010:WorkflowViewState.IdRef="If_23">
+                <If Condition="[(insertion_Count = 1 or (insertion_Count = 2 and not string.IsNullOrEmpty(PDF_TaxAmount))) and isEligibleforTagging]" sap:VirtualizedContainerService.HintSize="2429,7024" sap2010:WorkflowViewState.IdRef="If_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1253,14 +1248,14 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="1088,6748" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence sap:VirtualizedContainerService.HintSize="1088,6876" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap:VirtualizedContainerService.HintSize="1046,6656" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <Sequence sap:VirtualizedContainerService.HintSize="1046,6784" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:Boolean" Name="Save_Dialogue" />
                           <Variable x:TypeArguments="x:String" Name="OutInvAmount" />
@@ -1620,6 +1615,11 @@
                             <InArgument x:TypeArguments="x:String">[" Total Amount : "+PDF_Amount+" Subtotal Amount : "+OutInvAmount+" Tax Amount : "+OutTaxAmount+" "]</InArgument>
                           </Assign.Value>
                         </Assign>
+                        <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1004,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_30" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 1 ,PBT_Tag_Status = '&quot;+Tag_Status.Trim+&quot;', PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID in(&quot;+ID.ToString+&quot;) and (PBT_Tagged=0 or PBT_Tagged is null)&quot;]">
+                          <ui:ExecuteQuery.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:ExecuteQuery.Parameters>
+                        </ui:ExecuteQuery>
                         <Sequence DisplayName="Sequence - update ooh_pbt_txn db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="1004,1567" sap2010:WorkflowViewState.IdRef="Sequence_56">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1810,7 +1810,7 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="1296,4687" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence sap:VirtualizedContainerService.HintSize="1296,4815" sap2010:WorkflowViewState.IdRef="Sequence_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2033,7 +2033,7 @@
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence sap:VirtualizedContainerService.HintSize="526,540" sap2010:WorkflowViewState.IdRef="Sequence_115">
+                                <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_115">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -2095,6 +2095,11 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:CommentOut>
                       <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1254,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_8" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
+                      <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1254,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_29" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.Trim+&quot;', PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where  PBT_Log_ID in(&quot;+ID.ToString+&quot;) and (PBT_Tagged=0 or PBT_Tagged is null)&quot;]">
+                        <ui:ExecuteQuery.Parameters>
+                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                        </ui:ExecuteQuery.Parameters>
+                      </ui:ExecuteQuery>
                       <Sequence DisplayName="Sequence - update ooh_pbt_txn_db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="1254,1260" sap2010:WorkflowViewState.IdRef="Sequence_96">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -2294,7 +2299,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="797,3986" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence sap:VirtualizedContainerService.HintSize="797,3858" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2485,12 +2490,7 @@
           </Sequence>
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="755,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Update ooh_pbt_txn set PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Tag_Status not like 'yes' and PBT_MultiInv_Batch_Details like '&quot;+C+&quot;_&quot;+P+&quot;_&quot;+E+&quot;_&quot;+PDF_MOS_Unedited+&quot;_&quot;+PUBLICATION_CODE+&quot;%'&quot;]" />
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[Tag_Status]" />
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9" Sql="[&quot;Update ooh_pbt_txn set PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID='&quot;+strLog_id+&quot;'&quot;]">
-            <ui:ExecuteQuery.Parameters>
-              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-            </ui:ExecuteQuery.Parameters>
-          </ui:ExecuteQuery>
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_25" Sql="[&quot;update ooh_pbt_txn set PBT_Tagged = 0 where PBT_Log_ID = '&quot;+ID+&quot;'&quot;]">
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0 ,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID = '&quot;+ID+&quot;'&quot;]">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
