@@ -36,7 +36,7 @@
       "PBT_TS_Received": "PBT_TS_Received",
       "PBT_Update_Date": "PBT_Update_Date"
     },
-    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapoohdev01",
+    "DatasetName": "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01",
     "EncodeDataset": false,
     "IsSampleData": false,
     "IsWritable": true,

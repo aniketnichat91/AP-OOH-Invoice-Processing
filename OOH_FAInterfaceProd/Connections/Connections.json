@@ -113,6 +113,9 @@
     "datasets": {
       "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01": {
         "dataSources": {
+          "OOH_PBT_Txn": {
+            "tableName": "[dbo].[OOH_PBT_Txn]"
+          },
           "vw_DistinctMOSUnpaid": {
             "tableName": "[dbo].[vw_DistinctMOSUnpaid]"
           }
@@ -120,7 +123,8 @@
       }
     },
     "dataSources": [
-      "vw_DistinctMOSUnpaid"
+      "vw_DistinctMOSUnpaid",
+      "OOH_PBT_Txn"
     ],
     "dependencies": {},
     "dependents": [],
@@ -218,9 +222,6 @@
     "datasets": {
       "eussqsvgrmusafinance01.database.windows.net,eussqdbgrmusaapooh01": {
         "dataSources": {
-          "OOH_PBT_Txn": {
-            "tableName": "[dbo].[OOH_PBT_Txn]"
-          },
           "OOH_Predictions_Mview": {
             "tableName": "[dbo].[OOH_Predictions_Mview]"
           },
@@ -234,7 +235,6 @@
       }
     },
     "dataSources": [
-      "OOH_PBT_Txn",
       "OOH_Predictions_Mview",
       "OOH_Unpaid_Ref",
       "OOH_Vendor_Master"

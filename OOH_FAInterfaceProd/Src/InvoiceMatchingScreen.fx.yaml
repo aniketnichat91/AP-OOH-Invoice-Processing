@@ -628,36 +628,16 @@ InvoiceMatchingScreen As screen:
                     );
                     UpdateContext({showSegmentPopup: true});
                     Clear(ColSegmentUnpaidData);
-                    //Clear(colSegmentRecords1);
-                    //ClearCollect(colSegmentRecords,Filter(OOH_PBT_Txn,PBT_Log_ID=1))
                     
                     
-                    
-                    /*ClearCollect(
-                        colSegmentRecords,
-                        {
-                            lineNumber: 1,
-                            PBT_Log_ID: "",
-                            PBT_Segment_IDesk_Recon: "",
-                            PBT_Segment_ContractID: "",
-                            Ins_Date_Segment: "",
-                            TS_Received: "",
-                            Buy_Amount: "",
-                            Inv_Amount: "",
-                            Segment_Comment: ""
-                        }
-                    );*/
-                    //ClearCollect(colSegmentRecords2,{PBT_Log_ID: "",PBT_ID:"",PBT_Is_MultiInvoice:"",PBT_MultiInv_Leading_InvoiceNumber:"",PBT_MultiInv_Invoice_Amount_Sum:"",PBT_MultiInv_Tax_Amount_Sum:"",PBT_MultiInv_Batch_Details:"",PBT_MultiInv_Leading_Invoice_Flag:"",PBT_Is_Recon:"",PBT_Recon_Status:"",PBT_Recon_Comment:"",PBT_Is_Segement:"",PBT_Segment_Insertion_Date:"",PBT_Segment_Comment:"",PBT_Segment_InvoiceAmount:"",PBT_Segment_UnpaidRef_IDesk_Recon:"",PBT_Segment_UnpaidRef_ContractID:"",PBT_Tagged:"",PBT_Tag_Status:"",PBT_Tag_Date:"",PBT_Tag_Comment:"",PBT_Screenshot_Link:"",PBT_Stamp_Comment:"",PBT_Insertion_Date:"",PBT_Update_Date:"",PBT_FA_UpdatedBy_ID:""})
-                    
-                    If(InvoiceNum_TextInput.Text="1234",ClearCollect(colSegmentRecords,Filter(OOH_PBT_Txn, PBT_Log_ID=4800))
+                    If(Invoice_FA_Status_Label.Text="TAG",ClearCollect(colSegmentRecords,Filter(OOH_PBT_Txn, PBT_Log_ID=Value(selected_ID_Data.Text)))
                     ,ClearCollect(colSegmentRecords,{lineNumber: 1,PBT_Log_ID:0,PBT_ID:0,PBT_Recon_Status:"",PBT_Is_Segement:true,PBT_Segment_Comment:"",PBT_Segment_UnpaidRef_IDesk_Recon:"",PBT_Segment_UnpaidRef_ContractID:"",PBT_Insertion_Date:Now(),PBT_Update_Date:Now(),PBT_FA_UpdatedBy_ID:0}));
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =9
+                Size: =8
                 Text: ="SEGMENT"
-                Visible: =varIsQA
                 Width: =72
                 X: =125
                 Y: =150
@@ -1156,10 +1136,10 @@ InvoiceMatchingScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =9
+                Size: =8
                 Text: ="REFRESH"
-                Width: =82
-                X: =404
+                Width: =80
+                X: =414
                 Y: =150
                 ZIndex: =28
 
@@ -1362,10 +1342,10 @@ InvoiceMatchingScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =9
+                Size: =8
                 Text: ="UNPAID"
-                Width: =67
-                X: =500
+                Width: =65
+                X: =505
                 Y: =150
                 ZIndex: =35
 
@@ -1718,10 +1698,10 @@ InvoiceMatchingScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =9
+                Size: =8
                 Text: ="SAVE"
-                Width: =67
-                X: =321
+                Width: =62
+                X: =339
                 Y: =150
                 ZIndex: =51
 
@@ -1871,9 +1851,9 @@ InvoiceMatchingScreen As screen:
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
                 RadiusTopRight: =0
-                Size: =9
+                Size: =8
                 Text: ="SAVE CONTRACT ID"
-                Width: =96
+                Width: =116
                 X: =211
                 Y: =150
                 ZIndex: =52
@@ -1909,7 +1889,14 @@ InvoiceMatchingScreen As screen:
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
                 ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                 ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                Default: =
+                Default: |-
+                    =If(FA_Status_Dropdown.Selected.Value="" Or IsBlank(FA_Status_Dropdown.Selected.Value),"NA",
+                    LookUp(
+                        OOH_PBT_Txn,
+                        PBT_Log_ID = Value(ID_TextInput.Text),
+                        PBT_Recon_Status
+                    )
+                    )
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2047,9 +2034,7 @@ InvoiceMatchingScreen As screen:
                     BorderColor: =RGBA(230, 230, 230, 1)
                     Clear: =true
                     Color: =RGBA(0, 0, 0, 1)
-                    Default: |-
-                        =//LookUp(OOH_Log_Txn, Log_ID=Value(ID_TextInput.Text), Log_Client_Name)
-                        LookUp(OOH_Unpaid_Ref, Unpaid_Ref_Client_Code = C_TextInput.Text,Unpaid_Ref_Client_Name)
+                    Default: =LookUp(OOH_Unpaid_Ref, Unpaid_Ref_Client_Code = C_TextInput.Text,Unpaid_Ref_Client_Name)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -8064,6 +8049,8 @@ InvoiceMatchingScreen As screen:
                     Reset(Unpaid_Prod_Name_Search);
                     Reset(Unpaid_AccountOff_Search);
                     Reset(Unpaid_Ref_Invoice_Comment_Search);
+                    Reset(From_DatePicker);
+                    Reset(To_DatePicker);
                 Visible: =showUnpaidDialog
                 Width: =15
                 X: =1270
@@ -8259,7 +8246,7 @@ InvoiceMatchingScreen As screen:
                 Height: =33
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(211, 66, 9, 1)
-                OnSelect: |
+                OnSelect: |-
                     =UpdateContext(
                         {
                             VAR_Vendor_DEF: Concatenate(
@@ -8307,6 +8294,8 @@ InvoiceMatchingScreen As screen:
                     UpdateContext({MySelected: PaidUnpaidDataTable.Selected});
                     
                     UpdateContext({showUnpaidDialog: false});
+                    Reset(From_DatePicker);
+                    Reset(To_DatePicker);
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
@@ -9639,7 +9628,7 @@ InvoiceMatchingScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If((IsBlank(VAR_C_DEF)Or IsBlank(VAR_P_DEF) Or IsBlank(VAR_E_DEF) Or Invoice_FA_Status_Label.Text="") And isSegmentEdited=false,DisplayMode.Disabled,DisplayMode.Edit)
+            DisplayMode: =If((IsBlank(VAR_C_DEF)Or IsBlank(VAR_P_DEF) Or IsBlank(VAR_E_DEF) Or !IsBlank(FA_Status_Dropdown.Selected.Value)) And isSegmentEdited=false,DisplayMode.Disabled,DisplayMode.Edit)
             Fill: =RGBA(39, 113, 194, 1)
             FocusedBorderThickness: =2
             FontWeight: =FontWeight.Semibold
@@ -9729,7 +9718,7 @@ InvoiceMatchingScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
-            DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+            DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
             Fill: =RGBA(39, 113, 194, 1)
             FocusedBorderThickness: =2
             FontWeight: =FontWeight.Semibold
@@ -9808,7 +9797,9 @@ InvoiceMatchingScreen As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                DisplayMode: |-
+                    =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                    //Invoice_FA_Status_Label
                 FocusedBorderThickness: =2
                 Font: =Font.Arial
                 Height: =30
@@ -9863,7 +9854,7 @@ InvoiceMatchingScreen As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
                 Fill: =RGBA(211, 66, 9, 1)
                 FocusedBorderThickness: =2
                 FontWeight: =FontWeight.Bold
@@ -9884,7 +9875,7 @@ InvoiceMatchingScreen As screen:
                           // Segment_Comment: ReconUnpaidDataTable.Selected.Unpaid_Ref_Invoice_Comment,
                            PBT_TS_Received: ReconUnpaidDataTable.Selected.Unpaid_Ref_TS_Received,
                            PBT_Log_ID: Value(ID_TextInput.Text),
-                           PBT_Segment_ContractID: ReconUnpaidDataTable.Selected.Unpaid_Ref_Contract_ID
+                           PBT_Segment_UnpaidRef_ContractID: ReconUnpaidDataTable.Selected.Unpaid_Ref_Contract_ID
                         }
                     );
                     UpdateContext({varResetDropdown: true});
@@ -9908,7 +9899,7 @@ InvoiceMatchingScreen As screen:
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
                 Fill: =RGBA(39, 113, 194, 1)
                 Height: =30
                 Icon: |
@@ -10054,7 +10045,7 @@ InvoiceMatchingScreen As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
                 FocusedBorderThickness: =2
                 Font: =Font.Arial
                 Height: =30
@@ -10082,7 +10073,7 @@ InvoiceMatchingScreen As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(0, 0, 0, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
                 FocusedBorderThickness: =2
                 Font: =Font.Arial
                 Format: =TextFormat.Number
@@ -10116,7 +10107,7 @@ InvoiceMatchingScreen As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =If(Invoice_FA_Status_Label.Text="" And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
+                DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
                 Font: =Font.Arial
                 Height: =30
                 HoverColor: =RGBA(0, 0, 0, 1)
@@ -10267,6 +10258,7 @@ InvoiceMatchingScreen As screen:
             Color: =RGBA(102, 182, 227, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(!IsBlank(FA_Status_Dropdown.Selected.Value) And isSegmentEdited=false,DisplayMode.Disabled, DisplayMode.Edit)
             Height: =37
             Icon: =Icon.Add
             OnSelect: |
@@ -10315,7 +10307,7 @@ InvoiceMatchingScreen As screen:
             DisabledColor: =RGBA(0, 0, 0, 1)
             DisabledFill: =RGBA(179, 179, 179, 1)
             DisplayMode: |
-                =If(((IsBlank(VAR_C_DEF)Or IsBlank(VAR_P_DEF) Or IsBlank(VAR_E_DEF)) Or Invoice_FA_Status_Label.Text="") And isSegmentEdited=false,DisplayMode.Disabled,DisplayMode.Edit)
+                =If(((IsBlank(VAR_C_DEF)Or IsBlank(VAR_P_DEF) Or IsBlank(VAR_E_DEF)) Or !IsBlank(FA_Status_Dropdown.Selected.Value)) And isSegmentEdited=false,DisplayMode.Disabled,DisplayMode.Edit)
                 //DisplayMode.Disabled
             Fill: =RGBA(211, 66, 9, 1)
             FontWeight: =FontWeight.Semibold
@@ -10324,7 +10316,7 @@ InvoiceMatchingScreen As screen:
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
             OnSelect: |
                 =UpdateContext({showVendorModal: false});
-                /*If(
+                If(
                     VAR_VendorID_DEF = LookUp(
                         OOH_Log_Txn,
                         Log_ID = Value(ID_TextInput.Text),
@@ -10376,10 +10368,10 @@ InvoiceMatchingScreen As screen:
                         )
                     );
                     
-                );*/
+                );
                 If(
                     !IsBlank(Vendor_TextInput.Text) And !IsBlank(InvoiceNum_TextInput.Text) And !IsBlank(Amount_TextInput.Text) And !IsBlank(C_TextInput.Text) And !IsBlank(P_TextInput.Text) And !IsBlank(E_TextInput.Text) And !IsBlank(MOS_TextInput.Text) And !IsBlank(InvDate_TextInput.Text),
-                   /* Patch(
+                    Patch(
                         OOH_Log_Txn,
                         LookUp(
                             OOH_Log_Txn,
@@ -10403,12 +10395,12 @@ InvoiceMatchingScreen As screen:
                             Log_FA_Action_Status: "TAG",
                             Log_FA_Interface_Log_Status: "FA Processed"
                         }
-                    );*/
-                    /*OOHChangeVendorMapping.Run(
+                    );
+                    OOHChangeVendorMapping.Run(
                         ID_TextInput.Text,
                         VAR_VendorID_DEF,
                         0
-                    );*/
+                    );
                     Refresh(OOH_Log_Txn);
                     Refresh(OOH_Log_TXN_VIEW);
                     If(
@@ -10429,6 +10421,7 @@ InvoiceMatchingScreen As screen:
                             NotificationType.Error
                         )
                     );
+                    RemoveIf(OOH_PBT_Txn, PBT_Log_ID=Value(ID_TextInput.Text));
                     ForAll(
                         Recon_Gallery.AllItems,
                         Patch(
@@ -10437,15 +10430,18 @@ InvoiceMatchingScreen As screen:
                                 PBT_Log_ID: Value(ID_TextInput.Text),
                                 PBT_Insertion_Date: Now(),
                                 PBT_Segment_UnpaidRef_ContractID: lbl_hidden_ContractID.Text,
-                                //PBT_Is_Recon: true,
+                               // PBT_Is_Recon: true,
                                 PBT_Segment_BuyAmount:Value(txt_Segment_BuyAmt.Text),
-                                PBT_TS_Received:txt_Segment_TSReceived.Text,
+                             PBT_TS_Received:txt_Segment_TSReceived.Text,
                                 PBT_Segment_Insertion_Date:txt_Segment_InsDate.Text,
                                 PBT_Segment_InvoiceAmount:Value(txt_Segment_InvAmt.Text),
                                 PBT_Is_Segment: true,
                                 PBT_Segment_Comment: txt_Segment_Comment.Text,
                                 PBT_Recon_Status: ddl_Segment_OkToPay.Selected.Value,
                                 PBT_Segment_UnpaidRef_IDesk_Recon:lbl_hidden_Idesk_Recon.Text,
+                                PBT_Tagged: Blank(),
+                              PBT_Tag_Status: Blank(),
+                                PBT_Tag_Date: Blank(),
                                 PBT_Update_Date: Now(),
                                 PBT_FA_UpdatedBy_ID: Value(hide_FA_ID.Text)
                             }
@@ -10458,17 +10454,17 @@ InvoiceMatchingScreen As screen:
                             PBT_Log_ID: 0,
                             PBT_Segment_IDesk_Recon: "",
                             PBT_Segment_ContractID: "",
-                            Ins_Date_Segment: "",
-                            TS_Received: "",
+                            PBT_Segment_Insertion_Date: "",
+                            PBT_TS_Received: "",
                             Buy_Amount: "",
                             Inv_Amount: "",
-                            Segment_Comment: ""
+                            PBT_Segment_Comment: ""
                         }
                     );
                     UpdateContext({showSegmentPopup: false});
                     UpdateContext({isSegmentEdited: false});
                     Clear(ColSegmentUnpaidData);
-                    /*If(
+                    If(
                         ROWNUM >= Last(SelectedItems).rowNumber,
                         "",
                         UpdateContext({ROWNUM: ROWNUM + 1});
@@ -10623,7 +10619,7 @@ InvoiceMatchingScreen As screen:
                         Reset(Tax_TextInput);
                         Reset(InvDate_TextInput_initial);
                         Reset(ID_TextInput);
-                    ) */,
+                    ) ,
                     If(
                         IsBlank(InvDate_TextInput_initial.Text),
                         Notify(
@@ -10703,9 +10699,10 @@ InvoiceMatchingScreen As screen:
                     );*/
                     
                 );
-                Reset(Checkbox_Amount);
+                Reset(Segmented_Checkbox);
                 Reset(Checkbox_Invoice);
                 Reset(Checkbox_MOS);
+                Reset(Checkbox_Amount);
                 Reset(ViewCommentS9Input);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0

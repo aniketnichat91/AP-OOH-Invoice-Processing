@@ -21844,7 +21844,14 @@
         "DisabledFill",
         "PressedFill",
         "HoverFill",
-        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DisplayMode.Edit",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "X",
         "Y",
         "Width",
@@ -51446,7 +51453,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "NR_Button",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -59637,7 +59644,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "Default",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Default",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "AllowEmptySelection"
       ],
       "HasDynamicProperties": false,
@@ -73199,7 +73213,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TAG",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

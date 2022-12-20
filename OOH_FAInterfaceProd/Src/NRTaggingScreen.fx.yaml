@@ -2318,7 +2318,7 @@ NRTaggingScreen As screen:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(0, 0, 0, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =If(ROWNUM >= Last(SelectedItems).rowNumber Or showDialog = true,DisplayMode.Disabled,DisplayMode.Edit)
+                    DisplayMode: =If(ROWNUM >= Last(SelectedNRItems).rowNumber Or showDialog = true,DisplayMode.Disabled,DisplayMode.Edit)
                     Fill: =RGBA(0, 134, 208, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =20
@@ -7685,6 +7685,8 @@ NRTaggingScreen As screen:
                     Reset(Unpaid_Prod_Name_Search_1);
                     Reset(Unpaid_AccountOff_Search_1);
                     Reset(Unpaid_Ref_Invoice_Comment_Search_1);
+                    Reset(From_DatePicker_1);
+                    Reset(To_DatePicker_1);
                 Visible: =showUnpaidDialog
                 Width: =15
                 X: =1270
@@ -7880,7 +7882,7 @@ NRTaggingScreen As screen:
                 Height: =33
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =RGBA(211, 66, 9, 1)
-                OnSelect: |
+                OnSelect: |-
                     =UpdateContext(
                         {
                             VAR_Vendor_DEF: Concatenate(
@@ -7928,6 +7930,8 @@ NRTaggingScreen As screen:
                     UpdateContext({MySelected: PaidUnpaidDataTable_1.Selected});
                     
                     UpdateContext({showUnpaidDialog: false});
+                    Reset(From_DatePicker_1);
+                    Reset(To_DatePicker_1);
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0

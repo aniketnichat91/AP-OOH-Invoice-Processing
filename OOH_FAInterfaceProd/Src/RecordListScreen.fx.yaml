@@ -958,7 +958,7 @@ RecordListScreen As screen:
             Height: =26
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(204, 204, 204, 1)
-            Items: =[Blank(),"Manual - S9","Ignore","NR"]
+            Items: =[Blank(),"Manual - S9","Ignore","NR","TAG"]
             OnChange: |+
                 =UpdateContext({initGalleryLoading: false});
                 UpdateContext(
