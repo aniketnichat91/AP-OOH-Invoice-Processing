@@ -10066,7 +10066,7 @@ NRTaggingScreen As screen:
                                 PBT_TS_Received:txt_Segment_TSReceived.Text,
                                // PBT_Segment_Insertion_Date:Ins_Date_Segment.Text,
                                 PBT_Segment_InvoiceAmount:Value(txt_Segment_InvAmt.Text),
-                                PBT_Is_Segement: true,
+                                PBT_Is_Segment: true,
                                 //PBT_Segment_Comment: Segment_Comment.Text,
                                 PBT_Recon_Status: ddl_Segment_OkToPay.Selected.Value,
                                 PBT_Segment_UnpaidRef_IDesk_Recon:lbl_hidden_Idesk_Recon.Text,
