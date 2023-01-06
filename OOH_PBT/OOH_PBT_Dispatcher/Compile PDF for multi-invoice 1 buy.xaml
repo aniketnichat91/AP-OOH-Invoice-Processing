@@ -228,7 +228,7 @@
         <OutArgument x:TypeArguments="x:String">[varquery]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">["select * from OOH_PBT_Txn where PBT_MultiInv_Batch_Details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%'  and PBT_MultiInv_Leading_Invoice_Flag = 1"]</InArgument>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["select * from OOH_PBT_Txn where PBT_MultiInv_Batch_Details like '"+C+"_"+P+"_"+E+"_"+MOS+"_"+Pub_Code+"%'  and PBT_MultiInv_Leading_Invoice_Flag &lt;&gt; 1"]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtCompilationStatus]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="1152,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[varquery]">
@@ -250,7 +250,7 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <If Condition="[dtUnCompiledInvoices.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1152,3270" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[dtCompilationStatus.Rows.Count=0 and  dtUnCompiledInvoices.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1152,3270" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="907,3122" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <Sequence.Variables>
@@ -456,7 +456,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Sequence - for GPC Sharepoint" sap:VirtualizedContainerService.HintSize="736,2024" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <Sequence DisplayName="Sequence - for GPC Sharepoint" sap:VirtualizedContainerService.HintSize="736,520" sap2010:WorkflowViewState.IdRef="Sequence_26">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>3632,13838</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>4229,14565</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -105,7 +105,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="4239,13773" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="4239,14500" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="M" />
       <Variable x:TypeArguments="x:String" Name="C" />
@@ -154,6 +154,7 @@
       <Variable x:TypeArguments="x:String" Name="strLog_id" />
       <Variable x:TypeArguments="x:String" Name="strPBT_Recon_Status" />
       <Variable x:TypeArguments="x:String" Name="strMultiInvoiceID" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_segmentdate" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -375,27 +376,21 @@
       </If.Then>
     </If>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="4197,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing Record : &quot;+ Invoice_Num]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="4197,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[in_Config(&quot;SQLDatabaseConnectionString&quot;).ToString +in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" />
-    <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect - PROD" sap:VirtualizedContainerService.HintSize="4197,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_3" ProviderName="[in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" ConnectionString="[in_Config(&quot;SQLDatabaseConnectionString&quot;).ToString]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="4197,51" sap2010:WorkflowViewState.IdRef="CommentOut_34">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="4197,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[in_Config(&quot;SQLDatabaseConnectionStringProd&quot;).ToString +in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="4197,229" sap2010:WorkflowViewState.IdRef="CommentOut_38">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_110">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_123">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect - DEV" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_4" ProviderName="[in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" ConnectionString="[in_Config(&quot;SQLDatabaseConnectionStringDev&quot;).ToString]" />
+          <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect - DEV" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_3" ProviderName="[in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" ConnectionString="[in_Config(&quot;SQLDatabaseConnectionStringDev&quot;).ToString]" />
         </Sequence>
       </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <Sequence sap:VirtualizedContainerService.HintSize="4197,242" sap2010:WorkflowViewState.IdRef="Sequence_119">
+    <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect - PROD" sap:VirtualizedContainerService.HintSize="4197,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_4" ProviderName="[in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" ConnectionString="[in_Config(&quot;SQLDatabaseConnectionStringProd&quot;).ToString]" />
+    <Sequence sap:VirtualizedContainerService.HintSize="4197,791" sap2010:WorkflowViewState.IdRef="Sequence_119">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrResult" />
       </Sequence.Variables>
@@ -405,11 +400,11 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:Matches sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[Vendor]" IsBuilderTabModified="False" Pattern="\(([0-9,]*?)\)" RegexOption="IgnoreCase, Compiled" Result="[arrResult]" />
-      <If Condition="[arrResult.Count &gt; 0]" DisplayName="If - Vendor Column does not contain Pub Code in bracket" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_75">
+      <ui:Matches sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[Vendor]" IsBuilderTabModified="False" Pattern="\(([0-9,]*?)\)" RegexOption="IgnoreCase, Compiled" Result="[arrResult]" />
+      <If Condition="[arrResult.Count &gt; 0]" DisplayName="If - Vendor Column does not contain Pub Code in bracket" sap:VirtualizedContainerService.HintSize="484,600" sap2010:WorkflowViewState.IdRef="If_75">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
