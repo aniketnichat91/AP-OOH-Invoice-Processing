@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1988,6853</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1988,7193</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_if_Multi_Invoice_1_Buy_invoices_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -51,7 +51,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -87,9 +87,10 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Check_if_Multi_Invoice_1_Buy_invoices" sap:VirtualizedContainerService.HintSize="1998,6788" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Check_if_Multi_Invoice_1_Buy_invoices" sap:VirtualizedContainerService.HintSize="1998,7128" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="varquery" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtTagInvoices" />
@@ -145,13 +146,13 @@
         <InArgument x:TypeArguments="sd:DataTable">[dtUntagInvoices.AsEnumerable().GroupBy(Function(i) i.Field(Of Integer)(“PBT_Log_ID”)).Select(Function(g) g.First).CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUntagInvoices]" DisplayName="using For Each Row loop dtUntagInvoices table (contains all invoices which we need to be process)" sap:VirtualizedContainerService.HintSize="1956,5685" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUntagInvoices]" DisplayName="using For Each Row loop dtUntagInvoices table (contains all invoices which we need to be process)" sap:VirtualizedContainerService.HintSize="1956,6025" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1922,5565" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1922,5905" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtFAName" />
               <Variable x:TypeArguments="sd:DataTable" Name="dtBatchPresent" />
@@ -572,7 +573,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
-            <If Condition="[isMultiInvoice1Buy]" DisplayName=" If Check Is multi invoice 1 buy invice" sap:VirtualizedContainerService.HintSize="1880,4216" sap2010:WorkflowViewState.IdRef="If_14">
+            <If Condition="[isMultiInvoice1Buy]" DisplayName=" If Check Is multi invoice 1 buy invice" sap:VirtualizedContainerService.HintSize="1880,4556" sap2010:WorkflowViewState.IdRef="If_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -688,14 +689,14 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="1267,4068" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                <Sequence DisplayName="Sequence - add item when not a Multi-invoice record" sap:VirtualizedContainerService.HintSize="1267,4408" sap2010:WorkflowViewState.IdRef="Sequence_52">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Sequence - update required columns in Staging table" sap:VirtualizedContainerService.HintSize="1225,2488" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                  <Sequence DisplayName="Sequence - update required columns in Staging table" sap:VirtualizedContainerService.HintSize="1225,2828" sap2010:WorkflowViewState.IdRef="Sequence_48">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd:DataTable" Name="dtIsSegmentBuy" />
                       <Variable x:TypeArguments="x:String" Name="dblTaxAmount" />
@@ -707,7 +708,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence update stamp comment" sap:VirtualizedContainerService.HintSize="687,1330" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                    <Sequence DisplayName="Sequence update stamp comment" sap:VirtualizedContainerService.HintSize="1036,1670" sap2010:WorkflowViewState.IdRef="Sequence_53">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="strcomments" />
                         <Variable x:TypeArguments="sd:DataTable" Name="dtSegmentComment" />
@@ -717,7 +718,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="645,60" sap2010:WorkflowViewState.IdRef="Assign_57">
+                      <Assign sap:VirtualizedContainerService.HintSize="994,60" sap2010:WorkflowViewState.IdRef="Assign_57">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[strstamp_comment]</OutArgument>
                         </Assign.To>
@@ -725,7 +726,7 @@
                           <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign DisplayName="Assign - get all invoices where is segment=1" sap:VirtualizedContainerService.HintSize="645,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+                      <Assign DisplayName="Assign - get all invoices where is segment=1" sap:VirtualizedContainerService.HintSize="994,60" sap2010:WorkflowViewState.IdRef="Assign_56">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[varquery]</OutArgument>
                         </Assign.To>
@@ -733,25 +734,25 @@
                           <InArgument x:TypeArguments="x:String" xml:space="preserve">["select  * from OOH_PBT_Txn where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= "+row("PBT_Log_ID").ToString]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="645,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;select  * from OOH_PBT_Txn where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= &quot;+row(&quot;PBT_Log_ID&quot;).ToString]" />
-                      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtSegmentComment]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="645,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_18" Sql="[varquery]">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="994,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;select  * from OOH_PBT_Txn where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= &quot;+row(&quot;PBT_Log_ID&quot;).ToString]" />
+                      <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtSegmentComment]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="994,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_18" Sql="[varquery]">
                         <ui:ExecuteQuery.Parameters>
                           <scg:Dictionary x:TypeArguments="x:String, Argument" />
                         </ui:ExecuteQuery.Parameters>
                       </ui:ExecuteQuery>
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtSegmentComment]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="645,520" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtSegmentComment]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="994,860" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="960,740" sap2010:WorkflowViewState.IdRef="Sequence_54">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <If Condition="[string.IsNullOrEmpty(CurrentRow(&quot;PBT_Segment_Comment&quot;).ToString)]" DisplayName="If " sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_15">
+                              <If Condition="[string.IsNullOrEmpty(CurrentRow(&quot;PBT_Segment_Comment&quot;).ToString)]" DisplayName="If " sap:VirtualizedContainerService.HintSize="918,548" sap2010:WorkflowViewState.IdRef="If_15">
                                 <If.Then>
                                   <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_52">
                                     <Assign.To>
@@ -763,17 +764,46 @@
                                   </Assign>
                                 </If.Then>
                                 <If.Else>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_53">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:String">[strcomments]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:String">[CurrentRow("PBT_Segment_Comment").ToString]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[strcomments]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[CurrentRow("PBT_Segment_Comment").ToString]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <If Condition="[strcomments.ToString.ToLower.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_19">
+                                      <If.Then>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_64">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[strcomments]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[strcomments.Tostring.Replace("'","")]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_65">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[strcomments]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[CurrentRow("PBT_Segment_Comment").ToString]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
                                 </If.Else>
                               </If>
-                              <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_58">
+                              <Assign sap:VirtualizedContainerService.HintSize="918,60" sap2010:WorkflowViewState.IdRef="Assign_58">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strstamp_comment]</OutArgument>
                                 </Assign.To>
@@ -785,14 +815,14 @@
                           </ActivityAction>
                         </ui:ForEachRow.Body>
                       </ui:ForEachRow>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="645,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;update OOH_pbt_Txn set  PBT_Stamp_Comment = '&quot;+ strstamp_comment+&quot;'  where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= &quot;+row(&quot;PBT_Log_ID&quot;).ToString]" />
-                      <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="645,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_19" Sql="[&quot;update OOH_pbt_Txn set  PBT_Stamp_Comment = '&quot;+ strstamp_comment+&quot;'  where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= &quot;+row(&quot;PBT_Log_ID&quot;).ToString]">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="994,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;update OOH_pbt_Txn set  PBT_Stamp_Comment = '&quot;+ strstamp_comment+&quot;'  where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= &quot;+row(&quot;PBT_Log_ID&quot;).ToString]" />
+                      <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="994,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_19" Sql="[&quot;update OOH_pbt_Txn set  PBT_Stamp_Comment = '&quot;+ strstamp_comment+&quot;'  where PBT_Is_Segment=1 and PBT_Tagged is Null and PBT_Log_ID= &quot;+row(&quot;PBT_Log_ID&quot;).ToString]">
                         <ui:ExecuteQuery.Parameters>
                           <scg:Dictionary x:TypeArguments="x:String, Argument" />
                         </ui:ExecuteQuery.Parameters>
                       </ui:ExecuteQuery>
                     </Sequence>
-                    <Assign sap:VirtualizedContainerService.HintSize="687,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+                    <Assign sap:VirtualizedContainerService.HintSize="1036,60" sap2010:WorkflowViewState.IdRef="Assign_43">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[strInvComment]</OutArgument>
                       </Assign.To>
@@ -800,7 +830,7 @@
                         <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[string.IsNullOrEmpty(row(&quot;Log_Tax_Amount&quot;).ToString)]" DisplayName="If " sap:VirtualizedContainerService.HintSize="687,208" sap2010:WorkflowViewState.IdRef="If_13">
+                    <If Condition="[string.IsNullOrEmpty(row(&quot;Log_Tax_Amount&quot;).ToString)]" DisplayName="If " sap:VirtualizedContainerService.HintSize="1036,208" sap2010:WorkflowViewState.IdRef="If_13">
                       <If.Then>
                         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_44">
                           <Assign.To>
@@ -822,7 +852,7 @@
                         </Assign>
                       </If.Else>
                     </If>
-                    <Assign sap:VirtualizedContainerService.HintSize="687,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                    <Assign sap:VirtualizedContainerService.HintSize="1036,60" sap2010:WorkflowViewState.IdRef="Assign_46">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[varquery]</OutArgument>
                       </Assign.To>
@@ -830,12 +860,12 @@
                         <InArgument x:TypeArguments="x:String">[" select * from OOH_PBT_Txn where PBT_Log_ID = '"+row(1).ToString.Trim+"' "]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtIsSegmentBuy]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="687,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_14" Sql="[varquery]">
+                    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtIsSegmentBuy]" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="1036,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_14" Sql="[varquery]">
                       <ui:ExecuteQuery.Parameters>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:ExecuteQuery.Parameters>
                     </ui:ExecuteQuery>
-                    <Assign DisplayName="Assign - add this flag in the queue for the performer" sap:VirtualizedContainerService.HintSize="687,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+                    <Assign DisplayName="Assign - add this flag in the queue for the performer" sap:VirtualizedContainerService.HintSize="1036,60" sap2010:WorkflowViewState.IdRef="Assign_47">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[IsSegmentBuy]</OutArgument>
                       </Assign.To>
@@ -843,13 +873,13 @@
                         <InArgument x:TypeArguments="x:String">[dtIsSegmentBuy(0)("PBT_Is_Segment").ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="687,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Adding data to queue : &quot; + intQueueCounter.ToString]" />
-                    <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="687,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_15" Sql="[&quot;update OOH_pbt_Txn set PBT_MultiInv_Leading_Invoice_Flag = 1,PBT_MultiInv_Batch_Details ='&quot;+row(&quot;Log_Validated_C&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_P&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_E&quot;).tostring+&quot;_&quot;+row(&quot;Log_Invoice_MOS&quot;).tostring+&quot;_&quot;+Pub_Code+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;',PBT_MultiInv_Leading_InvoiceNumber ='&quot;+row(&quot;Log_Invoice_Number&quot;).tostring+&quot;', PBT_MultiInv_Invoice_Amount_Sum = '&quot;+row(&quot;Log_Invoice_Amount&quot;).tostring+&quot;' , PBT_MultiInv_Tax_Amount_Sum = '&quot;+ dblTaxAmount+&quot;'  where (PBT_Is_Segment is null or PBT_Is_Segment = 0 or PBT_Is_Segment =  '') and PBT_Log_ID='&quot;+row(&quot;PBT_Log_ID&quot;).tostring+&quot;'&quot;]">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1036,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Adding data to queue : &quot; + intQueueCounter.ToString]" />
+                    <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="1036,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_15" Sql="[&quot;update OOH_pbt_Txn set PBT_MultiInv_Leading_Invoice_Flag = 1,PBT_MultiInv_Batch_Details ='&quot;+row(&quot;Log_Validated_C&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_P&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_E&quot;).tostring+&quot;_&quot;+row(&quot;Log_Invoice_MOS&quot;).tostring+&quot;_&quot;+Pub_Code+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;',PBT_MultiInv_Leading_InvoiceNumber ='&quot;+row(&quot;Log_Invoice_Number&quot;).tostring+&quot;', PBT_MultiInv_Invoice_Amount_Sum = '&quot;+row(&quot;Log_Invoice_Amount&quot;).tostring+&quot;' , PBT_MultiInv_Tax_Amount_Sum = '&quot;+ dblTaxAmount+&quot;'  where (PBT_Is_Segment is null or PBT_Is_Segment = 0 or PBT_Is_Segment =  '') and PBT_Log_ID='&quot;+row(&quot;PBT_Log_ID&quot;).tostring+&quot;'&quot;]">
                       <ui:ExecuteQuery.Parameters>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:ExecuteQuery.Parameters>
                     </ui:ExecuteQuery>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="687,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;update OOH_pbt_Txn set PBT_MultiInv_Leading_Invoice_Flag = 1,PBT_MultiInv_Batch_Details ='&quot;+row(&quot;Log_Validated_C&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_P&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_E&quot;).tostring+&quot;_&quot;+row(&quot;Log_Invoice_MOS&quot;).tostring+&quot;_&quot;+Pub_Code+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;',PBT_MultiInv_Leading_InvoiceNumber ='&quot;+row(&quot;Log_Invoice_Number&quot;).tostring+&quot;', PBT_MultiInv_Invoice_Amount_Sum = '&quot;+row(&quot;Log_Invoice_Amount&quot;).tostring+&quot;' , PBT_MultiInv_Tax_Amount_Sum = '&quot;+ dblTaxAmount+&quot;'  where (PBT_Is_Segment is null or PBT_Is_Segment = 0 or PBT_Is_Segment =  '') and PBT_Log_ID='&quot;+row(&quot;PBT_Log_ID&quot;).tostring+&quot;'&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1036,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;update OOH_pbt_Txn set PBT_MultiInv_Leading_Invoice_Flag = 1,PBT_MultiInv_Batch_Details ='&quot;+row(&quot;Log_Validated_C&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_P&quot;).tostring+&quot;_&quot;+row(&quot;Log_Validated_E&quot;).tostring+&quot;_&quot;+row(&quot;Log_Invoice_MOS&quot;).tostring+&quot;_&quot;+Pub_Code+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;',PBT_MultiInv_Leading_InvoiceNumber ='&quot;+row(&quot;Log_Invoice_Number&quot;).tostring+&quot;', PBT_MultiInv_Invoice_Amount_Sum = '&quot;+row(&quot;Log_Invoice_Amount&quot;).tostring+&quot;' , PBT_MultiInv_Tax_Amount_Sum = '&quot;+ dblTaxAmount+&quot;'  where (PBT_Is_Segment is null or PBT_Is_Segment = 0 or PBT_Is_Segment =  '') and PBT_Log_ID='&quot;+row(&quot;PBT_Log_ID&quot;).tostring+&quot;'&quot;]" />
                   </Sequence>
                   <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="1225,1448" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                     <sap:WorkflowViewStateService.ViewState>

@@ -169,7 +169,7 @@
             </ui:Target>
           </ui:SendHotkey.Target>
         </ui:SendHotkey>
-        <ui:GetRobotCredential Username="{x:Null}" AssetName="PBTLogin" DisplayName="Get Credential" FolderPath="Default" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrPassword]" TimeoutMS="5000" />
+        <ui:GetRobotCredential Username="{x:Null}" AssetName="PBTLoginOOHFord" DisplayName="Get Credential" FolderPath="Default" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrPassword]" TimeoutMS="5000" />
         <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
           <ui:CommentOut.Body>
             <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,143" sap2010:WorkflowViewState.IdRef="Sequence_38">
@@ -538,7 +538,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <umam:SendMail Account="{x:Null}" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" ReplyTo="{x:Null}" Body="Hi Team,&#xD;&#xA;OOH PBT Login Cred Expiring soon please Update the Login Password for OOH PBT&#xD;&#xA;&#xD;&#xA;Regards,&#xD;&#xA;OOH PBT BOT" DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="434,354" sap2010:WorkflowViewState.IdRef="SendMail_1" Importance="High" IsBodyHTML="False" IsDraft="False" Subject="OOH PBT Login Cred Expiring soon" To="[{in_Config(&quot;ApdigitalUSA&quot;).ToString}]">
+                            <umam:SendMail Account="{x:Null}" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" ReplyTo="{x:Null}" Body="Hi Team,&#xA;OOH PBT Login Cred Expiring soon please Update the Login Password for OOH PBT&#xA;&#xA;Regards,&#xA;OOH PBT BOT" DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="434,354" sap2010:WorkflowViewState.IdRef="SendMail_1" Importance="High" IsBodyHTML="False" IsDraft="False" Subject="OOH PBT Login Cred Expiring soon" To="[{in_Config(&quot;ApdigitalUSA&quot;).ToString}]">
                               <umam:SendMail.Attachments>
                                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                               </umam:SendMail.Attachments>

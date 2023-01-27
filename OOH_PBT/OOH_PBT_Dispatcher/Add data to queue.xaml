@@ -94,7 +94,6 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="1085,3005" sap2010:WorkflowViewState.IdRef="Sequence_16">
@@ -248,7 +247,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_11" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt  left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; convert(date,dateadd(day,-30,getdate())) and opt.PBT_Tag_Status is null or opt.PBT_Tag_Status = '' And&#xA;olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_11" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt  left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xD;&#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xD;&#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; convert(date,dateadd(day,-30,getdate())) and opt.PBT_Tag_Status is null or opt.PBT_Tag_Status = '' And&#xD;&#xA;olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
               <ui:ExecuteQuery.Parameters>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:ExecuteQuery.Parameters>
@@ -278,7 +277,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_14" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; &#xA;convert(date,dateadd(day,-30,getdate())) And Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &lt;= convert(date,dateadd(day,-1,getdate())) And (opt.PBT_Tag_Status is null or opt.PBT_Tag_Status like '') &#xA;And olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_14" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xD;&#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; &#xD;&#xA;convert(date,dateadd(day,-30,getdate())) And Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xD;&#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &lt;= convert(date,dateadd(day,-1,getdate())) And (opt.PBT_Tag_Status is null or opt.PBT_Tag_Status like '') &#xD;&#xA;And olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
               <ui:ExecuteQuery.Parameters>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:ExecuteQuery.Parameters>
@@ -305,27 +304,13 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this xaml we check given invoice is multi invoice 1 buy or not, if yes then we go for next xaml ie. Recalculation  else directly we add data in queue" DisplayName="Invoke Check if Multi Invoice 1 Buy invoices workflow" sap:VirtualizedContainerService.HintSize="334,169" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Check if Multi Invoice 1 Buy invoices.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="dbConnection">
-                  <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="DB_Connection" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="argQueueName">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="argQueueName" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_SPURL">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SPURL" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_SPURL_GPC">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SPURL_GPC" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="argSavePDFPath">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="argSavePDFPath" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="argQueueNameFord">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="argQueueNameFord" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="argFordString">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="argFordString" />
-                </InArgument>
+                <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="dbConnection">[DB_Connection]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="argQueueName">[argQueueName]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SPURL">[in_SPURL]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SPURL_GPC">[in_SPURL_GPC]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="argSavePDFPath">[argSavePDFPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="argQueueNameFord">[argQueueNameFord]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="argFordString">[argFordString]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
