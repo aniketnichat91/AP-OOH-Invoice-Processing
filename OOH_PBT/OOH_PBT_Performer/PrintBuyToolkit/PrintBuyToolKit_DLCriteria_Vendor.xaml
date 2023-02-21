@@ -81,7 +81,6 @@
       <AssemblyReference>UiPath.Orchestrator</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="PrintBuyToolKit_DLCriteria_Vendor" sap:VirtualizedContainerService.HintSize="1336,3019" sap2010:WorkflowViewState.IdRef="Sequence_1">

@@ -25,7 +25,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>3186,2517</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2205,2477</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="86">
@@ -120,7 +120,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence: Type Into Cells" sap:VirtualizedContainerService.HintSize="3196,2412" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Sequence: Type Into Cells" sap:VirtualizedContainerService.HintSize="2215,2412" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="cvScreenText" />
       <Variable x:TypeArguments="x:String" Name="txtInvNumber" />
@@ -148,7 +148,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="3154,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="2173,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
@@ -194,7 +194,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If Condition="[txtInvNumber.Length &gt; 11]" DisplayName="If - split comment for SRC column as column length limit is 40 characters" sap:VirtualizedContainerService.HintSize="3154,214" sap2010:WorkflowViewState.IdRef="If_26">
+    <If Condition="[txtInvNumber.Length &gt; 11]" DisplayName="If - split comment for SRC column as column length limit is 40 characters" sap:VirtualizedContainerService.HintSize="2173,214" sap2010:WorkflowViewState.IdRef="If_26">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_90">
           <Sequence.Variables>
@@ -904,7 +904,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click PBT first row first column, activate TAB keys" sap:VirtualizedContainerService.HintSize="3154,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click PBT first row first column, activate TAB keys" sap:VirtualizedContainerService.HintSize="2173,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -929,14 +929,14 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Sequence sap:VirtualizedContainerService.HintSize="3154,1658" sap2010:WorkflowViewState.IdRef="Sequence_49">
+    <Sequence sap:VirtualizedContainerService.HintSize="2173,1658" sap2010:WorkflowViewState.IdRef="Sequence_49">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap:VirtualizedContainerService.HintSize="3112,1566" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <Sequence sap:VirtualizedContainerService.HintSize="2131,1566" sap2010:WorkflowViewState.IdRef="Sequence_13">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="uiCPEClick" />
           <Variable x:TypeArguments="x:String" Name="txtCPEtarget" />
@@ -949,7 +949,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence sap:VirtualizedContainerService.HintSize="3070,400" sap2010:WorkflowViewState.IdRef="Sequence_37">
+        <Sequence sap:VirtualizedContainerService.HintSize="2089,400" sap2010:WorkflowViewState.IdRef="Sequence_37">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -977,15 +977,15 @@
             </Assign.Value>
           </Assign>
         </Sequence>
-        <If Condition="[not argIsSegmentBuy.ToLower.Trim.Equals(&quot;true&quot;)]" DisplayName="If - not a segment buy invoice" sap:VirtualizedContainerService.HintSize="3070,1034" sap2010:WorkflowViewState.IdRef="If_27">
+        <If Condition="[not argIsSegmentBuy.ToLower.Trim.Equals(&quot;true&quot;)]" DisplayName="If - not a segment buy invoice" sap:VirtualizedContainerService.HintSize="2089,1034" sap2010:WorkflowViewState.IdRef="If_27">
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="2691,886" sap2010:WorkflowViewState.IdRef="Sequence_91">
+            <Sequence sap:VirtualizedContainerService.HintSize="1710,886" sap2010:WorkflowViewState.IdRef="Sequence_91">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[argInsertionCount = 1]" sap:VirtualizedContainerService.HintSize="2649,694" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[argInsertionCount = 1]" sap:VirtualizedContainerService.HintSize="1668,694" sap2010:WorkflowViewState.IdRef="If_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2232,7 +2232,7 @@
                   </If>
                 </If.Else>
               </If>
-              <Assign sap:VirtualizedContainerService.HintSize="2649,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+              <Assign sap:VirtualizedContainerService.HintSize="1668,60" sap2010:WorkflowViewState.IdRef="Assign_25">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Boolean">[isTagged]</OutArgument>
                 </Assign.To>
