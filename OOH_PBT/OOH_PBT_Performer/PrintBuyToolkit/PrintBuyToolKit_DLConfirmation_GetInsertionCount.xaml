@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>868,1173</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1546,1264</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrintBuyToolKit_GetConfirmation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -54,9 +54,19 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrintBuyToolKit_GetConfirmation" sap:VirtualizedContainerService.HintSize="622,1068" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrintBuyToolKit_GetConfirmation" sap:VirtualizedContainerService.HintSize="621,1199" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ConfirmationMsg" />
       <Variable x:TypeArguments="x:String" Default="A total of" Name="LabelBefore" />
@@ -68,7 +78,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="580,436" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="579,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start PrintBuyToolKit_GetConfirmation work Flow&quot;]" />
+    <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="579,436" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="ui:GenericValue" Name="ClientDownload" />
       </Sequence.Variables>
@@ -110,8 +121,8 @@
         </ui:WindowScope.Body>
       </ui:WindowScope>
     </Sequence>
-    <ui:Matches sap:VirtualizedContainerService.HintSize="580,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[ConfirmationMsg]" IsBuilderTabModified="False" Pattern="(?&lt;=A total of\s)(.*?)(?=\s)" RegexOption="IgnoreCase, Compiled" Result="[Matches]" />
-    <If Condition="[(Matches is Nothing ) or (Matches.Count=0)]" DisplayName="Get Insertion Count" sap:VirtualizedContainerService.HintSize="580,300" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:Matches sap:VirtualizedContainerService.HintSize="579,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[ConfirmationMsg]" IsBuilderTabModified="False" Pattern="(?&lt;=A total of\s)(.*?)(?=\s)" RegexOption="IgnoreCase, Compiled" Result="[Matches]" />
+    <If Condition="[(Matches is Nothing ) or (Matches.Count=0)]" DisplayName="Get Insertion Count" sap:VirtualizedContainerService.HintSize="579,300" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,7 +130,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="No match" />
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="No match" />
       </If.Then>
       <If.Else>
         <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_6">
@@ -139,6 +150,6 @@
         </Sequence>
       </If.Else>
     </If>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="580,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Insertion Count: &quot; + out_InsertionCount.ToString]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="579,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Insertion Count: &quot; + out_InsertionCount.ToString]" />
   </Sequence>
 </Activity>

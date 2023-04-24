@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1988,7193</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1988,7603</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_if_Multi_Invoice_1_Buy_invoices_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -90,7 +90,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Check_if_Multi_Invoice_1_Buy_invoices" sap:VirtualizedContainerService.HintSize="1998,7128" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Check_if_Multi_Invoice_1_Buy_invoices" sap:VirtualizedContainerService.HintSize="1998,7538" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="varquery" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtTagInvoices" />
@@ -110,6 +110,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1956,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Start Check_if_Multi_Invoice_1_Buy_invoices work flow&quot;]" />
     <Assign DisplayName="Assign - get all the  invoices" sap:VirtualizedContainerService.HintSize="1956,60" sap2010:WorkflowViewState.IdRef="Assign_11">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[varquery]</OutArgument>
@@ -138,21 +139,25 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <Assign DisplayName="Assign - remove duplicate rows with same PBT_Log_ID" sap:VirtualizedContainerService.HintSize="1956,60" sap2010:WorkflowViewState.IdRef="Assign_49">
-      <Assign.To>
-        <OutArgument x:TypeArguments="sd:DataTable">[dtUntagInvoices]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataTable">[dtUntagInvoices.AsEnumerable().GroupBy(Function(i) i.Field(Of Integer)(“PBT_Log_ID”)).Select(Function(g) g.First).CopyToDataTable]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUntagInvoices]" DisplayName="using For Each Row loop dtUntagInvoices table (contains all invoices which we need to be process)" sap:VirtualizedContainerService.HintSize="1956,6025" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <If Condition="[dtUntagInvoices.Rows.count&gt;0]" sap:VirtualizedContainerService.HintSize="1956,208" sap2010:WorkflowViewState.IdRef="If_20">
+      <If.Then>
+        <Assign DisplayName="Assign - remove duplicate rows with same PBT_Log_ID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_49">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[dtUntagInvoices]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[dtUntagInvoices.AsEnumerable().GroupBy(Function(i) i.Field(Of Integer)(“PBT_Log_ID”)).Select(Function(g) g.First).CopyToDataTable]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUntagInvoices]" DisplayName="using For Each Row loop dtUntagInvoices table (contains all invoices which we need to be process)" sap:VirtualizedContainerService.HintSize="1956,6156" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1922,5905" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1922,6036" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtFAName" />
               <Variable x:TypeArguments="sd:DataTable" Name="dtBatchPresent" />
@@ -226,6 +231,7 @@
                 </Assign>
               </If.Else>
             </If>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1880,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;is MultiInvoice 1Buy :&quot;+isMultiInvoice1Buy.ToString]" />
             <Assign DisplayName="Assign - get the FA Name" sap:VirtualizedContainerService.HintSize="1880,60" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[varquery]</OutArgument>
@@ -280,7 +286,7 @@
             </ui:CommentOut>
             <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1880,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="649,299" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1553,2257" sap2010:WorkflowViewState.IdRef="Sequence_43">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

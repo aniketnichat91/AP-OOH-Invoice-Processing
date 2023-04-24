@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>4659,14394</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>4659,14563</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -104,7 +104,7 @@
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="4669,14329" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="4669,14498" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="M" />
       <Variable x:TypeArguments="x:String" Name="C" />
@@ -388,7 +388,7 @@
     </If>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="4627,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing Record : &quot;+ Invoice_Num]" />
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="4627,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[in_Config(&quot;SQLDatabaseConnectionStringDev&quot;).ToString +in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="4197,229" sap2010:WorkflowViewState.IdRef="CommentOut_38">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="4627,229" sap2010:WorkflowViewState.IdRef="CommentOut_38">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_123">
           <sap:WorkflowViewStateService.ViewState>
@@ -810,9 +810,9 @@
         <InArgument x:TypeArguments="x:String">[E.TrimStart("0"c).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[isValidTax and not string.IsNullOrEmpty(E.Trim) and not String.IsNullOrEmpty(PDF_Amount) and isTaxAmountValid and isTaxRowPresent]" DisplayName="If - M,C,P,E data not matches with data in Database" sap:VirtualizedContainerService.HintSize="4627,10306" sap2010:WorkflowViewState.IdRef="If_26">
+    <If Condition="[isValidTax and not string.IsNullOrEmpty(E.Trim) and not String.IsNullOrEmpty(PDF_Amount) and isTaxAmountValid and isTaxRowPresent]" DisplayName="If - M,C,P,E data not matches with data in Database" sap:VirtualizedContainerService.HintSize="4627,10475" sap2010:WorkflowViewState.IdRef="If_26">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="3785,10158" sap2010:WorkflowViewState.IdRef="Sequence_18">
+        <Sequence sap:VirtualizedContainerService.HintSize="3785,10327" sap2010:WorkflowViewState.IdRef="Sequence_18">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -849,7 +849,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If Condition="[Flag = 0]" sap:VirtualizedContainerService.HintSize="3743,9517" sap2010:WorkflowViewState.IdRef="If_24">
+          <If Condition="[Flag = 0]" sap:VirtualizedContainerService.HintSize="3743,9686" sap2010:WorkflowViewState.IdRef="If_24">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1230,7 +1230,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="2901,9369" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap:VirtualizedContainerService.HintSize="2901,9538" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:Image" Name="argimgScreenshot" />
                 </Sequence.Variables>
@@ -1255,9 +1255,9 @@
                     <OutArgument x:TypeArguments="ui:Image" x:Key="imgScreenshot">[argimgScreenshot]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <If Condition="[insertion_Count &gt; 0]" DisplayName="If - check invoice num and amount already present, and exclude free buys rows  from PBT" sap:VirtualizedContainerService.HintSize="2859,1520" sap2010:WorkflowViewState.IdRef="If_56">
+                <If Condition="[insertion_Count &gt; 0]" DisplayName="If - check invoice num and amount already present, and exclude free buys rows  from PBT" sap:VirtualizedContainerService.HintSize="2859,1689" sap2010:WorkflowViewState.IdRef="If_56">
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="798,1372" sap2010:WorkflowViewState.IdRef="Sequence_87">
+                    <Sequence sap:VirtualizedContainerService.HintSize="798,1541" sap2010:WorkflowViewState.IdRef="Sequence_87">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="varQuery" />
                         <Variable x:TypeArguments="sd:DataTable" Name="dtUntrackedInvoices" />
@@ -1326,41 +1326,52 @@
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <If Condition="[not IsMultiBuy.ToLower.Contains(&quot;true&quot;) AndAlso not isSegmentBuy.ToLower.Equals(&quot;true&quot;)]" DisplayName="If - multiinvoice  1 buy scenario, edit the PBT worksheet, else check if amount already present" sap:VirtualizedContainerService.HintSize="756,509" sap2010:WorkflowViewState.IdRef="If_68">
-                        <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="376,361" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="756,678" sap2010:WorkflowViewState.IdRef="CommentOut_39">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="563,600" sap2010:WorkflowViewState.IdRef="Sequence_130">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Scrape Tagging screen and check if invoice num and invoice amount is already tagged to the invoice&#xA;" DisplayName="Invoke Read Tagging Screen PBT workflow" sap:VirtualizedContainerService.HintSize="334,169" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Read Tagging Screen PBT.xaml">
-                              <ui:InvokeWorkflowFile.Arguments>
-                                <OutArgument x:TypeArguments="x:Boolean" x:Key="boolInvNum">[boolInvNum]</OutArgument>
-                                <OutArgument x:TypeArguments="x:Boolean" x:Key="boolInvAmount">[boolInvAmount]</OutArgument>
-                                <OutArgument x:TypeArguments="ui:Image" x:Key="argImgScreenshot">[argimgScreenshot]</OutArgument>
-                              </ui:InvokeWorkflowFile.Arguments>
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                            </ui:InvokeWorkflowFile>
-                            <Assign DisplayName="Assign - check if invoice amount and number present. If Yes - do not tag " sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_89">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:Boolean">[isEligibleforTagging]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:Boolean">[boolInvAmount and boolInvNum]</InArgument>
-                              </Assign.Value>
-                            </Assign>
+                            <If Condition="[not IsMultiBuy.ToLower.Contains(&quot;true&quot;) AndAlso not isSegmentBuy.ToLower.Equals(&quot;true&quot;)]" DisplayName="If - multiinvoice  1 buy scenario, edit the PBT worksheet, else check if amount already present" sap:VirtualizedContainerService.HintSize="521,508" sap2010:WorkflowViewState.IdRef="If_68">
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,361" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Scrape Tagging screen and check if invoice num and invoice amount is already tagged to the invoice&#xA;" DisplayName="Invoke Read Tagging Screen PBT workflow" sap:VirtualizedContainerService.HintSize="334,169" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Read Tagging Screen PBT.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="boolInvNum">[boolInvNum]</OutArgument>
+                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="boolInvAmount">[boolInvAmount]</OutArgument>
+                                      <OutArgument x:TypeArguments="ui:Image" x:Key="argImgScreenshot">[argimgScreenshot]</OutArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InvokeWorkflowFile>
+                                  <Assign DisplayName="Assign - check if invoice amount and number present. If Yes - do not tag " sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_89">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">[isEligibleforTagging]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">[boolInvAmount and boolInvNum]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </If.Then>
+                            </If>
                           </Sequence>
-                        </If.Then>
-                      </If>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[(insertion_Count = 1 or (insertion_Count = 2 and not string.IsNullOrEmpty(PDF_TaxAmount))) and isEligibleforTagging]" sap:VirtualizedContainerService.HintSize="2859,7371" sap2010:WorkflowViewState.IdRef="If_23">
+                <If Condition="[(insertion_Count = 1 or (insertion_Count = 2 and not string.IsNullOrEmpty(PDF_TaxAmount)))]" sap:VirtualizedContainerService.HintSize="2859,7371" sap2010:WorkflowViewState.IdRef="If_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

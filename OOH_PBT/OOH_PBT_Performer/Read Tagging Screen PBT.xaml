@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1314,1773</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1546,1784</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Tagging_Screen_PBT_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -66,9 +66,21 @@
       <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_Tagging_Screen_PBT" sap:VirtualizedContainerService.HintSize="611,1588" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_Tagging_Screen_PBT" sap:VirtualizedContainerService.HintSize="611,1719" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="cvScopeText" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:TextInfo)" Name="cvTextInfo" />
@@ -82,6 +94,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="569,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Strat Read_Tagging_Screen_PBT work flow&quot;]" />
     <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate 'adbuyer.exe Print'" sap:VirtualizedContainerService.HintSize="569,106" sap2010:WorkflowViewState.IdRef="Activate_1">
       <ui:Activate.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d6160f02-8092-4ca9-a230-2a1f120a68d3" InformativeScreenshot="de15f23fcd57e12c1b4089678fafe077" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit*' /&gt;">

@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1184,5900</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1546,6322</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Compile_PDF_for_multi_invoice_1_buy_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -100,7 +100,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Compile_PDF_for_multi_invoice_1_buy" sap:VirtualizedContainerService.HintSize="1194,5835" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Compile_PDF_for_multi_invoice_1_buy" sap:VirtualizedContainerService.HintSize="1194,6097" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtRegEx" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arRegExResult" />
@@ -126,6 +126,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1152,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Start Compile_PDF_for_multi_invoice_1_buy work flow&quot;]" />
     <Assign DisplayName="Assign get files from path" sap:VirtualizedContainerService.HintSize="1152,60" sap2010:WorkflowViewState.IdRef="Assign_9">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[arrPdfFilePath]</OutArgument>
@@ -250,9 +251,9 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <If Condition="[dtCompilationStatus.Rows.Count=0 and  dtUnCompiledInvoices.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1152,3270" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[dtCompilationStatus.Rows.Count=0 and  dtUnCompiledInvoices.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1152,3401" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="907,3122" sap2010:WorkflowViewState.IdRef="Sequence_27">
+        <Sequence sap:VirtualizedContainerService.HintSize="907,3253" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtLeadingInvoice" />
           </Sequence.Variables>
@@ -288,7 +289,7 @@
               <InArgument x:TypeArguments="sd:DataTable">[dtUnCompiledInvoices.AsEnumerable().GroupBy(Function(i) i.Field(Of String)(“Log_Invoice_Number”)).Select(Function(g) g.First).CopyToDataTable]</InArgument>
             </Assign.Value>
           </Assign>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="865,2323" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="865,2454" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -296,7 +297,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <Sequence sap:VirtualizedContainerService.HintSize="827,2096" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence sap:VirtualizedContainerService.HintSize="827,2227" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -412,19 +413,19 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </usa:SharepointApplicationScope>
-                <usa:SharepointApplicationScope AzureApplicationID="{x:Null}" ClientContext="{x:Null}" ClientId="{x:Null}" ClientSecret="{x:Null}" LoginTimeout="{x:Null}" Password="{x:Null}" AzureAppPermissions="None" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="785,337" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_2" PlatformType="Online" QueryGrouping="False" ResetCredentials="False" SecurePassword="[strPassword]" SharePointInstanceType="Online" URL="[in_SPURL]" UserName="[strUserName]">
+                <usa:SharepointApplicationScope AzureApplicationID="{x:Null}" ClientContext="{x:Null}" ClientId="{x:Null}" ClientSecret="{x:Null}" LoginTimeout="{x:Null}" Password="{x:Null}" AzureAppPermissions="None" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="785,468" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_2" PlatformType="Online" QueryGrouping="False" ResetCredentials="False" SecurePassword="[strPassword]" SharePointInstanceType="Online" URL="[in_SPURL]" UserName="[strUserName]">
                   <usa:SharepointApplicationScope.Body>
                     <ActivityAction x:TypeArguments="us:SharePointContextInfo">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="us:SharePointContextInfo" Name="SharePointContextInfoTag" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="315,196" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,327" sap2010:WorkflowViewState.IdRef="Sequence_15">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <usal:UploadFile AttachmentsAction="{x:Null}" PropertiesToAdd="{x:Null}" RelativeUrlHintText="{x:Null}" AllowOperationsOnASPXFiles="False" AllowOverwrite="True" CheckInFileAfterCreation="False" CheckOutFileBeforeOverwrite="False" ChooseFile="True" DisplayName="Upload file" sap:VirtualizedContainerService.HintSize="273,104" sap2010:WorkflowViewState.IdRef="UploadFile_1" LocalPath="[argSavePDFPath+&quot;\&quot;+argInvName]" LocalPathHintText="The current local path of the file" RelativeUrl="[strUploadLink]" ShowAttachFiles="False" ShowCAMLQuery="False" ShowCAMLWarning="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="False" ShowLocalPath="True" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="True" ShowRename="False" ShowUserName="False">
+                        <usal:UploadFile AttachmentsAction="{x:Null}" PropertiesToAdd="{x:Null}" RelativeUrlHintText="{x:Null}" AllowOperationsOnASPXFiles="False" AllowOverwrite="True" CheckInFileAfterCreation="False" CheckOutFileBeforeOverwrite="False" ChooseFile="True" DisplayName="Upload file" sap:VirtualizedContainerService.HintSize="334,104" sap2010:WorkflowViewState.IdRef="UploadFile_1" LocalPath="[argSavePDFPath+&quot;\&quot;+argInvName]" LocalPathHintText="The current local path of the file" RelativeUrl="[strUploadLink]" ShowAttachFiles="False" ShowCAMLQuery="False" ShowCAMLWarning="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="False" ShowLocalPath="True" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="True" ShowRename="False" ShowUserName="False">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -432,6 +433,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </usal:UploadFile>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Upload file on Sharepoint&quot;]" />
                       </Sequence>
                     </ActivityAction>
                   </usa:SharepointApplicationScope.Body>

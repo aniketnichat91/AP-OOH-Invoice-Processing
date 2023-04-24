@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PrintBuyToolKit_CloseDLWizard" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="903.2,687.2" sap2010:WorkflowViewState.IdRef="PrintBuyToolKit_CloseDLWizard_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PrintBuyToolKit_CloseDLWizard" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1546,831" sap2010:WorkflowViewState.IdRef="PrintBuyToolKit_CloseDLWizard_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -42,44 +42,59 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrintBuyToolKit_CloseDLWizard" sap:VirtualizedContainerService.HintSize="883.2,587.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrintBuyToolKit_CloseDLWizard" sap:VirtualizedContainerService.HintSize="886,713" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Desktop" sap:VirtualizedContainerService.HintSize="841.6,494.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="844,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start PrintBuyToolKit_CloseDLWizard work flow&quot;]" />
+    <Sequence DisplayName="Desktop" sap:VirtualizedContainerService.HintSize="844,490" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DownloadW Thunderrt'" sap:VirtualizedContainerService.HintSize="800,401.6" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6FormDC' title='Download Wizard' /&gt;">
+      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DownloadW Thunderrt'" sap:VirtualizedContainerService.HintSize="802,398" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6FormDC' title='Download Wizard' /&gt;">
         <ui:WindowScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="766.4,292.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="768,290" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:AnchorBase AnchorPosition="Left" sap:VirtualizedContainerService.HintSize="724.8,200" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
+              <ui:AnchorBase AnchorPosition="Left" sap:VirtualizedContainerService.HintSize="726,198" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
                 <ui:AnchorBase.Action>
                   <ActivityAction x:TypeArguments="ui:Anchor">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
                     </ActivityAction.Argument>
-                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Action Click 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Action Click 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition OffsetX="35" OffsetY="22" Position="TopLeft" />
                       </ui:Click.CursorPosition>
                       <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5092aacb045f69381abd18d763677f6c" Selector="&lt;wnd cls='ThunderRT6CommandButton' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1eeabd4a-f525-45ac-9fd1-dab437f69432" InformativeScreenshot="5092aacb045f69381abd18d763677f6c" Selector="&lt;wnd cls='ThunderRT6CommandButton' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -92,9 +107,9 @@
                   </ActivityAction>
                 </ui:AnchorBase.Action>
                 <ui:AnchorBase.AnchorProvider>
-                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Anchor Find Element 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Anchor Find Element 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
                     <ui:WaitUiElementAppear.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fee8fd33d7e3ed803799519240cc415e" Selector="&lt;wnd cls='ThunderRT6CommandButton' title='Help' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="389c5e51-e674-43d8-a508-2a3833ca178c" InformativeScreenshot="fee8fd33d7e3ed803799519240cc415e" Selector="&lt;wnd cls='ThunderRT6CommandButton' title='Help' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
