@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>5979,15680</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>6405,15888</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -105,7 +105,7 @@
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="5989,15575" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="6415,15823" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="M" />
       <Variable x:TypeArguments="x:String" Name="C" />
@@ -159,6 +159,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Arch" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Reason" />
       <Variable x:TypeArguments="x:String" Name="str_Taxamount" />
+      <Variable x:TypeArguments="x:String" Name="strclient_name" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -166,9 +167,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="5947,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Start Process work flow&quot;]" />
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="5947,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="5947,842" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="6373,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Start Process work flow&quot;]" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="6373,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="6373,842" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -374,8 +375,8 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="5947,91" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;MCPE :&quot;+M+C+P+E]" />
-    <If Condition="[strPBT_Recon_Status.ToString.ToLower.Contains(&quot;na&quot;)]" sap:VirtualizedContainerService.HintSize="5947,208" sap2010:WorkflowViewState.IdRef="If_76">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="6373,91" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;MCPE :&quot;+M+C+P+E]" />
+    <If Condition="[strPBT_Recon_Status.ToString.ToLower.Contains(&quot;na&quot;)]" sap:VirtualizedContainerService.HintSize="6373,208" sap2010:WorkflowViewState.IdRef="If_76">
       <If.Then>
         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_103">
           <Assign.To>
@@ -389,9 +390,9 @@
         </Assign>
       </If.Then>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="5947,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing Record : &quot;+ Invoice_Num]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="5947,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[in_Config(&quot;SQLDatabaseConnectionStringProd&quot;).ToString +in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="5947,229" sap2010:WorkflowViewState.IdRef="CommentOut_38">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="6373,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing Record : &quot;+ Invoice_Num]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="6373,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[in_Config(&quot;SQLDatabaseConnectionStringProd&quot;).ToString +in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="6373,229" sap2010:WorkflowViewState.IdRef="CommentOut_38">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_123">
           <sap:WorkflowViewStateService.ViewState>
@@ -403,8 +404,8 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect - PROD" sap:VirtualizedContainerService.HintSize="5947,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_4" ProviderName="[in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" ConnectionString="[in_Config(&quot;SQLDatabaseConnectionStringProd&quot;).ToString]" />
-    <Sequence sap:VirtualizedContainerService.HintSize="5947,791" sap2010:WorkflowViewState.IdRef="Sequence_119">
+    <ui:DatabaseConnect DatabaseConnection="[DB_Connection]" DisplayName="Connect - PROD" sap:VirtualizedContainerService.HintSize="6373,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_4" ProviderName="[in_Config(&quot;SQLDatabaseProviderName&quot;).ToString]" ConnectionString="[in_Config(&quot;SQLDatabaseConnectionStringProd&quot;).ToString]" />
+    <Sequence sap:VirtualizedContainerService.HintSize="6373,791" sap2010:WorkflowViewState.IdRef="Sequence_119">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrResult" />
       </Sequence.Variables>
@@ -465,7 +466,7 @@
         </If.Then>
       </If>
     </Sequence>
-    <Sequence sap:VirtualizedContainerService.HintSize="5947,300" sap2010:WorkflowViewState.IdRef="Sequence_103">
+    <Sequence sap:VirtualizedContainerService.HintSize="6373,300" sap2010:WorkflowViewState.IdRef="Sequence_103">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -485,7 +486,7 @@
         </If.Then>
       </If>
     </Sequence>
-    <Sequence sap:VirtualizedContainerService.HintSize="5947,792" sap2010:WorkflowViewState.IdRef="Sequence_58">
+    <Sequence sap:VirtualizedContainerService.HintSize="6373,792" sap2010:WorkflowViewState.IdRef="Sequence_58">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:String[]" Name="arrPDF_MOS" />
       </Sequence.Variables>
@@ -546,7 +547,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <If Condition="[PDF_MOS.ToString.Contains(&quot;-01&quot;)]" sap:VirtualizedContainerService.HintSize="5947,208" sap2010:WorkflowViewState.IdRef="If_12">
+    <If Condition="[PDF_MOS.ToString.Contains(&quot;-01&quot;)]" sap:VirtualizedContainerService.HintSize="6373,208" sap2010:WorkflowViewState.IdRef="If_12">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -805,7 +806,7 @@
         </If>
       </If.Else>
     </If>
-    <Assign DisplayName="Assign - trim leading 0" sap:VirtualizedContainerService.HintSize="5947,60" sap2010:WorkflowViewState.IdRef="Assign_68">
+    <Assign DisplayName="Assign - trim leading 0" sap:VirtualizedContainerService.HintSize="6373,60" sap2010:WorkflowViewState.IdRef="Assign_68">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[E]</OutArgument>
       </Assign.To>
@@ -813,18 +814,18 @@
         <InArgument x:TypeArguments="x:String">[E.TrimStart("0"c).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[isValidTax and not string.IsNullOrEmpty(E.Trim) and not String.IsNullOrEmpty(PDF_Amount) and isTaxAmountValid and isTaxRowPresent]" DisplayName="If - M,C,P,E data not matches with data in Database" sap:VirtualizedContainerService.HintSize="5947,10741" sap2010:WorkflowViewState.IdRef="If_26">
+    <If Condition="[isValidTax and not string.IsNullOrEmpty(E.Trim) and not String.IsNullOrEmpty(PDF_Amount) and isTaxAmountValid and isTaxRowPresent]" DisplayName="If - M,C,P,E data not matches with data in Database" sap:VirtualizedContainerService.HintSize="6373,10989" sap2010:WorkflowViewState.IdRef="If_26">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="5105,10593" sap2010:WorkflowViewState.IdRef="Sequence_18">
+        <Sequence sap:VirtualizedContainerService.HintSize="5530,10841" sap2010:WorkflowViewState.IdRef="Sequence_18">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:BuildDataTable DataTable="[RunSheetDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="5063,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_5" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;CPE&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;INVNUM&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;INVAMOUNT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{(C.ToString+&quot;/&quot;+P.ToString+&quot;/&quot;+E.ToString),Invoice_Num.ToString, PDF_Amount.ToString}]" DataTable="[RunSheetDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="5063,22" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow we insert required data on pbt application like M,C,P,E,Insertion date and click on Next button" DisplayName="Invoke PrintBuyToolKit_DLCriteria_CPE workflow" sap:VirtualizedContainerService.HintSize="5063,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLCriteria_CPE.xaml">
+          <ui:BuildDataTable DataTable="[RunSheetDT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="5488,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_5" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;CPE&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;INVNUM&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;INVAMOUNT&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{(C.ToString+&quot;/&quot;+P.ToString+&quot;/&quot;+E.ToString),Invoice_Num.ToString, PDF_Amount.ToString}]" DataTable="[RunSheetDT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="5488,22" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow we insert required data on pbt application like M,C,P,E,Insertion date and click on Next button" DisplayName="Invoke PrintBuyToolKit_DLCriteria_CPE workflow" sap:VirtualizedContainerService.HintSize="5488,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLCriteria_CPE.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="MediaCode">[M]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="ClientCode">[C]</InArgument>
@@ -838,7 +839,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow we insert and check some fields like vendor code paid or unpaid and submit " DisplayName="Invoke PrintBuyToolKit_DLCriteria_Vendor workflow" sap:VirtualizedContainerService.HintSize="5063,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLCriteria_Vendor.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow we insert and check some fields like vendor code paid or unpaid and submit " DisplayName="Invoke PrintBuyToolKit_DLCriteria_Vendor workflow" sap:VirtualizedContainerService.HintSize="5488,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLCriteria_Vendor.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="VendorCode">[PUBLICATION_CODE]</InArgument>
               <OutArgument x:TypeArguments="x:Int32" x:Key="Flag">[Flag]</OutArgument>
@@ -852,7 +853,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If Condition="[Flag = 0]" sap:VirtualizedContainerService.HintSize="5063,9952" sap2010:WorkflowViewState.IdRef="If_24">
+          <If Condition="[Flag = 0]" sap:VirtualizedContainerService.HintSize="5488,10200" sap2010:WorkflowViewState.IdRef="If_24">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -860,21 +861,21 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="984,4417" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence sap:VirtualizedContainerService.HintSize="1069,4458" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintBuyToolKit_CloseDLWizard workflow" sap:VirtualizedContainerService.HintSize="942,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_CloseDLWizard.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintBuyToolKit_CloseDLWizard workflow" sap:VirtualizedContainerService.HintSize="1027,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_CloseDLWizard.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="942,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Invalid CPE Combination&quot;]" />
-                <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="942,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_6" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
-                <Assign sap:VirtualizedContainerService.HintSize="942,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1027,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Invalid CPE Combination&quot;]" />
+                <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1027,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_6" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
+                <Assign sap:VirtualizedContainerService.HintSize="1027,60" sap2010:WorkflowViewState.IdRef="Assign_24">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[Tag_Status]</OutArgument>
                   </Assign.To>
@@ -882,20 +883,20 @@
                     <InArgument x:TypeArguments="x:String">Invalid CPE Combination</InArgument>
                   </Assign.Value>
                 </Assign>
-                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="942,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]" />
-                <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="942,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_6" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]">
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1027,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]" />
+                <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1027,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_6" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]">
                   <ui:ExecuteQuery.Parameters>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:ExecuteQuery.Parameters>
                 </ui:ExecuteQuery>
-                <Sequence DisplayName="Sequence - update ooh_pbt_txn db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="942,2246" sap2010:WorkflowViewState.IdRef="Sequence_114">
+                <Sequence DisplayName="Sequence - update ooh_pbt_txn db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="1027,2287" sap2010:WorkflowViewState.IdRef="Sequence_114">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[IsMultiBuy.ToString.ToLower.Contains(&quot;true&quot;)]" sap:VirtualizedContainerService.HintSize="900,2154" sap2010:WorkflowViewState.IdRef="If_69">
+                  <If Condition="[IsMultiBuy.ToString.ToLower.Contains(&quot;true&quot;)]" sap:VirtualizedContainerService.HintSize="985,2195" sap2010:WorkflowViewState.IdRef="If_69">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -903,13 +904,13 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="755,2006" sap2010:WorkflowViewState.IdRef="Sequence_113">
+                      <Sequence sap:VirtualizedContainerService.HintSize="840,2047" sap2010:WorkflowViewState.IdRef="Sequence_113">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Sequence - Update DB for children invoices in MI-1B scenarios" sap:VirtualizedContainerService.HintSize="713,1914" sap2010:WorkflowViewState.IdRef="Sequence_112">
+                        <Sequence DisplayName="Sequence - Update DB for children invoices in MI-1B scenarios" sap:VirtualizedContainerService.HintSize="798,1955" sap2010:WorkflowViewState.IdRef="Sequence_112">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="s:String[]" Name="arrInv_Comment" />
                           </Sequence.Variables>
@@ -919,7 +920,7 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_91">
+                          <Assign sap:VirtualizedContainerService.HintSize="756,60" sap2010:WorkflowViewState.IdRef="Assign_91">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[Inv_Comment]</OutArgument>
                             </Assign.To>
@@ -927,7 +928,7 @@
                               <InArgument x:TypeArguments="x:String">[Inv_Comment.Replace("W/ ","")]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_92">
+                          <Assign sap:VirtualizedContainerService.HintSize="756,60" sap2010:WorkflowViewState.IdRef="Assign_92">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[Inv_Comment]</OutArgument>
                             </Assign.To>
@@ -935,7 +936,7 @@
                               <InArgument x:TypeArguments="x:String">[Inv_Comment.Replace(",","")]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_93">
+                          <Assign sap:VirtualizedContainerService.HintSize="756,60" sap2010:WorkflowViewState.IdRef="Assign_93">
                             <Assign.To>
                               <OutArgument x:TypeArguments="s:String[]">[arrInv_Comment]</OutArgument>
                             </Assign.To>
@@ -951,7 +952,7 @@
                               <InArgument x:TypeArguments="x:String">["Invalid CPE Combination"]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="671,51" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[arrInv_Comment]">
+                          <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="756,51" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[arrInv_Comment]">
                             <ui:ForEach.Body>
                               <ActivityAction x:TypeArguments="x:Object">
                                 <ActivityAction.Argument>
@@ -979,17 +980,17 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:ForEach>
-                          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Arch]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="671,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_61" Sql="[&quot;select  olt.*,ofm.fa_email_id,ofm1.fa_email_id as FAupdatedBy from OOH_log_txn olt inner join OOH_FA_Master ofm on ofm.fa_id=olt.Log_FA_ID left join OOH_FA_Master ofm1 on ofm1.fa_id=olt.Log_FA_UpdateBy_ID where Log_ID='&quot;+ID+&quot;'&quot;]">
+                          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Arch]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_61" Sql="[&quot;select  olt.*,ofm.fa_email_id,ofm1.fa_email_id as FAupdatedBy from OOH_log_txn olt inner join OOH_FA_Master ofm on ofm.fa_id=olt.Log_FA_ID left join OOH_FA_Master ofm1 on ofm1.fa_id=olt.Log_FA_UpdateBy_ID where Log_ID='&quot;+ID+&quot;'&quot;]">
                             <ui:ExecuteQuery.Parameters>
                               <scg:Dictionary x:TypeArguments="x:String, Argument" />
                             </ui:ExecuteQuery.Parameters>
                           </ui:ExecuteQuery>
-                          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Reason]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="671,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_62" Sql="select UR_ID from [dbo].[OOH_UpdateReason_Ref] where UR_Reason_Description='Invoice is tagged to incorrect buy'">
+                          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Reason]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_62" Sql="select UR_ID from [dbo].[OOH_UpdateReason_Ref] where UR_Reason_Description='Invoice is tagged to incorrect buy'">
                             <ui:ExecuteQuery.Parameters>
                               <scg:Dictionary x:TypeArguments="x:String, Argument" />
                             </ui:ExecuteQuery.Parameters>
                           </ui:ExecuteQuery>
-                          <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="671,1075" sap2010:WorkflowViewState.IdRef="If_92">
+                          <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="756,1116" sap2010:WorkflowViewState.IdRef="If_92">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -997,14 +998,14 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="526,927" sap2010:WorkflowViewState.IdRef="Sequence_147">
+                              <Sequence sap:VirtualizedContainerService.HintSize="611,968" sap2010:WorkflowViewState.IdRef="Sequence_147">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_113">
+                                <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_113">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[str_Taxamount]</OutArgument>
                                   </Assign.To>
@@ -1012,7 +1013,7 @@
                                     <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)("Log_Tax_Amount").ToString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_91">
+                                <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_91">
                                   <If.Then>
                                     <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_114">
                                       <Assign.To>
@@ -1024,8 +1025,30 @@
                                     </Assign>
                                   </If.Then>
                                 </If>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
-                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,258" sap2010:WorkflowViewState.IdRef="CommentOut_46">
+                                <If Condition="[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_97">
+                                  <If.Then>
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_119">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Replace("'","")]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_120">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </If.Else>
+                                </If>
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="569,51" sap2010:WorkflowViewState.IdRef="CommentOut_46">
                                   <ui:CommentOut.Body>
                                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_158">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -1033,15 +1056,21 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_14" ProviderName="System.Data.SqlClient" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" ConnectionString="Data Source=eussqsvgrmusafinance01.database.windows.net;Initial Catalog=eussqdbgrmusaapoohdev01;User ID=NA_sqlusr_AP_OOH_DEV_01;Password=JFcRxniU2hETyEgCQxM3">
+                                      <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query comment" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_14" ProviderName="System.Data.SqlClient" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" ConnectionString="Data Source=eussqsvgrmusafinance01.database.windows.net;Initial Catalog=eussqdbgrmusaapoohdev01;User ID=NA_sqlusr_AP_OOH_DEV_01;Password=JFcRxniU2hETyEgCQxM3">
                                         <ui:ExecuteNonQuery.Parameters>
                                           <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                         </ui:ExecuteNonQuery.Parameters>
                                       </ui:ExecuteNonQuery>
                                     </Sequence>
                                   </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
                                 </ui:CommentOut>
-                                <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_10" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
+                                <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_10" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
                                   <ui:ExecuteNonQuery.Parameters>
                                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                   </ui:ExecuteNonQuery.Parameters>
@@ -1054,9 +1083,9 @@
                     </If.Then>
                   </If>
                 </Sequence>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{C.ToString, P.ToString, E.ToString, Invoice_Num.ToString, PDF_Amount, Tag_Status.ToString}]" DataTable="[Tag_Status_DT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="942,22" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
-                <ui:PathExists DisplayName="Path Exists" Exists="[Report_File]" sap:VirtualizedContainerService.HintSize="942,89" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[&quot;C:\Users\NTMGRM.RPA1\Desktop\Report\Report_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;.xlsx&quot;]" PathType="File" />
-                <If Condition="[Report_File]" sap:VirtualizedContainerService.HintSize="942,537" sap2010:WorkflowViewState.IdRef="If_19">
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{C.ToString, P.ToString, E.ToString, Invoice_Num.ToString, PDF_Amount, Tag_Status.ToString}]" DataTable="[Tag_Status_DT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="1027,22" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
+                <ui:PathExists DisplayName="Path Exists" Exists="[Report_File]" sap:VirtualizedContainerService.HintSize="1027,89" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[&quot;C:\Users\NTMGRM.RPA1\Desktop\Report\Report_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;.xlsx&quot;]" PathType="File" />
+                <If Condition="[Report_File]" sap:VirtualizedContainerService.HintSize="1027,537" sap2010:WorkflowViewState.IdRef="If_19">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1141,12 +1170,12 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintBuyToolKit_CloseWks_NoChange workflow" sap:VirtualizedContainerService.HintSize="942,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_CloseWks_NoChange.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintBuyToolKit_CloseWks_NoChange workflow" sap:VirtualizedContainerService.HintSize="1027,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_CloseWks_NoChange.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate 'adbuyer.exe Print'" sap:VirtualizedContainerService.HintSize="942,106" sap2010:WorkflowViewState.IdRef="Activate_2">
+                <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate 'adbuyer.exe Print'" sap:VirtualizedContainerService.HintSize="1027,106" sap2010:WorkflowViewState.IdRef="Activate_2">
                   <ui:Activate.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d1981706-7d67-4367-ac7d-9b7dbf3fc696" InformativeScreenshot="c497fba80274eb5ed529debf31366792" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit*' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -1158,7 +1187,7 @@
                     </ui:Target>
                   </ui:Activate.Target>
                 </ui:Activate>
-                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="942,116" sap2010:WorkflowViewState.IdRef="SendHotkey_20" Key="n" KeyModifiers="Ctrl">
+                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="1027,116" sap2010:WorkflowViewState.IdRef="SendHotkey_20" Key="n" KeyModifiers="Ctrl">
                   <ui:SendHotkey.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a5a06cd2-5e3a-4614-b81e-9c7f6dc27ac3">
                       <ui:Target.TimeoutMS>
@@ -1170,7 +1199,7 @@
                     </ui:Target>
                   </ui:SendHotkey.Target>
                 </ui:SendHotkey>
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="942,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'ThunderRT6CommandButton'" sap:VirtualizedContainerService.HintSize="1027,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition Position="Center">
                       <ui:CursorPosition.OffsetX>
@@ -1195,7 +1224,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="4034,9804" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap:VirtualizedContainerService.HintSize="4374,10052" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:Image" Name="argimgScreenshot" />
                 </Sequence.Variables>
@@ -1205,7 +1234,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow we get Insertion count ond confirmation message" DisplayName="Invoke PrintBuyToolKit_DLConfirmation_GetInsertionCount workflow" sap:VirtualizedContainerService.HintSize="3992,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLConfirmation_GetInsertionCount.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="In this workflow we get Insertion count ond confirmation message" DisplayName="Invoke PrintBuyToolKit_DLConfirmation_GetInsertionCount workflow" sap:VirtualizedContainerService.HintSize="4332,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLConfirmation_GetInsertionCount.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <OutArgument x:TypeArguments="x:Int32" x:Key="out_InsertionCount">[insertion_Count]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
@@ -1215,12 +1244,12 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintBuyToolKit_DLConfirmation_OK workflow" sap:VirtualizedContainerService.HintSize="3992,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLConfirmation_OK.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke PrintBuyToolKit_DLConfirmation_OK workflow" sap:VirtualizedContainerService.HintSize="4332,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="PrintBuyToolkit\PrintBuyToolKit_DLConfirmation_OK.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <OutArgument x:TypeArguments="ui:Image" x:Key="imgScreenshot">[argimgScreenshot]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <If Condition="[insertion_Count &gt; 0]" DisplayName="If - check invoice num and amount already present, and exclude free buys rows  from PBT" sap:VirtualizedContainerService.HintSize="3992,1062" sap2010:WorkflowViewState.IdRef="If_56">
+                <If Condition="[insertion_Count &gt; 0]" DisplayName="If - check invoice num and amount already present, and exclude free buys rows  from PBT" sap:VirtualizedContainerService.HintSize="4332,1062" sap2010:WorkflowViewState.IdRef="If_56">
                   <If.Then>
                     <Sequence sap:VirtualizedContainerService.HintSize="798,914" sap2010:WorkflowViewState.IdRef="Sequence_87">
                       <Sequence.Variables>
@@ -1342,7 +1371,7 @@
                     </Sequence>
                   </If.Then>
                 </If>
-                <If Condition="[(insertion_Count = 1 or (insertion_Count = 2 and not string.IsNullOrEmpty(PDF_TaxAmount)))]" sap:VirtualizedContainerService.HintSize="3992,8264" sap2010:WorkflowViewState.IdRef="If_23">
+                <If Condition="[(insertion_Count = 1 or (insertion_Count = 2 and not string.IsNullOrEmpty(PDF_TaxAmount)))]" sap:VirtualizedContainerService.HintSize="4332,8512" sap2010:WorkflowViewState.IdRef="If_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1350,14 +1379,14 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="1218,8116" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence sap:VirtualizedContainerService.HintSize="1303,8364" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap:VirtualizedContainerService.HintSize="1176,8024" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <Sequence sap:VirtualizedContainerService.HintSize="1261,8272" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:Boolean" Name="Save_Dialogue" />
                           <Variable x:TypeArguments="x:String" Name="OutInvAmount" />
@@ -1370,8 +1399,8 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1134,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Insertion Count :&quot;+insertion_Count.ToString]" />
-                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate on Tagging screen and type the required values to corresponding columns" DisplayName="Invoke Tagging Screen workflow" sap:VirtualizedContainerService.HintSize="1134,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Tagging Screen.xaml">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1219,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Insertion Count :&quot;+insertion_Count.ToString]" />
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate on Tagging screen and type the required values to corresponding columns" DisplayName="Invoke Tagging Screen workflow" sap:VirtualizedContainerService.HintSize="1219,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Tagging Screen.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:Int32" x:Key="argInsertionCount">[insertion_Count]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="C">[C]</InArgument>
@@ -1401,7 +1430,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
-                        <Sequence sap:VirtualizedContainerService.HintSize="1134,2852" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                        <Sequence sap:VirtualizedContainerService.HintSize="1219,2852" sap2010:WorkflowViewState.IdRef="Sequence_57">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1670,8 +1699,8 @@
                             </If.Then>
                           </If>
                         </Sequence>
-                        <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1134,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_7" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
-                        <If Condition="[isTagged]" sap:VirtualizedContainerService.HintSize="1134,1723" sap2010:WorkflowViewState.IdRef="If_43">
+                        <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1219,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_7" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
+                        <If Condition="[isTagged]" sap:VirtualizedContainerService.HintSize="1219,1971" sap2010:WorkflowViewState.IdRef="If_43">
                           <If.Then>
                             <Sequence sap:VirtualizedContainerService.HintSize="376,411" sap2010:WorkflowViewState.IdRef="Sequence_67">
                               <sap:WorkflowViewStateService.ViewState>
@@ -1696,14 +1725,14 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="713,1575" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                            <Sequence sap:VirtualizedContainerService.HintSize="798,1823" sap2010:WorkflowViewState.IdRef="Sequence_68">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="671,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Tag Status : Segment Not found on PBT&quot;]" />
-                              <Assign sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="756,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Tag Status : Segment Not found on PBT&quot;]" />
+                              <Assign sap:VirtualizedContainerService.HintSize="756,60" sap2010:WorkflowViewState.IdRef="Assign_55">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[Tag_Status]</OutArgument>
                                 </Assign.To>
@@ -1711,12 +1740,12 @@
                                   <InArgument x:TypeArguments="x:String">Segment Not found on PBT</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="671,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_31" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0 ,PBT_Tag_Status = '&quot;+Tag_Status.Trim+&quot;', PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID in(&quot;+ID.ToString+&quot;) and (PBT_Tagged=0 or PBT_Tagged is null)&quot;]">
+                              <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_31" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0 ,PBT_Tag_Status = '&quot;+Tag_Status.Trim+&quot;', PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID in(&quot;+ID.ToString+&quot;) and (PBT_Tagged=0 or PBT_Tagged is null)&quot;]">
                                 <ui:ExecuteQuery.Parameters>
                                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="671,51" sap2010:WorkflowViewState.IdRef="CommentOut_39">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="756,51" sap2010:WorkflowViewState.IdRef="CommentOut_39">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="563,647" sap2010:WorkflowViewState.IdRef="Sequence_125">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -1767,12 +1796,12 @@
                                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
-                              <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Reason]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="671,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_56" Sql="select UR_ID from [dbo].[OOH_UpdateReason_Ref] where UR_Reason_Description='Invoice is tagged to incorrect buy'">
+                              <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Reason]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_56" Sql="select UR_ID from [dbo].[OOH_UpdateReason_Ref] where UR_Reason_Description='Invoice is tagged to incorrect buy'">
                                 <ui:ExecuteQuery.Parameters>
                                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                 </ui:ExecuteQuery.Parameters>
                               </ui:ExecuteQuery>
-                              <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="671,777" sap2010:WorkflowViewState.IdRef="If_88">
+                              <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="756,1025" sap2010:WorkflowViewState.IdRef="If_88">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1780,14 +1809,14 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="526,629" sap2010:WorkflowViewState.IdRef="Sequence_143">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="611,877" sap2010:WorkflowViewState.IdRef="Sequence_143">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_109">
+                                    <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_109">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[str_Taxamount]</OutArgument>
                                       </Assign.To>
@@ -1795,7 +1824,7 @@
                                         <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)("Log_Tax_Amount").ToString]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_87">
+                                    <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_87">
                                       <If.Then>
                                         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_110">
                                           <Assign.To>
@@ -1807,8 +1836,30 @@
                                         </Assign>
                                       </If.Then>
                                     </If>
-                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
-                                    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_8" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
+                                    <If Condition="[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_98">
+                                      <If.Then>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_121">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Replace("'","")]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_122">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Else>
+                                    </If>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
+                                    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_8" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
                                       <ui:ExecuteNonQuery.Parameters>
                                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                       </ui:ExecuteNonQuery.Parameters>
@@ -1819,7 +1870,7 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <Assign sap:VirtualizedContainerService.HintSize="1134,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                        <Assign sap:VirtualizedContainerService.HintSize="1219,60" sap2010:WorkflowViewState.IdRef="Assign_54">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[strAmountComment]</OutArgument>
                           </Assign.To>
@@ -1827,7 +1878,7 @@
                             <InArgument x:TypeArguments="x:String">[" Total Amount : "+PDF_Amount+" Subtotal Amount : "+OutInvAmount+" Tax Amount : "+OutTaxAmount+" "]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Sequence DisplayName="Sequence - update ooh_pbt_txn db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="1134,1567" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                        <Sequence DisplayName="Sequence - update ooh_pbt_txn db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="1219,1567" sap2010:WorkflowViewState.IdRef="Sequence_56">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2017,7 +2068,7 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="2729,6311" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence sap:VirtualizedContainerService.HintSize="2984,6559" sap2010:WorkflowViewState.IdRef="Sequence_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2025,7 +2076,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2687,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;ID&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" />
-                      <If Condition="[insertion_Count &gt;2 or (insertion_Count = 2 and  String.IsNullOrEmpty(PDF_TaxAmount))]" DisplayName="If - no number found in Insertion count ie. 0" sap:VirtualizedContainerService.HintSize="2687,3153" sap2010:WorkflowViewState.IdRef="If_32">
+                      <If Condition="[insertion_Count &gt;2 or (insertion_Count = 2 and  String.IsNullOrEmpty(PDF_TaxAmount))]" DisplayName="If - no number found in Insertion count ie. 0" sap:VirtualizedContainerService.HintSize="2942,3401" sap2010:WorkflowViewState.IdRef="If_32">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2033,7 +2084,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="942,2582" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                          <Sequence sap:VirtualizedContainerService.HintSize="1027,2830" sap2010:WorkflowViewState.IdRef="Sequence_64">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2053,7 +2104,7 @@
                               </ui:TakeScreenshot.Target>
                             </ui:TakeScreenshot>
                             <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;ID&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmss&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="900,92" sap2010:WorkflowViewState.IdRef="SaveImage_2" Image="[argimgScreenshot]" />
-                            <Sequence sap:VirtualizedContainerService.HintSize="900,2250" sap2010:WorkflowViewState.IdRef="Sequence_88">
+                            <Sequence sap:VirtualizedContainerService.HintSize="985,2498" sap2010:WorkflowViewState.IdRef="Sequence_88">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2068,7 +2119,7 @@
                                   <InArgument x:TypeArguments="x:String">Multiple Buys</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <If Condition="[IsMultiBuy.ToLower.Equals(&quot;true&quot;)]" sap:VirtualizedContainerService.HintSize="858,2058" sap2010:WorkflowViewState.IdRef="If_42">
+                              <If Condition="[IsMultiBuy.ToLower.Equals(&quot;true&quot;)]" sap:VirtualizedContainerService.HintSize="943,2306" sap2010:WorkflowViewState.IdRef="If_42">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2076,7 +2127,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence DisplayName="Sequence - Update DB for children invoices in MI-1B scenarios" sap:VirtualizedContainerService.HintSize="713,1910" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                  <Sequence DisplayName="Sequence - Update DB for children invoices in MI-1B scenarios" sap:VirtualizedContainerService.HintSize="798,2158" sap2010:WorkflowViewState.IdRef="Sequence_63">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="s:String[]" Name="arrInv_Comment" />
                                     </Sequence.Variables>
@@ -2148,7 +2199,7 @@
                                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                       </ui:ExecuteQuery.Parameters>
                                     </ui:ExecuteQuery>
-                                    <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="671,777" sap2010:WorkflowViewState.IdRef="If_94">
+                                    <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="756,1025" sap2010:WorkflowViewState.IdRef="If_94">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2156,7 +2207,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,629" sap2010:WorkflowViewState.IdRef="Sequence_149">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="611,877" sap2010:WorkflowViewState.IdRef="Sequence_149">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2171,7 +2222,7 @@
                                               <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)("Log_Tax_Amount").ToString]</InArgument>
                                             </Assign.Value>
                                           </Assign>
-                                          <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_93">
+                                          <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_93">
                                             <If.Then>
                                               <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_116">
                                                 <Assign.To>
@@ -2183,8 +2234,30 @@
                                               </Assign>
                                             </If.Then>
                                           </If>
-                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
-                                          <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_11" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
+                                          <If Condition="[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_99">
+                                            <If.Then>
+                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_123">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Replace("'","")]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_124">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </If.Else>
+                                          </If>
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
+                                          <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_11" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
                                             <ui:ExecuteNonQuery.Parameters>
                                               <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                             </ui:ExecuteNonQuery.Parameters>
@@ -2199,7 +2272,7 @@
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="1700,3005" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                          <Sequence sap:VirtualizedContainerService.HintSize="1870,3253" sap2010:WorkflowViewState.IdRef="Sequence_44">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2263,7 +2336,7 @@
                                 </Sequence>
                               </If.Then>
                             </If>
-                            <If Condition="[insertion_Count = 0]" sap:VirtualizedContainerService.HintSize="1658,1853" sap2010:WorkflowViewState.IdRef="If_61">
+                            <If Condition="[insertion_Count = 0]" sap:VirtualizedContainerService.HintSize="1828,2101" sap2010:WorkflowViewState.IdRef="If_61">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2271,7 +2344,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="713,1617" sap2010:WorkflowViewState.IdRef="Sequence_91">
+                                <Sequence sap:VirtualizedContainerService.HintSize="798,1865" sap2010:WorkflowViewState.IdRef="Sequence_91">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2314,7 +2387,7 @@
                                       <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                     </ui:ExecuteQuery.Parameters>
                                   </ui:ExecuteQuery>
-                                  <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="671,777" sap2010:WorkflowViewState.IdRef="If_82">
+                                  <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="756,1025" sap2010:WorkflowViewState.IdRef="If_82">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2322,7 +2395,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <If.Then>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="526,629" sap2010:WorkflowViewState.IdRef="Sequence_136">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="611,877" sap2010:WorkflowViewState.IdRef="Sequence_136">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2337,7 +2410,7 @@
                                             <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)("Log_Tax_Amount").ToString]</InArgument>
                                           </Assign.Value>
                                         </Assign>
-                                        <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_84">
+                                        <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_84">
                                           <If.Then>
                                             <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_106">
                                               <Assign.To>
@@ -2349,8 +2422,30 @@
                                             </Assign>
                                           </If.Then>
                                         </If>
-                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
-                                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_5" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
+                                        <If Condition="[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_100">
+                                          <If.Then>
+                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_125">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Replace("'","")]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_126">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </If.Else>
+                                        </If>
+                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
+                                        <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_5" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
                                           <ui:ExecuteNonQuery.Parameters>
                                             <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                           </ui:ExecuteNonQuery.Parameters>
@@ -2361,7 +2456,7 @@
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence sap:VirtualizedContainerService.HintSize="900,1705" sap2010:WorkflowViewState.IdRef="Sequence_115">
+                                <Sequence sap:VirtualizedContainerService.HintSize="985,1953" sap2010:WorkflowViewState.IdRef="Sequence_115">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2381,9 +2476,9 @@
                                     </ui:TakeScreenshot.Target>
                                   </ui:TakeScreenshot>
                                   <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;BusinessException_&quot;+in_TransactionItem.SpecificContent(&quot;ID&quot;).ToString+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmssSSS&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="858,92" sap2010:WorkflowViewState.IdRef="SaveImage_6" Image="[argimgScreenshot]" />
-                                  <If Condition="[String.IsNullOrEmpty(Tag_Status)]" sap:VirtualizedContainerService.HintSize="858,1373" sap2010:WorkflowViewState.IdRef="If_70">
+                                  <If Condition="[String.IsNullOrEmpty(Tag_Status)]" sap:VirtualizedContainerService.HintSize="943,1621" sap2010:WorkflowViewState.IdRef="If_70">
                                     <If.Then>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="713,1225" sap2010:WorkflowViewState.IdRef="Sequence_139">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="798,1473" sap2010:WorkflowViewState.IdRef="Sequence_139">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2407,7 +2502,7 @@
                                             <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                           </ui:ExecuteQuery.Parameters>
                                         </ui:ExecuteQuery>
-                                        <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="671,777" sap2010:WorkflowViewState.IdRef="If_86">
+                                        <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="756,1025" sap2010:WorkflowViewState.IdRef="If_86">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2415,7 +2510,7 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <If.Then>
-                                            <Sequence sap:VirtualizedContainerService.HintSize="526,629" sap2010:WorkflowViewState.IdRef="Sequence_141">
+                                            <Sequence sap:VirtualizedContainerService.HintSize="611,877" sap2010:WorkflowViewState.IdRef="Sequence_141">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2430,7 +2525,7 @@
                                                   <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)("Log_Tax_Amount").ToString]</InArgument>
                                                 </Assign.Value>
                                               </Assign>
-                                              <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_85">
+                                              <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_85">
                                                 <If.Then>
                                                   <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_108">
                                                     <Assign.To>
@@ -2442,8 +2537,30 @@
                                                   </Assign>
                                                 </If.Then>
                                               </If>
-                                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
-                                              <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_7" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
+                                              <If Condition="[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_101">
+                                                <If.Then>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_127">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Replace("'","")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                </If.Then>
+                                                <If.Else>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_128">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                </If.Else>
+                                              </If>
+                                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
+                                              <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_7" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
                                                 <ui:ExecuteNonQuery.Parameters>
                                                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                                 </ui:ExecuteNonQuery.Parameters>
@@ -2460,8 +2577,8 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2687,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[Tag_Status]" />
-                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2687,51" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2942,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[Tag_Status]" />
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2942,51" sap2010:WorkflowViewState.IdRef="CommentOut_16">
                         <ui:CommentOut.Body>
                           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="421,204" sap2010:WorkflowViewState.IdRef="Sequence_43">
                             <sap:WorkflowViewStateService.ViewState>
@@ -2483,13 +2600,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:CommentOut>
-                      <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="2687,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_8" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
-                      <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="2687,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_29" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.Trim+&quot;', PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where  PBT_Log_ID in(&quot;+ID.ToString+&quot;) and (PBT_Tagged=0 or PBT_Tagged is null)&quot;]">
+                      <ui:BuildDataTable DataTable="[Tag_Status_DT]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="2942,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_8" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;C&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;P&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;E&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tagged_Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
+                      <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="2942,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_29" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.Trim+&quot;', PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where  PBT_Log_ID in(&quot;+ID.ToString+&quot;) and (PBT_Tagged=0 or PBT_Tagged is null)&quot;]">
                         <ui:ExecuteQuery.Parameters>
                           <scg:Dictionary x:TypeArguments="x:String, Argument" />
                         </ui:ExecuteQuery.Parameters>
                       </ui:ExecuteQuery>
-                      <Sequence DisplayName="Sequence - update ooh_pbt_txn_db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="2687,1260" sap2010:WorkflowViewState.IdRef="Sequence_96">
+                      <Sequence DisplayName="Sequence - update ooh_pbt_txn_db for Multi Invoice 1 buy records" sap:VirtualizedContainerService.HintSize="2942,1260" sap2010:WorkflowViewState.IdRef="Sequence_96">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2688,7 +2805,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="797,4931" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence sap:VirtualizedContainerService.HintSize="798,5179" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2879,23 +2996,23 @@
           </Sequence>
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="755,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Update ooh_pbt_txn set PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Tag_Status not like 'yes' and PBT_MultiInv_Batch_Details like '&quot;+C+&quot;_&quot;+P+&quot;_&quot;+E+&quot;_&quot;+PDF_MOS_Unedited+&quot;_&quot;+PUBLICATION_CODE+&quot;%'&quot;]" />
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[Tag_Status]" />
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0 ,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID = '&quot;+ID+&quot;'&quot;]">
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_9" Sql="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0 ,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID = '&quot;+ID+&quot;'&quot;]">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
           </ui:ExecuteQuery>
-          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{C.ToString, P.ToString, E.ToString, Invoice_Num.ToString, PDF_Amount, Tag_Status.ToString}]" DataTable="[Tag_Status_DT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="AddDataRow_9" />
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Arch]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_67" Sql="[&quot;select  olt.*,ofm.fa_email_id,ofm1.fa_email_id as FAupdatedBy from OOH_log_txn olt inner join OOH_FA_Master ofm on ofm.fa_id=olt.Log_FA_ID left join OOH_FA_Master ofm1 on ofm1.fa_id=olt.Log_FA_UpdateBy_ID where Log_ID='&quot;+ID+&quot;'&quot;]">
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{C.ToString, P.ToString, E.ToString, Invoice_Num.ToString, PDF_Amount, Tag_Status.ToString}]" DataTable="[Tag_Status_DT]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="756,22" sap2010:WorkflowViewState.IdRef="AddDataRow_9" />
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Arch]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_67" Sql="[&quot;select  olt.*,ofm.fa_email_id,ofm1.fa_email_id as FAupdatedBy from OOH_log_txn olt inner join OOH_FA_Master ofm on ofm.fa_id=olt.Log_FA_ID left join OOH_FA_Master ofm1 on ofm1.fa_id=olt.Log_FA_UpdateBy_ID where Log_ID='&quot;+ID+&quot;'&quot;]">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
           </ui:ExecuteQuery>
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Reason]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="755,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_68" Sql="select UR_ID from [dbo].[OOH_UpdateReason_Ref] where UR_Reason_Description='Invoice is tagged to incorrect buy'">
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dt_Reason]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="756,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_68" Sql="select UR_ID from [dbo].[OOH_UpdateReason_Ref] where UR_Reason_Description='Invoice is tagged to incorrect buy'">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
           </ui:ExecuteQuery>
-          <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="755,777" sap2010:WorkflowViewState.IdRef="If_96">
+          <If Condition="[dt_Arch.Rows.Count&gt;0 and dt_Reason.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="756,1025" sap2010:WorkflowViewState.IdRef="If_96">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2903,14 +3020,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="526,629" sap2010:WorkflowViewState.IdRef="Sequence_151">
+              <Sequence sap:VirtualizedContainerService.HintSize="611,877" sap2010:WorkflowViewState.IdRef="Sequence_151">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_117">
+                <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_117">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[str_Taxamount]</OutArgument>
                   </Assign.To>
@@ -2918,7 +3035,7 @@
                     <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)("Log_Tax_Amount").ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_95">
+                <If Condition="[string.IsNullOrEmpty(str_Taxamount)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_95">
                   <If.Then>
                     <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_118">
                       <Assign.To>
@@ -2930,8 +3047,30 @@
                     </Assign>
                   </If.Then>
                 </If>
-                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
-                <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_12" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Client_Name”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
+                <If Condition="[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Contains(&quot;'&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_102">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_129">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString.Replace("'","")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_130">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[strclient_name]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[dt_Arch.Rows(0)(“Log_Client_Name”).ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]" />
+                <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="569,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_12" Sql="[&quot;INSERT INTO [dbo].[OOH_RecordUpdateDetails_Arch] ([RUDets_LogTxn_ID],[RUDests_M],[RUDests_C],[RUDests_P],[RUDests_E],[RU_Dets_Contract_ID],[RU_Dets_Vendor_ID],[RU_Dets_Invoice_Number],[RU_Dets_Invoice_Amount],[RU_Dets_Invoice_TaxAmt] ,[RU_Dets_Invoice_Date],[RU_Dets_Client_Name],[RU_Dets_FA_ActionStatus],[RU_Dets_UpdatedBy],[RU_Dets_UpdateReason_ID],[RU_Dets_Button_Name],[RU_Dets_UpdatedDate],[RU_Dets_UpdateComment_Other]) VALUES ('&quot;+dt_Arch.Rows(0)(&quot;Log_ID&quot;).ToString+&quot;','&quot;+M.ToString+&quot;','&quot;+dt_Arch.Rows(0)(&quot;Log_Validated_C&quot;).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_P”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Validated_E”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“Log_Invoice_ContractNumber”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Vendor_ID”).ToString+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Number”).ToString+&quot;',&quot;+dt_Arch.Rows(0)(“Log_Invoice_Amount”).ToString+&quot;,&quot;+str_Taxamount+&quot;,'&quot;+dt_Arch.Rows(0)(“Log_Invoice_Date”).ToString+&quot;','&quot;+strclient_name+&quot;','&quot;+dt_Arch.Rows(0)(“Log_FA_Action_Status”).ToString+&quot;','&quot;+dt_Arch.Rows(0)(“fa_email_id”).ToString+&quot;',&quot;+dt_Reason.Rows(0)(“UR_ID”).ToString+&quot;,NULL&quot;+&quot;,'&quot;+strCurrent_DateTime.ToString+&quot;',NULL)&quot;]">
                   <ui:ExecuteNonQuery.Parameters>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:ExecuteNonQuery.Parameters>
@@ -2939,7 +3078,7 @@
               </Sequence>
             </If.Then>
           </If>
-          <ui:PathExists DisplayName="Path Exists" Exists="[Report_File]" sap:VirtualizedContainerService.HintSize="755,89" sap2010:WorkflowViewState.IdRef="PathExists_7" Path="[&quot;C:\Users\NTMGRM.RPA1\Desktop\Report\Report_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;.xlsx&quot;]" PathType="File" />
+          <ui:PathExists DisplayName="Path Exists" Exists="[Report_File]" sap:VirtualizedContainerService.HintSize="756,89" sap2010:WorkflowViewState.IdRef="PathExists_7" Path="[&quot;C:\Users\NTMGRM.RPA1\Desktop\Report\Report_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;.xlsx&quot;]" PathType="File" />
           <If Condition="[Report_File]" sap:VirtualizedContainerService.HintSize="755,355" sap2010:WorkflowViewState.IdRef="If_25">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">

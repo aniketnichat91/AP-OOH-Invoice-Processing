@@ -25,10 +25,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>3186,7095</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>3228,7335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="86">
+    <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -76,7 +76,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="41">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -120,7 +120,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence: Type Into Cells" sap:VirtualizedContainerService.HintSize="3196,7030" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Sequence: Type Into Cells" sap:VirtualizedContainerService.HintSize="3238,7270" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="cvScreenText" />
       <Variable x:TypeArguments="x:String" Name="txtInvNumber" />
@@ -142,14 +142,15 @@
       <Variable x:TypeArguments="x:String" Name="Inv_Comment4" />
       <Variable x:TypeArguments="x:String" Name="Inv_Comment5" />
       <Variable x:TypeArguments="x:String" Name="txtTaxAmount" />
+      <Variable x:TypeArguments="ui:Image" Name="argimgScreenshot" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3154,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start Tagging Screen Work flow&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="3154,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="3196,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start Tagging Screen Work flow&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="3196,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
@@ -195,7 +196,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If Condition="[txtInvNumber.Length &gt; 11]" DisplayName="If - split comment for SRC column as column length limit is 40 characters" sap:VirtualizedContainerService.HintSize="3154,51" sap2010:WorkflowViewState.IdRef="If_26">
+    <If Condition="[txtInvNumber.Length &gt; 11]" DisplayName="If - split comment for SRC column as column length limit is 40 characters" sap:VirtualizedContainerService.HintSize="3196,51" sap2010:WorkflowViewState.IdRef="If_26">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -911,7 +912,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click PBT first row first column, activate TAB keys" sap:VirtualizedContainerService.HintSize="3154,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click PBT first row first column, activate TAB keys" sap:VirtualizedContainerService.HintSize="3196,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -936,14 +937,14 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Sequence sap:VirtualizedContainerService.HintSize="3154,6308" sap2010:WorkflowViewState.IdRef="Sequence_49">
+    <Sequence sap:VirtualizedContainerService.HintSize="3196,6548" sap2010:WorkflowViewState.IdRef="Sequence_49">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap:VirtualizedContainerService.HintSize="3112,6216" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <Sequence sap:VirtualizedContainerService.HintSize="3154,6456" sap2010:WorkflowViewState.IdRef="Sequence_13">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="uiCPEClick" />
           <Variable x:TypeArguments="x:String" Name="txtCPEtarget" />
@@ -956,7 +957,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence sap:VirtualizedContainerService.HintSize="3070,400" sap2010:WorkflowViewState.IdRef="Sequence_37">
+        <Sequence sap:VirtualizedContainerService.HintSize="3112,400" sap2010:WorkflowViewState.IdRef="Sequence_37">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -984,9 +985,9 @@
             </Assign.Value>
           </Assign>
         </Sequence>
-        <If Condition="[not argIsSegmentBuy.ToLower.Trim.Equals(&quot;true&quot;)]" DisplayName="If - not a segment buy invoice" sap:VirtualizedContainerService.HintSize="3070,5684" sap2010:WorkflowViewState.IdRef="If_27">
+        <If Condition="[not argIsSegmentBuy.ToLower.Trim.Equals(&quot;true&quot;)]" DisplayName="If - not a segment buy invoice" sap:VirtualizedContainerService.HintSize="3112,5924" sap2010:WorkflowViewState.IdRef="If_27">
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="2691,5536" sap2010:WorkflowViewState.IdRef="Sequence_91">
+            <Sequence sap:VirtualizedContainerService.HintSize="2691,5776" sap2010:WorkflowViewState.IdRef="Sequence_91">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3898,26 +3899,59 @@
                   <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                 </Assign.Value>
               </Assign>
+              <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="2649,68" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[argimgScreenshot]">
+                <ui:TakeScreenshot.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="84273235-230a-4922-8292-41717eebf490">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TakeScreenshot.Target>
+              </ui:TakeScreenshot>
+              <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;Success_&quot;+txtInvNumber+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmssSSS&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="2649,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[argimgScreenshot]" />
             </Sequence>
           </If.Then>
           <If.Else>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="If invoice is tagged as Segment Buy bot will flow to this xaml" DisplayName="Invoke Segment_Buys workflow" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Segment_Buys.xaml">
-              <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="ID">[argID]</InArgument>
-                <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="DB_Connection">[DB_Connection]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="argFAName">[argFAName]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="argMOS">[argMOS]</InArgument>
-                <OutArgument x:TypeArguments="x:Boolean" x:Key="outSegmentFound">[isTagged]</OutArgument>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="intCommentLength">[intCommentLength]</InArgument>
-              </ui:InvokeWorkflowFile.Arguments>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,486" sap2010:WorkflowViewState.IdRef="Sequence_129">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:InvokeWorkflowFile>
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="If invoice is tagged as Segment Buy bot will flow to this xaml" DisplayName="Invoke Segment_Buys workflow" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Segment_Buys.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="ID">[argID]</InArgument>
+                  <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="DB_Connection">[DB_Connection]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="argFAName">[argFAName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="argMOS">[argMOS]</InArgument>
+                  <OutArgument x:TypeArguments="x:Boolean" x:Key="outSegmentFound">[isTagged]</OutArgument>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                  <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="intCommentLength">[intCommentLength]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+              <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="TakeScreenshot_2" Screenshot="[argimgScreenshot]">
+                <ui:TakeScreenshot.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="84273235-230a-4922-8292-41717eebf490">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TakeScreenshot.Target>
+              </ui:TakeScreenshot>
+              <ui:SaveImage DisplayName="Save Image" FileName="[in_Config(&quot;ExceptionScreenshotPath&quot;).ToString+&quot;Success_&quot;+txtInvNumber+&quot;_&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd_hhmmssSSS&quot;)+&quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_2" Image="[argimgScreenshot]" />
+            </Sequence>
           </If.Else>
         </If>
       </Sequence>

@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1300,7881</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1300,7972</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Segment_Buys_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -95,7 +95,7 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,7776" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,7907" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strText" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:TextInfo)" Name="strWordsInfo" />
@@ -125,13 +125,13 @@
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
     <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="PBT_Segment_Insertion_Date" DataTable="[dtSegmentBuys]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="1268,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtSegmentBuys]" SortOrder="Ascending" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,7263" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,7394" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,7115" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,7246" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strSegmentCount" />
               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrresult" />
@@ -512,6 +512,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleWhile>
             <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1176,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
             <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_23">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[intScrollCounter]</OutArgument>

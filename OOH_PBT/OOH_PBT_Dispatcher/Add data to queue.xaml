@@ -15,7 +15,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1546,3201</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1436,3234</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dispatcher_queue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -96,7 +96,7 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1085,3136" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence sap:VirtualizedContainerService.HintSize="1446,3169" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="FA_Log_Folder_Exists" />
       <Variable x:TypeArguments="x:String" Name="strInvName" />
@@ -106,8 +106,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1043,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;start Dispatcher_queue work flow&quot;]" />
-    <Sequence DisplayName="Dispatcher_queue" sap:VirtualizedContainerService.HintSize="1043,2913" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1404,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;start Dispatcher_queue work flow&quot;]" />
+    <Sequence DisplayName="Dispatcher_queue" sap:VirtualizedContainerService.HintSize="1404,2946" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
         <Variable x:TypeArguments="x:String" Name="Log_FileDate_Main" />
@@ -129,7 +129,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Sequence Create connection String for DB" sap:VirtualizedContainerService.HintSize="1001,420" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence DisplayName="Sequence Create connection String for DB" sap:VirtualizedContainerService.HintSize="1362,420" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="dtFANames" />
           <Variable x:TypeArguments="s:String[]" Name="arrFAName" />
@@ -168,8 +168,8 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:DatabaseConnect>
       </Sequence>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1001,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Connected Sucessfully...&quot;]" />
-      <Sequence DisplayName="Remove unprocessed item from the queue to prevent duplicate tagging" sap:VirtualizedContainerService.HintSize="1001,176" sap2010:WorkflowViewState.IdRef="Sequence_87">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1362,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Connected Sucessfully...&quot;]" />
+      <Sequence DisplayName="Remove unprocessed item from the queue to prevent duplicate tagging" sap:VirtualizedContainerService.HintSize="1362,176" sap2010:WorkflowViewState.IdRef="Sequence_87">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -178,7 +178,7 @@
         <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New" QueueName="[argQueueName]" Result="[getQueueItems]" />
         <ui:DeleteQueueItems TimeoutMS="{x:Null}" DisplayName="Delete Queue Items" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="DeleteQueueItems_1" QueueItems="[getQueueItems]" />
       </Sequence>
-      <Sequence DisplayName="Sequence - send false positive exception if invoice num contains R, R1, R2 (revised invoice)" sap:VirtualizedContainerService.HintSize="1001,668" sap2010:WorkflowViewState.IdRef="Sequence_77">
+      <Sequence DisplayName="Sequence - send false positive exception if invoice num contains R, R1, R2 (revised invoice)" sap:VirtualizedContainerService.HintSize="1362,668" sap2010:WorkflowViewState.IdRef="Sequence_77">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="dtRevised" />
         </Sequence.Variables>
@@ -225,7 +225,7 @@
           </If.Then>
         </If>
       </Sequence>
-      <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;18:29:00&quot;)]" DisplayName="If current Time greater than 18:29:00 then we move with todays data otherwise move with yesterday data" sap:VirtualizedContainerService.HintSize="1001,626" sap2010:WorkflowViewState.IdRef="If_16">
+      <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;18:29:00&quot;)]" DisplayName="If current Time greater than 18:29:00 then we move with todays data otherwise move with yesterday data" sap:VirtualizedContainerService.HintSize="1362,659" sap2010:WorkflowViewState.IdRef="If_16">
         <If.Then>
           <Sequence sap:VirtualizedContainerService.HintSize="478,478" sap2010:WorkflowViewState.IdRef="Sequence_58">
             <sap:WorkflowViewStateService.ViewState>
@@ -249,7 +249,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_11" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt  left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; convert(date,dateadd(day,-30,getdate())) and opt.PBT_Tag_Status is null or opt.PBT_Tag_Status = '' And&#xA;olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_11" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt  left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; convert(date,dateadd(day,-30,getdate())) and opt.PBT_Tag_Status is null or opt.PBT_Tag_Status = '' And&#xA;olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
               <ui:ExecuteQuery.Parameters>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:ExecuteQuery.Parameters>
@@ -257,38 +257,76 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Sequence - take input updated by yesterday only by the FA" sap:VirtualizedContainerService.HintSize="478,478" sap2010:WorkflowViewState.IdRef="Sequence_59">
+          <Sequence DisplayName="Sequence - take input updated by yesterday only by the FA" sap:VirtualizedContainerService.HintSize="839,511" sap2010:WorkflowViewState.IdRef="Sequence_59">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,258" sap2010:WorkflowViewState.IdRef="CommentOut_18">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_106">
+            <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;16:59:00&quot;)]" DisplayName="Tag Recon Pending Items tagged by the FA" sap:VirtualizedContainerService.HintSize="797,419" sap2010:WorkflowViewState.IdRef="If_22">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_107">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_23" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt  left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where  opt.pbt_ID='49'">
+                  <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_24" Sql="Select olt.*,opt.PBT_Tag_Status, opt.PBT_Insertion_Date, opt.PBT_Update_Date From OOH_PBT_Txn opt left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where PBT_Update_Date is not null and Convert(date, pbt_insertion_date) &lt; Convert(date,Getdate()) and Convert(date, PBT_Update_Date) = Convert(date,Getdate())">
                     <ui:ExecuteQuery.Parameters>
                       <scg:Dictionary x:TypeArguments="x:String, Argument" />
                     </ui:ExecuteQuery.Parameters>
                   </ui:ExecuteQuery>
                 </Sequence>
-              </ui:CommentOut.Body>
-            </ui:CommentOut>
-            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_14" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xD;&#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; &#xD;&#xA;convert(date,dateadd(day,-30,getdate())) And Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xD;&#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &lt;= convert(date,dateadd(day,-1,getdate())) And (opt.PBT_Tag_Status is null or opt.PBT_Tag_Status like '') &#xD;&#xA;And olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
-              <ui:ExecuteQuery.Parameters>
-                <scg:Dictionary x:TypeArguments="x:String, Argument" />
-              </ui:ExecuteQuery.Parameters>
-            </ui:ExecuteQuery>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,271" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_18">
+                    <ui:CommentOut.Body>
+                      <Sequence sap:VirtualizedContainerService.HintSize="418,272" sap2010:WorkflowViewState.IdRef="Sequence_108">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_106">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_23" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt  left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where  opt.pbt_ID='49'">
+                            <ui:ExecuteQuery.Parameters>
+                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                            </ui:ExecuteQuery.Parameters>
+                          </ui:ExecuteQuery>
+                        </Sequence>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[DT1]" DisplayName="Execute Query - Live" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_25" Sql="Select olt.*,opt.PBT_Tag_Status From OOH_PBT_Txn opt left join OOH_Log_Txn olt on opt.PBT_Log_ID=olt.Log_ID Where &#xA;Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; &#xA;convert(date,dateadd(day,-30,getdate())) And Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &lt;= convert(date,dateadd(day,-1,getdate())) And (opt.PBT_Tag_Status is null or opt.PBT_Tag_Status like '') &#xA;And olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and olt.Log_Validated_E like '%[0-9]%' and opt.PBT_Tagged is null">
+                    <ui:ExecuteQuery.Parameters>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:ExecuteQuery.Parameters>
+                  </ui:ExecuteQuery>
+                </Sequence>
+              </If.Else>
+            </If>
           </Sequence>
         </If.Else>
       </If>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1001,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Number of Records found &quot;+DT1.Rows.Count.ToString]" />
-      <Assign sap:VirtualizedContainerService.HintSize="1001,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1362,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Number of Records found &quot;+DT1.Rows.Count.ToString]" />
+      <Assign sap:VirtualizedContainerService.HintSize="1362,60" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[intQueueCounter]</OutArgument>
         </Assign.To>
@@ -296,7 +334,7 @@
           <InArgument x:TypeArguments="x:Int32">0</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[DT1.Rows.Count &gt; 0]" DisplayName="If - no record found to be tagged" sap:VirtualizedContainerService.HintSize="1001,409" sap2010:WorkflowViewState.IdRef="If_21">
+      <If Condition="[DT1.Rows.Count &gt; 0]" DisplayName="If - no record found to be tagged" sap:VirtualizedContainerService.HintSize="1362,409" sap2010:WorkflowViewState.IdRef="If_21">
         <If.Then>
           <Sequence sap:VirtualizedContainerService.HintSize="376,261" sap2010:WorkflowViewState.IdRef="Sequence_86">
             <sap:WorkflowViewStateService.ViewState>

@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1300,8580</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1300,8711</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Segment_Buys_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -93,7 +93,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,8515" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,8646" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strText" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:TextInfo)" Name="strWordsInfo" />
@@ -114,7 +114,7 @@
         <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["select * from ooh_pbt_txn where PBT_Log_ID = '"+ID+"'"]</InArgument>
+        <InArgument x:TypeArguments="x:String">["select * from ooh_pbt_txn where PBT_Log_ID = '"+ID+"'and (pbt_Segment_insertion_date &lt;&gt; null or pbt_Segment_insertion_date &lt;&gt; '') and pbt_tagged is null"]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtSegmentBuys]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1268,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[varQuery]">
@@ -123,13 +123,13 @@
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
     <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="PBT_Segment_Insertion_Date" DataTable="[dtSegmentBuys]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="1268,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtSegmentBuys]" SortOrder="Ascending" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,8002" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,8133" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,7854" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,7985" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strSegmentCount" />
               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrresult" />
@@ -356,6 +356,7 @@
               </Assign.Value>
             </Assign>
             <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1176,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Segment insertion date :&quot;+row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
             <If Condition="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="1176,839" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="526,691" sap2010:WorkflowViewState.IdRef="Sequence_4">
