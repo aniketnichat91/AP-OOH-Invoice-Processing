@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1546,2905</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,2905</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrintBuyToolKit_DownloadCriteria_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -85,34 +85,34 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrintBuyToolKit_DLCriteria-CPE Code" sap:VirtualizedContainerService.HintSize="1101,2840" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrintBuyToolKit_DLCriteria-CPE Code" sap:VirtualizedContainerService.HintSize="536,2840" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1059,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;PrintBuyToolKit_DLCriteria-CPE Code flow start &quot;]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1059,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[MediaCode.ToString]" />
-    <Sequence DisplayName="Desktop" sap:VirtualizedContainerService.HintSize="1059,2355" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="494,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;PrintBuyToolKit_DLCriteria-CPE Code flow start &quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="494,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[MediaCode.ToString]" />
+    <Sequence DisplayName="Desktop" sap:VirtualizedContainerService.HintSize="494,2355" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DownloadW Thunderrt'" sap:VirtualizedContainerService.HintSize="1017,2263" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="1ef4a96046a911781618a34dcbd6c9cd" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6FormDC' omit:title='Download Wizard' /&gt;">
+      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DownloadW Thunderrt'" sap:VirtualizedContainerService.HintSize="452,2263" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="1ef4a96046a911781618a34dcbd6c9cd" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6FormDC' omit:title='Download Wizard' /&gt;">
         <ui:WindowScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="983,2117" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,2117" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Media Code" sap:VirtualizedContainerService.HintSize="941,528" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence DisplayName="Media Code" sap:VirtualizedContainerService.HintSize="376,528" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="strText" />
                   <Variable x:TypeArguments="ui:Image" Name="imgScreenshot" />
@@ -191,8 +191,8 @@
                   </ui:SendHotkey.Target>
                 </ui:SendHotkey>
               </Sequence>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Typed media code :&quot;+MediaCode]" />
-              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="941,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" SimulateType="False" Text="[ClientCode]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Typed media code :&quot;+MediaCode]" />
+              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" SimulateType="False" Text="[ClientCode]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="038688ce-ba69-4b41-b94f-b94b66c876b5" InformativeScreenshot="d69de88d070882c65d9d9fcd88620eb9" Selector="&lt;wnd cls='ThunderRT6Frame' idx='1' title='Download criteria' /&gt;&lt;wnd cls='ThunderRT6TextBox' idx='1' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -204,8 +204,8 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Typed client code :&quot;+ClientCode]" />
-              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="941,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" SendWindowMessages="False" SimulateType="False" Text="[ProductCode]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Typed client code :&quot;+ClientCode]" />
+              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" SendWindowMessages="False" SimulateType="False" Text="[ProductCode]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d2b28f9-ac72-4e9f-8d0e-da3ff50d0fbd" InformativeScreenshot="5c9f3d966fcdf48411c2325d75c57fd8" Selector="&lt;wnd cls='ThunderRT6Frame' idx='1' title='Download criteria' /&gt;&lt;wnd cls='ThunderRT6TextBox' idx='2' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -217,8 +217,8 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Typed product code :&quot;+ProductCode]" />
-              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="941,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" SendWindowMessages="False" SimulateType="False" Text="[EstimateCode]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Typed product code :&quot;+ProductCode]" />
+              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" SendWindowMessages="False" SimulateType="False" Text="[EstimateCode]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="969322ee-6c63-4a86-8fd8-01559453537b" InformativeScreenshot="de29c71eb9a4553ff9696eded8693e7a" Selector="&lt;wnd cls='ThunderRT6Frame' idx='1' title='Download criteria' /&gt;&lt;wnd cls='ThunderRT6TextBox' idx='3' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -230,8 +230,8 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Typed estimate code :&quot;+EstimateCode]" />
-              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="941,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SendWindowMessages="False" SimulateType="False" Text="[InsertionDate]">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Typed estimate code :&quot;+EstimateCode]" />
+              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" DisplayName="Action Type Into 'ThunderRT6TextBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="376,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SendWindowMessages="False" SimulateType="False" Text="[InsertionDate]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8ade035e-9f59-4419-8eb8-382f7ca9e8aa" InformativeScreenshot="402e6bf39c7bfffa5475a0ae377eb57e" Selector="&lt;wnd cls='ThunderRT6Frame' idx='1' title='Download criteria' /&gt;&lt;wnd cls='ThunderRT6TextBox' idx='4' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -243,8 +243,8 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="941,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Typed insertion date :&quot;+InsertionDate]" />
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Next" sap:VirtualizedContainerService.HintSize="941,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="376,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Typed insertion date :&quot;+InsertionDate]" />
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click Next" sap:VirtualizedContainerService.HintSize="376,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="61" OffsetY="24" Position="TopLeft" />
                 </ui:Click.CursorPosition>
@@ -270,6 +270,6 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:WindowScope>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1059,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;MCPE set on PBT&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="494,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;MCPE set on PBT&quot;]" />
   </Sequence>
 </Activity>

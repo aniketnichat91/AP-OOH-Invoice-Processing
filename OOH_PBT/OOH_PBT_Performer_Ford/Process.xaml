@@ -876,7 +876,7 @@
                     <OutArgument x:TypeArguments="x:String">[Tag_Status]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">Invalid CPE Combination</InArgument>
+                    <InArgument x:TypeArguments="x:String">Invalid CPE or MOS Combination</InArgument>
                   </Assign.Value>
                 </Assign>
                 <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="942,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Update ooh_pbt_txn set PBT_Tagged = 0,PBT_Tag_Status = '&quot;+Tag_Status.ToString+&quot;',PBT_Tag_Date = '&quot;+System.DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;)+&quot;'  where PBT_Log_ID like ('&quot;+ID.ToString+&quot;')&quot;]" />

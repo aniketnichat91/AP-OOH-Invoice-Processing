@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,8282</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,8232</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Segment_Buys_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -95,7 +95,7 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1310,8177" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Segment_Buys" sap:VirtualizedContainerService.HintSize="1352,8425" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strText" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:TextInfo)" Name="strWordsInfo" />
@@ -110,8 +110,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1268,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start Segment_Buys work flow&quot;]" />
-    <Assign DisplayName="Assign - get all the segments for the same invoice" sap:VirtualizedContainerService.HintSize="1268,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1310,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start Segment_Buys work flow&quot;]" />
+    <Assign DisplayName="Assign - get all the segments for the same invoice" sap:VirtualizedContainerService.HintSize="1310,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[varQuery]</OutArgument>
       </Assign.To>
@@ -119,7 +119,7 @@
         <InArgument x:TypeArguments="x:String">["select * from ooh_pbt_txn where PBT_Log_ID = '"+ID+"'and (pbt_Segment_insertion_date &lt;&gt; null or pbt_Segment_insertion_date &lt;&gt; '') and pbt_tagged is null"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1268,230" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1310,230" sap2010:WorkflowViewState.IdRef="CommentOut_7">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_23">
           <sap:WorkflowViewStateService.ViewState>
@@ -138,19 +138,19 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtSegmentBuys]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1268,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[varQuery]">
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtSegmentBuys]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="1310,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[varQuery]">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="PBT_Segment_Insertion_Date" DataTable="[dtSegmentBuys]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="1268,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtSegmentBuys]" SortOrder="Ascending" />
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,7394" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="PBT_Segment_Insertion_Date" DataTable="[dtSegmentBuys]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="1310,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dtSegmentBuys]" SortOrder="Ascending" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSegmentBuys]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1310,7642" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,7246" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1260,7494" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strSegmentCount" />
               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arrresult" />
@@ -163,7 +163,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+            <Assign sap:VirtualizedContainerService.HintSize="1218,60" sap2010:WorkflowViewState.IdRef="Assign_28">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[strSegment_Comment]</OutArgument>
               </Assign.To>
@@ -171,7 +171,7 @@
                 <InArgument x:TypeArguments="x:String">[row("pbt_segment_comment").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1176,377" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1218,377" sap2010:WorkflowViewState.IdRef="CommentOut_2">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="611,299" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <sap:WorkflowViewStateService.ViewState>
@@ -210,8 +210,8 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
-            <ui:Matches sap:VirtualizedContainerService.HintSize="1176,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[row(&quot;PBT_Segment_Insertion_Date&quot;).tostring]" IsBuilderTabModified="False" Pattern="\d{2}" RegexOption="IgnoreCase, Compiled" Result="[arrresult]" />
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[arrresult(0).tostring]" sap:VirtualizedContainerService.HintSize="1176,380" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <ui:Matches sap:VirtualizedContainerService.HintSize="1218,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[row(&quot;PBT_Segment_Insertion_Date&quot;).tostring]" IsBuilderTabModified="False" Pattern="\d{2}" RegexOption="IgnoreCase, Compiled" Result="[arrresult]" />
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[arrresult(0).tostring]" sap:VirtualizedContainerService.HintSize="1218,380" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -315,7 +315,7 @@
                 </Assign.Value>
               </Assign>
             </Switch>
-            <If Condition="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="1176,400" sap2010:WorkflowViewState.IdRef="If_5">
+            <If Condition="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="1218,400" sap2010:WorkflowViewState.IdRef="If_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -361,7 +361,7 @@
                 </Assign>
               </If.Else>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+            <Assign sap:VirtualizedContainerService.HintSize="1218,60" sap2010:WorkflowViewState.IdRef="Assign_22">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[row("PBT_Segment_Insertion_Date")]</OutArgument>
               </Assign.To>
@@ -369,9 +369,9 @@
                 <InArgument x:TypeArguments="x:Object">[strSegmentDate]</InArgument>
               </Assign.Value>
             </Assign>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1176,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Segment insertion date :&quot;+row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
-            <If Condition="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="1176,839" sap2010:WorkflowViewState.IdRef="If_2">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1218,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Segment insertion date :&quot;+row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
+            <If Condition="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="1218,839" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="526,691" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <Sequence.Variables>
@@ -427,7 +427,7 @@
                 </Sequence>
               </If.Then>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+            <Assign sap:VirtualizedContainerService.HintSize="1218,60" sap2010:WorkflowViewState.IdRef="Assign_27">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[intScrollCounter]</OutArgument>
               </Assign.To>
@@ -435,7 +435,7 @@
                 <InArgument x:TypeArguments="x:Int32">0</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InterruptibleWhile DisplayName="While - do page up 7 times max to reach the top of PBT screen" sap:VirtualizedContainerService.HintSize="1176,51" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+            <ui:InterruptibleWhile DisplayName="While - do page up 7 times max to reach the top of PBT screen" sap:VirtualizedContainerService.HintSize="1218,51" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
               <ui:InterruptibleWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518,940" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <sap:WorkflowViewStateService.ViewState>
@@ -530,9 +530,27 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleWhile>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1176,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1176,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
-            <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey - move extreme left on PBT " sap:VirtualizedContainerService.HintSize="1218,116" sap2010:WorkflowViewState.IdRef="SendHotkey_22" Key="left" KeyModifiers="Ctrl, Shift" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a9ad8416-72c7-439e-a21e-bdec74e36da9">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:SendHotkey>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1218,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[row(&quot;PBT_Segment_Insertion_Date&quot;).ToString]" />
+            <Assign sap:VirtualizedContainerService.HintSize="1218,60" sap2010:WorkflowViewState.IdRef="Assign_23">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[intScrollCounter]</OutArgument>
               </Assign.To>
@@ -540,7 +558,7 @@
                 <InArgument x:TypeArguments="x:Int32">0</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="1176,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+            <Assign sap:VirtualizedContainerService.HintSize="1218,60" sap2010:WorkflowViewState.IdRef="Assign_24">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Boolean">[outSegmentFound]</OutArgument>
               </Assign.To>
@@ -548,7 +566,7 @@
                 <InArgument x:TypeArguments="x:Boolean">False</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InterruptibleWhile DisplayName="While - do page down 5 times max or till segment is found" sap:VirtualizedContainerService.HintSize="1176,1404" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+            <ui:InterruptibleWhile DisplayName="While - do page down 5 times max or till segment is found" sap:VirtualizedContainerService.HintSize="1218,1404" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
               <ui:InterruptibleWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="663,1239" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <sap:WorkflowViewStateService.ViewState>
@@ -654,7 +672,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleWhile>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1176,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1218,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,246" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
@@ -685,16 +703,16 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
-            <If Condition="[outSegmentFound]" sap:VirtualizedContainerService.HintSize="1176,2309" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[outSegmentFound]" sap:VirtualizedContainerService.HintSize="1218,2401" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="755,2161" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence sap:VirtualizedContainerService.HintSize="797,2253" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="713,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="tab" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="755,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="tab" KeyModifiers="None" SpecialKey="True">
                     <ui:SendHotkey.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="15a7802c-7c59-4c19-b9ae-a51672517c44">
                         <ui:Target.TimeoutMS>
@@ -706,7 +724,7 @@
                       </ui:Target>
                     </ui:SendHotkey.Target>
                   </ui:SendHotkey>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type INVNUM" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString + &quot;[k(tab)]&quot;]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type INVNUM" sap:VirtualizedContainerService.HintSize="755,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString + &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7572f779-40a6-4484-a4ec-e5d3d9ea6083" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -718,8 +736,8 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="713,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Invoice Num :&quot;+in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type INVAMOUNT" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[row(&quot;pbt_segment_invoiceAmount&quot;).ToString.Trim + &quot;[k(tab)]&quot;]">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Invoice Num :&quot;+in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type INVAMOUNT" sap:VirtualizedContainerService.HintSize="755,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[row(&quot;pbt_segment_invoiceAmount&quot;).ToString.Trim + &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8197f4fb-c5dc-4a59-9216-9eb8503fb179" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;" WaitForReady="NONE">
                         <ui:Target.TimeoutMS>
@@ -728,8 +746,8 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="713,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;segment invoice Amount :&quot;+row(&quot;pbt_segment_invoiceAmount&quot;).ToString]" />
-                  <Sequence sap:VirtualizedContainerService.HintSize="713,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;segment invoice Amount :&quot;+row(&quot;pbt_segment_invoiceAmount&quot;).ToString]" />
+                  <Sequence sap:VirtualizedContainerService.HintSize="755,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -773,7 +791,7 @@
                       </ui:SendHotkey.Target>
                     </ui:SendHotkey>
                   </Sequence>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type INVCOMMENT" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[strSegment_Comment.Trim + &quot;[k(tab)]&quot;]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type INVCOMMENT" sap:VirtualizedContainerService.HintSize="755,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[strSegment_Comment.Trim + &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8197f4fb-c5dc-4a59-9216-9eb8503fb179" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;" WaitForReady="NONE">
                         <ui:Target.TimeoutMS>
@@ -782,8 +800,8 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="713,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Segment Comment :&quot;+strSegment_Comment]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type FA NAME" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[argFAName+ &quot;[k(tab)]&quot;]">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Segment Comment :&quot;+strSegment_Comment]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type FA NAME" sap:VirtualizedContainerService.HintSize="755,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[argFAName+ &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8197f4fb-c5dc-4a59-9216-9eb8503fb179" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;" WaitForReady="NONE">
                         <ui:Target.TimeoutMS>
@@ -792,8 +810,8 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="713,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;FAName :&quot;+argFAName]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type PBT Recon Status" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[in_TransactionItem.SpecificContent(&quot;PBT_Recon_Status&quot;).ToString + &quot;[k(tab)]&quot;]">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;FAName :&quot;+argFAName]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Type PBT Recon Status" sap:VirtualizedContainerService.HintSize="755,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[in_TransactionItem.SpecificContent(&quot;PBT_Recon_Status&quot;).ToString + &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8197f4fb-c5dc-4a59-9216-9eb8503fb179" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;" WaitForReady="NONE">
                         <ui:Target.TimeoutMS>
@@ -802,8 +820,8 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="713,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Recon Status :&quot;+in_TransactionItem.SpecificContent(&quot;PBT_Recon_Status&quot;).ToString]" />
-                  <If Condition="[in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString.Trim.Length &gt; 11]" sap:VirtualizedContainerService.HintSize="713,282" sap2010:WorkflowViewState.IdRef="If_1">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Recon Status :&quot;+in_TransactionItem.SpecificContent(&quot;PBT_Recon_Status&quot;).ToString]" />
+                  <If Condition="[in_TransactionItem.SpecificContent(&quot;Invoice_Num&quot;).ToString.Trim.Length &gt; 11]" sap:VirtualizedContainerService.HintSize="755,374" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -825,15 +843,28 @@
                       </ui:TypeInto>
                     </If.Then>
                     <If.Else>
-                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Not Type invoice Number" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="%[k(tab)]">
-                        <ui:TypeInto.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8197f4fb-c5dc-4a59-9216-9eb8503fb179" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;" WaitForReady="NONE">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                          </ui:Target>
-                        </ui:TypeInto.Target>
-                      </ui:TypeInto>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="False" DelayBefore="500" DelayMS="500" DeselectAfter="True" DisplayName="Not Type invoice Number" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="%[k(tab)]">
+                          <ui:TypeInto.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8197f4fb-c5dc-4a59-9216-9eb8503fb179" InformativeScreenshot="c2bac078c3d88c0afb232fec4120b304" Selector="&lt;wnd app='adbuyer.exe' cls='ThunderRT6MDIForm' title='Print Buy Toolkit - Spectra DS : *' /&gt;&lt;wnd cls='ThunderRT6FormDC' title='*' /&gt;&lt;wnd cls='A*' idx='1' /&gt;&lt;ctrl role='client' /&gt;" WaitForReady="NONE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:TypeInto.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:TypeInto>
+                      </Sequence>
                     </If.Else>
                   </If>
                 </Sequence>
