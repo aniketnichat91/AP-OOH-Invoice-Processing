@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1000,4450</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1000,4762</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PrintBuyToolKit_Logon_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="72">
@@ -100,9 +100,10 @@
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PrintBuyToolKit_Logon" sap:VirtualizedContainerService.HintSize="1010,4385" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PrintBuyToolKit_Logon" sap:VirtualizedContainerService.HintSize="1010,4697" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Result" />
       <Variable x:TypeArguments="x:Boolean" Name="Invalidpassword" />
@@ -114,7 +115,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="968,4293" sap2010:WorkflowViewState.IdRef="Sequence_37">
+    <Sequence sap:VirtualizedContainerService.HintSize="968,4605" sap2010:WorkflowViewState.IdRef="Sequence_37">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="Download_Wizard" />
         <Variable x:TypeArguments="x:Boolean" Name="PBT_Window" />
@@ -125,8 +126,8 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="926,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="ADBuyer" />
-      <Sequence DisplayName="Double Click Icon" sap:VirtualizedContainerService.HintSize="926,729" sap2010:WorkflowViewState.IdRef="Sequence_24">
+      <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="926,132" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="ADBuyer" />
+      <Sequence DisplayName="Double Click Icon" sap:VirtualizedContainerService.HintSize="926,786" sap2010:WorkflowViewState.IdRef="Sequence_24">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -169,7 +170,7 @@
             </ui:Target>
           </ui:SendHotkey.Target>
         </ui:SendHotkey>
-        <ui:GetRobotCredential Username="{x:Null}" AssetName="PBTLogin" DisplayName="Get Credential" FolderPath="Default" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrPassword]" TimeoutMS="5000" />
+        <ui:GetRobotCredential Username="{x:Null}" AssetName="PBTLogin" DisplayName="Get Credential" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secStrPassword]" TimeoutMS="5000" />
         <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
           <ui:CommentOut.Body>
             <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,143" sap2010:WorkflowViewState.IdRef="Sequence_38">
@@ -237,9 +238,9 @@
           </ui:Target>
         </ui:UiElementExists.Target>
       </ui:UiElementExists>
-      <If Condition="[PBT_Window]" sap:VirtualizedContainerService.HintSize="926,3224" sap2010:WorkflowViewState.IdRef="If_9">
+      <If Condition="[PBT_Window]" sap:VirtualizedContainerService.HintSize="926,3369" sap2010:WorkflowViewState.IdRef="If_9">
         <If.Else>
-          <Sequence sap:VirtualizedContainerService.HintSize="781,3076" sap2010:WorkflowViewState.IdRef="Sequence_42">
+          <Sequence sap:VirtualizedContainerService.HintSize="781,3211" sap2010:WorkflowViewState.IdRef="Sequence_42">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="isExists" />
             </Sequence.Variables>
@@ -249,7 +250,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="739,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[new System.Net.NetworkCredential(string.Empty, secStrPassword).Password]" />
-            <If Condition="True" DisplayName="If Get pass from Credential Manager" sap:VirtualizedContainerService.HintSize="739,822" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="True" DisplayName="If Get pass from Credential Manager" sap:VirtualizedContainerService.HintSize="739,861" sap2010:WorkflowViewState.IdRef="If_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -463,7 +464,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[isExists]" DisplayName="If password expiry popup" sap:VirtualizedContainerService.HintSize="739,1401" sap2010:WorkflowViewState.IdRef="If_10">
+            <If Condition="[isExists]" DisplayName="If password expiry popup" sap:VirtualizedContainerService.HintSize="739,1497" sap2010:WorkflowViewState.IdRef="If_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -471,13 +472,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="594,1253" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                <Sequence sap:VirtualizedContainerService.HintSize="594,1310" sap2010:WorkflowViewState.IdRef="Sequence_45">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Close logon window" sap:VirtualizedContainerService.HintSize="552,1161" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                  <Sequence DisplayName="Close logon window" sap:VirtualizedContainerService.HintSize="552,1218" sap2010:WorkflowViewState.IdRef="Sequence_44">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="ss:SecureString" Name="Password" />
                       <Variable x:TypeArguments="x:String" Name="strUsername" />
@@ -525,7 +526,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WindowScope>
-                    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Nycgrm_botCred" DisplayName="Get Credential" FolderPath="Default" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[Password]" Username="[strUsername]" />
+                    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Nycgrm_botCred" DisplayName="Get Credential" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="510,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[Password]" Username="[strUsername]" />
                     <uma:Office365ApplicationScope CertificateAsBase64="{x:Null}" CertificatePassword="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" SecureApplicationSecret="{x:Null}" Timeout="{x:Null}" ApplicationId="eae21b34-e570-40b5-9512-7c5849823282" ApplicationSecret="ZOg7Q~Qezzsl3WgHPJ3AtEHg4K_C2C3Xavk5N" AuthenticationType="UsernameAndPassword" DisplayName="Microsoft Office 365 Scope" Environment="Global" sap:VirtualizedContainerService.HintSize="510,532" sap2010:WorkflowViewState.IdRef="Office365ApplicationScope_1" OAuthApplication="UiPath" SecurePassword="[Password]" Services="Files, Mail, Calendar, Groups, Shared" Tenant="86cbe1bb-213f-4271-b174-bd59d03c87a3" Username="[strUsername]">
                       <uma:Office365ApplicationScope.Body>
                         <ActivityAction x:TypeArguments="mg:GraphServiceClient">
@@ -538,7 +539,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <umam:SendMail Account="{x:Null}" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" ReplyTo="{x:Null}" Body="Hi Team,&#xD;&#xA;OOH PBT Login Cred Expiring soon please Update the Login Password for OOH PBT&#xD;&#xA;&#xD;&#xA;Regards,&#xD;&#xA;OOH PBT BOT" DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="434,354" sap2010:WorkflowViewState.IdRef="SendMail_1" Importance="High" IsBodyHTML="False" IsDraft="False" Subject="OOH PBT Login Cred Expiring soon" To="[{in_Config(&quot;ApdigitalUSA&quot;).ToString}]">
+                            <umam:SendMail Account="{x:Null}" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" ReplyTo="{x:Null}" Body="Hi Team,&#xA;OOH PBT Login Cred Expiring soon please Update the Login Password for OOH PBT&#xA;&#xA;Regards,&#xA;OOH PBT BOT" DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="434,354" sap2010:WorkflowViewState.IdRef="SendMail_1" Importance="High" IsBodyHTML="False" IsDraft="False" Subject="OOH PBT Login Cred Expiring soon" To="[{in_Config(&quot;ApdigitalUSA&quot;).ToString}]">
                               <umam:SendMail.Attachments>
                                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                               </umam:SendMail.Attachments>

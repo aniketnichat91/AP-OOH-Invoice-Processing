@@ -8,11 +8,12 @@
     <x:Property Name="dbConnection" Type="InArgument(ui:DatabaseConnection)" />
     <x:Property Name="argLeadingInvNum" Type="InArgument(x:String)" />
     <x:Property Name="argLog_ID" Type="InArgument(x:String)" />
+    <x:Property Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1546,6322</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1184,6276</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Compile_PDF_for_multi_invoice_1_buy_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -100,7 +101,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Compile_PDF_for_multi_invoice_1_buy" sap:VirtualizedContainerService.HintSize="1194,6097" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Compile_PDF_for_multi_invoice_1_buy" sap:VirtualizedContainerService.HintSize="1194,6211" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtRegEx" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="arRegExResult" />
@@ -135,24 +136,24 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(argSavePDFPath)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1152,248" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[arrPdfFilePath]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1152,305" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[arrPdfFilePath]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="326,171" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[item.ToString]" />
+            <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[item.ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:GetRobotCredential AssetName="SharePointLogin" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="1152,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[strPassword]" TimeoutMS="5000" Username="[strUserName]" />
+    <ui:GetRobotCredential AssetName="SharePointLogin" DisplayName="Get Credential" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="1152,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[strPassword]" TimeoutMS="5000" Username="[strUserName]" />
     <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1152,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">

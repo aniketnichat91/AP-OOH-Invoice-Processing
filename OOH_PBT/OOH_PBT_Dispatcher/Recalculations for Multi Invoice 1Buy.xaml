@@ -16,11 +16,12 @@
     <x:Property Name="argMultiInvID" Type="InArgument(x:String)" />
     <x:Property Name="argQueueNameFord" Type="InArgument(x:String)" />
     <x:Property Name="argFordString" Type="InArgument(x:String)" />
+    <x:Property Name="in_config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1732,11185</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,11245</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Recalculations_for_Multi_Invoice_1Buy_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -109,7 +110,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Recalculations_for_Multi_Invoice_1Buy" sap:VirtualizedContainerService.HintSize="1742,11120" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Recalculations_for_Multi_Invoice_1Buy" sap:VirtualizedContainerService.HintSize="1742,11180" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMultiInvoice" />
       <Variable x:TypeArguments="x:String" Name="varQuery" />
@@ -1133,7 +1134,7 @@
         <InArgument x:TypeArguments="sd:DataRow">[dtInvoiceDetails(0)]</InArgument>
       </Assign.Value>
     </Assign>
-    <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="1700,1971" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - skip item if already added in Multi-Buy" sap:VirtualizedContainerService.HintSize="1700,2031" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1141,7 +1142,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="566,1744" sap2010:WorkflowViewState.IdRef="Sequence_24">
+        <Sequence sap:VirtualizedContainerService.HintSize="567,1804" sap2010:WorkflowViewState.IdRef="Sequence_24">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtReProcessed" />
             <Variable x:TypeArguments="x:String" Name="varquery" />
@@ -1155,7 +1156,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="524,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+          <Assign sap:VirtualizedContainerService.HintSize="525,60" sap2010:WorkflowViewState.IdRef="Assign_56">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[outQueueFlag]</OutArgument>
             </Assign.To>
@@ -1163,13 +1164,13 @@
               <InArgument x:TypeArguments="x:Boolean">False</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="524,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_17" Sql="[&quot;update ooh_log_txn set Log_FA_Interface_Log_Status = 'In OOH PBT Queue' where Log_ID in( &quot;+argMultiInvID+&quot;)&quot;]">
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="525,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_17" Sql="[&quot;update ooh_log_txn set Log_FA_Interface_Log_Status = 'In OOH PBT Queue' where Log_ID in( &quot;+argMultiInvID+&quot;)&quot;]">
             <ui:ExecuteQuery.Parameters>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:ExecuteQuery.Parameters>
           </ui:ExecuteQuery>
-          <ui:BuildDataTable DataTable="[dt_Ford]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="524,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;FordString&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-          <Assign sap:VirtualizedContainerService.HintSize="524,60" sap2010:WorkflowViewState.IdRef="Assign_65">
+          <ui:BuildDataTable DataTable="[dt_Ford]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="525,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;FordString&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          <Assign sap:VirtualizedContainerService.HintSize="525,60" sap2010:WorkflowViewState.IdRef="Assign_65">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[strarr_Ford]</OutArgument>
             </Assign.To>
@@ -1193,9 +1194,9 @@
               <InArgument x:TypeArguments="scg:List(sd:DataRow)">[dt_Ford.AsEnumerable().Where(Function (r) r("FordString").ToString.Equals(C)).ToList()]</InArgument>
             </Assign.Value>
           </Assign>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="524,439" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="525,499" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <TryCatch.Try>
-              <If Condition="[lstFilterFord.Count() &gt; 0]" DisplayName="If - use separate queue and perfromer for Ford" sap:VirtualizedContainerService.HintSize="487,262" sap2010:WorkflowViewState.IdRef="If_10">
+              <If Condition="[lstFilterFord.Count() &gt; 0]" DisplayName="If - use separate queue and perfromer for Ford" sap:VirtualizedContainerService.HintSize="487,272" sap2010:WorkflowViewState.IdRef="If_10">
                 <If.Then>
                   <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_40">
                     <sap:WorkflowViewStateService.ViewState>
@@ -1203,7 +1204,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_12" Priority="High" QueueType="[argQueueNameFord]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
+                    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_12" Priority="High" QueueType="[argQueueNameFord]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
                       <ui:AddQueueItem.ItemInformation>
                         <InArgument x:TypeArguments="x:String" x:Key="ID">[ID]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT(7).ToString]</InArgument>
@@ -1229,7 +1230,7 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_10" Priority="High" QueueType="[argQueueName]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
+                  <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_10" Priority="High" QueueType="[argQueueName]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
                     <ui:AddQueueItem.ItemInformation>
                       <InArgument x:TypeArguments="x:String" x:Key="ID">[ID]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT(7).ToString]</InArgument>
@@ -1256,10 +1257,10 @@
               </If>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="490,277" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="491,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -1267,12 +1268,12 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <If Condition="[exception.Message.ToString.ToLower.Contains(&quot;duplicate reference&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_11" />
+                  <If Condition="[exception.Message.ToString.ToLower.Contains(&quot;duplicate reference&quot;)]" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_11" />
                 </ActivityAction>
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="524,192" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="525,192" sap2010:WorkflowViewState.IdRef="CommentOut_2">
             <ui:CommentOut.Body>
               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_41">
                 <sap:WorkflowViewStateService.ViewState>
@@ -1280,7 +1281,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_13" Priority="High" QueueType="[argQueueName]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_13" Priority="High" QueueType="[argQueueName]" Reference="[MOS+&quot;_&quot;+C+P+E+&quot;_&quot;+&quot;_&quot;+Vendor+System.DateTime.Now.ToString(&quot;yyyy-MM-dd-hh&quot;)]">
                   <ui:AddQueueItem.ItemInformation>
                     <InArgument x:TypeArguments="x:String" x:Key="ID">[ID]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Invoice_Num">[outInvoiceDT(7).ToString]</InArgument>
@@ -1324,6 +1325,7 @@
               <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="dbConnection">[dbConnection]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="argLeadingInvNum">[strLeadingInvNum]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="argLog_ID">[dtid(0)(0).tostring]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">[in_config]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1334,7 +1336,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="533,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="570,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1345,7 +1347,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="526,297" sap2010:WorkflowViewState.IdRef="Sequence_25">
+            <Sequence sap:VirtualizedContainerService.HintSize="526,300" sap2010:WorkflowViewState.IdRef="Sequence_25">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>

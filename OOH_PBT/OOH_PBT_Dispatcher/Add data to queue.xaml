@@ -11,11 +11,12 @@
     <x:Property Name="argSQLConnectionStringProd" Type="InArgument(x:String)" />
     <x:Property Name="argQueueNameFord" Type="InArgument(x:String)" />
     <x:Property Name="argFordString" Type="InArgument(x:String)" />
+    <x:Property Name="in_config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1436,3234</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1436,3650</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dispatcher_queue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -57,7 +58,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="72">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -94,9 +95,10 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1446,3169" sap2010:WorkflowViewState.IdRef="Sequence_16">
+  <Sequence sap:VirtualizedContainerService.HintSize="1446,3585" sap2010:WorkflowViewState.IdRef="Sequence_16">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="FA_Log_Folder_Exists" />
       <Variable x:TypeArguments="x:String" Name="strInvName" />
@@ -107,7 +109,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1404,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;start Dispatcher_queue work flow&quot;]" />
-    <Sequence DisplayName="Dispatcher_queue" sap:VirtualizedContainerService.HintSize="1404,2946" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="Dispatcher_queue" sap:VirtualizedContainerService.HintSize="1404,3362" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
         <Variable x:TypeArguments="x:String" Name="Log_FileDate_Main" />
@@ -123,6 +125,7 @@
         <Variable x:TypeArguments="x:Boolean" Default="True" Name="boolValidInvoice" />
         <Variable x:TypeArguments="sd:DataTable" Name="dtDupes" />
         <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="getQueueItems" />
+        <Variable x:TypeArguments="x:Int32" Name="int_queueclear" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -169,16 +172,47 @@
         </ui:DatabaseConnect>
       </Sequence>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1362,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Connected Sucessfully...&quot;]" />
-      <Sequence DisplayName="Remove unprocessed item from the queue to prevent duplicate tagging" sap:VirtualizedContainerService.HintSize="1362,176" sap2010:WorkflowViewState.IdRef="Sequence_87">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New" QueueName="[argQueueName]" Result="[getQueueItems]" />
-        <ui:DeleteQueueItems TimeoutMS="{x:Null}" DisplayName="Delete Queue Items" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="DeleteQueueItems_1" QueueItems="[getQueueItems]" />
-      </Sequence>
-      <Sequence DisplayName="Sequence - send false positive exception if invoice num contains R, R1, R2 (revised invoice)" sap:VirtualizedContainerService.HintSize="1362,668" sap2010:WorkflowViewState.IdRef="Sequence_77">
+      <Assign sap:VirtualizedContainerService.HintSize="1362,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[int_queueclear]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">1</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:InterruptibleWhile DisplayName="While" sap:VirtualizedContainerService.HintSize="1362,423" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+        <ui:InterruptibleWhile.Body>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,258" sap2010:WorkflowViewState.IdRef="Sequence_113">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Remove unprocessed item from the queue to prevent duplicate tagging" sap:VirtualizedContainerService.HintSize="262,66" sap2010:WorkflowViewState.IdRef="Sequence_112">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_2" QueueItemStates="New" QueueName="[argQueueName]" Result="[getQueueItems]" />
+              <ui:DeleteQueueItems TimeoutMS="{x:Null}" DisplayName="Delete Queue Items" FolderPath="[in_config(&quot;Cloud_FolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="DeleteQueueItems_2" QueueItems="[getQueueItems]" />
+            </Sequence>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[int_queueclear]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[int_queueclear+1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ui:InterruptibleWhile.Body>
+        <ui:InterruptibleWhile.Condition>
+          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="int_queueclear&gt;15" />
+        </ui:InterruptibleWhile.Condition>
+      </ui:InterruptibleWhile>
+      <Sequence DisplayName="Sequence - send false positive exception if invoice num contains R, R1, R2 (revised invoice)" sap:VirtualizedContainerService.HintSize="1362,707" sap2010:WorkflowViewState.IdRef="Sequence_77">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="dtRevised" />
         </Sequence.Variables>
@@ -188,12 +222,12 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtRevised]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="555,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_15" Sql="Select olt.* From OOH_Log_Txn olt inner join OOH_PBT_Txn opt on opt.pbt_log_id=olt.Log_ID&#xA;Where Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; convert(date,dateadd(day,-30,getdate()))  and&#xA;olt.Log_FA_Interface_Log_Status is null And olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and&#xA;olt.Log_Validated_E like '%[0-9]%' And olt.Log_FA_Update_Date Is Not null  and (olt.Log_Invoice_Number like '%r' or olt.Log_Invoice_Number like '%r1' or &#xA;olt.Log_Invoice_Number like '%r2' or olt.Log_Invoice_Number like '%r3') and opt.PBT_Tagged=null">
+        <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtRevised]" DisplayName="Execute Query" ExistingDbConnection="[DB_Connection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_15" Sql="Select olt.* From OOH_Log_Txn olt inner join OOH_PBT_Txn opt on opt.pbt_log_id=olt.Log_ID&#xA;Where Convert(Date, (Select olt.Log_FA_Update_Date Where olt.Log_FA_Update_Date Is Not null And &#xA;Not isnull(olt.Log_FA_Update_Date,'') = '')) &gt; convert(date,dateadd(day,-30,getdate()))  and&#xA;olt.Log_FA_Interface_Log_Status is null And olt.Log_Validated_C Not Like '' and olt.Log_Validated_P not like '' and&#xA;olt.Log_Validated_E like '%[0-9]%' And olt.Log_FA_Update_Date Is Not null  and (olt.Log_Invoice_Number like '%r' or olt.Log_Invoice_Number like '%r1' or &#xA;olt.Log_Invoice_Number like '%r2' or olt.Log_Invoice_Number like '%r3') and opt.PBT_Tagged=null">
           <ui:ExecuteQuery.Parameters>
             <scg:Dictionary x:TypeArguments="x:String, Argument" />
           </ui:ExecuteQuery.Parameters>
         </ui:ExecuteQuery>
-        <If Condition="[dtRevised.Rows.Count&gt;0]" DisplayName="If any no of records are present in dtRecised table then Update " sap:VirtualizedContainerService.HintSize="555,448" sap2010:WorkflowViewState.IdRef="If_20">
+        <If Condition="[dtRevised.Rows.Count&gt;0]" DisplayName="If any no of records are present in dtRecised table then Update " sap:VirtualizedContainerService.HintSize="484,487" sap2010:WorkflowViewState.IdRef="If_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -225,7 +259,7 @@
           </If.Then>
         </If>
       </Sequence>
-      <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;18:29:00&quot;)]" DisplayName="If current Time greater than 18:29:00 then we move with todays data otherwise move with yesterday data" sap:VirtualizedContainerService.HintSize="1362,659" sap2010:WorkflowViewState.IdRef="If_16">
+      <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;18:29:00&quot;)]" DisplayName="If current Time greater than 18:29:00 then we move with todays data otherwise move with yesterday data" sap:VirtualizedContainerService.HintSize="1362,679" sap2010:WorkflowViewState.IdRef="If_16">
         <If.Then>
           <Sequence sap:VirtualizedContainerService.HintSize="478,478" sap2010:WorkflowViewState.IdRef="Sequence_58">
             <sap:WorkflowViewStateService.ViewState>
@@ -257,13 +291,13 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Sequence - take input updated by yesterday only by the FA" sap:VirtualizedContainerService.HintSize="839,511" sap2010:WorkflowViewState.IdRef="Sequence_59">
+          <Sequence DisplayName="Sequence - take input updated by yesterday only by the FA" sap:VirtualizedContainerService.HintSize="839,521" sap2010:WorkflowViewState.IdRef="Sequence_59">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;16:59:00&quot;)]" DisplayName="Tag Recon Pending Items tagged by the FA" sap:VirtualizedContainerService.HintSize="797,419" sap2010:WorkflowViewState.IdRef="If_22">
+            <If Condition="[system.DateTime.Now &gt; Convert.ToDateTime(&quot;16:59:00&quot;)]" DisplayName="Tag Recon Pending Items tagged by the FA" sap:VirtualizedContainerService.HintSize="797,429" sap2010:WorkflowViewState.IdRef="If_22">
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_107">
                   <sap:WorkflowViewStateService.ViewState>
@@ -334,7 +368,7 @@
           <InArgument x:TypeArguments="x:Int32">0</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[DT1.Rows.Count &gt; 0]" DisplayName="If - no record found to be tagged" sap:VirtualizedContainerService.HintSize="1362,409" sap2010:WorkflowViewState.IdRef="If_21">
+      <If Condition="[DT1.Rows.Count &gt; 0]" DisplayName="If - no record found to be tagged" sap:VirtualizedContainerService.HintSize="1362,419" sap2010:WorkflowViewState.IdRef="If_21">
         <If.Then>
           <Sequence sap:VirtualizedContainerService.HintSize="376,261" sap2010:WorkflowViewState.IdRef="Sequence_86">
             <sap:WorkflowViewStateService.ViewState>
@@ -351,6 +385,7 @@
                 <InArgument x:TypeArguments="x:String" x:Key="argSavePDFPath">[argSavePDFPath]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="argQueueNameFord">[argQueueNameFord]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="argFordString">[argFordString]</InArgument>
+                <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">[in_config]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
